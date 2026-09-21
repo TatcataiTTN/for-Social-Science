@@ -1,0 +1,67 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>08·皮尔逊相关与偏相关</title>
+<meta name="description" content="Pearson & Spearman correlation, curvilinearity, partial correlation — Cohen et al. 2018 ch.40"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 08·相关分析</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/08-tuong-quan/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/08-tuong-quan/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/08-tuong-quan/index.html" class="active">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>08·皮尔逊相关与偏相关</h1>
+<p class="lead">第8／12单元・内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第40章"描述统计"第40.5–40.6节（第765–770页）。</p>
+
+<div class="btnrow">
+ <a class="tag" href="#do-luong">关联度量</a><a class="tag" href="#pearson">皮尔逊 r</a>
+ <a class="tag" href="#khong-tuyen-tinh">非线性关系</a><a class="tag" href="#rieng-phan">偏相关</a>
+ <a class="tag" href="#thuc-hanh">SPSS实践</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="do-luong">1. 根据量表选择正确的相关度量</h2>
+<table>
+<tr><th>度量</th><th>变量性质</th></tr>
+<tr><td><b>斯皮尔曼 rho</b></td><td>两个定序变量</td></tr>
+<tr><td><b>皮尔逊 r</b></td><td>两个连续变量，定距或定比</td></tr>
+<tr><td>Phi系数</td><td>两个真正的二分变量（定类）</td></tr>
+<tr><td>相关比 Eta (η)</td><td>一个连续变量，非线性关系</td></tr>
+<tr><td>偏相关／多元相关</td><td>三个或以上连续变量</td></tr>
+</table>
+<p>（节选自表40.13，第765页——Cohen等人建议以<b>斯皮尔曼</b>和<b>皮尔逊</b>作为两种主要的相关统计方法。）</p>
+
+<h2 id="pearson">2. 皮尔逊 r：方向、强度与含义</h2>
+<p>相关系数 r 的范围是 −1 到 +1。符号（+/−）表示<b>方向</b>：同向增减为正，反向为负。|r| 的大小表示<b>强度</b>——r 本身就是效应量，无需另外计算（第767页）。</p>
+<div class="figure"><img src="../../../assets/diagrams/corr_3panels.png" alt=""/><figcaption>三种相关强度对应的散点图形状（在控制真实r的情况下模拟）——越接近直线，|r|越大。</figcaption></div>
+<div class="callout warn">
+<b>经典陷阱——相关不等于因果（第768页）：</b>“手大与脚大相关”并不意味着手大<i>导致</i>脚大。两者更可能都与第三个变量（整体体型）有关。务必自问：是否存在能同时解释两者的第三变量？
+</div>
+<h3>真实数据示例（班级数据，n=240）</h3>
+<div class="figure"><img src="../../../assets/diagrams/corr_real_scatter.png" alt=""/><figcaption>每周自学时长 vs 数学成绩，真实数据（已修正1个异常值：48→4.8）。r=0.582，r²=0.338（斯皮尔曼rho=0.554，与皮尔逊接近，因关系较为线性）。</figcaption></div>
+<p>按照书中示范的报告方式（第768页）：<i>"使用皮尔逊相关，发现自学时长与数学成绩之间存在大效应量（r = 0.58）且具有统计显著性的相关（p &lt; 0.001）。自学时间越长的学生数学成绩往往越高。"</i>——但<b>不能</b>写成"自学时长提高了成绩"（这是观察性数据）。</p>
+
+<h2 id="khong-tuyen-tinh">3. 当关系不是直线时</h2>
+<p>皮尔逊 r 假设关系是<b>线性</b>的。Cohen等人的例子（第769页）：适度压力有助于集中注意力（正相关），压力过大则降低表现（负相关）——呈倒U形，而非直线。若对整个数据范围计算皮尔逊r，即使存在非常明显的关系，结果也可能接近于零，因为正、负两部分在单一系数中相互抵消。在相信r值之前，务必<b>先绘制散点图</b>。</p>
+
+<h2 id="rieng-phan">4. 偏相关</h2>
+<p>当怀疑第三个变量"混入"两个主要变量之间的关系时使用。书中的例子（第770页）：<i>篮球经验</i>与<i>表现</i>之间的相关可能受<i>身高</i>的混淆影响——偏相关剔除身高的影响，以揭示两个主要变量之间的"真实"关系。</p>
+<h3>在越南PISA真实数据上尝试（195所学校）</h3>
+<p><i>学习材料短缺</i>（EDUSHORT）与<i>学校科学平均成绩</i>之间的零阶相关：r = <b>−0.039</b>（非常弱）。怀疑的混淆变量：<i>人员短缺</i>（STAFFSHORT），它与学习材料短缺的相关较高（r=0.61）——类似于篮球例子中的“身高”。在控制人员短缺后，偏相关为：r = <b>−0.051</b>——<b>几乎没有变化</b>。</p>
+<div class="callout"><b>为什么与书中的例子不同？</b>只有当控制变量与另外两个变量都存在真实关联时，偏相关才会发生明显变化。这里，人员短缺与科学成绩几乎无关（r≈0.002）——因此"剔除"它对原始结果影响甚微。这是真实的结果，并非每份数据都能像教材例子那样呈现戏剧性的变化。</div>
+
+<h2 id="thuc-hanh">5. SPSS/PSPP 实践</h2>
+<div class="callout">
+<b>SPSS操作步骤（Box 40.3，第766页）：</b><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → 将变量送入 <i>Variables</i> 框 → 勾选系数类型（Pearson、Spearman）→ 选择单尾／双尾检验 → <i>OK</i>。
+</div>
+<pre>CORRELATIONS VARIABLES=study_hours math /PRINT=TWOTAIL NOSIG.
+* 斯皮尔曼（PSPP 尚无 NONPAR CORR）：先排秩，再对秩次做皮尔逊相关。
+RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
+CORRELATIONS VARIABLES=r_hours r_math.</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ 示例 PSPP 语法（.sps）</a>
+ <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 PISA notebook（学校相关分析）</a>
+</div>
+
+<h2 id="quiz">6. 自测（5题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">非营利自学资料。网站源代码：
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "对于两个定序变量（如学业排名），应使用哪种相关系数？", "opts": ["定序数据无法计算相关系数", "斯皮尔曼 rho", "皮尔逊 r", "phi系数"], "correct": 1, "explain": "斯皮尔曼 rho 用于两个定序变量；皮尔逊 r 用于定距／定比变量（Cohen et al., 2018, 表40.13，第765页）。"}, {"q": "“手大的人脚也大”——根据 Cohen 等人的说法，这不能得出以下哪个结论？", "opts": ["相关系数介于−1和+1之间", "手大是导致脚大的原因", "两变量之间存在线性关系", "可以为这两个变量绘制散点图"], "correct": 1, "explain": "相关不等于因果——这是 Cohen 等人的经典例子（第768页）：手大并不会导致脚大，两者可能都与第三个变量（整体体型）有关。"}, {"q": "压力水平与工作表现的关系是：适度压力→表现提升；压力过高→表现下降。这是哪种关系？皮尔逊 r 能很好地衡量它吗？", "opts": ["曲线（非线性）关系——皮尔逊r可能低估真实的关联", "两者之间完全没有关系", "线性关系——皮尔逊r能很好地衡量", "这是偏相关的例子"], "correct": 0, "explain": "这是一种曲线关系——由于关系不是直线，假设线性的皮尔逊系数即使在存在明显关联的情况下也可能接近于零（Cohen et al.，第769–770页）。"}, {"q": "偏相关（partial correlation）的作用是什么？", "opts": ["计算部分缺失数据的相关", "只能在恰好有2个变量时使用", "完全取代多元回归", "在剔除第三个变量影响后，计算两个变量之间的相关"], "correct": 3, "explain": "Cohen 等人的篮球例子（第770页）：想知道在剔除“身高”（第三变量）影响后，“打球经验”与“表现”之间的相关。"}, {"q": "在越南195所PISA学校的真实数据中：r(学习材料短缺, 科学成绩) = −0.039；在控制“人员短缺”（其本身与科学成绩的相关仅≈0.002）后，偏相关几乎没有变化（−0.051）。为什么？", "opts": ["因为195所学校的样本量太小，无法计算偏相关", "因为偏相关总是等于原始相关", "因为控制变量（人员短缺）与科学成绩几乎无关，所以剔除它对原始结果几乎没有影响", "因为软件计算错误"], "correct": 2, "explain": "只有当控制变量与另外两个变量都存在真实关联时，偏相关才会明显变化。这里控制变量与科学成绩几乎无关，因此结果几乎不变——这与书中身高确实产生影响的篮球例子不同。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

@@ -1,0 +1,67 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>08 · Tương quan Pearson & tương quan riêng phần</title>
+<meta name="description" content="Pearson & Spearman correlation, curvilinearity, partial correlation — Cohen et al. 2018 ch.40"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
+<nav class="crumbs"><a href="../../index.html">Bài giảng</a> / 08 · Tương quan</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/08-tuong-quan/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/08-tuong-quan/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/08-tuong-quan/index.html" class="">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách không có đủ thời gian và nguồn lực để tự soạn thảo toàn bộ tài liệu khoá học ở mức hoàn thiện mong muốn, nên đã dùng AI để dựng nội dung, sau đó kiểm tra lại số liệu và đối chiếu với giáo trình gốc trong khả năng cho phép. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap">
+<h1>08 · Tương quan Pearson & tương quan riêng phần</h1>
+<p class="lead">Module 8/12 · Nội dung bám theo Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, ấn bản 8 (Routledge, 2018), chương 40 "Descriptive statistics", mục 40.5–40.6 (tr.765–770).</p>
+
+<div class="btnrow">
+ <a class="tag" href="#do-luong">Các độ đo tương quan</a><a class="tag" href="#pearson">Pearson r</a>
+ <a class="tag" href="#khong-tuyen-tinh">Phi tuyến</a><a class="tag" href="#rieng-phan">Tương quan riêng phần</a>
+ <a class="tag" href="#thuc-hanh">Thực hành SPSS</a><a class="tag" href="#quiz">Tự kiểm tra</a>
+</div>
+
+<h2 id="do-luong">1. Chọn đúng độ đo tương quan theo thang đo</h2>
+<table>
+<tr><th>Độ đo</th><th>Bản chất biến</th></tr>
+<tr><td><b>Spearman's rho</b></td><td>Hai biến thứ bậc</td></tr>
+<tr><td><b>Pearson r</b></td><td>Hai biến liên tục, khoảng hoặc tỉ lệ</td></tr>
+<tr><td>Phi coefficient</td><td>Hai biến nhị phân thật (định danh)</td></tr>
+<tr><td>Eta (η)</td><td>Một biến liên tục, quan hệ PHI TUYẾN</td></tr>
+<tr><td>Tương quan riêng phần / bội</td><td>Từ 3 biến liên tục trở lên</td></tr>
+</table>
+<p>(Rút gọn từ Bảng 40.13, tr.765 — Cohen et al. khuyên <b>Spearman</b> và <b>Pearson</b> là hai loại nên dùng chính.)</p>
+
+<h2 id="pearson">2. Pearson r: hướng, độ mạnh, và ý nghĩa</h2>
+<p>Hệ số r chạy từ −1 đến +1. Dấu (+/−) chỉ <b>hướng</b>: cùng tăng-giảm (dương) hay ngược chiều (âm). Độ lớn |r| chỉ <b>độ mạnh</b> — chính hệ số r cũng là cỡ hiệu ứng (effect size), không cần tính riêng (tr.767).</p>
+<div class="figure"><img src="../../../assets/diagrams/corr_3panels.png" alt=""/><figcaption>Hình dạng scatterplot ứng với 3 mức tương quan (mô phỏng có kiểm soát r thật) — càng gần đường thẳng, |r| càng lớn.</figcaption></div>
+<div class="callout warn">
+<b>Bẫy kinh điển — tương quan không phải nhân quả (tr.768):</b> "bàn tay to tương quan với bàn chân to" không có nghĩa tay to <i>gây ra</i> chân to. Cả hai nhiều khả năng cùng liên quan một biến thứ ba (vóc dáng cơ thể). Luôn tự hỏi: có biến thứ ba nào giải thích cả hai không?
+</div>
+<h3>Ví dụ trên dữ liệu thật (lớp học, n=240)</h3>
+<div class="figure"><img src="../../../assets/diagrams/corr_real_scatter.png" alt=""/><figcaption>Giờ tự học/tuần vs điểm Toán, dữ liệu thật sau khi xử lý 1 ngoại lai (48→4,8). r=0,582, r²=0,338 (Spearman rho=0,554, gần Pearson vì quan hệ khá tuyến tính).</figcaption></div>
+<p>Cách báo cáo theo mẫu sách (tr.768): <i>"Bằng hệ số Pearson, tìm thấy cỡ hiệu ứng lớn (r = 0,58) và tương quan có ý nghĩa thống kê (p &lt; 0,001) giữa giờ tự học và điểm Toán. Học sinh tự học nhiều hơn có xu hướng đạt điểm cao hơn."</i> — nhưng <b>không</b> viết "giờ tự học làm tăng điểm" (đây là dữ liệu quan sát).</p>
+
+<h2 id="khong-tuyen-tinh">3. Khi quan hệ KHÔNG phải đường thẳng</h2>
+<p>Pearson r giả định quan hệ <b>tuyến tính</b>. Ví dụ Cohen et al. (tr.769): căng thẳng vừa phải giúp tập trung hơn (tương quan dương), căng thẳng quá cao lại làm giảm hiệu suất (tương quan âm) — đường biểu diễn hình chữ U ngược, không phải đường thẳng. Nếu tính Pearson r cho toàn bộ dữ liệu này, kết quả có thể ra gần 0 dù thực tế có liên hệ rất rõ — vì phần dương và phần âm triệt tiêu lẫn nhau trong một hệ số duy nhất. Luôn <b>vẽ scatterplot trước</b> khi tin vào con số r.</p>
+
+<h2 id="rieng-phan">4. Tương quan riêng phần (partial correlation)</h2>
+<p>Dùng khi nghi ngờ một biến thứ ba đang "trộn" vào mối quan hệ hai biến chính. Ví dụ sách (tr.770): tương quan giữa <i>kinh nghiệm chơi bóng rổ</i> và <i>thành tích</i> có thể bị ảnh hưởng bởi <i>chiều cao</i> — tương quan riêng phần loại bỏ ảnh hưởng của chiều cao để thấy mối quan hệ "thật" giữa hai biến chính.</p>
+<h3>Thử trên dữ liệu PISA Việt Nam thật (195 trường)</h3>
+<p>Tương quan gốc giữa <i>thiếu học liệu</i> (EDUSHORT) và <i>điểm Khoa học TB trường</i>: r = <b>−0,039</b> (rất yếu). Biến nghi ngờ gây nhiễu: <i>thiếu nhân sự</i> (STAFFSHORT), có tương quan khá cao với thiếu học liệu (r=0,61) — giống tình huống "chiều cao" trong ví dụ bóng rổ. Sau khi kiểm soát thiếu nhân sự, tương quan riêng phần: r = <b>−0,051</b> — <b>gần như không đổi</b>.</p>
+<div class="callout"><b>Vì sao khác ví dụ sách?</b> Tương quan riêng phần chỉ thay đổi mạnh khi biến kiểm soát có liên hệ THẬT với <i>cả hai</i> biến kia. Ở đây, thiếu nhân sự gần như không liên quan điểm Khoa học (r≈0,002) — nên "loại bỏ" nó không thay đổi nhiều bức tranh ban đầu. Đây là kết quả thật, không phải lúc nào dữ liệu cũng cho ra ví dụ kịch tính như trong sách.</div>
+
+<h2 id="thuc-hanh">5. Thực hành SPSS/PSPP</h2>
+<div class="callout">
+<b>Trình tự SPSS (Box 40.3, tr.766):</b> <code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → đưa biến vào ô <i>Variables</i> → chọn loại hệ số (Pearson, Spearman) → chọn kiểm định 1 đuôi/2 đuôi → <i>OK</i>.
+</div>
+<pre>CORRELATIONS VARIABLES=study_hours math /PRINT=TWOTAIL NOSIG.
+* Spearman (PSPP chưa có NONPAR CORR): xếp hạng rồi tính Pearson trên hạng.
+RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
+CORRELATIONS VARIABLES=r_hours r_math.</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 Notebook PISA (tương quan trường học)</a>
+</div>
+
+<h2 id="quiz">6. Tự kiểm tra (5 câu)</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">Tài liệu tự học, phi lợi nhuận. Mã nguồn site:
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "Điểm: {s}/{n}", "items": [{"q": "Với hai biến thứ bậc (vd: xếp hạng học lực), nên dùng hệ số tương quan nào?", "opts": ["Không tính được tương quan cho dữ liệu thứ bậc", "Spearman rho", "Pearson r", "Phi coefficient"], "correct": 1, "explain": "Spearman's rho dùng cho hai biến thứ bậc; Pearson r dành cho biến khoảng/tỉ lệ (Cohen et al., 2018, Bảng 40.13, tr.765)."}, {"q": "\"Bàn tay to có tương quan với bàn chân to\" — theo Cohen et al., điều này KHÔNG được suy ra thành kết luận nào?", "opts": ["Hệ số tương quan nằm giữa −1 và +1", "Bàn tay to là NGUYÊN NHÂN khiến bàn chân to", "Hai biến có liên hệ tuyến tính", "Có thể vẽ scatterplot cho hai biến này"], "correct": 1, "explain": "Tương quan không ngụ ý nhân quả — đúng ví dụ kinh điển của Cohen et al. (tr.768): to tay không GÂY RA to chân, cả hai có thể cùng liên quan tới một biến thứ ba (vóc dáng cơ thể)."}, {"q": "Mối quan hệ giữa mức độ căng thẳng và hiệu suất làm việc có dạng: căng thẳng vừa phải → hiệu suất tăng; căng thẳng quá cao → hiệu suất giảm. Đây là ví dụ về điều gì, và Pearson r có đo tốt mối quan hệ này không?", "opts": ["Quan hệ phi tuyến (curvilinear) — Pearson r có thể đánh giá thấp mối liên hệ thật", "Không có quan hệ nào cả", "Quan hệ tuyến tính — Pearson r đo rất tốt", "Đây là ví dụ về tương quan riêng phần"], "correct": 0, "explain": "Đây là quan hệ cong (curvilinear) — đường không thẳng nên hệ số Pearson (giả định tuyến tính) có thể cho ra r gần 0 dù thực tế có mối liên hệ rõ ràng (Cohen et al., tr.769–770)."}, {"q": "Tương quan riêng phần (partial correlation) dùng để làm gì?", "opts": ["Tính tương quan cho dữ liệu bị thiếu một phần", "Chỉ dùng được khi có đúng 2 biến", "Thay thế hoàn toàn cho hồi quy đa biến", "Tính tương quan giữa 2 biến sau khi loại bỏ ảnh hưởng của biến thứ 3"], "correct": 3, "explain": "Ví dụ bóng rổ của Cohen et al. (tr.770): muốn biết tương quan 'kinh nghiệm chơi bóng' và 'thành tích' sau khi loại bỏ ảnh hưởng của 'chiều cao' (biến thứ 3)."}, {"q": "Trên dữ liệu 195 trường PISA VN thật: r(thiếu học liệu, điểm KH) = −0,039; sau khi kiểm soát 'thiếu nhân sự' (r với điểm KH chỉ ≈0,002), tương quan riêng phần gần như KHÔNG đổi (−0,051). Vì sao?", "opts": ["Vì cỡ mẫu 195 trường quá nhỏ để tính tương quan riêng phần", "Vì tương quan riêng phần luôn bằng tương quan gốc", "Vì biến kiểm soát (thiếu nhân sự) gần như không liên quan điểm KH, nên loại bỏ nó không thay đổi nhiều bức tranh ban đầu", "Vì phần mềm tính sai"], "correct": 2, "explain": "Tương quan riêng phần chỉ thay đổi nhiều khi biến kiểm soát có liên hệ THẬT với cả hai biến kia. Ở đây biến kiểm soát gần như không liên quan điểm KH nên kết quả gần như giữ nguyên — khác ví dụ bóng rổ trong sách, nơi chiều cao có ảnh hưởng thật."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

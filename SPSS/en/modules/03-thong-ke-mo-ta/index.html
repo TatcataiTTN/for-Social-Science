@@ -1,0 +1,74 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>03 · Descriptive Statistics</title>
+<meta name="description" content="Missing data, frequencies, crosstabulations, central tendency, dispersal — Cohen et al. 2018 ch.40"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS for Social Science</a>
+<nav class="crumbs"><a href="../../index.html">Lessons</a> / 03 · Descriptive statistics</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/03-thong-ke-mo-ta/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/03-thong-ke-mo-ta/index.html" class="active">EN</a><a href="../../../../SPSS/zh/modules/03-thong-ke-mo-ta/index.html" class="">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Please note: most of the content on this page was AI-generated.</b> The site maintainer did not have enough time or resources to draft the full course materials to the desired standard, so AI was used to produce the content, with figures checked and cross-referenced against the source textbook where possible. If you spot an error, feedback is very welcome.</div></div></div><main><div class="wrap">
+<h1>03 · Descriptive Statistics</h1>
+<p class="lead">Module 3/12 · Content follows Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, 8th edition (Routledge, 2018), Chapter 40 "Descriptive statistics", sections 40.1–40.4 (pp.753–765).</p>
+
+<div class="btnrow">
+ <a class="tag" href="#missing">Missing data</a><a class="tag" href="#freq">Frequencies & crosstabs</a>
+ <a class="tag" href="#central">Central tendency & dispersal</a><a class="tag" href="#stock">Taking stock</a>
+ <a class="tag" href="#thuc-hanh">SPSS practice</a><a class="tag" href="#quiz">Self-check</a>
+</div>
+
+<h2 id="missing">1. Missing data — don't skip this before describing anything</h2>
+<p>Three types of missing data (Rubin, 1976 — cited in Cohen et al., p.753):</p>
+<table>
+<tr><th>Type</th><th>Definition</th><th>Example</th></tr>
+<tr><td><b>MCAR</b> — missing completely at random</td><td>No pattern in the missing data</td><td>A scanner randomly fails to read some sheets</td></tr>
+<tr><td><b>MAR</b> — missing at random</td><td>There is a pattern, but not tied directly to the main dependent variable</td><td>Men more often skip an "emotion" item — related to gender, not directly to the score itself</td></tr>
+<tr><td><b>MNAR</b> — missing not at random</td><td>The pattern of missingness is tied to the true value itself</td><td>Low-income households skip the income question</td></tr>
+</table>
+<p>Two main approaches: <b>deletion</b> — <i>listwise</i> (drop a case if any variable is missing) or <i>pairwise</i> (drop only for the specific calculation) — and <b>imputation</b> — filling in a plausible value (e.g. the mean), though this reduces the data's true variability and can distort correlational analysis (p.754).</p>
+<div class="callout"><b>Example from the classroom data (240 students):</b> the variable <code>h2</code> has <b>3 missing values</b> (1.25%). Since the proportion is tiny and no clear pattern is visible, pairwise deletion for correlations involving <code>h2</code> is more sensible than dropping all 3 students from every analysis.</div>
+
+<h2 id="freq">2. Frequencies, percentages & crosstabulations</h2>
+<p>SPSS/PSPP compute frequencies and percentages automatically (<code>FREQUENCIES</code>). Bar/pie charts suit nominal-ordinal data; histograms suit interval-ratio data; boxplots show central tendency and dispersal at once (pp.754–757).</p>
+<div class="figure"><img src="../../../assets/diagrams/boxplot_math_school.png" alt=""/><figcaption>Boxplot of maths scores across 3 schools — real data, n=240. Box = middle 50%; middle line = median; orange dots = outliers. Compare the spread of the boxes, not just the means.</figcaption></div>
+<h3>Crosstab trap: uneven group sizes make raw counts misleading</h3>
+<p>Gender × study method crosstab (240 students):</p>
+<table>
+<tr><th></th><th>Project</th><th>Traditional</th><th>Total</th></tr>
+<tr><td>Male (n=121)</td><td>63 (52.1%)</td><td>58 (47.9%)</td><td>121</td></tr>
+<tr><td>Female (n=119)</td><td>52 (43.7%)</td><td>67 (56.3%)</td><td>119</td></tr>
+</table>
+<p>Looking at raw counts, 63 &gt; 52 suggests "males clearly chose the project method more than females". But row percentages show <b>52.1% of males vs 43.7% of females</b> — a real but smaller gap than it first appears. This is exactly the trap Cohen et al. warn about with their public-library example (Tables 40.3–40.4, p.758): always report both counts and percentages, and prefer row percentages when group sizes are uneven.</p>
+
+<h2 id="central">3. Central tendency & dispersal</h2>
+<table>
+<tr><th>Measure</th><th>Suitable scale</th><th>Robust to outliers?</th></tr>
+<tr><td>Mode</td><td>Any scale, especially nominal</td><td>Yes</td></tr>
+<tr><td>Median</td><td>Ordinal and above</td><td>Yes</td></tr>
+<tr><td>Mean</td><td>Interval, ratio</td><td><b>No</b> — easily pulled by outliers</td></tr>
+</table>
+<p>Three measures of dispersal: <b>standard deviation (SD)</b> — average distance of each score from the mean; <b>range</b> — max−min, very sensitive to outliers; <b>IQR</b> — Q3−Q1, more robust than the range.</p>
+<div class="figure"><img src="../../../assets/diagrams/dispersion_3sets.png" alt=""/><figcaption>Three sets with the SAME mean = 6 (Cohen et al.'s example, pp.762–764) but very different SDs — illustrating why the mean alone is never enough.</figcaption></div>
+<div class="callout warn"><b>Lesson:</b> never report the mean alone. Set (1), with an outlier (the value 20), has an SD of 7.91 — 11 times set (3)'s, despite an identical mean of 6. Always report the SD or plot the distribution.</div>
+
+<h2 id="stock">4. Taking stock — matching statistics to the scale of data</h2>
+<p>Summary rule (p.765): <b>all four scales</b> support frequencies/percentages/mode/crosstabs. <b>Ordinal and above</b> supports the median. <b>Only interval and ratio</b> data (merged as "Scale" in SPSS) support the mean and standard deviation. One-sided skew: a long tail toward the positive end is a positive skew, a long tail toward the negative end is a negative skew.</p>
+
+<h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
+<div class="callout">
+<b>SPSS sequence (Box 40.2, p.765):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → send variables to the <i>Variables</i> box → <i>Statistics</i> button: check central tendency (mean/mode/median) + dispersal (SD/variance/range/min/max/SE) + distribution shape (skewness/kurtosis) → <i>Continue</i> → <i>Charts</i> button: pick a chart type → <i>OK</i>.
+</div>
+<p>PSPP equivalent (tested and confirmed to run — see <code>pspp/01_mo_ta_tuong_quan.sps</code> on the Datasets page):</p>
+<pre>FREQUENCIES VARIABLES=math /STATISTICS=MEAN MEDIAN STDDEV MIN MAX SKEWNESS.
+EXAMINE VARIABLES=math BY school /PLOT=BOXPLOT /STATISTICS=DESCRIPTIVES.
+CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Download classroom data (.csv)</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Sample PSPP syntax (.sps)</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 View Python notebook</a>
+</div>
+
+<h2 id="quiz">6. Self-check (5 questions)</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "Score: {s}/{n}", "items": [{"q": "Which type of missing data is hardest to handle, because the very reason it is missing is tied to the true value (e.g. low-income households not answering an income question)?", "opts": ["No type is harder than another", "MCAR — missing completely at random", "MNAR — missing not at random, tied to the variable itself", "MAR — missing at random, conditional on other variables"], "correct": 2, "explain": "MNAR (Missing Not At Random): the reason data are missing is linked to the true value of the variable in question, so safe inference is not possible (Cohen et al., 2018, p.753)."}, {"q": "How does SPSS's 'Exclude cases listwise' differ from 'Exclude cases pairwise'?", "opts": ["The two are identical, just named differently", "Pairwise removes more data than listwise", "Listwise drops a case if ANY variable is missing; pairwise only drops it for the specific calculation where a needed variable is missing", "Listwise only applies to nominal variables"], "correct": 2, "explain": "Listwise keeps only cases complete on every variable (shrinks the sample a lot); pairwise keeps more data but N differs across calculations (p.753)."}, {"q": "Three sets A=[1,2,3,4,20], B=[1,2,6,10,11], C=[5,6,6,6,7] all have a mean of 6. Which has the LARGEST standard deviation?", "opts": ["Set A (has an outlier)", "Set C (clustered around the mean)", "Set B (evenly spread)", "All three are equal because the mean is equal"], "correct": 0, "explain": "SD(A)≈7.91 because the value 20 pulls it strongly; SD(B)≈4.53; SD(C)≈0.71 — exactly the Cohen et al. example (pp.762–764): equal means don't mean equal distributions."}, {"q": "In a male/female crosstabulation by study method (classroom data), why compare ROW percentages (52.1% of males chose the project method) instead of just raw counts (63 males)?", "opts": ["Because SPSS cannot compute raw counts", "Because percentages are always more accurate than counts", "Because raw counts are always wrong", "Because the male (121) and female (119) group sizes differ, so percentages make the comparison fairer"], "correct": 3, "explain": "Just as in Cohen et al.'s public-library example (Tables 40.3–40.4, p.758): when subgroup sizes are uneven, row percentages avoid confusing group size with proportional difference (p.758)."}, {"q": "When is the interquartile range (IQR) preferred over the simple range?", "opts": ["IQR and range always give the same result", "When the data are nominal", "When the sample size is below 10", "When the data contain outliers — IQR isn't dominated by them the way range is"], "correct": 3, "explain": "The range only uses the two extreme values, so it's very sensitive to outliers; the IQR (Q3−Q1) drops the extreme 25% on each end, making it more robust (pp.763–764)."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

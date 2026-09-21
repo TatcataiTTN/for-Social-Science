@@ -1,0 +1,67 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>08 · Pearson & Partial Correlation</title>
+<meta name="description" content="Pearson & Spearman correlation, curvilinearity, partial correlation — Cohen et al. 2018 ch.40"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS for Social Science</a>
+<nav class="crumbs"><a href="../../index.html">Lessons</a> / 08 · Correlation</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/08-tuong-quan/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/08-tuong-quan/index.html" class="active">EN</a><a href="../../../../SPSS/zh/modules/08-tuong-quan/index.html" class="">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Please note: most of the content on this page was AI-generated.</b> The site maintainer did not have enough time or resources to draft the full course materials to the desired standard, so AI was used to produce the content, with figures checked and cross-referenced against the source textbook where possible. If you spot an error, feedback is very welcome.</div></div></div><main><div class="wrap">
+<h1>08 · Pearson & Partial Correlation</h1>
+<p class="lead">Module 8/12 · Content follows Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, 8th edition (Routledge, 2018), Chapter 40 "Descriptive statistics", sections 40.5–40.6 (pp.765–770).</p>
+
+<div class="btnrow">
+ <a class="tag" href="#do-luong">Measures of association</a><a class="tag" href="#pearson">Pearson r</a>
+ <a class="tag" href="#khong-tuyen-tinh">Non-linearity</a><a class="tag" href="#rieng-phan">Partial correlation</a>
+ <a class="tag" href="#thuc-hanh">SPSS practice</a><a class="tag" href="#quiz">Self-check</a>
+</div>
+
+<h2 id="do-luong">1. Matching the correlation measure to the scale of data</h2>
+<table>
+<tr><th>Measure</th><th>Nature of variables</th></tr>
+<tr><td><b>Spearman's rho</b></td><td>Two ordinal variables</td></tr>
+<tr><td><b>Pearson r</b></td><td>Two continuous variables, interval or ratio</td></tr>
+<tr><td>Phi coefficient</td><td>Two true dichotomies (nominal)</td></tr>
+<tr><td>Eta (η)</td><td>One continuous variable, NON-LINEAR relationship</td></tr>
+<tr><td>Partial / multiple correlation</td><td>Three or more continuous variables</td></tr>
+</table>
+<p>(Condensed from Table 40.13, p.765 — Cohen et al. recommend <b>Spearman</b> and <b>Pearson</b> as the two main correlation statistics to use.)</p>
+
+<h2 id="pearson">2. Pearson r: direction, strength, and meaning</h2>
+<p>The coefficient r runs from −1 to +1. The sign (+/−) indicates <b>direction</b>: moving together (positive) or in opposite directions (negative). The magnitude |r| indicates <b>strength</b> — r itself already IS the effect size, no separate calculation needed (p.767).</p>
+<div class="figure"><img src="../../../assets/diagrams/corr_3panels.png" alt=""/><figcaption>Scatterplot shapes for 3 correlation strengths (simulated with a controlled true r) — the closer to a straight line, the larger |r|.</figcaption></div>
+<div class="callout warn">
+<b>The classic trap — correlation is not causation (p.768):</b> "big hands correlate with big feet" does not mean big hands <i>cause</i> big feet. Both are more likely linked to a third variable (overall body size). Always ask: is there a third variable explaining both?
+</div>
+<h3>A real-data example (classroom data, n=240)</h3>
+<div class="figure"><img src="../../../assets/diagrams/corr_real_scatter.png" alt=""/><figcaption>Study hours/week vs. maths score, real data after fixing one outlier (48→4.8). r=0.582, r²=0.338 (Spearman rho=0.554, close to Pearson since the relationship is fairly linear).</figcaption></div>
+<p>How to report it, following the book's style (p.768): <i>"Using Pearson's correlation, a large effect size (r = 0.58) and a statistically significant correlation (p &lt; 0.001) were found between study hours and maths score. Students who studied more tended to score higher."</i> — but <b>not</b> "studying more caused higher scores" (this is observational data).</p>
+
+<h2 id="khong-tuyen-tinh">3. When the relationship is NOT a straight line</h2>
+<p>Pearson r assumes a <b>linear</b> relationship. Cohen et al.'s example (p.769): moderate stress improves focus (positive correlation), excessive stress reduces performance (negative correlation) — an inverted-U shape, not a straight line. Computing Pearson r across the whole range can come out near zero despite a very clear relationship, because the positive and negative parts cancel out in a single coefficient. Always <b>plot the scatterplot first</b> before trusting the r value.</p>
+
+<h2 id="rieng-phan">4. Partial correlation</h2>
+<p>Used when a third variable is suspected of "mixing into" the relationship between two main variables. The book's example (p.770): the correlation between <i>basketball experience</i> and <i>performance</i> may be confounded by <i>height</i> — partial correlation removes height's influence to reveal the "true" relationship between the two main variables.</p>
+<h3>Trying it on real PISA Vietnam data (195 schools)</h3>
+<p>The zero-order correlation between <i>material shortage</i> (EDUSHORT) and <i>the school's average science score</i>: r = <b>−0.039</b> (very weak). Suspected confound: <i>staff shortage</i> (STAFFSHORT), which correlates fairly highly with material shortage (r=0.61) — analogous to "height" in the basketball example. After controlling for staff shortage, the partial correlation is: r = <b>−0.051</b> — <b>almost unchanged</b>.</p>
+<div class="callout"><b>Why does this differ from the book's example?</b> A partial correlation shifts substantially only when the control variable has a REAL relationship with <i>both</i> other variables. Here, staff shortage is almost unrelated to the science score (r≈0.002) — so "removing" it barely changes the original picture. This is a genuine result, not every dataset produces as dramatic an example as the textbook's.</div>
+
+<h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
+<div class="callout">
+<b>SPSS sequence (Box 40.3, p.766):</b> <code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → send variables to the <i>Variables</i> box → check the coefficient type (Pearson, Spearman) → choose one-tailed/two-tailed → <i>OK</i>.
+</div>
+<pre>CORRELATIONS VARIABLES=study_hours math /PRINT=TWOTAIL NOSIG.
+* Spearman (PSPP has no NONPAR CORR yet): rank the data, then run Pearson on the ranks.
+RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
+CORRELATIONS VARIABLES=r_hours r_math.</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Download classroom data (.csv)</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Sample PSPP syntax (.sps)</a>
+ <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 PISA notebook (school correlations)</a>
+</div>
+
+<h2 id="quiz">6. Self-check (5 questions)</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "Score: {s}/{n}", "items": [{"q": "With two ordinal variables (e.g. academic rankings), which correlation coefficient should be used?", "opts": ["Correlation cannot be computed for ordinal data", "Spearman's rho", "Pearson r", "Phi coefficient"], "correct": 1, "explain": "Spearman's rho is used for two ordinal variables; Pearson r is for interval/ratio variables (Cohen et al., 2018, Table 40.13, p.765)."}, {"q": "\"Having big hands correlates with having big feet\" — according to Cohen et al., which conclusion should NOT be drawn from this?", "opts": ["The correlation coefficient lies between −1 and +1", "Having big hands CAUSES big feet", "The two variables are linearly related", "A scatterplot can be drawn for the two variables"], "correct": 1, "explain": "Correlation does not imply causation — Cohen et al.'s classic example (p.768): big hands do not CAUSE big feet; both may be linked to a third variable (overall body size)."}, {"q": "The relationship between stress level and performance is: moderate stress → performance rises; excessive stress → performance falls. What kind of relationship is this, and does Pearson r measure it well?", "opts": ["A curvilinear (non-linear) relationship — Pearson r may underestimate the true association", "There is no relationship at all", "A linear relationship — Pearson r measures it very well", "This is an example of partial correlation"], "correct": 0, "explain": "This is a curvilinear relationship — since the line is not straight, the Pearson coefficient (which assumes linearity) can come out near zero even though a clear relationship exists (Cohen et al., pp.769–770)."}, {"q": "What is a partial correlation used for?", "opts": ["Computing correlation for partially missing data", "Only usable when there are exactly 2 variables", "Fully replacing multiple regression", "Computing the correlation between two variables after removing the influence of a third variable"], "correct": 3, "explain": "Cohen et al.'s basketball example (p.770): wanting to know the correlation between 'playing experience' and 'performance' after removing the influence of 'height' (a third variable)."}, {"q": "On real data from 195 Vietnamese PISA schools: r(learning-material shortage, science score) = −0.039; after controlling for 'staff shortage' (whose own correlation with the science score is only ≈0.002), the partial correlation barely changes (−0.051). Why?", "opts": ["Because 195 schools is too small a sample to compute a partial correlation", "Because a partial correlation always equals the original correlation", "Because the control variable (staff shortage) has almost no relationship with the science score, so removing it barely changes the original picture", "Because the software calculated it wrong"], "correct": 2, "explain": "A partial correlation only shifts substantially when the control variable has a REAL relationship with both other variables. Here the control variable is almost unrelated to the science score, so the result stays nearly the same — unlike the book's basketball example, where height genuinely matters."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
