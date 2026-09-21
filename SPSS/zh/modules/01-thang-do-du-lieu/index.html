@@ -1,0 +1,86 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>01·数据量表与定量数据的本质</title>
+<meta name="description" content="Scales of data, parametric vs non-parametric, descriptive vs inferential statistics, variables — Cohen et al. 2018 ch.38"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 01·数据量表</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/01-thang-do-du-lieu/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/01-thang-do-du-lieu/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/01-thang-do-du-lieu/index.html" class="active">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>01·数据量表与定量数据的本质</h1>
+<p class="lead">第1／12单元・在运行任何 SPSS/PSPP 命令之前必须掌握的基础知识。内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第38章“定量数据分析方法”第38.2–38.5节（第725–728页）。</p>
+
+<div class="btnrow">
+ <a class="tag" href="#scales">数据量表</a><a class="tag" href="#param">参数与非参数</a>
+ <a class="tag" href="#desc-inf">描述与推论统计</a><a class="tag" href="#vars">自变量与因变量</a>
+ <a class="tag" href="#real-data">应用于真实数据</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="scales">1. 四种数据量表</h2>
+<p>在分析任何数字之前，必须先确定它属于哪种量表——因为这决定了哪些运算是允许的。共有四种量表，每一种都在前一种的基础上<b>叠加</b>一个新特征：</p>
+
+<table>
+<tr><th>量表</th><th>新增特征</th><th>示例</th><th>允许的运算</th></tr>
+<tr><td><b>定类</b>（nominal）</td><td>仅分类</td><td>性别、学校类型、省市代码</td><td>频数统计、众数</td></tr>
+<tr><td><b>定序</b>（ordinal）</td><td>+ 有大小顺序</td><td>李克特量表、学业等级</td><td>+ 中位数、百分位数</td></tr>
+<tr><td><b>定距</b>（interval）</td><td>+ 等距，但无真正的零点</td><td>摄氏/华氏温度、智商分数</td><td>+ 平均数、标准差（不能取比值）</td></tr>
+<tr><td><b>定比</b>（ratio）</td><td>+ 有真正的零点</td><td>自学时长、考试分数（0–10）、银行存款</td><td>+ 所有运算，包括比值（“两倍”）</td></tr>
+</table>
+
+<div class="callout">
+<b>经典例子（Cohen et al.，第726页）：</b>不能说“100°F比50°F热两倍”，因为0°F并不代表“完全没有热量”——这是定距量表。50°F的两倍其实是68°F：((50−32)×2)+32。同样，智商150并<b>不是</b>智商75的“两倍聪明”，因为智商量表通常从70分起算，而不是从0分起算。
+</div>
+
+<div class="callout warn">
+<b>使用 SPSS/PSPP 时的重要陷阱：</b>软件将<i>定距</i>和<i>定比</i>合并为一种度量类型，称为<b>“Scale”</b>——因为在实践中，大多数统计方法对两者的处理方式相同（Cohen et al.，第726页）。在<code>Variable View</code>中，你只能三选一：<i>Nominal / Ordinal / Scale</i>。
+</div>
+
+<h2 id="param">2. 参数与非参数数据</h2>
+<p><b>非参数数据</b>不对总体做任何假设，通常是因为总体的参数未知。<b>参数数据</b>假设已知总体特征（通常是正态分布），从而可以进行可靠的推论（Cohen et al.，第727页）。</p>
+<p>经验法则：<b>定类和定序</b>数据通常被视为非参数数据；<b>定距和定比</b>数据通常被视为参数数据（除非数据严重偏态）。对非参数数据使用参数检验（t检验、方差分析等）通常是<b>错误</b>的；反之，对偏态的参数数据使用非参数检验是<b>允许</b>的——只是检验力较弱。</p>
+
+<h2 id="desc-inf">3. 描述统计与推论统计</h2>
+<div class="grid cols-2">
+<div class="card"><h3>描述统计</h3><p>只是呈现和总结已有数据——不试图推断或预测总体的任何情况。</p>
+<p>包括：众数、平均数、中位数、最小/最大值、极差、<b>方差</b>（各观测值与平均数之差的平方的平均值）、<b>标准差</b>（方差的平方根）、<b>标准误</b>（样本均值的标准差）、偏度、峰度。</p></div>
+<div class="card"><h3>推论统计</h3><p>试图基于概率，从样本<i>推断／预测</i>总体参数。</p>
+<p>包括：假设检验、回归分析、差异检验（t检验、方差分析）、因子分析、结构方程模型。</p></div>
+</div>
+
+<h2 id="vars">4. 自变量与因变量——为什么“相关”容易被误读为“因果”</h2>
+<p><b>自变量</b>：研究者可以控制／操纵的变量，被视为潜在的“原因”。<b>因变量</b>：其取值（部分）依赖于自变量的变量，被视为“结果”。</p>
+<p>Cohen等人（第727–728页）举了一个例子：增加家庭作业时长（自变量）→数学成绩提高（因变量）。但作者列出了至少<b>6种替代解释</b>，说明“作业导致成绩提高”这一结论是可疑的：</p>
+<ol>
+<li>考试本身的压力提高了课堂专注度（另一个外部变量在起作用）。</li>
+<li>学生喜欢数学／喜欢老师，因而更自觉地学习——正是这种喜欢同时提高了作业量和成绩。</li>
+<li>考试前一晚睡眠良好→更加清醒（一个未被测量的中介变量）。</li>
+<li>预期成绩反过来影响了学生自愿完成的作业量（因果方向被颠倒）。</li>
+<li>这种关系是多方向的，更像一张网而非一条因果直线。</li>
+<li>“成绩差会受罚”的威胁同时也在起作用。</li>
+</ol>
+<div class="callout warn"><b>贯穿全课程的教训：</b>你在 SPSS/PSPP 中分析的大多数数据都是<i>观察性数据</i>（并非随机化实验）——具有统计显著性的 r 或 β 并<b>不能</b>自动证明因果关系。</div>
+
+<h2 id="pipeline">5. 完整的定量分析流程</h2>
+<div class="figure"><img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/><figcaption>定量研究流程，从提出问题到撰写报告——本单元位于第1步（确定变量／假设），并为第4–5步打下基础。</figcaption></div>
+
+<h2 id="real-data">6. 应用于真实数据：越南195所学校（PISA 2025）</h2>
+<p>下表节选自基于 PISA 2025（越南，195所学校）预先构建的学校层面数据集——完整说明见<a href="../../data/index.html">数据集</a>页面。</p>
+<table>
+<tr><th>变量</th><th>含义</th><th>量表</th><th>原因</th></tr>
+<tr><td><code>REGION</code></td><td>抽样区域（5个区域）</td><td>定类</td><td>只是区域标签，本身没有顺序</td></tr>
+<tr><td><code>SCHSIZE_Q</code></td><td>学校规模</td><td>定序</td><td>是<b>国际四分位数</b>（1–4），并非实际学生人数</td></tr>
+<tr><td><code>EDULEAD</code></td><td>教育领导力指数（WLE）</td><td>定距</td><td>单位相等，但“0”只是约定的基准点，并非“完全没有领导力”</td></tr>
+<tr><td><code>W_NRASCHBWT</code></td><td>学校权重</td><td>定比</td><td>有真正的零点，可以取比值（“这所学校的权重是那所的3倍”）</td></tr>
+</table>
+<div class="btnrow">
+ <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ 下载 .sav 文件（SPSS/PSPP）</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ 示例 PSPP 语法（.sps）</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 查看 Python notebook（.ipynb）</a>
+</div>
+<p class="lead" style="font-size:.85rem">可直接在 GitHub 上预览 <code>.ipynb</code> 文件，或下载后用 Jupyter/Google Colab 运行。</p>
+
+<h2 id="quiz">7. 自测（5题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">非营利自学资料。网站源代码：
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "变量“学校类型：公立／私立”属于哪种量表？", "opts": ["定比量表（ratio）", "定距量表（interval）", "定类量表（nominal）", "定序量表（ordinal）"], "correct": 2, "explain": "只是分类，各标签之间没有“大小”顺序 → 定类量表（Cohen et al., 2018, 第725页）。"}, {"q": "为什么5点李克特量表（1=非常不同意…5=非常同意）通常被视为定序而非定距量表？", "opts": ["因为各等级之间的距离不一定相等（“非常不同意”→“不同意”的差距不一定等于“同意”→“非常同意”）", "因为李克特量表只用于问卷，从不用于SPSS", "因为定序量表一定正好有5个等级", "因为只有5个等级，太少无法计算平均数"], "correct": 0, "explain": "可以按大小排序，但各点之间没有固定、相等的度量单位（第726页）。"}, {"q": "为什么不能说“100°F比50°F热两倍”？", "opts": ["因为温度永远是定比量表，不允许取比值", "因为华氏度不是国际单位制（SI）单位", "因为定距量表没有真正的零点——0°F并不代表“完全没有热量”", "因为50和100都是偶数"], "correct": 2, "explain": "定距量表的单位间隔相等，但零点是人为约定的，并非“完全没有”，因此不能取比值；50°F的两倍其实是68°F（第726页）。"}, {"q": "在SPSS/PSPP中，哪两种量表不单独区分，而是合并为同一种“Scale”类型？", "opts": ["定类与定比", "定类与定序", "定序与定距", "定距与定比（interval & ratio）"], "correct": 3, "explain": "因为大多数统计方法对定距和定比数据的处理方式相同，SPSS将它们合并为“Scale”类型（第726页）。"}, {"q": "一项研究增加了家庭作业时间（自变量），发现数学成绩（因变量）随之提高。哪种解释说明这并不一定是直接的因果关系？", "opts": ["因为家庭作业无法被测量", "喜欢数学、也喜欢老师的学生本来就更自觉学习——正是这种喜欢同时提高了作业量和成绩，并非作业本身导致了成绩提高", "因为自变量必须永远是定量变量", "因为Cohen等人不承认因变量这一概念"], "correct": 1, "explain": "这正是Cohen等人提出的“混淆变量／共同变化关系”例子，用以提醒不要轻易假定直接因果关系（第727–728页）。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

@@ -1,0 +1,86 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>01 · Thang đo & bản chất dữ liệu định lượng</title>
+<meta name="description" content="Scales of data, parametric vs non-parametric, descriptive vs inferential statistics, variables — Cohen et al. 2018 ch.38"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
+<nav class="crumbs"><a href="../../index.html">Bài giảng</a> / 01 · Thang đo</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/01-thang-do-du-lieu/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/01-thang-do-du-lieu/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/01-thang-do-du-lieu/index.html" class="">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách không có đủ thời gian và nguồn lực để tự soạn thảo toàn bộ tài liệu khoá học ở mức hoàn thiện mong muốn, nên đã dùng AI để dựng nội dung, sau đó kiểm tra lại số liệu và đối chiếu với giáo trình gốc trong khả năng cho phép. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap">
+<h1>01 · Thang đo & bản chất dữ liệu định lượng</h1>
+<p class="lead">Module 1/12 · Nền tảng bắt buộc trước khi chạy bất kỳ lệnh SPSS/PSPP nào. Nội dung bám theo Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, ấn bản 8 (Routledge, 2018), chương 38 “Approaches to quantitative data analysis”, mục 38.2–38.5 (tr.725–728).</p>
+
+<div class="btnrow">
+ <a class="tag" href="#thang-do">Thang đo dữ liệu</a><a class="tag" href="#tham-so">Tham số &amp; phi tham số</a>
+ <a class="tag" href="#mo-ta-suy-luan">Mô tả &amp; suy luận</a><a class="tag" href="#bien">Biến độc lập/phụ thuộc</a>
+ <a class="tag" href="#du-lieu-that">Áp dụng vào dữ liệu thật</a><a class="tag" href="#quiz">Tự kiểm tra</a>
+</div>
+
+<h2 id="thang-do">1. Bốn thang đo dữ liệu</h2>
+<p>Trước khi phân tích bất kỳ con số nào, phải xác định nó thuộc thang đo nào — vì điều này quyết định phép tính nào được phép dùng. Bốn thang đo, mỗi thang <b>kế thừa</b> đặc điểm của thang trước rồi thêm một đặc điểm mới:</p>
+
+<table>
+<tr><th>Thang đo</th><th>Đặc điểm mới thêm vào</th><th>Ví dụ</th><th>Phép tính được phép</th></tr>
+<tr><td><b>Định danh</b> (nominal)</td><td>Chỉ phân loại</td><td>Giới tính, loại trường, mã tỉnh/thành</td><td>Đếm tần số, mode</td></tr>
+<tr><td><b>Thứ bậc</b> (ordinal)</td><td>+ Có thứ tự lớn/nhỏ</td><td>Thang Likert, xếp hạng học lực</td><td>+ Trung vị, percentile</td></tr>
+<tr><td><b>Khoảng</b> (interval)</td><td>+ Khoảng cách đều nhau, KHÔNG có 0 thật</td><td>Nhiệt độ °C/°F, điểm IQ</td><td>+ Trung bình, độ lệch chuẩn (không lấy tỉ số)</td></tr>
+<tr><td><b>Tỉ lệ</b> (ratio)</td><td>+ Có điểm 0 thật</td><td>Giờ tự học, điểm thi (0–10), tiền trong tài khoản</td><td>+ Mọi phép tính, kể cả tỉ số (“gấp đôi”)</td></tr>
+</table>
+
+<div class="callout">
+<b>Ví dụ kinh điển (Cohen et al., tr.726):</b> không thể nói “100°F nóng gấp đôi 50°F” vì 0°F không có nghĩa là “không có nhiệt” — đó là thang khoảng. Gấp đôi 50°F thực ra là 68°F: ((50−32)×2)+32. Tương tự, điểm IQ 150 KHÔNG “thông minh gấp đôi” điểm IQ 75, vì thang IQ thường bắt đầu từ 70, không từ 0.
+</div>
+
+<div class="callout warn">
+<b>Bẫy quan trọng khi dùng SPSS/PSPP:</b> phần mềm gộp <i>Khoảng</i> và <i>Tỉ lệ</i> thành một loại đo lường duy nhất gọi là <b>“Scale”</b> — vì trong thực hành hầu hết phép thống kê áp dụng như nhau cho cả hai (Cohen et al., tr.726). Khi khai báo biến trong <code>Variable View</code>, bạn chỉ chọn 1 trong 3: <i>Nominal / Ordinal / Scale</i>.
+</div>
+
+<h2 id="tham-so">2. Dữ liệu tham số &amp; phi tham số</h2>
+<p><b>Dữ liệu phi tham số</b> (non-parametric) không giả định gì về đặc điểm của tổng thể — thường vì các tham số của tổng thể chưa biết. <b>Dữ liệu tham số</b> (parametric) giả định biết đặc điểm tổng thể (thường là phân phối chuẩn) để có thể suy luận một cách chắc chắn (Cohen et al., tr.727).</p>
+<p>Quy tắc thực hành: <b>định danh và thứ bậc</b> → thường coi là phi tham số; <b>khoảng và tỉ lệ</b> → thường coi là tham số (trừ khi dữ liệu bị lệch nặng). Áp kiểm định tham số (t-test, ANOVA…) lên dữ liệu phi tham số thường là <b>sai</b>; ngược lại, dùng kiểm định phi tham số cho dữ liệu tham số bị lệch phân phối thì <b>được phép</b> — chỉ là kém mạnh hơn.</p>
+
+<h2 id="mo-ta-suy-luan">3. Thống kê mô tả &amp; thống kê suy luận</h2>
+<div class="grid cols-2">
+<div class="card"><h3>Mô tả (descriptive)</h3><p>Chỉ trình bày và tóm tắt dữ liệu đã có — không cố suy ra hay dự đoán gì về tổng thể.</p>
+<p>Gồm: mode, mean, median, min/max, range, <b>phương sai</b> (bình phương độ lệch trung bình so với mean), <b>độ lệch chuẩn</b> (căn bậc hai phương sai), <b>sai số chuẩn</b> (độ lệch chuẩn của các trung bình mẫu), skewness, kurtosis.</p></div>
+<div class="card"><h3>Suy luận (inferential)</h3><p>Cố gắng <i>suy ra/dự đoán</i> tham số tổng thể từ mẫu, dựa trên xác suất.</p>
+<p>Gồm: kiểm định giả thuyết, hồi quy, các kiểm định khác biệt (t-test, ANOVA), phân tích nhân tố, mô hình phương trình cấu trúc.</p></div>
+</div>
+
+<h2 id="bien">4. Biến độc lập &amp; biến phụ thuộc — và vì sao “tương quan” dễ bị đọc nhầm thành “nhân quả”</h2>
+<p><b>Biến độc lập</b>: biến mà người nghiên cứu có thể điều khiển/thao túng, được coi là “nguyên nhân” tiềm năng. <b>Biến phụ thuộc</b>: biến có giá trị phụ thuộc (một phần) vào biến độc lập, được coi là “kết quả”.</p>
+<p>Cohen et al. (tr.727–728) đưa ví dụ: tăng giờ bài tập về nhà (độc lập) → điểm Toán tăng (phụ thuộc). Nhưng các tác giả liệt kê ít nhất <b>6 lời giải thích khác</b> khiến kết luận “bài tập gây ra điểm cao” trở nên đáng ngờ:</p>
+<ol>
+<li>Áp lực của bài kiểm tra làm học sinh tập trung hơn trong lớp (biến ngoại lai khác cũng tác động).</li>
+<li>Học sinh thích môn Toán/thích giáo viên → tự giác học hơn — chính sự yêu thích đó vừa làm tăng bài tập vừa làm tăng điểm.</li>
+<li>Học sinh ngủ ngon trước hôm thi → tỉnh táo hơn (biến can thiệp không được đo).</li>
+<li>Điểm kỳ vọng lại ảnh hưởng ngược lại lượng bài tập tự giác làm (chiều nhân quả bị đảo).</li>
+<li>Mối quan hệ đa hướng, giống mạng lưới hơn là một đường thẳng nhân quả.</li>
+<li>Đe doạ bị phạt nếu điểm kém cũng tác động cùng lúc.</li>
+</ol>
+<div class="callout warn"><b>Bài học cho cả khoá học này:</b> hầu hết dữ liệu bạn sẽ phân tích bằng SPSS/PSPP là dữ liệu <i>quan sát</i> (không thí nghiệm ngẫu nhiên hoá) — r hay β có ý nghĩa thống kê KHÔNG tự động chứng minh nhân quả.</div>
+
+<h2 id="pipeline">5. Toàn bộ quy trình phân tích định lượng</h2>
+<div class="figure"><img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/><figcaption>Pipeline nghiên cứu định lượng, từ câu hỏi tới báo cáo — module này nằm ở bước 1 (xác định biến/giả thuyết) và chuẩn bị nền cho bước 4–5.</figcaption></div>
+
+<h2 id="du-lieu-that">6. Áp dụng vào một bộ dữ liệu thật: 195 trường học Việt Nam (PISA 2025)</h2>
+<p>Bảng dưới trích một phần bộ dữ liệu cấp trường đã dựng sẵn từ PISA 2025 (Việt Nam, 195 trường) — xem đầy đủ ở trang <a href="../../data/index.html">Bộ dữ liệu</a>.</p>
+<table>
+<tr><th>Biến</th><th>Ý nghĩa</th><th>Thang đo</th><th>Vì sao</th></tr>
+<tr><td><code>REGION</code></td><td>Vùng lấy mẫu (5 vùng)</td><td>Định danh</td><td>Chỉ là nhãn khu vực, không có thứ tự hơn-kém</td></tr>
+<tr><td><code>SCHSIZE_Q</code></td><td>Quy mô trường</td><td>Thứ bậc</td><td>Là <b>tứ phân vị quốc tế</b> (1–4), không phải số học sinh thật</td></tr>
+<tr><td><code>EDULEAD</code></td><td>Chỉ số lãnh đạo giáo dục (WLE)</td><td>Khoảng</td><td>Có đơn vị đều nhau nhưng “0” là mốc quy ước, không phải “không có lãnh đạo”</td></tr>
+<tr><td><code>W_NRASCHBWT</code></td><td>Trọng số trường</td><td>Tỉ lệ</td><td>Có 0 thật, lấy tỉ số được (“trường này có trọng số gấp 3 trường kia”)</td></tr>
+</table>
+<div class="btnrow">
+ <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ Tải file .sav (SPSS/PSPP)</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 Xem notebook Python (.ipynb)</a>
+</div>
+<p class="lead" style="font-size:.85rem">Mở <code>.ipynb</code> trực tiếp trên GitHub để xem trước, hoặc tải về mở bằng Jupyter/Google Colab để chạy lại.</p>
+
+<h2 id="quiz">7. Tự kiểm tra (5 câu)</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">Tài liệu tự học, phi lợi nhuận. Mã nguồn site:
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "Điểm: {s}/{n}", "items": [{"q": "Biến “loại trường: công lập / tư thục” thuộc thang đo nào?", "opts": ["Tỉ lệ (ratio)", "Khoảng (interval)", "Định danh (nominal)", "Thứ bậc (ordinal)"], "correct": 2, "explain": "Chỉ phân loại, không có thứ tự hơn-kém giữa các nhãn → định danh (Cohen et al., 2018, tr.725)."}, {"q": "Vì sao thang Likert 5 điểm (1=rất không đồng ý…5=rất đồng ý) thường được coi là thứ bậc chứ không phải khoảng?", "opts": ["Vì khoảng cách giữa các mức không chắc bằng nhau (khoảng “rất không đồng ý”→“không đồng ý” chưa chắc bằng “đồng ý”→“rất đồng ý”)", "Vì Likert chỉ dùng trong bảng hỏi, không dùng trong SPSS", "Vì thang thứ bậc luôn có đúng 5 mức", "Vì có 5 mức, quá ít để tính trung bình"], "correct": 0, "explain": "Có thể xếp thứ tự lớn-nhỏ nhưng thiếu một đơn vị đo chuẩn (metric) cố định giữa các điểm (tr.726)."}, {"q": "Vì sao KHÔNG thể nói “100°F nóng gấp đôi 50°F”?", "opts": ["Vì nhiệt độ luôn là thang tỉ lệ, không được lấy tỉ số", "Vì độ F không phải đơn vị SI", "Vì thang khoảng (interval) không có điểm 0 thật — 0°F không có nghĩa là “không có nhiệt”", "Vì 50 và 100 đều là số chẵn"], "correct": 2, "explain": "Thang khoảng có đơn vị đều nhau nhưng gốc 0 là quy ước, không phải “không có gì” → không lấy tỉ số được; gấp đôi 50°F đúng ra là 68°F (tr.726)."}, {"q": "Trong SPSS/PSPP, hai thang đo nào KHÔNG tách riêng mà gộp chung thành “Scale”?", "opts": ["Định danh và tỉ lệ", "Định danh và thứ bậc", "Thứ bậc và khoảng", "Khoảng và tỉ lệ (interval & ratio)"], "correct": 3, "explain": "Phần lớn phép thống kê áp dụng như nhau cho khoảng và tỉ lệ, nên SPSS gộp chung thành “Scale” (tr.726)."}, {"q": "Một nghiên cứu tăng giờ bài tập về nhà (biến độc lập) và thấy điểm Toán tăng (biến phụ thuộc). Lời giải thích nào cho thấy đây KHÔNG chắc là quan hệ nhân quả trực tiếp?", "opts": ["Vì bài tập về nhà không thể đo lường được", "Học sinh thích môn Toán và thích giáo viên nên tự giác học hơn — chính điều đó vừa làm tăng bài tập vừa làm tăng điểm, không phải bài tập gây ra điểm", "Vì biến độc lập luôn phải là biến định lượng", "Vì Cohen et al. không công nhận khái niệm biến phụ thuộc"], "correct": 1, "explain": "Đây là ví dụ biến gây nhiễu / quan hệ đồng thời thay vì nhân quả trực tiếp mà Cohen et al. nêu ra để cảnh báo (tr.727–728)."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

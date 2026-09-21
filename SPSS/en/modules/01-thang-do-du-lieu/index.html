@@ -1,0 +1,86 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>01 · Scales of Data & the Nature of Quantitative Data</title>
+<meta name="description" content="Scales of data, parametric vs non-parametric, descriptive vs inferential statistics, variables — Cohen et al. 2018 ch.38"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS for Social Science</a>
+<nav class="crumbs"><a href="../../index.html">Lessons</a> / 01 · Scales of data</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/01-thang-do-du-lieu/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/01-thang-do-du-lieu/index.html" class="active">EN</a><a href="../../../../SPSS/zh/modules/01-thang-do-du-lieu/index.html" class="">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Please note: most of the content on this page was AI-generated.</b> The site maintainer did not have enough time or resources to draft the full course materials to the desired standard, so AI was used to produce the content, with figures checked and cross-referenced against the source textbook where possible. If you spot an error, feedback is very welcome.</div></div></div><main><div class="wrap">
+<h1>01 · Scales of Data & the Nature of Quantitative Data</h1>
+<p class="lead">Module 1/12 · The required foundation before running any SPSS/PSPP command. Content follows Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, 8th edition (Routledge, 2018), Chapter 38 “Approaches to quantitative data analysis”, sections 38.2–38.5 (pp.725–728).</p>
+
+<div class="btnrow">
+ <a class="tag" href="#scales">Scales of data</a><a class="tag" href="#param">Parametric &amp; non-parametric</a>
+ <a class="tag" href="#desc-inf">Descriptive &amp; inferential</a><a class="tag" href="#vars">Independent/dependent variables</a>
+ <a class="tag" href="#real-data">Applying it to real data</a><a class="tag" href="#quiz">Self-check</a>
+</div>
+
+<h2 id="scales">1. The four scales of data</h2>
+<p>Before analysing any number, you must know which scale it belongs to — this determines which operations are legitimate. Four scales, each one <b>subsuming</b> the previous and adding one new feature:</p>
+
+<table>
+<tr><th>Scale</th><th>New feature added</th><th>Example</th><th>Operations allowed</th></tr>
+<tr><td><b>Nominal</b></td><td>Classification only</td><td>Sex, school type, province code</td><td>Frequency counts, mode</td></tr>
+<tr><td><b>Ordinal</b></td><td>+ Rank order</td><td>Likert scales, academic ranking</td><td>+ Median, percentiles</td></tr>
+<tr><td><b>Interval</b></td><td>+ Equal spacing, NO true zero</td><td>Temperature °C/°F, IQ score</td><td>+ Mean, SD (no ratios)</td></tr>
+<tr><td><b>Ratio</b></td><td>+ True zero point</td><td>Study hours, test score (0–10), bank balance</td><td>+ Every operation, including ratios (“twice as much”)</td></tr>
+</table>
+
+<div class="callout">
+<b>Classic example (Cohen et al., p.726):</b> you cannot say “100°F is twice as hot as 50°F”, because 0°F does not mean “no heat at all” — it is an interval scale. Twice 50°F is actually 68°F: ((50−32)×2)+32. Likewise, an IQ of 150 is NOT “twice as intelligent” as an IQ of 75, because IQ scales typically start at 70, not at zero.
+</div>
+
+<div class="callout warn">
+<b>Key trap in SPSS/PSPP:</b> the software merges <i>Interval</i> and <i>Ratio</i> into a single measurement type called <b>“Scale”</b> — because in practice most statistics treat them the same way (Cohen et al., p.726). In <code>Variable View</code> you only pick one of three: <i>Nominal / Ordinal / Scale</i>.
+</div>
+
+<h2 id="param">2. Parametric and non-parametric data</h2>
+<p><b>Non-parametric data</b> make no assumptions about the population, usually because its parameters are unknown. <b>Parametric data</b> assume knowledge of population characteristics (usually a normal distribution) so that inferences can be made securely (Cohen et al., p.727).</p>
+<p>Rule of thumb: <b>nominal and ordinal</b> → usually treated as non-parametric; <b>interval and ratio</b> → usually treated as parametric (unless badly skewed). Applying parametric tests (t-test, ANOVA…) to non-parametric data is usually <b>wrong</b>; conversely, using non-parametric tests on skewed parametric data is <b>allowed</b> — just less powerful.</p>
+
+<h2 id="desc-inf">3. Descriptive vs. inferential statistics</h2>
+<div class="grid cols-2">
+<div class="card"><h3>Descriptive</h3><p>Simply presents and summarises existing data — no attempt to infer or predict anything about the population.</p>
+<p>Includes: mode, mean, median, min/max, range, <b>variance</b> (average of squared deviations from the mean), <b>standard deviation</b> (square root of variance), <b>standard error</b> (SD of sample means), skewness, kurtosis.</p></div>
+<div class="card"><h3>Inferential</h3><p>Attempts to <i>infer/predict</i> population parameters from a sample, based on probability.</p>
+<p>Includes: hypothesis testing, regression, difference tests (t-test, ANOVA), factor analysis, structural equation modelling.</p></div>
+</div>
+
+<h2 id="vars">4. Independent &amp; dependent variables — why “correlation” is easily misread as “causation”</h2>
+<p><b>Independent variable</b>: a variable the researcher can control/manipulate, treated as a potential “cause”. <b>Dependent variable</b>: a variable whose value depends (in part) on the independent variable, treated as the “outcome”.</p>
+<p>Cohen et al. (pp.727–728) give this example: more homework hours (independent) → higher maths scores (dependent). But the authors list at least <b>6 alternative explanations</b> that make “homework caused the higher score” doubtful:</p>
+<ol>
+<li>The pressure of the test itself increased in-class concentration (another extraneous variable at work).</li>
+<li>Students liked maths/the teacher → worked harder on their own — that liking increased both homework AND scores.</li>
+<li>Students slept well the night before → more alert (an unmeasured intervening variable).</li>
+<li>Anticipated scores actually drove how much homework students chose to do (reversed causal direction).</li>
+<li>The relationship is multi-directional, more like a web than a single causal line.</li>
+<li>The threat of punishment for poor performance acted simultaneously.</li>
+</ol>
+<div class="callout warn"><b>Lesson for the whole course:</b> most data you will analyse in SPSS/PSPP is <i>observational</i> (not a randomised experiment) — a statistically significant r or β does NOT automatically prove causation.</div>
+
+<h2 id="pipeline">5. The full quantitative analysis pipeline</h2>
+<div class="figure"><img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/><figcaption>Quantitative research pipeline, from question to report — this module sits at step 1 (defining variables/hypotheses) and lays the groundwork for steps 4–5.</figcaption></div>
+
+<h2 id="real-data">6. Applying it to real data: 195 Vietnamese schools (PISA 2025)</h2>
+<p>The table below is drawn from a pre-built school-level dataset from PISA 2025 (Vietnam, 195 schools) — see the full description on the <a href="../../data/index.html">Datasets</a> page.</p>
+<table>
+<tr><th>Variable</th><th>Meaning</th><th>Scale</th><th>Why</th></tr>
+<tr><td><code>REGION</code></td><td>Sampling region (5 regions)</td><td>Nominal</td><td>Just an area label, no inherent order</td></tr>
+<tr><td><code>SCHSIZE_Q</code></td><td>School size</td><td>Ordinal</td><td>It is an <b>international quartile</b> (1–4), not an actual student count</td></tr>
+<tr><td><code>EDULEAD</code></td><td>Educational leadership index (WLE)</td><td>Interval</td><td>Equal units, but “0” is a conventional anchor, not “no leadership at all”</td></tr>
+<tr><td><code>W_NRASCHBWT</code></td><td>School weight</td><td>Ratio</td><td>Has a true zero, ratios are meaningful (“this school’s weight is 3× that one’s”)</td></tr>
+</table>
+<div class="btnrow">
+ <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ Download .sav file (SPSS/PSPP)</a>
+ <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Sample PSPP syntax (.sps)</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 View Python notebook (.ipynb)</a>
+</div>
+<p class="lead" style="font-size:.85rem">Open the <code>.ipynb</code> directly on GitHub for a preview, or download it and run it with Jupyter/Google Colab.</p>
+
+<h2 id="quiz">7. Self-check (5 questions)</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script type="application/json" id="quiz-data">{"scoreLabel": "Score: {s}/{n}", "items": [{"q": "Which scale of data does the variable “school type: public / private” belong to?", "opts": ["Ratio", "Interval", "Nominal", "Ordinal"], "correct": 2, "explain": "It only classifies, with no order of “more/less” between labels → nominal (Cohen et al., 2018, p.725)."}, {"q": "Why is a 5-point Likert scale (1=strongly disagree…5=strongly agree) usually treated as ordinal rather than interval?", "opts": ["Because the distance between points is not guaranteed to be equal (the gap “strongly disagree”→“disagree” need not equal “agree”→“strongly agree”)", "Because Likert scales are only used in questionnaires, never in SPSS", "Because ordinal scales always have exactly 5 points", "Because 5 points is too few to compute an average"], "correct": 0, "explain": "Items can be ranked from lesser to greater, but there is no fixed, equal metric between points (p.726)."}, {"q": "Why can we NOT say “100°F is twice as hot as 50°F”?", "opts": ["Because temperature is always a ratio scale and ratios are never allowed", "Because Fahrenheit is not an SI unit", "Because an interval scale has no true zero — 0°F does not mean “no heat at all”", "Because 50 and 100 are both even numbers"], "correct": 2, "explain": "Interval scales have equal units but an arbitrary zero point, not an absolute “nothing” — so ratios are not meaningful; twice as hot as 50°F is actually 68°F (p.726)."}, {"q": "In SPSS/PSPP, which two scales are NOT kept separate but merged into one “Scale” type?", "opts": ["Nominal and ratio", "Nominal and ordinal", "Ordinal and interval", "Interval and ratio"], "correct": 3, "explain": "Most statistics apply the same way to interval and ratio data, so SPSS merges them into a single “Scale” type (p.726)."}, {"q": "A study increases hours of homework (independent variable) and observes higher maths scores (dependent variable). Which explanation shows this is NOT necessarily a direct causal relationship?", "opts": ["Because homework cannot be measured", "Students who like maths and like the teacher work harder on their own — this liking both increases homework AND increases scores; homework itself did not cause the score", "Because an independent variable must always be quantitative", "Because Cohen et al. do not recognise the concept of a dependent variable"], "correct": 1, "explain": "This is the confounding-variable / co-occurring-relationship example Cohen et al. raise as a caution against assuming direct causation (pp.727–728)."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
