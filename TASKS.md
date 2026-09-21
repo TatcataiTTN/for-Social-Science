@@ -2,14 +2,17 @@
 
 Trạng thái: 🟢 xong · 🟡 đang làm · ⚪ chưa làm. Cập nhật file này mỗi khi hoàn thành một task.
 
-## Epic 0 — Hạ tầng (làm 1 lần, chặn mọi thứ khác)
-- 🟢 0.1 Tạo repo `TatcataiTTN/for-Social-Science`, bật Pages (branch `main`, path `/`)
-- 🟢 0.2 Khung site tĩnh: `index.html` (trang chủ đa ngôn ngữ), `SPSS/index.html` (danh mục module)
-- 🟢 0.3 Banner xin lỗi/miễn trừ trách nhiệm AI-generated — đặt ở MỌI trang, 3 ngôn ngữ
-- 🟢 0.4 Bộ chọn ngôn ngữ VI/EN/ZH dùng chung (header component)
-- 🟢 0.5 Quy ước thư mục: `SPSS/modules/<NN-slug>/{vi,en,zh}.html`, `SPSS/assets/`, `SPSS/data/`
-- ⚪ 0.6 Trang "Bộ dữ liệu" tổng hợp: liệt kê mọi `.sav`/`.csv`/`.ipynb` kèm nút tải + mở Colab/nbviewer
-- ⚪ 0.7 Script kiểm thử 3 lớp (đối chiếu nội dung, mở bằng puppeteer, curl production) — xem Giai đoạn 6 skill
+## Epic 0 — Hạ tầng (làm 1 lần, chặn mọi thứ khác) ✅ XONG
+- 🟢 0.1 Tạo repo `TatcataiTTN/for-Social-Science`, bật Pages (branch `main`, path `/`) — live: https://tatcataittn.github.io/for-Social-Science/
+- 🟢 0.2 **QUYẾT ĐỊNH KIẾN TRÚC (theo yêu cầu user 21/9):** 3 CÂY THƯ MỤC RIÊNG theo ngôn ngữ, không phải 1 site chung có switch —
+  `SPSS/vi/…`, `SPSS/en/…`, `SPSS/zh/…`, mỗi cây có `index.html`, `modules/<slug>/index.html`, `data/index.html` riêng.
+  Tài nguyên dùng chung (`_shared/`, `assets/`, `data/*`) đặt ở `SPSS/` (cha chung của 3 cây). `index.html` gốc = trang chọn ngôn ngữ.
+- 🟢 0.3 Banner xin lỗi/miễn trừ trách nhiệm AI-generated — đặt ở MỌI trang, 3 ngôn ngữ (+ banner riêng "机器翻译" cho bản ZH)
+- 🟢 0.4 Bộ chọn ngôn ngữ VI/EN/ZH dùng chung (header component, link chéo 3 cây)
+- 🟢 0.5 Quy ước thư mục cuối cùng: `SPSS/{lang}/modules/<NN-slug>/index.html`, `SPSS/_shared/{common.css,quiz.js}`, `SPSS/assets/diagrams/`, `SPSS/data/{notebooks,pspp,sav}/`
+- 🟢 0.6 Trang "Bộ dữ liệu" — có ở `SPSS/{lang}/data/index.html`, 2 bộ dữ liệu đã lên (lớp giả lập 240 HS; PISA 2025 VN 195 trường), có nút tải trực tiếp `.sav`/`.csv`/`.sps`/`.ipynb`
+- 🟢 0.7 Kiểm thử 3 lớp đã chạy: (1) quét link nội bộ bằng script Python — sạch; (2) puppeteer-core + Chrome hệ thống — quiz chấm đúng, diagram load, không lỗi console; (3) curl + puppeteer trên URL production thật — 200 hết, 0 lỗi 4xx/5xx (trừ favicon)
+- 🟢 0.8 **Bẫy đã gặp và sửa:** GitHub Pages dùng Jekyll mặc định, tự động BỎ QUA mọi thư mục bắt đầu bằng `_` (như `_shared/`) → 404 dù đúng đường dẫn. Sửa bằng cách thêm file `.nojekyll` ở gốc repo. Nhớ bẫy này cho mọi thư mục `_*` sau này.
 
 ## Epic 1 — Khung nội dung (ánh xạ vào Cohen et al., *Research Methods in Education*, ed.8, ch.38–44)
 - 🟢 1.1 Đọc mục lục, chốt bản đồ 12 module (đã làm, xem bên dưới)
