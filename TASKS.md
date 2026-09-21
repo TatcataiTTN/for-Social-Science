@@ -24,12 +24,12 @@ Trạng thái: 🟢 xong · 🟡 đang làm · ⚪ chưa làm. Cập nhật file
 |---|---|---|---|---|
 | 01 | Thang đo & bản chất dữ liệu định lượng | ch.38 (38.2–38.5) | !Huong dan SPSS.docx | ⚪ |
 | 02 | Chọn mẫu & cỡ mẫu | ch.12 | — | ⚪ |
-| 03 | Thống kê mô tả (tần số, xu hướng trung tâm, phân tán) | ch.40 | Video 9 (làm sạch) | ⚪ |
+| 03 | Thống kê mô tả (tần số, xu hướng trung tâm, phân tán) | ch.40 | Video 9 (làm sạch) | 🟢 |
 | 04 | Phân phối, giả thuyết, ý nghĩa thống kê, effect size, power | ch.38.6–38.10, ch.39 | — | ⚪ |
 | 05 | Kiểm định t (độc lập, bắt cặp, một mẫu) | ch.41.2 | Bài 16-17 | ⚪ |
 | 06 | ANOVA một/hai chiều + hậu kiểm | ch.41.3 | Bài 19 | ⚪ |
 | 07 | Chi-square & kiểm định phi tham số (Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman) | ch.41.4–41.7 | Bài 18 | ⚪ |
-| 08 | Tương quan Pearson & tương quan riêng phần | ch.40.5–40.6 | Bài 22 | ⚪ |
+| 08 | Tương quan Pearson & tương quan riêng phần | ch.40.5–40.6 | Bài 22 | 🟢 |
 | 09 | Hồi quy tuyến tính đơn & đa biến, chuẩn hoá điểm | ch.42 | Bài 23, 24 | ⚪ |
 | 10 | Phân tích nhân tố, phân tích cụm, SEM/đa cấp (giới thiệu) | ch.43 | — | ⚪ |
 | 11 | Chọn đúng kiểm định thống kê (cây quyết định) | ch.44 | — | ⚪ |
