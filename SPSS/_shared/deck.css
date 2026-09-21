@@ -1,0 +1,37 @@
+/* Slide deck nhúng trong trang module — scope toàn bộ dưới .mdeck để không đụng CSS trang chứa */
+.mdeck{
+  --md-bg:#0b0f16; --md-panel:#121826; --md-border:#25314a; --md-text:#eef2f8; --md-muted:#93a4c0;
+  --md-accent:#5fb4ff; --md-accent2:#7fe6c4; --md-warn:#ffb454;
+  position:relative; background:var(--md-bg); border:1px solid var(--md-border); border-radius:16px;
+  margin:18px 0 26px; overflow:hidden; color:var(--md-text); font-family:'Inter',-apple-system,sans-serif;
+}
+.mdeck .mdeck-viewport{position:relative; aspect-ratio:16/9; background:radial-gradient(circle at 20% 15%,#162138,var(--md-bg) 70%)}
+.mdeck .mdeck-slide{
+  position:absolute; inset:0; padding:6% 7%; display:none; flex-direction:column; justify-content:center;
+  overflow:auto;
+}
+.mdeck .mdeck-slide.active{display:flex}
+.mdeck .mdeck-slide h2{font-family:'Fraunces',Georgia,serif; font-size:clamp(1.3rem,3.6vw,2.1rem); margin:0 0 .5em; color:var(--md-text); text-wrap:balance}
+.mdeck .mdeck-slide .kicker{font-family:ui-monospace,monospace; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--md-accent); font-weight:700; margin-bottom:.6em}
+.mdeck .mdeck-slide p{font-size:clamp(.85rem,1.7vw,1.05rem); color:var(--md-muted); line-height:1.55; margin:.4em 0}
+.mdeck .mdeck-slide ul{margin:.4em 0; padding-left:1.2em}
+.mdeck .mdeck-slide li{font-size:clamp(.85rem,1.6vw,1rem); margin:.35em 0; line-height:1.5}
+.mdeck .mdeck-slide b{color:var(--md-accent2)}
+.mdeck .mdeck-slide .big{font-size:clamp(1.6rem,5vw,3rem); font-weight:800; font-family:'Fraunces',Georgia,serif; color:var(--md-accent)}
+.mdeck .mdeck-slide img{max-height:62%; max-width:100%; object-fit:contain; border-radius:10px; align-self:center; margin:.3em 0}
+.mdeck .mdeck-slide .cap{font-size:.75rem; color:var(--md-muted); text-align:center; margin-top:.3em}
+.mdeck .mdeck-slide table{border-collapse:collapse; font-size:clamp(.72rem,1.5vw,.9rem); margin:.4em 0}
+.mdeck .mdeck-slide th,.mdeck .mdeck-slide td{border:1px solid var(--md-border); padding:4px 9px; text-align:left}
+.mdeck .mdeck-slide th{background:#1a2436; color:var(--md-accent2)}
+.mdeck .mdeck-slide .warn{color:var(--md-warn)}
+.mdeck .mdeck-slide .two-col{display:grid; grid-template-columns:1fr 1fr; gap:5%; align-items:center}
+@media (max-width:640px){.mdeck .mdeck-slide .two-col{grid-template-columns:1fr; gap:2%}}
+.mdeck-bar{display:flex; align-items:center; gap:10px; padding:9px 14px; background:#0e1420; border-top:1px solid var(--md-border)}
+.mdeck-bar button{background:var(--md-panel); border:1px solid var(--md-border); color:var(--md-text); border-radius:8px; padding:6px 12px; cursor:pointer; font-size:.85rem; font-family:inherit}
+.mdeck-bar button:hover{border-color:var(--md-accent)}
+.mdeck-bar button:disabled{opacity:.35; cursor:default}
+.mdeck-bar .mdeck-count{font-family:ui-monospace,monospace; font-size:.78rem; color:var(--md-muted); min-width:52px; text-align:center}
+.mdeck-bar .mdeck-dots{display:flex; gap:5px; flex:1; overflow-x:auto; padding:2px 0}
+.mdeck-bar .mdeck-dots button{width:8px; height:8px; padding:0; border-radius:50%; background:var(--md-border); border:none; flex:none}
+.mdeck-bar .mdeck-dots button.on{background:var(--md-accent)}
+.mdeck-bar .mdeck-fs{margin-left:auto}
