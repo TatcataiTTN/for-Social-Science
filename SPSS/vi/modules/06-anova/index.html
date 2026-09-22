@@ -93,6 +93,27 @@ Diễn giải: trường tạo ra khác biệt điểm Toán thật, nhưng ản
 <div class="callout warn"><b>Cảnh báo:</b> MANOVA "rất nhạy cảm với các giả định" (tr.786) — cần kiểm tra kỹ phân phối chuẩn đa biến và đồng nhất ma trận hiệp phương sai trước khi tin cậy kết quả, vì vi phạm giả định ở đây dễ dẫn tới kết luận sai hơn ANOVA đơn biến.</div>
 
 <h2 id="thuc-hanh">6. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. ANOVA một chiều + hậu kiểm Tukey (điểm Toán theo 3 trường):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA...</code></li>
+<li>Chọn <code>math</code>, bấm mũi tên đưa vào ô <i>Dependent List</i>.</li>
+<li>Chọn <code>school</code>, bấm mũi tên đưa vào ô <i>Factor</i>.</li>
+<li>Bấm nút <code>Post Hoc...</code> → tích <i>Tukey</i> → <code>Continue</code>.</li>
+<li>Bấm nút <code>Options...</code> → tích <i>Homogeneity of variance test</i> (chính là Levene) → tích <i>Descriptive</i> → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code>.</li>
+<li>Đọc kết quả theo thứ tự: bảng "Test of Homogeneity of Variances" (xem Levene Sig. để biết dùng ANOVA thường hay Welch) → bảng "ANOVA" (cột Sig. ở hàng "Between Groups" là p-value chính) → bảng "Multiple Comparisons" (phần Tukey HSD, xem cột Sig. từng cặp trường) → bảng "Homogeneous Subsets" (nếu muốn xem nhóm nào gộp chung).</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. ANOVA hai chiều (điểm Toán theo trường × giới tính):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate...</code></li>
+<li>Chọn <code>math</code>, bấm mũi tên đưa vào ô <i>Dependent Variable</i>.</li>
+<li>Chọn <code>school</code> và <code>gender</code>, bấm mũi tên đưa cả 2 vào ô <i>Fixed Factor(s)</i>.</li>
+<li>Bấm <code>OK</code> (SPSS tự động thêm hiệu ứng tương tác <code>school*gender</code> vào mô hình mặc định).</li>
+<li>Đọc bảng "Tests of Between-Subjects Effects": tìm 3 hàng <code>school</code>, <code>gender</code>, <code>school * gender</code> — mỗi hàng có cột Sig. riêng; hàng tương tác cho biết ảnh hưởng của 1 biến có phụ thuộc vào biến kia hay không.</li>
+</ol>
+</div>
 <div class="callout"><b>ANOVA một chiều + Tukey (Box 41.3, tr.784):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA</code> → biến độc lập vào <i>Factor</i>, biến phụ thuộc vào <i>Dependent</i> → nút <i>Post Hoc</i> → tích <i>Tukey</i>, <i>Games-Howell</i> → nút <i>Options</i> → tích <i>Homogeneity of variance test</i>, <i>Brown-Forsythe</i>, <i>Welch</i>.<br/>
 <b>ANOVA đo lường lặp lại (Box 41.4):</b> <code>Analyze</code> → <code>General Linear Model</code> → <code>Repeated Measures</code> — dùng khi CÙNG một nhóm được đo dưới 3+ điều kiện (mở rộng của t-test bắt cặp).<br/>
 <b>ANOVA hai chiều (Box 41.5):</b> <code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate</code>.</div>

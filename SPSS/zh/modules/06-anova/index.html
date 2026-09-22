@@ -93,6 +93,27 @@
 <div class="callout warn"><b>警告：</b>MANOVA"对假设非常敏感"（第786页）——在信任结果之前，必须仔细检查多元正态性和协方差矩阵齐性，因为这里违反假设比单变量ANOVA更容易导致错误结论。</div>
 
 <h2 id="thuc-hanh">6. SPSS/PSPP实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
+<p style="margin:.6em 0 .3em"><b>A. 单因素ANOVA + Tukey事后检验（3所学校的数学成绩）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA...</code></li>
+<li>选择<code>math</code>，点击箭头送入<i>Dependent List</i>框。</li>
+<li>选择<code>school</code>，点击箭头送入<i>Factor</i>框。</li>
+<li>点击<code>Post Hoc...</code> → 勾选<i>Tukey</i> → <code>Continue</code>。</li>
+<li>点击<code>Options...</code> → 勾选<i>Homogeneity of variance test</i>（即Levene检验）→ 勾选<i>Descriptive</i> → <code>Continue</code>。</li>
+<li>点击<code>OK</code>。</li>
+<li>按顺序阅读结果："Test of Homogeneity of Variances"表（查看Levene的Sig.决定用普通ANOVA还是Welch）→ "ANOVA"表（"Between Groups"行的Sig.列是主要p值）→ "Multiple Comparisons"表（Tukey HSD部分，查看各学校对的Sig.列）→ "Homogeneous Subsets"表（查看哪些组被归为一类）。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. 双因素ANOVA（数学成绩按学校×性别）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate...</code></li>
+<li>选择<code>math</code>，点击箭头送入<i>Dependent Variable</i>框。</li>
+<li>选择<code>school</code>和<code>gender</code>，点击箭头将两者都送入<i>Fixed Factor(s)</i>框。</li>
+<li>点击<code>OK</code>（SPSS会自动在默认模型中加入<code>school*gender</code>交互项）。</li>
+<li>阅读"Tests of Between-Subjects Effects"表：找到<code>school</code>、<code>gender</code>、<code>school * gender</code>这3行——每行都有自己的Sig.列；交互项那一行说明一个变量的影响是否取决于另一个变量。</li>
+</ol>
+</div>
 <div class="callout"><b>单因素ANOVA + Tukey（Box 41.3，第784页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA</code> → 自变量送入<i>Factor</i>，因变量送入<i>Dependent</i> → <i>Post Hoc</i>按钮 → 勾选<i>Tukey</i>、<i>Games-Howell</i> → <i>Options</i>按钮 → 勾选<i>Homogeneity of variance test</i>、<i>Brown-Forsythe</i>、<i>Welch</i>。<br/>
 <b>重复测量ANOVA（Box 41.4）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Repeated Measures</code>——用于同一组在3种以上条件下被测量的情况（配对t检验的扩展）。<br/>
 <b>双因素ANOVA（Box 41.5）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate</code>。</div>

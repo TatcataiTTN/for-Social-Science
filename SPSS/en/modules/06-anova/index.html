@@ -93,6 +93,27 @@ Interpretation: school produces a real difference in maths scores, but this effe
 <div class="callout warn"><b>Warning:</b> MANOVA is "very sensitive to the assumptions" (p.786) — multivariate normality and equality of covariance matrices must be carefully checked before trusting the results, since violations here more easily lead to wrong conclusions than in univariate ANOVA.</div>
 
 <h2 id="thuc-hanh">6. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. One-way ANOVA + Tukey post-hoc (maths score by 3 schools):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA...</code></li>
+<li>Select <code>math</code>, click the arrow to send it to the <i>Dependent List</i> box.</li>
+<li>Select <code>school</code>, click the arrow to send it to the <i>Factor</i> box.</li>
+<li>Click <code>Post Hoc...</code> → check <i>Tukey</i> → <code>Continue</code>.</li>
+<li>Click <code>Options...</code> → check <i>Homogeneity of variance test</i> (this is Levene) → check <i>Descriptive</i> → <code>Continue</code>.</li>
+<li>Click <code>OK</code>.</li>
+<li>Read the results in order: "Test of Homogeneity of Variances" table (check Levene's Sig. to decide standard ANOVA vs. Welch) → "ANOVA" table (the Sig. column on the "Between Groups" row is the main p-value) → "Multiple Comparisons" table (the Tukey HSD section, check the Sig. column for each school pair) → "Homogeneous Subsets" table (to see which groups are lumped together).</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Two-way ANOVA (maths score by school × gender):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate...</code></li>
+<li>Select <code>math</code>, click the arrow to send it to the <i>Dependent Variable</i> box.</li>
+<li>Select <code>school</code> and <code>gender</code>, click the arrow to send both to the <i>Fixed Factor(s)</i> box.</li>
+<li>Click <code>OK</code> (SPSS automatically adds the <code>school*gender</code> interaction to the default model).</li>
+<li>Read the "Tests of Between-Subjects Effects" table: find the 3 rows <code>school</code>, <code>gender</code>, <code>school * gender</code> — each has its own Sig. column; the interaction row tells you whether one variable's effect depends on the other.</li>
+</ol>
+</div>
 <div class="callout"><b>One-way ANOVA + Tukey (Box 41.3, p.784):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA</code> → independent variable to <i>Factor</i>, dependent variable to <i>Dependent</i> → <i>Post Hoc</i> button → check <i>Tukey</i>, <i>Games-Howell</i> → <i>Options</i> button → check <i>Homogeneity of variance test</i>, <i>Brown-Forsythe</i>, <i>Welch</i>.<br/>
 <b>Repeated-measures ANOVA (Box 41.4):</b> <code>Analyze</code> → <code>General Linear Model</code> → <code>Repeated Measures</code> — used when the SAME group is measured under 3+ conditions (an extension of the paired t-test).<br/>
 <b>Two-way ANOVA (Box 41.5):</b> <code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate</code>.</div>
