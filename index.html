@@ -1,9 +1,11 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>SPSS for Social Science / 社会科学 SPSS 教程</title>
 <link rel="stylesheet" href="SPSS/_shared/common.css"/>
 <style>
  body{display:flex;min-height:100vh;align-items:center;justify-content:center}
+ .rootctl{position:fixed;top:14px;right:16px}
  .picker{max-width:760px;padding:40px 20px;text-align:center}
  .picker h1{font-size:1.7rem}
  .langs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
@@ -13,6 +15,7 @@
  .langs .sub{color:var(--muted);font-size:.85rem;margin-top:6px}
  @media (max-width:640px){.langs{grid-template-columns:1fr}}
 </style></head><body>
+<div class="rootctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>Tối (mặc định)</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details></div>
 <div class="picker">
   <div class="dot" style="width:12px;height:12px;border-radius:50%;background:var(--accent);margin:0 auto 14px"></div>
   <h1>SPSS &amp; Thống kê cho Khoa học Xã hội</h1>
@@ -25,4 +28,5 @@
   <p style="margin-top:34px;color:var(--muted);font-size:.82rem">⚠️ Phần lớn nội dung trên site do AI tạo ra — xem chi tiết ở banner đầu mỗi trang bài giảng.<br/>
   Most content on this site is AI-generated — see the banner at the top of every lesson page for details.</p>
 </div>
+<script src="SPSS/_shared/theme.js"></script>
 </body></html>
