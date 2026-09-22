@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>07 · Chi-square & kiểm định phi tham số</title>
 <meta name="description" content="Chi-square, degrees of freedom, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman — Cohen et al. 2018 ch.41.4-41.7"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
@@ -8,7 +8,7 @@
 </head><body><header class="site"><div class="wrap bar">
 <a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
 <nav class="crumbs"><a href="../../index.html">Bài giảng</a> / 07 · Chi-square & phi tham số</nav>
-<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>Tối (mặc định)</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/07-phi-tham-so/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/07-phi-tham-so/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/07-phi-tham-so/index.html" class="">中文</a></div></div>
+<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/07-phi-tham-so/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/07-phi-tham-so/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/07-phi-tham-so/index.html" class="">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách không có đủ thời gian và nguồn lực để tự soạn thảo toàn bộ tài liệu khoá học ở mức hoàn thiện mong muốn, nên đã dùng AI để dựng nội dung, sau đó kiểm tra lại số liệu và đối chiếu với giáo trình gốc trong khả năng cho phép. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap">
 <h1>07 · Chi-square & kiểm định phi tham số</h1>
 <p class="lead">Module 7/12 · Nội dung bám theo Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, ấn bản 8 (Routledge, 2018), chương 41 mục 41.4 "The chi-square test", 41.5 "Degrees of freedom", 41.6 "The Mann-Whitney and Wilcoxon tests", 41.7 "The Kruskal-Wallis and Friedman tests" (tr.789–800).</p>
@@ -101,7 +101,7 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <li>Đưa <code>gender</code> vào ô <i>Row(s)</i>, đưa <code>method</code> vào ô <i>Column(s)</i>.</li>
 <li>Bấm nút <code>Statistics...</code> → tích <i>Chi-square</i> và <i>Phi and Cramer's V</i> → <code>Continue</code>.</li>
 <li>Bấm nút <code>Cells...</code> → mục "Percentages" tích <i>Total</i> (để tính % tần số kỳ vọng &lt;5) → <code>Continue</code>.</li>
-<li>Bấm <code>OK</code> → đọc bảng "Chi-Square Tests", hàng "Pearson Chi-Square", cột Sig. (2-sided).</li>
+<li>Bấm <code>OK</code> → đọc bảng "Chi-Square Tests". Với bảng 2×2, dùng hàng "<b>Continuity Correction</b>" (đã hiệu chỉnh Yates, xem mục 1 bên trên) chứ KHÔNG phải hàng "Pearson Chi-Square" thô — cột Sig. (2-sided) ở đúng hàng đó mới khớp con số 1,37/0,243 đã nêu.</li>
 </ol>
 <p style="margin:.8em 0 .3em"><b>B. Mann-Whitney U (đánh giá h1 theo giới tính):</b></p>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
@@ -140,14 +140,15 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <b>Kruskal-Wallis (Box 41.12):</b> ...→ <code>K Independent Samples</code>.<br/>
 <b>Friedman (Box 41.13):</b> ...→ <code>K Related Samples</code>.</div>
 <pre>CROSSTABS gender BY method /STATISTICS=CHISQ.
-NPAR TESTS /M-W=h1 BY gender(1,2).
+NPAR TESTS /M-W=h1 BY gender('Nam','Nữ').
 NPAR TESTS /WILCOXON=a1 WITH a2 (PAIRED).
-NPAR TESTS /K-W=h1 BY school(1,3).
+NPAR TESTS /K-W=h1 BY school('A','C').
 NPAR TESTS /FRIEDMAN=a1 a2 a3.
 * PSPP hỗ trợ đầy đủ CROSSTABS /STATISTICS=CHISQ và NPAR TESTS, kết quả khớp Python/SPSS.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn ghost" href="../../../data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 Notebook: ANOVA & phi tham số</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">🚀 Notebook: ANOVA & phi tham số (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 Notebook: ANOVA & phi tham số (GitHub)</a>
 </div>
 
 <h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>

@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>07·卡方检验与非参数检验</title>
 <meta name="description" content="Chi-square, degrees of freedom, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman — Cohen et al. 2018 ch.41.4-41.7"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
@@ -8,7 +8,7 @@
 </head><body><header class="site"><div class="wrap bar">
 <a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
 <nav class="crumbs"><a href="../../index.html">课程</a> / 07·卡方与非参数</nav>
-<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>深色（默认）</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/07-phi-tham-so/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/07-phi-tham-so/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/07-phi-tham-so/index.html" class="active">中文</a></div></div>
+<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/07-phi-tham-so/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/07-phi-tham-so/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/07-phi-tham-so/index.html" class="active">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
 <h1>07·卡方检验与非参数检验</h1>
 <p class="lead">第7单元／共12单元 · 内容依据Cohen, Manion &amp; Morrison所著《Research Methods in Education》第8版（Routledge，2018年）第41章第41.4节"The chi-square test"、41.5节"Degrees of freedom"、41.6节"The Mann-Whitney and Wilcoxon tests"、41.7节"The Kruskal-Wallis and Friedman tests"（第789–800页）。</p>
@@ -101,7 +101,7 @@
 <li>将<code>gender</code>送入<i>Row(s)</i>框，将<code>method</code>送入<i>Column(s)</i>框。</li>
 <li>点击<code>Statistics...</code> → 勾选<i>Chi-square</i>和<i>Phi and Cramer's V</i> → <code>Continue</code>。</li>
 <li>点击<code>Cells...</code> → 在"Percentages"部分勾选<i>Total</i>（用于查看期望频数&lt;5的单元格百分比）→ <code>Continue</code>。</li>
-<li>点击<code>OK</code> → 阅读"Chi-Square Tests"表，"Pearson Chi-Square"行，Sig. (2-sided)列。</li>
+<li>点击<code>OK</code> → 阅读"Chi-Square Tests"表。对于2×2表，应使用"<b>Continuity Correction</b>"行（Yates校正后，见上文第1节），而非未校正的"Pearson Chi-Square"行——该行的Sig. (2-sided)列才与上文引用的1.37/0.243一致。</li>
 </ol>
 <p style="margin:.8em 0 .3em"><b>B. Mann-Whitney U（h1评分按性别）：</b></p>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
@@ -140,14 +140,15 @@
 <b>Kruskal-Wallis（Box 41.12）：</b>...→<code>K Independent Samples</code>。<br/>
 <b>Friedman（Box 41.13）：</b>...→<code>K Related Samples</code>。</div>
 <pre>CROSSTABS gender BY method /STATISTICS=CHISQ.
-NPAR TESTS /M-W=h1 BY gender(1,2).
+NPAR TESTS /M-W=h1 BY gender('Nam','Nữ').
 NPAR TESTS /WILCOXON=a1 WITH a2 (PAIRED).
-NPAR TESTS /K-W=h1 BY school(1,3).
+NPAR TESTS /K-W=h1 BY school('A','C').
 NPAR TESTS /FRIEDMAN=a1 a2 a3.
 * PSPP完全支持CROSSTABS /STATISTICS=CHISQ和NPAR TESTS，结果与Python/SPSS一致。</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
- <a class="btn ghost" href="../../../data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 笔记本：ANOVA与非参数检验</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">🚀 笔记本：ANOVA与非参数检验 (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 笔记本：ANOVA与非参数检验 (GitHub)</a>
 </div>
 
 <h3>📜 理论背景与历史</h3>

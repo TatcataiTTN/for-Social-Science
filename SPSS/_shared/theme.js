@@ -2,14 +2,14 @@
 // trong localStorage của trình duyệt người xem (per-viewer, không đồng bộ giữa thiết bị).
 (function(){
   function apply(theme){
-    if(!theme || theme === 'dark'){ document.documentElement.removeAttribute('data-theme'); theme = 'dark'; }
+    if(!theme || theme === 'light'){ document.documentElement.removeAttribute('data-theme'); theme = 'light'; }
     else { document.documentElement.setAttribute('data-theme', theme); }
     document.querySelectorAll('.theme-menu button').forEach(function(b){
       b.classList.toggle('active', b.dataset.theme === theme);
     });
   }
   function current(){
-    try { return localStorage.getItem('spss-theme') || 'dark'; } catch(e){ return 'dark'; }
+    try { return localStorage.getItem('spss-theme') || 'light'; } catch(e){ return 'light'; }
   }
   window.setSiteTheme = function(theme){
     try { localStorage.setItem('spss-theme', theme); } catch(e){}

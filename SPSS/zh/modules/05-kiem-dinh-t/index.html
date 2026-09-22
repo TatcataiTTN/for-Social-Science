@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>05·t检验</title>
 <meta name="description" content="Independent and paired t-tests, Levene's test, effect size — Cohen et al. 2018 ch.41.1-41.2"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
@@ -8,7 +8,7 @@
 </head><body><header class="site"><div class="wrap bar">
 <a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
 <nav class="crumbs"><a href="../../index.html">课程</a> / 05·t检验</nav>
-<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>深色（默认）</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/05-kiem-dinh-t/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/05-kiem-dinh-t/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/05-kiem-dinh-t/index.html" class="active">中文</a></div></div>
+<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/05-kiem-dinh-t/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/05-kiem-dinh-t/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/05-kiem-dinh-t/index.html" class="active">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
 <h1>05·t检验</h1>
 <p class="lead">第5单元／共12单元 · 内容依据Cohen, Manion &amp; Morrison所著《Research Methods in Education》第8版（Routledge，2018年）第41章第41.1节"Measures of difference"与第41.2节"The t-test"（第776–781页）。</p>
@@ -88,9 +88,15 @@
 
 <h2 id="thuc-hanh">5. SPSS/PSPP实践</h2>
 <div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
-<p style="margin:.6em 0 .3em"><b>A. 独立样本t检验（比较两种教学方法的gain）：</b></p>
+<p style="margin:.6em 0 .3em"><b>0. 先计算<code>gain</code>变量（文件中尚不存在——跳过此步SPSS会报错"gain is not a variable"）：</b></p>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
 <li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Transform</code> → <code>Compute Variable...</code></li>
+<li><i>Target Variable</i>框：输入新变量名<code>gain</code>。</li>
+<li><i>Numeric Expression</i>框：输入<code>posttest - pretest</code> → <code>OK</code>。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>A. 独立样本t检验（比较两种教学方法的gain）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
 <li><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test...</code></li>
 <li>选择<code>gain</code>，点击箭头送入<i>Test Variable(s)</i>框。</li>
 <li>选择<code>method</code>，点击箭头送入<i>Grouping Variable</i>框（会显示为<code>method(? ?)</code>）。</li>
@@ -109,12 +115,14 @@
 </div>
 <div class="callout"><b>独立t检验（Box 41.1，第780页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test</code> → 将因变量送入<i>Test variable</i>，分组变量送入<i>Grouping variable</i> → 点击<i>Define Groups</i>输入两组代码。<br/>
 <b>配对t检验（Box 41.2，第780页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test</code> → 将两个变量分别送入<i>Variable 1</i>和<i>Variable 2</i>。想限定于某个子组（如仅男生）？运行前先用<code>Data</code> → <code>Select Cases</code>。</div>
-<pre>T-TEST GROUPS=method('Du an','Truyen thong') /VARIABLES=gain.
+<pre>COMPUTE gain = posttest - pretest.
+T-TEST GROUPS=method('Dự án','Truyền thống') /VARIABLES=gain.
 T-TEST PAIRS=pretest WITH posttest (PAIRED).
 * PSPP完全支持GROUPS=（独立）和PAIRS=（配对），结果与Python/SPSS一致。</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
- <a class="btn ghost" href="../../../data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">📓 笔记本：CLT、置信区间、假设检验</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">🚀 笔记本：CLT、置信区间、假设检验 (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">📓 笔记本：CLT、置信区间、假设检验 (GitHub)</a>
 </div>
 
 <h3>📜 理论背景与历史</h3>

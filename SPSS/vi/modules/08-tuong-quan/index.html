@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>08 · Tương quan Pearson & tương quan riêng phần</title>
 <meta name="description" content="Pearson & Spearman correlation, curvilinearity, partial correlation — Cohen et al. 2018 ch.40"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
@@ -8,7 +8,7 @@
 </head><body><header class="site"><div class="wrap bar">
 <a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
 <nav class="crumbs"><a href="../../index.html">Bài giảng</a> / 08 · Tương quan</nav>
-<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>Tối (mặc định)</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/08-tuong-quan/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/08-tuong-quan/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/08-tuong-quan/index.html" class="">中文</a></div></div>
+<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/08-tuong-quan/index.html" class="active">VI</a><a href="../../../../SPSS/en/modules/08-tuong-quan/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/08-tuong-quan/index.html" class="">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách không có đủ thời gian và nguồn lực để tự soạn thảo toàn bộ tài liệu khoá học ở mức hoàn thiện mong muốn, nên đã dùng AI để dựng nội dung, sau đó kiểm tra lại số liệu và đối chiếu với giáo trình gốc trong khả năng cho phép. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap">
 <h1>08 · Tương quan Pearson & tương quan riêng phần</h1>
 <p class="lead">Module 8/12 · Nội dung bám theo Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, ấn bản 8 (Routledge, 2018), chương 40 "Descriptive statistics", mục 40.5–40.6 (tr.765–770).</p>
@@ -82,7 +82,15 @@
 
 <h2 id="thuc-hanh">5. Thực hành SPSS/PSPP</h2>
 <div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
-<p style="margin:.6em 0 .3em"><b>A. Tương quan Pearson (giờ tự học × điểm Toán):</b></p>
+<p style="margin:.6em 0 .3em"><b>0. Làm sạch outlier TRƯỚC (bắt buộc — nếu bỏ qua, r sẽ ra ≈0,304 chứ không phải 0,582 như trong bài):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Transform</code> → <code>Compute Variable...</code></li>
+<li>Ô <i>Target Variable</i>: gõ <code>study_hours</code> (ghi đè lên chính biến này).</li>
+<li>Ô <i>Numeric Expression</i>: gõ <code>study_hours / 10</code>.</li>
+<li>Bấm nút <code>If...</code> → chọn <i>Include if case satisfies condition</i> → gõ điều kiện <code>study_hours > 20</code> → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → xác nhận ghi đè biến. (1 học sinh có <code>study_hours=48</code>, gần chắc chắn lỗi gõ nhầm "4,8" thành "48" — xem Module 01/04.)</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>A. Tương quan Pearson (giờ tự học × điểm Toán):</b></p>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
 <li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
 <li><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate...</code></li>
@@ -96,7 +104,7 @@
 <li>Làm lại bước 1-3 ở mục A, nhưng ở mục "Correlation Coefficients" TÍCH THÊM ô <i>Spearman</i> (có thể bỏ tích Pearson nếu chỉ cần Spearman).</li>
 <li>Bấm <code>OK</code> → bảng kết quả sẽ có 2 khối riêng: "Pearson Correlation" và "Spearman's rho" để so sánh.</li>
 </ol>
-<p style="margin:.8em 0 .3em"><b>C. Tương quan riêng phần (Partial Correlation) — kiểm soát 1 biến thứ 3:</b></p>
+<p style="margin:.8em 0 .3em"><b>C. Tương quan riêng phần (Partial Correlation) — kiểm soát 1 biến thứ 3 (⚠️ chỉ có trên SPSS thật — PSPP báo lỗi "PARTIAL CORR is not yet implemented", đã kiểm tra):</b></p>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
 <li><code>Analyze</code> → <code>Correlate</code> → <code>Partial...</code></li>
 <li>Đưa 2 biến muốn tính tương quan (vd <code>EDUSHORT</code> và <code>sci_mean</code>) vào ô <i>Variables</i>.</li>
@@ -108,14 +116,20 @@
 <div class="callout">
 <b>Trình tự SPSS (Box 40.3, tr.766):</b> <code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → đưa biến vào ô <i>Variables</i> → chọn loại hệ số (Pearson, Spearman) → chọn kiểm định 1 đuôi/2 đuôi → <i>OK</i>.
 </div>
-<pre>CORRELATIONS VARIABLES=study_hours math /PRINT=TWOTAIL NOSIG.
+<pre>DO IF (study_hours > 20).
+COMPUTE study_hours = study_hours / 10.
+END IF.
+* Bắt buộc làm sạch outlier trước — nếu bỏ qua, r=0,304 thay vì 0,582.
+
+CORRELATIONS VARIABLES=study_hours math /PRINT=TWOTAIL NOSIG.
 * Spearman (PSPP chưa có NONPAR CORR): xếp hạng rồi tính Pearson trên hạng.
 RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
 CORRELATIONS VARIABLES=r_hours r_math.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
  <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
- <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 Notebook PISA (tương quan trường học)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">🚀 Notebook PISA (tương quan trường học) (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 Notebook PISA (tương quan trường học) (GitHub)</a>
 </div>
 
 

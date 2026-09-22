@@ -1,23 +1,23 @@
 :root{
-  --bg:#0b0f14; --panel:#121821; --panel2:#161e29; --text:#e8edf3; --muted:#93a4b8;
-  --accent:#4fb0ff; --accent2:#7ee0c3; --warn:#ffb454; --border:#233042; --accent-ink:#04121c;
-  --violet:#b79cff; --rose:#ff9ecf; --gold:#f2cd6a; --good:#6bd48f; --info:#5fc8e8;
-  --code:#0e141c; --maxw:980px; --radius:14px;
-  --header-g1:#0d131b; --header-g2:#0b0f14;
-  --banner-bg:#241a08; --banner-border:#4a3512; --banner-text:#ffd699; --banner-b:#ffb454;
-  --bannermt-bg:#241226; --bannermt-border:#4a1c4f; --bannermt-text:#f2c9ff; --bannermt-b:#e07bff;
-  --correct-bg:#12261f; --wrong-bg:#2a1414; --wrong-border:#ff6b6b;
-  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,"Noto Sans SC","PingFang SC",sans-serif;
-}
-:root[data-theme="light"]{
   --bg:#f6f8fb; --panel:#ffffff; --panel2:#eef1f6; --text:#1a2230; --muted:#5c6b80;
   --accent:#2f6fe0; --accent2:#0f9b8e; --warn:#c26a12; --border:#dde3ec; --accent-ink:#ffffff;
   --violet:#7c5cd6; --rose:#c23673; --gold:#a8790a; --good:#1f9d55; --info:#0f83b0;
-  --code:#eef1f6;
+  --code:#eef1f6; --maxw:980px; --radius:14px;
   --header-g1:#ffffff; --header-g2:#f2f5f9;
   --banner-bg:#fff3d6; --banner-border:#f0c674; --banner-text:#6b4a06; --banner-b:#b8730f;
   --bannermt-bg:#f7e0fb; --bannermt-border:#e0b3ea; --bannermt-text:#5a1f66; --bannermt-b:#a83fc2;
   --correct-bg:#e2f5ea; --wrong-bg:#fbe4e4; --wrong-border:#e05353;
+  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,"Noto Sans SC","PingFang SC",sans-serif;
+}
+:root[data-theme="dark"]{
+  --bg:#0b0f14; --panel:#121821; --panel2:#161e29; --text:#e8edf3; --muted:#93a4b8;
+  --accent:#4fb0ff; --accent2:#7ee0c3; --warn:#ffb454; --border:#233042; --accent-ink:#04121c;
+  --violet:#b79cff; --rose:#ff9ecf; --gold:#f2cd6a; --good:#6bd48f; --info:#5fc8e8;
+  --code:#0e141c;
+  --header-g1:#0d131b; --header-g2:#0b0f14;
+  --banner-bg:#241a08; --banner-border:#4a3512; --banner-text:#ffd699; --banner-b:#ffb454;
+  --bannermt-bg:#241226; --bannermt-border:#4a1c4f; --bannermt-text:#f2c9ff; --bannermt-b:#e07bff;
+  --correct-bg:#12261f; --wrong-bg:#2a1414; --wrong-border:#ff6b6b;
 }
 :root[data-theme="pink"]{
   --bg:#fdf3f7; --panel:#ffffff; --panel2:#fbe6ef; --text:#3a1e2c; --muted:#8a5a70;

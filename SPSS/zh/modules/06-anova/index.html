@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <title>06·单因素／双因素方差分析与事后检验</title>
 <meta name="description" content="One-way and two-way ANOVA, Tukey post-hoc, MANOVA — Cohen et al. 2018 ch.41.3"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
@@ -8,7 +8,7 @@
 </head><body><header class="site"><div class="wrap bar">
 <a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
 <nav class="crumbs"><a href="../../index.html">课程</a> / 06·方差分析</nav>
-<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="dark"><span class="swatch" style="background:#4fb0ff"></span>深色（默认）</button><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/06-anova/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/06-anova/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/06-anova/index.html" class="active">中文</a></div></div>
+<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/06-anova/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/06-anova/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/06-anova/index.html" class="active">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
 <h1>06·单因素／双因素方差分析与事后检验</h1>
 <p class="lead">第6单元／共12单元 · 内容依据Cohen, Manion &amp; Morrison所著《Research Methods in Education》第8版（Routledge，2018年）第41章第41.3节"Analysis of Variance"（第781–787页）。</p>
@@ -118,11 +118,15 @@
 <b>重复测量ANOVA（Box 41.4）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Repeated Measures</code>——用于同一组在3种以上条件下被测量的情况（配对t检验的扩展）。<br/>
 <b>双因素ANOVA（Box 41.5）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate</code>。</div>
 <pre>ONEWAY math BY school /POSTHOC=TUKEY /STATISTICS=DESCRIPTIVES HOMOGENEITY.
+* 已验证：PSPP完全支持ONEWAY + /POSTHOC=TUKEY，结果与Python/statsmodels及SPSS完全一致（F=5.87 p=.003；Tukey A-B p=.046，A-C p=.003，B-C p=.427）。
+
 UNIANOVA math BY school gender /DESIGN=school gender school*gender.
-* PSPP支持ONEWAY命令加/POSTHOC=TUKEY选项，结果与Python/statsmodels及SPSS一致。</pre>
+* ⚠️ 以上命令只能在真实SPSS中运行——PSPP（已验证）会报错"UNIANOVA is not yet implemented"。
+* 若没有SPSS，可改用Python运行双因素ANOVA：statsmodels.formula.api.ols("math ~ C(school)*C(gender)", df).fit() + sm.stats.anova_lm(typ=2)——见第3次课notebook。</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
- <a class="btn ghost" href="../../../data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 笔记本：ANOVA与非参数检验</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">🚀 笔记本：ANOVA与非参数检验 (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 笔记本：ANOVA与非参数检验 (GitHub)</a>
 </div>
 
 <h3>📜 理论背景与历史</h3>
