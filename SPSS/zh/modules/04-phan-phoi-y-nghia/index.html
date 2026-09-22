@@ -1,0 +1,156 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>04·分布、假设与统计显著性</title>
+<meta name="description" content="Hypotheses, confidence intervals, normal distribution, statistical significance, effect size, power — Cohen et al. 2018 ch.38-39"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 04·分布与显著性</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/04-phan-phoi-y-nghia/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/04-phan-phoi-y-nghia/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/04-phan-phoi-y-nghia/index.html" class="active">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>04·分布、假设与统计显著性</h1>
+<p class="lead">第4／12单元・内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第38章第38.6–38.10节（第729–737页）及第39章"统计显著性、效应量与检验力"（第739–752页）。</p>
+<div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第4单元 · COHEN ET AL. 第38.6–38.10节 & 第39章</div>
+       <h2>分布、假设与统计显著性</h2>
+       <p>H0/H1、置信区间、正态分布、统计显著性、效应量、检验力。</p>
+       <p class="cap">使用 ← → 切换幻灯片。</p></div><div class="mdeck-slide"><div class="kicker">1·假设</div><h2>H0与H1——谁需要证明什么？</h2>
+       <p><b>H0（原假设）：</b>“没有”差异／关系——举证责任落在研究者身上。</p>
+       <p><b>H1：</b>“有”差异／关系——只有在H0不被支持时才被支持。</p>
+       <p class="cap">Cohen等人建议使用“被支持／不被支持”，而非“对／错”。</p></div><div class="mdeck-slide"><div class="kicker">有方向 vs 无方向</div><h2>单尾还是双尾？</h2>
+       <table><tr><th>假设</th><th>检验</th><th>阈值</th></tr>
+       <tr><td>有方向（"更高"）</td><td>单尾</td><td>单侧95%</td></tr>
+       <tr><td>无方向（"不同"）</td><td>双尾</td><td>每侧97.5%</td></tr></table></div><div class="mdeck-slide"><div class="kicker">2·置信区间</div><h2>不是"95%的概率"——而是"95%的过程"</h2>
+       <p class="big">数学成绩95%置信区间=[46.68; 49.14]</p>
+       <p class="cap">多次重复抽样：约95%构建出的区间会包含真实平均数。</p></div><div class="mdeck-slide"><div class="kicker">3·正态分布</div><h2>68–95–99.7规则</h2>
+       <img src="../../../assets/diagrams/normal_curve.png" alt="normal curve"/></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>偏度：正偏态 vs 接近对称</h2>
+       <img src="../../../assets/diagrams/skew_real.png" alt="skew"/>
+       <p class="cap">study_hours：|偏度|超过2×SE→存在有意义的偏态。pretest：在阈值内→接近正态。</p></div><div class="mdeck-slide"><div class="kicker">4·统计显著性</div><h2>Cohen等人的"手-脚"例子</h2>
+       <p>100次中95次正确→0.05水平。99/100→0.01水平。999/1000→0.001水平。</p>
+       <p class="warn">p值＝若H0为真，数据出现的概率——而不是H0为真的概率！</p></div><div class="mdeck-slide"><div class="kicker">对NHST的批判</div><h2 class="warn">"腐败的科学方法"——Carver（1978）</h2>
+       <p>H0几乎总是一个"稻草人"——从一开始就几乎肯定是错误的。</p>
+       <p>"条件颠倒"谬误：P(数据|H0) ≠ P(H0|数据)。</p></div><div class="mdeck-slide"><div class="kicker">5·第一类与第二类错误</div><h2>两种错误，两种不同代价</h2>
+       <table><tr><th></th><th>H0为真</th><th>H0为假</th></tr>
+       <tr><td>支持H0</td><td>正确</td><td class="warn">第二类（β）</td></tr>
+       <tr><td>不支持H0</td><td class="warn">第一类（α）</td><td>正确</td></tr></table></div><div class="mdeck-slide"><div class="kicker">6·效应量</div><h2>p值不能说明"大小"——效应量才能</h2>
+       <table><tr><th>统计量</th><th>小</th><th>中</th><th>大</th></tr>
+       <tr><td>Cohen's d</td><td>0.20</td><td>0.50</td><td>0.80</td></tr>
+       <tr><td>皮尔逊r</td><td>0.10</td><td>0.30</td><td>0.50</td></tr>
+       <tr><td>Eta²（方差分析）</td><td>0.01</td><td>0.06</td><td>0.14</td></tr></table></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>d=0.981（大）但eta²=0.047（小）——同时出现</h2>
+       <p>教学方法→提分幅度：Cohen's d = <b>0.981</b>（中到大）。</p>
+       <p>3所学校→数学成绩：eta² = <b>0.047</b>（小），尽管F检验显著（p=0.003）。</p>
+       <p class="cap">同一份班级数据，两个不同的问题给出了截然不同的效应量。</p></div><div class="mdeck-slide"><div class="kicker">7·检验力</div><h2>α越大→检验力越高，但第一类错误风险也越大</h2>
+       <img src="../../../assets/diagrams/alpha_power.png" alt="alpha power"/>
+       <p class="cap">Cohen（1988）：惯例α=0.05，β=0.20→power=0.80（权重比4:1）。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
+       <p>幻灯片只是摘要。完整数据示例、对NHST的批判及SPSS/PSPP语法见下方。</p></div></div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ 上一页</button>
+  <button class="mdeck-next" type="button">下一页 ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ 全屏</button>
+</div></div>
+
+<div class="btnrow">
+ <a class="tag" href="#gia-thuyet">假设</a><a class="tag" href="#ci">置信区间</a>
+ <a class="tag" href="#phan-phoi">正态分布</a><a class="tag" href="#y-nghia">统计显著性</a>
+ <a class="tag" href="#phe-phan">对NHST的批判</a><a class="tag" href="#effect">效应量</a>
+ <a class="tag" href="#power">检验力</a><a class="tag" href="#thuc-hanh">实践</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="gia-thuyet">1. 假设：H0、H1、有方向性及单／双尾</h2>
+<p><b>原假设（H0）：</b>表述"没有"差异／关系／变化。Cohen等人将此比作陪审团：先假定无罪（H0为真），直到有足够证据反驳。<b>备择假设（H1）：</b>表述"有"——只有在H0不被支持时才被支持（第729页）。</p>
+<div class="callout warn"><b>用词需谨慎：</b>书中建议使用"被支持／不被支持"，避免使用"拒绝／接受"——后者暗示了一种范围有限的研究很少能确立的绝对状态（第729–730页）。</div>
+<p><b>有方向性 vs 无方向性：</b>有方向性假设明确指出方向（"更高"、"更多"）；无方向性假设只说"不同"。有方向性假设更强，因为它提出了更具体的主张（第731–732页）。</p>
+<table><tr><th>假设类型</th><th>检验类型</th><th>原因</th></tr>
+<tr><td>有方向性</td><td>单尾</td><td>全部5%的风险都放在预测的一侧</td></tr>
+<tr><td>无方向性</td><td>双尾</td><td>风险各分2.5%——需要更强的证据（97.5%）</td></tr></table>
+
+<h2 id="ci">2. 置信区间</h2>
+<p>美国心理学会（APA，2010年，第34页，引自第733页）<b>要求</b>在研究成果发表时报告置信区间。置信区间告诉我们：如果重复抽样过程多次，构建出的区间中有多大百分比会包含总体的真实值（通常为95%）。</p>
+<div class="callout"><b>真实数据示例：</b>数学平均分（n=240）=47.91，SE=0.625→95%置信区间=<b>[46.68; 49.14]</b>。正确的解读："如果重复抽取240名学生的样本多次，约95%所得的区间会包含总体的真实平均数"——<b>而不是</b>"真实平均数落在此区间的概率为95%"（第733页）。</p>
+<p>Torgerson & Torgerson（2008年，第135页，引自第734页）：小样本→置信区间宽（精确度低）；大样本→置信区间窄（精确度高）。</p>
+
+<h2 id="phan-phoi">3. 正态分布、偏度与峰度</h2>
+<div class="figure"><img src="../../../assets/diagrams/normal_curve.png" alt=""/><figcaption>正态分布曲线：68.3%的数据在±1SD内，95.4%在±2SD内，99.7%在±3SD内（第733–734页）。</figcaption></div>
+<p>正偏态：长尾朝向正（右）方向。负偏态：长尾朝向负（左）方向。平峰态（platykurtic）：比正态更平坦（峰度为负）。尖峰态（leptokurtic）：比正态更尖峭（峰度为正）（第734–735页）。</p>
+<div class="figure"><img src="../../../assets/diagrams/skew_real.png" alt=""/><figcaption>两个真实变量的比较：study_hours明显呈正偏态；pretest接近对称。</figcaption></div>
+<div class="callout warn"><b>判断"有意义"偏态的经验法则（第735–736页）：</b>将偏度与±2×SE（偏度标准误）比较。对<code>study_hours</code>：偏度=+0.658，SE=0.157→可接受范围[-0.314; +0.314]。0.658超出该范围→存在有意义的偏态——与Shapiro-Wilk检验W=0.969，<b>p&lt;0.001</b>相符（"数据呈正态"的H0不被支持）。相比之下，<code>pretest</code>（偏度=-0.097）落在范围内，Shapiro-Wilk检验p=0.117（没有足够证据反对正态性）。</div>
+
+<h2 id="y-nghia">4. 什么是统计显著性？</h2>
+<p>Kirk（1999年，第337页，引自第739页）："具有统计显著性的结果，是指偶然性不太可能作为其解释的结果。"Cohen等人的经典例子（第739–740页）：在100人中有95人观察到"手大脚也大"→0.05显著性水平；99/100→0.01水平；999/1000→0.001水平。</p>
+<div class="callout"><b>手算示例（第740–741页）：</b>对8个人，测得等级相关系数为0.7857。查显著性表：n=8需要r≥0.78（0.05水平）以及r≥0.875（0.01水平）。0.7857超过0.78但未达到0.875→在<b>0.05</b>水平显著，但在0.01水平不显著。当n=30时，只需r≥0.36即可在0.05水平显著——<b>样本量越大，所需的r阈值越小</b>。</div>
+<div class="callout warn"><b>重要警示：</b>"具有统计显著性"<b>不</b>意味着"重要"——这是初学研究者常见的混淆（第740页）。</div>
+
+<h2 id="phe-phan">5. 对NHST的批判——为什么一些期刊不再接受仅依赖p值的论文</h2>
+<p>一些期刊已停止接受仅依赖原假设显著性检验（NHST）的论文。Carver（1978年，第387页，引自第742页）称之为"腐败的科学方法"。三个主要原因：</p>
+<ol>
+<li><b>H0是一个"稻草人"：</b>实际上H0几乎从不是绝对正确的——但整个NHST程序却建立在这一假设之上（Carver，1978年，第380–382页）。</li>
+<li><b>"条件颠倒"谬误（Ziliak & McCloskey，2008年，第41页）：</b>将P(数据|H0为真)误认为P(H0为真|数据)。Carver的例子：一个人被绞死后死亡的概率很高，但一个人已经死亡时曾被绞死的概率却很低——p值只回答了前者。</li>
+<li><b>高度依赖样本量：</b>样本越大，即使系数很小，也越容易达到显著性（第742–743页）。</li>
+</ol>
+<div class="callout warn"><b>统计显著性≠实践意义：</b>可能会发现数学学习时间与购物时间之间存在具有统计显著性的相关——但完全不重要（第743页）。反之，p=0.065（略高于0.05）不应仓促解读为"没有差异"——0.05这一阈值本身是相当任意的惯例（第743页）。</div>
+<p>Cohen等人<b>并未</b>要求完全放弃NHST，而是建议转向效应量、检验力以及其他验证方法（重复研究、排除其他假设）（第744页）。</p>
+<h3>第一类与第二类错误</h3>
+<table><tr><th></th><th>H0为真（实际）</th><th>H0为假（实际）</th></tr>
+<tr><td><b>支持H0</b></td><td>正确</td><td class="warn">第二类（β）——假阴性</td></tr>
+<tr><td><b>不支持H0</b></td><td class="warn">第一类（α）——假阳性</td><td>正确</td></tr></table>
+<p>降低α（更严格）→减少第一类错误但增加第二类错误，反之亦然（第744、749页）。</p>
+
+<h2 id="effect">6. 效应量</h2>
+<p>效应量衡量差异／关系的大小——这是单靠p值无法告诉你的信息。Cohen等人指出"效应量"是一个不准确的术语："effect"暗示因果关系，但这一度量完全没有证明任何因果关系（第745页）。</p>
+<table><tr><th>统计量</th><th>小</th><th>中</th><th>大</th></tr>
+<tr><td>Cohen's d（t检验）</td><td>0.20</td><td>0.50</td><td>0.80</td></tr>
+<tr><td>皮尔逊r</td><td>0.10</td><td>0.30</td><td>0.50</td></tr>
+<tr><td>Eta²（方差分析）</td><td>0.01</td><td>0.06</td><td>0.14</td></tr>
+<tr><td>R²（回归）</td><td>0.02</td><td>0.13</td><td>0.26</td></tr></table>
+<p class="lead" style="font-size:.85rem">（表39.2，第746页。Thompson（2001年，第82–83页）提醒：不要机械地套用这些阈值——那样做"只是换了一种度量方式继续犯蠢"。）</p>
+<div class="callout"><b>应用于真实班级数据：</b>
+<ul style="margin:.5em 0 0">
+<li>教学方法（项目式／传统）→提分幅度：Cohen's d = <b>0.981</b>→<b>中等</b>（0.51–1.00），接近"大"的阈值。</li>
+<li>3所学校→数学成绩：eta² = SSB/SST = 1056.82/22374.01 = <b>0.047</b>→<b>小</b>，尽管F检验具有统计显著性（p=0.003）！</li>
+</ul>
+这正是一个生动的例证：<b>统计显著性与效应量是两个不同的问题，答案可能与直觉相反。</b></div>
+
+<h2 id="power">7. 检验力（Statistical Power）</h2>
+<p>检验力＝正确探测到真实效应的概率（1−β）。power=0.80（常见基准）意味着有80%的机会发现真实效应，20%的风险遗漏它（第二类错误）。Cohen（1988年，第750页）建议在α=0.05、β=0.20时，将第一类错误视为比第二类错误严重4倍。</p>
+<div class="figure"><img src="../../../assets/diagrams/alpha_power.png" alt=""/><figcaption>模拟：随着α增大，检验力也随之提高，但代价是第一类错误风险更高（每组n=30，d=0.5，双尾t检验）。</figcaption></div>
+<p>四个参数决定检验力：(1)效应量，(2)样本量，(3)α水平，(4)期望的β水平（第751页）。书中的粗略估计（α=0.05，power=0.80）：双尾差异检验若要探测d=0.5需要约130人；双尾相关检验若要探测r=0.5只需约30人。</p>
+
+<h2 id="thuc-hanh">8. SPSS/PSPP 实践</h2>
+<div class="callout"><b>计算偏度／峰度（Box 38.1，第736页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → 点击<code>Statistics</code>按钮 → 勾选<i>Skewness</i>、<i>Kurtosis</i>。<br/>
+<b>正态性检验（Box 38.2，第736页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore</code> → 点击<code>Plots</code>按钮 → 勾选<i>Normality plots with tests</i>（Shapiro-Wilk、Kolmogorov-Smirnov）。</div>
+<pre>FREQUENCIES VARIABLES=study_hours pretest /STATISTICS=SKEWNESS KURTOSIS.
+EXAMINE VARIABLES=study_hours pretest /PLOT=NPPLOT HISTOGRAM /STATISTICS=DESCRIPTIVES.
+* PSPP目前在EXAMINE中没有像SPSS那样内置Shapiro-Wilk检验——请使用Python的scipy.stats.shapiro进行对照。</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">📓 Notebook：中心极限定理、置信区间、假设检验</a>
+</div>
+
+<h3>📜 理论与历史背景</h3>
+<p>NHST融合了两个历史上并不完全兼容的传统：<b>罗纳德·费舍尔</b>（Ronald Fisher，1920年代）发展了显著性检验的思想，并普及了p=0.05这一阈值；而<b>耶日·内曼</b>（Jerzy Neyman）和<b>埃贡·皮尔逊</b>（Egon Pearson，卡尔·皮尔逊之子，1920年代末至1930年代）发展了"假设检验"框架，包含两个相互竞争的假设（H0/H1）以及第一类／第二类错误的概念。今天的SPSS将这两种传统融合成一个单一的程序——这正是本书第742页指出的概念混淆的根源（Gigerenzer，2004年，称之为一个"无人有意设计的混合工具"）。</p>
+<div class="callout info"><b>时间线</b>
+<ul style="margin:.5em 0 0">
+<li><b>1920年代</b>——罗纳德·费舍尔发展显著性检验，普及p=0.05阈值。</li>
+<li><b>1920年代末–1930年代</b>——内曼与皮尔逊发展H0/H1框架及第一类／第二类错误概念。</li>
+<li><b>1978年</b>——Carver发表对NHST的尖锐批评，称其为"腐败的科学方法"。</li>
+<li><b>1988年</b>——雅各布·科恩（Jacob Cohen）出版《Statistical Power Analysis》，提出至今仍在使用的效应量阈值。</li>
+<li><b>2010年</b>——APA要求在已发表的研究中报告置信区间。</li>
+</ul>
+</div>
+
+<h3>🔎 真实案例研究</h3>
+<div class="card accent-a">
+<h4>案例1——心理学的"可重复性危机"</h4>
+<p>2010年代初，"可重复性项目"（Reproducibility Project，Open Science Collaboration，2015年）尝试重复100项已发表的心理学研究（大多依赖p&lt;0.05的NHST）。结果只有不到40%成功重复出最初具有统计显著性的结果。这是对第742–743页批评意见的最大规模现实印证：单一样本得出的单一p值，不足以支撑起一整项科学发现——这正是你在本课程后面会再次看到的"p值乱舞"这一教训。</p>
+</div>
+<div class="card accent-a">
+<h4>案例2——超大样本如何让一切都"显著"</h4>
+<p>面对数百万行的行政／网络数据，几乎<b>每一次</b>比较都会得出p&lt;0.001——即使是实际上毫无意义的差异（如上文三校例子中的eta²=0.047）。这正是为什么各大期刊（《英国医学杂志》、《美国心理学家》等）如今强制要求报告效应量而非仅报告p值——也正是上文第6节的主题。</p>
+</div>
+
+<h2 id="quiz">9. 自测（30题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">非营利自学资料。网站源代码：
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script src="../../../_shared/deck.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "原假设“项目式教学组与传统教学组之间没有差异”属于哪种假设？", "opts": ["不是有效的假设", "原假设（null hypothesis）——把举证责任放在研究者身上，要求其“不支持”该假设", "备择假设（H1）", "有方向性假设"], "correct": 1, "explain": "H0总是表述为“没有”（差异／关系／变化）；研究任务是寻找证据来“不支持” H0，就像陪审团在证明有罪之前先假定无罪一样（Cohen et al.，第729页）。"}, {"q": "Cohen等人建议在报告H0检验结果时使用什么术语，而不是“拒绝”或“接受”？", "opts": ["“被支持”或“不被支持”", "“证明”或“证伪”", "不需要特殊术语", "“真”或“假”"], "correct": 0, "explain": "“拒绝”／“接受”暗示了一种有边界的研究无法确立的绝对状态；“被／不被支持”更为谨慎（第729–730页）。"}, {"q": "“学习时不用手机的学生成绩会比用手机的学生更高”属于哪种假设？", "opts": ["有方向性假设——明确指出“更高”这一方向", "原假设（H0）", "不是假设", "无方向性假设"], "correct": 0, "explain": "有方向性假设明确指出差异的方向（“更高”、“更低”）；比只说“有差异”的无方向性假设更强（第731–732页）。"}, {"q": "对于有方向性假设，应使用单尾检验还是双尾检验？", "opts": ["只能用于定类数据", "无所谓，结果相同", "双尾，因为总是更安全", "单尾——因为已预先预测了结果的方向，全部5%的风险都放在一侧"], "correct": 3, "explain": "有方向性假设使用单尾检验（更强）；无方向性假设使用双尾检验，需将5%分成两侧各2.5%，因此需要更强的证据（97.5%）（第732–733页）。"}, {"q": "数学平均分（n=240）的95%置信区间为[46.68; 49.14]。正确的解读是什么？", "opts": ["肯定有95%的概率真实平均数落在此区间内", "95%的学生分数落在此区间内", "如果多次重复抽样，大约95%构建出的置信区间会包含总体的真实平均数", "置信区间只用于推论统计，不用于描述统计"], "correct": 2, "explain": "这是置信区间频率学派的正确定义——描述的是重复过程的可靠性，而不是某一个具体区间的概率（第733页）。"}, {"q": "根据Cohen等人，样本量越大，置信区间往往会怎样？", "opts": ["样本量与置信区间宽度无关", "始终固定在95%", "变得更宽（精确度更低）", "变得更窄（精确度更高）——小样本往往产生更宽的置信区间"], "correct": 3, "explain": "Torgerson & Torgerson（2008，引自第734页）：小样本→置信区间更宽；大样本→区间更窄，结果更精确。"}, {"q": "正态分布中68.3%的数据落在围绕平均数的哪个范围内？", "opts": ["±1个标准差", "±3个标准差", "±2个标准差", "±0.5个标准差"], "correct": 0, "explain": "68.3%–95.4%–99.7%规则分别对应正态分布平均数周围的±1SD、±2SD、±3SD（第733–734页）。"}, {"q": "变量“study_hours”（自学时长）的偏度=+0.658，偏度标准误SE=0.157→可接受范围为[-0.314; +0.314]。哪个结论正确？", "opts": ["没有峰度就无法得出任何结论", "0.658在可接受范围内→接近正态", "SE与评估偏度无关", "0.658超出可接受范围（2×SE）→有显著证据表明存在偏态，不应视为接近正态"], "correct": 3, "explain": "经验法则（第735–736页）：若偏度超过±2×SE（偏度标准误），则被视为“异常”。0.658 > 0.314，说明存在有意义的偏态，这与该变量Shapiro-Wilk检验p<0.001的结果相符。"}, {"q": "对“study_hours”进行Shapiro-Wilk检验，得到W=0.969，p<0.001。解读正态性检验时，正确的结论是什么？", "opts": ["p<0.001意味着该分布与正态分布存在统计显著性差异——应考虑使用非参数统计", "p<0.001与正态性无关", "p<0.001意味着数据非常接近正态", "Shapiro-Wilk只适用于样本量超过1000的情况"], "correct": 0, "explain": "Shapiro-Wilk检验的H0是“数据服从正态分布”；p<0.001意味着该H0不被支持——数据显著偏离正态（第736–737页，与书中表38.2的例子相符）。"}, {"q": "在Cohen等人“手-脚”的例子中（n=100），某关系出现95/100次时，是在哪个显著性水平上报告的？", "opts": ["0.001水平", "无法从该例子计算显著性水平", "0.05水平——100个案例中有5个未显示相关", "0.01水平"], "correct": 2, "explain": "95/100正确↔5/100错误↔0.05（百分之五）显著性水平；99/100↔0.01水平；999/1000↔0.001水平（第739–740页）。"}, {"q": "样本量只有8人时，根据Cohen等人的查找表，在0.05水平上显著需要的最小相关系数是多少？", "opts": ["0.875", "0.36", "0.65", "0.78"], "correct": 3, "explain": "根据显著性查找表（第741页）：当n=8时，需要r≥0.78才能在0.05水平上显著，r≥0.875才能在0.01水平上显著。书中例子r=0.7857→在0.05水平显著，但在0.01水平不显著。"}, {"q": "同样是r=0.50的相关，样本量为10和样本量为1000，哪个更容易达到统计显著性？", "opts": ["缺乏足够信息无法比较", "样本量1000更容易——样本量越大，达到显著所需的系数越小", "两者相同，与样本量无关", "样本量10更容易"], "correct": 1, "explain": "查找表（第741页）显示，n=10时需要r≥0.65，而n=30时只需r≥0.36即可在0.05水平显著——样本量越大，所需的r阈值越低。"}, {"q": "根据Carver（1978年，引自Cohen等人第742页），原假设常被描述为哪种“假设”？", "opts": ["仅适用于定性数据的假设", "研究中不必要的假设", "一个总是100%正确的假设", "一个“稻草人”——从一开始就几乎肯定是错误的假设，但NHST却建立在此基础上"], "correct": 3, "explain": "Carver（1978年，第380页）：实际上H0几乎从不是绝对正确的；将整个检验程序建立在一个几乎肯定错误的假设之上，是NHST的根本弱点（第742页）。"}, {"q": "统计显著性中的“条件颠倒谬误”（fallacy of the transposed conditional，Ziliak & McCloskey，2008）是什么？", "opts": ["混淆自变量与因变量", "混淆正相关与负相关", "把“在假设成立的条件下，数据出现的概率”误认为“在数据已知的条件下，假设成立的概率”——把两个不同的概念混为一谈", "混淆平均数与中位数"], "correct": 2, "explain": "Carver的例子（第742页）：一个人被绞死后死亡的概率很高，但一个人已经死亡时曾被绞死的概率却很低——p值只告诉你前者，而非后者，但许多人误以为是后者。"}, {"q": "“统计显著性”与“教育／实践意义”有何不同？", "opts": ["统计显著性只涉及结果是否不太可能由偶然造成；它完全没有说明该结果在实践中是否“重要”或有用", "只有统计显著性才值得信赖", "教育意义总是强于统计显著性", "两者没有区别，是同义词"], "correct": 0, "explain": "书中的例子（第743页）：可能会发现数学学习时间与购物时间之间存在具有统计显著性的相关——但在实践中完全不重要。"}, {"q": "什么是第一类错误（Type I error）？", "opts": ["当H0实际上为假时却支持了H0（假阴性）", "当H0实际上为真时却不支持H0（假阳性）", "样本量计算错误", "使用了错误的参数检验"], "correct": 1, "explain": "第一类错误（α）＝假阳性：在实际上没有差异／关系的情况下，却断定存在差异／关系（表39.1，第744页）。"}, {"q": "什么是第二类错误（Type II error）？", "opts": ["当H0实际上为假时却支持了H0（假阴性）——遗漏了真实存在的效应", "选错了测量量表", "当H0为真时却不支持H0", "数据录入错误"], "correct": 0, "explain": "第二类错误（β）＝假阴性：在实际上存在差异的情况下，却断定“没有差异”——通常发生在样本量过小时（表39.1，第744页）。"}, {"q": "要降低第一类错误，应该如何设置alpha（α）阈值？", "opts": ["将α设为等于样本量", "提高α（如0.10或0.25）", "降低α（如降到0.01或0.001）——更严格，更难“不支持H0”", "α与任何一类错误都无关"], "correct": 2, "explain": "α越小，就越难错误地得出“存在差异”的结论（第一类错误减少）——但相应地，也更容易遗漏真实效应（第二类错误增加）（第744、749页）。"}, {"q": "两种教学方法在提分幅度（gain）上的差异Cohen's d=0.981（真实班级数据）。按照书中引用的Cohen（1988）量表，这属于哪个效应量等级？", "opts": ["强（&gt;1.00）", "弱（0–0.20）", "中等（0.51–1.00）", "中等偏小（0.21–0.50）"], "correct": 2, "explain": "根据表39.2（第746页）中Cohen's d的阈值：0.51–1.00为“中等”效应——d=0.981接近该等级的上限。"}, {"q": "根据表39.2（第746页），什么阈值被视为“强”（large）皮尔逊相关？", "opts": ["r必须始终等于1", "r ≥ 0.30", "r ≥ 0.50", "r ≥ 0.10"], "correct": 2, "explain": "表39.2：皮尔逊r——小0.10，中0.30，大0.50。（第8单元中study_hours与math的相关r=0.582，超过了这一“强”的阈值。）"}, {"q": "比较三所学校数学成绩的方差分析中，eta²≈0.047（SSB/SST=1056.82/22374.01）。根据表39.2，这属于哪个效应量等级？", "opts": ["小（0.01–0.06）", "大（&gt;0.14）", "中（0.06–0.14）", "eta²无法分级"], "correct": 0, "explain": "表39.2（第746页）：eta²——小0.01，中0.06，大0.14。eta²≈0.047落在“小”的范围内，尽管F检验仍具有统计显著性（p=0.003）——正好说明了“统计显著性≠效应量大小”。"}, {"q": "为什么Cohen等人称“效应量”（effect size）为一个“不准确的术语”？", "opts": ["因为“effect”（效应／影响）这个词暗示了因果关系，而效应量根本不能证明因果关系——它只衡量差异／关联的大小", "因为它总是为0", "因为效应量只适用于方差分析", "因为效应量无法用SPSS计算"], "correct": 0, "explain": "Cohen等人（第745页）明确指出：“effect”一词暗示因果，但这一度量完全没有推断任何因果关系——它只衡量大小。"}, {"q": "若要以足够的检验力探测到一个小效应，应该怎么做？", "opts": ["样本量无关紧要", "增大样本量——小效应在小样本下难以探测，容易导致第二类错误", "将α提高到接近1", "减少样本量以节省时间"], "correct": 1, "explain": "Ellis（2010年，引自第751页）：大效应比小效应更容易被探测到；更大的样本有助于探测到小效应，避免第二类错误。"}, {"q": "检验力（power）= 0.80（80%）是什么意思？", "opts": ["80%的数据是准确的", "有80%的概率犯第一类错误", "没有具体的统计学意义", "如果真实效应存在，有80%的概率正确探测到它（只有20%的概率遗漏它——第二类错误）"], "correct": 3, "explain": "检验力=1−β；power=0.80（研究者常设定的水平）意味着有80%的概率正确探测到真实效应，20%的风险遗漏它（第二类错误）（第749–750页）。"}, {"q": "Cohen（1988）针对第一类与第二类错误的严重性权重（α=0.05，β=0.20）提出了什么比例？", "opts": ["认为第二类错误比第一类错误严重10倍", "认为两类错误同等严重（1:1）", "认为第一类错误比第二类错误严重4倍（β:α比例为4:1）", "没有提出任何比例"], "correct": 2, "explain": "Cohen（1988年，第750页）：在α=0.05、β=0.20的情况下，权重比例为4:1（第一类错误被认为比第二类错误严重4倍）——这是最常见的惯例，而非不可打破的法则。"}, {"q": "哪个SPSS操作序列用于计算偏度和峰度（Box 38.1）？", "opts": ["Graphs → Legacy Dialogs", "Analyze → Descriptive Statistics → Frequencies → Statistics → 勾选Skewness/Kurtosis", "Analyze → Compare Means → T-Test", "Analyze → Correlate → Bivariate"], "correct": 1, "explain": "Box 38.1（第736页）：‘Analyze’→‘Descriptive Statistics’→‘Frequencies’→点击‘Statistics’按钮→在Distribution区域勾选Skewness和Kurtosis。"}, {"q": "Shapiro-Wilk检验在SPSS菜单中的哪个位置（Box 38.2）？", "opts": ["Analyze → Regression", "Analyze → Descriptive Statistics → Explore → Plots → 勾选‘Normality plots with tests’", "File → Import Data", "Analyze → Nonparametric Tests → Chi-square"], "correct": 1, "explain": "Box 38.2（第736页）：‘Analyze’→‘Descriptive Statistics’→‘Explore’→点击‘Plots’按钮→勾选‘Normality plots with tests’和‘Histogram’。"}, {"q": "为什么现在许多学术期刊都要求在报告p值的同时报告效应量？", "opts": ["因为p值总是错的", "因为p值在很大程度上取决于样本量，并且完全没有说明差异／关系的大小——两项p值相同的研究，效应量可能大不相同", "因为效应量比p值更容易计算", "因为SPSS强制要求"], "correct": 1, "explain": "APA（2010年）以及许多国际期刊（第745页）之所以有此要求，正是因为单独的p值“看不见大小”（Ziliak & McCloskey，2008年：‘sizeless stare’，即‘毫无大小感的凝视’）。"}, {"q": "若某研究发现性别在喜欢物理学科上的差异p=0.065（刚好超过常规的0.05阈值），Cohen等人建议怎么做？", "opts": ["将α提高到0.10使其显著", "不要仅因略微超过0.05阈值就急于得出“没有差异”的结论——该阈值本身有一定的任意性，应同时参考效应量和背景", "因数据有问题而丢弃整项研究", "自信地得出“没有差异”的结论并就此打住"], "correct": 1, "explain": "书中的确切例子（第743页）：p=0.065非常接近0.05——机械地按照硬性阈值解读为“没有差异”，可能会遗漏一个真正值得注意的趋势。"}, {"q": "根据Cohen等人的粗略样本量估计（alpha=0.05，power=0.80），双尾差异检验若要探测到d=0.5的效应量，大约需要多大的样本量？", "opts": ["约100人", "约20人", "约130人", "约1000人"], "correct": 2, "explain": "根据书中的粗略估计（第751-752页）：双尾差异检验，d=0.5，alpha=0.05，power=0.80，样本量约为130（相比之下单尾约需100，而相同效应量的双尾相关检验只需约30）。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
