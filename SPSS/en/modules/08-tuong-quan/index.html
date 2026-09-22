@@ -81,6 +81,30 @@
 <div class="callout"><b>Why does this differ from the book's example?</b> A partial correlation shifts substantially only when the control variable has a REAL relationship with <i>both</i> other variables. Here, staff shortage is almost unrelated to the science score (r≈0.002) — so "removing" it barely changes the original picture. This is a genuine result, not every dataset produces as dramatic an example as the textbook's.</div>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Pearson correlation (study hours × maths score):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate...</code></li>
+<li>Select <code>study_hours</code> then <code>math</code>, click the arrow to send both to the <i>Variables</i> box.</li>
+<li>Under "Correlation Coefficients", make sure <i>Pearson</i> is checked (default); under "Test of Significance" choose <i>Two-tailed</i>.</li>
+<li>Click <code>OK</code>.</li>
+<li>Read the "Correlations" table (a 2×2 matrix): the cell where <code>study_hours</code> and <code>math</code> meet has 3 rows — <i>Pearson Correlation</i> (the r value), <i>Sig. (2-tailed)</i> (the p-value), <i>N</i> (the sample size used).</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Spearman correlation (when data are ordinal/non-linear):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Repeat steps 1-3 from part A, but under "Correlation Coefficients" ALSO check <i>Spearman</i> (you can uncheck Pearson if you only need Spearman).</li>
+<li>Click <code>OK</code> → the results table will have 2 separate blocks: "Pearson Correlation" and "Spearman's rho" for comparison.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Partial correlation — controlling for a third variable:</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Partial...</code></li>
+<li>Send the 2 variables you want to correlate (e.g. <code>EDUSHORT</code> and <code>sci_mean</code>) to the <i>Variables</i> box.</li>
+<li>Send the variable you want to CONTROL FOR (e.g. <code>STAFFSHORT</code>) to the <i>Controlling for</i> box.</li>
+<li>Click <code>Options...</code> → check <i>Zero-order correlations</i> (so SPSS also prints the ORIGINAL uncontrolled correlation for comparison) → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → read the results table: the first row is the partial correlation (controlled); the "Zero-order" section (if checked in step 4) gives the original correlation, letting you see how much controlling for the third variable changed things.</li>
+</ol>
+</div>
 <div class="callout">
 <b>SPSS sequence (Box 40.3, p.766):</b> <code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → send variables to the <i>Variables</i> box → check the coefficient type (Pearson, Spearman) → choose one-tailed/two-tailed → <i>OK</i>.
 </div>

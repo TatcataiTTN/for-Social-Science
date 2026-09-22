@@ -81,6 +81,30 @@
 <div class="callout"><b>Vì sao khác ví dụ sách?</b> Tương quan riêng phần chỉ thay đổi mạnh khi biến kiểm soát có liên hệ THẬT với <i>cả hai</i> biến kia. Ở đây, thiếu nhân sự gần như không liên quan điểm Khoa học (r≈0,002) — nên "loại bỏ" nó không thay đổi nhiều bức tranh ban đầu. Đây là kết quả thật, không phải lúc nào dữ liệu cũng cho ra ví dụ kịch tính như trong sách.</div>
 
 <h2 id="thuc-hanh">5. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Tương quan Pearson (giờ tự học × điểm Toán):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate...</code></li>
+<li>Chọn <code>study_hours</code> rồi chọn <code>math</code>, bấm mũi tên đưa cả 2 vào ô <i>Variables</i>.</li>
+<li>Ở mục "Correlation Coefficients", đảm bảo ô <i>Pearson</i> đã tích (mặc định); ở mục "Test of Significance" chọn <i>Two-tailed</i>.</li>
+<li>Bấm <code>OK</code>.</li>
+<li>Đọc bảng "Correlations" (ma trận 2×2): ô giao giữa <code>study_hours</code> và <code>math</code> có 3 hàng — <i>Pearson Correlation</i> (giá trị r), <i>Sig. (2-tailed)</i> (p-value), <i>N</i> (cỡ mẫu dùng để tính).</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Tương quan Spearman (khi dữ liệu là thứ bậc/không tuyến tính):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Làm lại bước 1-3 ở mục A, nhưng ở mục "Correlation Coefficients" TÍCH THÊM ô <i>Spearman</i> (có thể bỏ tích Pearson nếu chỉ cần Spearman).</li>
+<li>Bấm <code>OK</code> → bảng kết quả sẽ có 2 khối riêng: "Pearson Correlation" và "Spearman's rho" để so sánh.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Tương quan riêng phần (Partial Correlation) — kiểm soát 1 biến thứ 3:</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Partial...</code></li>
+<li>Đưa 2 biến muốn tính tương quan (vd <code>EDUSHORT</code> và <code>sci_mean</code>) vào ô <i>Variables</i>.</li>
+<li>Đưa biến muốn KIỂM SOÁT (vd <code>STAFFSHORT</code>) vào ô <i>Controlling for</i>.</li>
+<li>Bấm nút <code>Options...</code> → tích <i>Zero-order correlations</i> (để SPSS in kèm cả tương quan GỐC chưa kiểm soát, tiện so sánh) → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → đọc bảng kết quả: hàng đầu là tương quan riêng phần (đã kiểm soát), phần "Zero-order" (nếu đã tích ở bước 4) cho tương quan gốc để đối chiếu xem kiểm soát biến thứ 3 có làm thay đổi nhiều không.</li>
+</ol>
+</div>
 <div class="callout">
 <b>Trình tự SPSS (Box 40.3, tr.766):</b> <code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → đưa biến vào ô <i>Variables</i> → chọn loại hệ số (Pearson, Spearman) → chọn kiểm định 1 đuôi/2 đuôi → <i>OK</i>.
 </div>

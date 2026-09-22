@@ -81,6 +81,30 @@
 <div class="callout"><b>为什么与书中的例子不同？</b>只有当控制变量与另外两个变量都存在真实关联时，偏相关才会发生明显变化。这里，人员短缺与科学成绩几乎无关（r≈0.002）——因此"剔除"它对原始结果影响甚微。这是真实的结果，并非每份数据都能像教材例子那样呈现戏剧性的变化。</div>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP 实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
+<p style="margin:.6em 0 .3em"><b>A. 皮尔逊相关（自学时间×数学成绩）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate...</code></li>
+<li>选择<code>study_hours</code>再选择<code>math</code>，点击箭头将两者都送入<i>Variables</i>框。</li>
+<li>在"Correlation Coefficients"部分，确认<i>Pearson</i>已勾选（默认）；在"Test of Significance"部分选择<i>Two-tailed</i>。</li>
+<li>点击<code>OK</code>。</li>
+<li>阅读"Correlations"表（2×2矩阵）：<code>study_hours</code>与<code>math</code>交叉的单元格有3行——<i>Pearson Correlation</i>（r值）、<i>Sig. (2-tailed)</i>（p值）、<i>N</i>（用于计算的样本量）。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. 斯皮尔曼相关（当数据为定序／非线性时）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>重复A部分的步骤1-3，但在"Correlation Coefficients"部分额外勾选<i>Spearman</i>（若只需要Spearman可取消勾选Pearson）。</li>
+<li>点击<code>OK</code> → 结果表将有2个独立部分："Pearson Correlation"和"Spearman's rho"，便于比较。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. 偏相关——控制第三个变量：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Correlate</code> → <code>Partial...</code></li>
+<li>将想要计算相关的2个变量（如<code>EDUSHORT</code>和<code>sci_mean</code>）送入<i>Variables</i>框。</li>
+<li>将想要控制的变量（如<code>STAFFSHORT</code>）送入<i>Controlling for</i>框。</li>
+<li>点击<code>Options...</code> → 勾选<i>Zero-order correlations</i>（让SPSS同时打印未控制的原始相关，便于比较）→ <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 阅读结果表：第一行是偏相关（已控制）；"Zero-order"部分（若在步骤4中勾选）给出原始相关，可查看控制第三个变量后变化有多大。</li>
+</ol>
+</div>
 <div class="callout">
 <b>SPSS操作步骤（Box 40.3，第766页）：</b><code>Analyze</code> → <code>Correlate</code> → <code>Bivariate</code> → 将变量送入 <i>Variables</i> 框 → 勾选系数类型（Pearson、Spearman）→ 选择单尾／双尾检验 → <i>OK</i>。
 </div>
