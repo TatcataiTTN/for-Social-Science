@@ -108,6 +108,30 @@ CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
  <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 View Python notebook</a>
 </div>
 
+
+<h3>📜 Theoretical & Historical Background</h3>
+<p>Descriptive statistics isn't a single invention but a convergence of several historical threads. Before the 19th century, "statistics" was nearly synonymous with counting a population for the state (the word "statistics" itself comes from "state"). The major turning point came when social reformers began using numbers to PERSUADE, not just to count.</p>
+<p>A classic example: <b>Florence Nightingale</b> (1820–1910) — the founder of modern nursing — during the Crimean War collected mortality data on soldiers and discovered that most deaths came from infectious disease caused by poor sanitation, not combat. She devised a fan-shaped chart (the "coxcomb"/"rose diagram") to present this data to the British Parliament — one of the earliest and most famous examples of DESCRIPTIVE STATISTICS genuinely changing public policy.</p>
+<p>Technically, many tools you learn in this module (boxplots, "whiskers", exploratory data analysis) come from statistician <b>John Tukey</b>, who published <i>Exploratory Data Analysis</i> in 1977. Before Tukey, statistics focused mainly on hypothesis testing (Modules 05–07); Tukey emphasised LOOKING at data first — exactly the "plot first, trust numbers second" spirit running through this module.</p>
+<div class="callout info">
+<b>Timeline relevant to this module</b>
+<ul style="margin:.5em 0 0">
+<li><b>Mid-19th century</b> — Florence Nightingale uses fan-shaped charts to present military mortality data, persuading the British government to reform hospital sanitation.</li>
+<li><b>1893</b> — Karl Pearson introduces the term "standard deviation" in its modern sense.</li>
+<li><b>1977</b> — John Tukey publishes <i>Exploratory Data Analysis</i>, popularising the boxplot and the mindset of "exploring data visually before testing it".</li>
+</ul>
+</div>
+
+<h3>🔎 Real-World Case Studies</h3>
+<div class="card accent-c">
+<h4>Case 1 — Nightingale and the chart that changed a war</h4>
+<p>During the Crimean War, the British army lost more soldiers to disease than to combat. The raw figures (monthly mortality tables by cause) already existed, but no one acted — until Nightingale re-presented them visually. This is this module's "40.2 Frequencies & charts" lesson at historical scale: the same data, presented differently, determines whether readers act.</p>
+</div>
+<div class="card accent-c">
+<h4>Case 2 — Tukey and "look before you trust"</h4>
+<p>Before the 1970s, many researchers ran hypothesis tests (t-tests, ANOVA) directly without examining the data's distribution. Tukey showed that a dataset can "pass" a test while still containing data-entry errors, outliers, or an odd distribution that only a boxplot/histogram would reveal. The three same-mean sets in the slide above are a miniature version of Tukey's lesson: NEVER trust a single summary number without looking at the shape of the data.</p>
+</div>
+
 <h2 id="quiz">6. Self-check (30 questions)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:

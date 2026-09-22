@@ -124,6 +124,29 @@
 </div>
 <p class="lead" style="font-size:.85rem">The notebook already has the 195-school + 7,368-student data embedded — click “Open in Colab” then Runtime ▸ Run all, no separate file download needed. 5 more notebooks (t-tests, ANOVA, regression, Python on the 84-country file, critical thinking) are on the <a href="../../data/index.html">Datasets page</a>.</p>
 
+
+<h3>📜 Theoretical & Historical Background</h3>
+<p>The "four scales" framework Cohen et al. use is not their own invention — it traces back to a famous paper by psychologist <b>S. S. Stevens</b>, "On the Theory of Scales of Measurement", published in <i>Science</i> in 1946. Before Stevens, scientists argued over whether psychology could "measure" anything at all (sensations, attitudes… unlike length or weight). Stevens resolved this by redefining "measurement" as <i>assigning numbers according to a rule</i>, then classifying those rules into 4 levels — exactly the four scales you just learned. This framework went on to underpin nearly every social-science and education statistics textbook, including Cohen et al. more than 70 years later.</p>
+<p>But Cohen et al. themselves note this framework is NOT absolute truth. They cite Wright (2003, p.127) (p.726): a variable's scale is <i>not always an inherent property of the variable itself</i>, but something the researcher "bestows on it based on our theories of that variable." For instance: should a 5-point "very little… very much" scale be treated as ordinal, or just ordered nominal? The boundary isn't always clear-cut — especially with ordinal data.</p>
+<div class="callout">
+<b>Timeline relevant to this module</b>
+<ul style="margin:.5em 0 0">
+<li><b>1888</b> — Francis Galton studies parent-child height heredity, laying the groundwork for "co-relation" (the precursor to correlation, Module 08).</li>
+<li><b>1946</b> — S. S. Stevens publishes the four-scale framework (nominal/ordinal/interval/ratio) in <i>Science</i>.</li>
+<li><b>1950s–present</b> — Debate over whether Likert scales (ordinal) can be treated as "near-interval" for parametric statistics continues in the methodology literature — no absolute consensus, which is exactly why Cohen et al. stress "one must justify the classification, not assume it is self-evident" (p.726).</li>
+</ul>
+</div>
+
+<h3>🔎 Real-World Case Studies</h3>
+<div class="card">
+<h4 style="margin-top:0">Case 1 — Why did Stevens have to invent the four-scale framework?</h4>
+<p>Stevens worked in psychophysics — measuring human perception of loudness, brightness, weight. The problem: a sound that is physically "twice as loud" (in decibels) is NOT perceived by humans as "twice as loud" — the ear doesn't respond linearly to intensity. Stevens needed a language to state clearly: "what am I measuring, and which operations are legitimate on these numbers?" — exactly the question scales of data (this module) answer for the data you collect in SPSS.</p>
+</div>
+<div class="card">
+<h4 style="margin-top:0">Case 2 — The Likert-scale debate: ordinal, or "near-interval"?</h4>
+<p>A very real debate in social-science/health-research methodology literature: many researchers run t-tests and ANOVA (valid only for interval/ratio, per Cohen et al.) directly on a SINGLE Likert item. Proponents argue that when <b>several Likert items are combined into a sum/mean score</b> (like the 3-item "interest" scale in this course's classroom dataset), the resulting score is close enough to continuous to safely use parametric statistics. Opponents hold Cohen et al.'s line: a single Likert item remains ordinal, so medians/non-parametric tests should be preferred. <b>Lesson:</b> this is not a question with an absolute right-or-wrong answer — state your choice and reasoning clearly when writing your methodology.</p>
+</div>
+
 <h2 id="quiz">7. Self-check (30 questions)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:

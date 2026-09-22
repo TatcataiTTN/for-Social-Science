@@ -124,6 +124,29 @@
 </div>
 <p class="lead" style="font-size:.85rem">Notebook đã nhúng sẵn dữ liệu 195 trường + 7.368 học sinh — bấm “Mở trong Colab” rồi Runtime ▸ Run all là chạy ngay, không cần tải file rời. Còn 5 notebook nữa (t-test, ANOVA, hồi quy, Python trên 84 nước, tư duy phản biện) ở <a href="../../data/index.html">trang Bộ dữ liệu</a>.</p>
 
+
+<h3>📜 Bối cảnh lý thuyết & lịch sử</h3>
+<p>Khung "4 thang đo" mà Cohen et al. dùng không phải do chính họ nghĩ ra — nó bắt nguồn từ một bài báo nổi tiếng của nhà tâm lý học <b>S. S. Stevens</b>, "On the Theory of Scales of Measurement", đăng trên tạp chí <i>Science</i> năm 1946. Trước Stevens, các nhà khoa học tranh cãi liệu tâm lý học có thể "đo lường" được gì hay không (cảm giác, thái độ… vốn không như chiều dài, cân nặng). Stevens giải quyết bằng cách định nghĩa lại "đo lường" là <i>gán số theo một quy tắc</i>, rồi phân loại quy tắc gán số đó thành 4 cấp độ — chính là 4 thang đo bạn vừa học. Khung này sau đó trở thành nền tảng gần như mọi giáo trình thống kê xã hội học/giáo dục, kể cả Cohen et al. 70 năm sau.</p>
+<p>Nhưng bản thân Cohen et al. cũng lưu ý khung này KHÔNG phải chân lý tuyệt đối. Trích dẫn quan điểm của Wright (2003, tr.127) mà sách nêu ra (tr.726): thang đo của một biến <i>không phải lúc nào cũng là đặc tính cố hữu của biến đó</i>, mà là thứ nhà nghiên cứu "gán cho nó dựa trên lý thuyết của mình về biến đó". Ví dụ: 5 mức "rất ít… rất nhiều" có nên coi là thứ bậc hay chỉ là định danh có sắp xếp? Không phải lúc nào ranh giới cũng rõ ràng — nhất là với dữ liệu thứ bậc.</p>
+<div class="callout">
+<b>Dòng thời gian liên quan tới module này</b>
+<ul style="margin:.5em 0 0">
+<li><b>1888</b> — Francis Galton nghiên cứu di truyền chiều cao cha-con, đặt nền cho khái niệm "co-relation" (tiền thân của tương quan, Module 08).</li>
+<li><b>1946</b> — S. S. Stevens công bố khung 4 thang đo (định danh/thứ bậc/khoảng/tỉ lệ) trên <i>Science</i>.</li>
+<li><b>Thập niên 1950–nay</b> — Tranh luận về việc có nên coi thang Likert (thứ bậc) là "gần khoảng" để dùng thống kê tham số vẫn tiếp diễn trong tài liệu phương pháp luận — chưa có đồng thuận tuyệt đối, và đây chính là lý do Cohen et al. nhấn mạnh "phải biện minh cho việc phân loại, không mặc định là hiển nhiên" (tr.726).</li>
+</ul>
+</div>
+
+<h3>🔎 Case study thực tế</h3>
+<div class="card">
+<h4 style="margin-top:0">Case 1 — Vì sao Stevens phải phát minh ra khung 4 thang đo?</h4>
+<p>Stevens làm việc trong lĩnh vực tâm lý vật lý học (psychophysics) — đo cảm giác con người về âm lượng, độ sáng, độ nặng. Vấn đề: một âm thanh "to gấp đôi" về mặt vật lý (decibel) KHÔNG được con người cảm nhận là "to gấp đôi" — tai người không phản ứng tuyến tính với cường độ âm. Stevens cần một ngôn ngữ để nói rõ: "tôi đang đo cái gì, và phép tính nào được phép dùng với con số đó?" — đó chính xác là câu hỏi mà thang đo (Module này) đang trả lời cho dữ liệu bạn thu thập trong SPSS.</p>
+</div>
+<div class="card">
+<h4 style="margin-top:0">Case 2 — Tranh cãi thang Likert: thứ bậc hay "gần khoảng"?</h4>
+<p>Một cuộc tranh luận rất thật trong tài liệu phương pháp nghiên cứu xã hội/y tế: nhiều nhà nghiên cứu dùng t-test, ANOVA (vốn chỉ hợp lệ cho khoảng/tỉ lệ theo Cohen et al.) trực tiếp trên MỘT câu Likert đơn lẻ. Phe ủng hộ lập luận rằng khi <b>gộp nhiều câu Likert thành điểm tổng/trung bình</b> (như thang "hứng thú" gồm 3 câu ở bộ dữ liệu lớp học của khoá này), điểm tổng đó đủ gần phân phối liên tục để dùng thống kê tham số một cách an toàn. Phe phản đối giữ nguyên lập trường của Cohen et al.: một câu Likert đơn lẻ vẫn là thứ bậc, nên ưu tiên trung vị/phi tham số. <b>Bài học:</b> đây không phải câu hỏi có đáp án "đúng-sai" tuyệt đối — bạn phải nêu rõ lựa chọn của mình và lý do khi viết phương pháp luận.</p>
+</div>
+
 <h2 id="quiz">7. Tự kiểm tra (30 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Tài liệu tự học, phi lợi nhuận. Mã nguồn site:

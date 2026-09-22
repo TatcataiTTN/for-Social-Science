@@ -93,6 +93,30 @@ CORRELATIONS VARIABLES=r_hours r_math.</pre>
  <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 PISA notebook (school correlations)</a>
 </div>
 
+
+<h3>📜 Theoretical & Historical Background</h3>
+<p>The concept of "correlation" was born from a very concrete question: in 1888, <b>Francis Galton</b> (Charles Darwin's cousin) studied how closely children's height resembled their parents'. He called this phenomenon "co-relation". Galton's striking discovery: children of very tall parents tended to be slightly shorter than their parents (closer to the population average) — a phenomenon he called "regression toward the mean", laying the foundation for BOTH correlation AND regression (Module 09) at once.</p>
+<p>Eight years later, in 1896, statistician <b>Karl Pearson</b> — Galton's student — formalised the "co-relation" idea into the precise mathematical formula you use in SPSS today: the Pearson product-moment correlation coefficient, the origin of the name "Pearson r". In 1904, psychologist <b>Charles Spearman</b> developed a version for ranked data (not requiring a normal-distribution assumption) — becoming the Spearman's rho you learn in this module.</p>
+<div class="callout info">
+<b>Timeline relevant to this module</b>
+<ul style="margin:.5em 0 0">
+<li><b>1888</b> — Francis Galton studies height heredity, coins "co-relation", and discovers "regression toward the mean".</li>
+<li><b>1896</b> — Karl Pearson formalises the product-moment correlation formula — "Pearson's r" is born.</li>
+<li><b>1904</b> — Charles Spearman introduces the rank correlation coefficient — "Spearman's rho".</li>
+<li><b>Today</b> — Tyler Vigen's tylervigen.com/spurious-correlations catalogues hundreds of pairs of variables with high, entirely coincidental correlations, widely used in teaching to illustrate "correlation ≠ causation".</li>
+</ul>
+</div>
+
+<h3>🔎 Real-World Case Studies</h3>
+<div class="card accent-b">
+<h4>Case 1 — Galton's original height data</h4>
+<p>Galton measured the heights of hundreds of parent-child pairs. He plotted a scatterplot (the exact chart type you learned in Module 03 and reuse here), and noticed the points formed a tilted elliptical cloud — not a perfect straight line, but a clear tendency. From the shape of that cloud, he and later Pearson devised a way to SUMMARISE that tendency with a SINGLE number — exactly the core idea the r coefficient still does today.</p>
+</div>
+<div class="card accent-b">
+<h4>Case 2 — "Spurious correlation": Nicolas Cage films and drownings</h4>
+<p>Tyler Vigen's famous "Spurious Correlations" project once showed that the number of Nicolas Cage films released per year correlates VERY highly (r above 0.6, nearing 0.9 in some years) with the number of people who drowned in swimming pools in the US that same year — despite obviously no causal link. This is an extreme (and deliberately humorous) illustration of exactly the "correlation is not causation" lesson (p.768) this module emphasises: with enough variables and enough years of data, high coincidental correlations are statistically unremarkable (connecting to the p-hacking lesson in Module 06/07 of the original course).</p>
+</div>
+
 <h2 id="quiz">6. Self-check (30 questions)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Free self-study material, non-commercial. Site source code:

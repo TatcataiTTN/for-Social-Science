@@ -1,6 +1,7 @@
 :root{
   --bg:#0b0f14; --panel:#121821; --panel2:#161e29; --text:#e8edf3; --muted:#93a4b8;
   --accent:#4fb0ff; --accent2:#7ee0c3; --warn:#ffb454; --border:#233042;
+  --violet:#b79cff; --rose:#ff9ecf; --gold:#f2cd6a; --good:#6bd48f; --info:#5fc8e8;
   --code:#0e141c; --maxw:980px; --radius:14px;
   --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,"Noto Sans SC","PingFang SC",sans-serif;
 }
@@ -26,7 +27,7 @@ nav.crumbs a{color:var(--muted)}
 main{padding:34px 0 70px}
 h1{font-size:1.9rem;margin:.2rem 0 1rem}
 h2{font-size:1.35rem;margin-top:2.2rem;border-left:4px solid var(--accent);padding-left:10px}
-h3{font-size:1.08rem;color:var(--accent2)}
+h3{font-size:1.15rem;margin-top:1.4rem;color:var(--accent2)}
 .lead{color:var(--muted);font-size:1.05rem}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:16px 0}
 .grid{display:grid;gap:14px}
@@ -70,3 +71,19 @@ footer.site{border-top:1px solid var(--border);color:var(--muted);font-size:.85r
 .toc{position:sticky;top:14px}
 .toc a{display:block;color:var(--muted);text-decoration:none;font-size:.87rem;padding:4px 0}
 .toc a:hover{color:var(--accent)}
+
+.callout.info{border-left-color:var(--info)}
+.callout.info b{color:var(--info)}
+.callout.good{border-left-color:var(--good)}
+.callout.good b{color:var(--good)}
+.callout.violet{border-left-color:var(--violet)}
+.callout.violet b{color:var(--violet)}
+.card.accent-a{border-top:3px solid var(--violet)}
+.card.accent-b{border-top:3px solid var(--gold)}
+.card.accent-c{border-top:3px solid var(--info)}
+.card.accent-d{border-top:3px solid var(--rose)}
+.tag.violet{color:var(--violet);border-color:var(--violet)}
+.tag.gold{color:var(--gold);border-color:var(--gold)}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.info{color:var(--info);border-color:var(--info)}
+h4{color:var(--gold);font-size:1.02rem;margin:.3em 0}

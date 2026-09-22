@@ -108,6 +108,30 @@ CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
  <a class="btn ghost" href="../../../data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 Xem notebook Python</a>
 </div>
 
+
+<h3>📜 Bối cảnh lý thuyết & lịch sử</h3>
+<p>Thống kê mô tả không phải một phát minh đơn lẻ mà là kết tinh của nhiều dòng lịch sử khác nhau. Trước thế kỷ 19, "thống kê" gần như đồng nghĩa với đếm dân số phục vụ nhà nước (chữ "statistics" bắt nguồn từ "state" — nhà nước). Bước ngoặt lớn xảy ra khi các nhà cải cách xã hội bắt đầu dùng con số để THUYẾT PHỤC, không chỉ để đếm.</p>
+<p>Ví dụ kinh điển: <b>Florence Nightingale</b> (1820–1910) — người sáng lập ngành điều dưỡng hiện đại — trong Chiến tranh Crimea đã thu thập dữ liệu tử vong của binh lính và phát hiện phần lớn cái chết đến từ bệnh truyền nhiễm do điều kiện vệ sinh kém, không phải từ chiến trận. Bà tự sáng tạo ra một dạng biểu đồ hình quạt (gọi là "coxcomb"/"rose diagram") để trình bày dữ liệu này cho Quốc hội Anh — một trong những ví dụ sớm nhất và nổi tiếng nhất về việc THỐNG KÊ MÔ TẢ làm thay đổi chính sách công thật sự.</p>
+<p>Về mặt kỹ thuật, nhiều công cụ bạn học trong module này (boxplot, "whisker", phân tích dữ liệu khám phá) đến từ nhà thống kê <b>John Tukey</b>, người xuất bản cuốn <i>Exploratory Data Analysis</i> năm 1977. Trước Tukey, thống kê chủ yếu tập trung vào kiểm định giả thuyết (Module 05–07); Tukey nhấn mạnh bước NHÌN dữ liệu trước — chính là tinh thần "vẽ trước, tin số sau" xuyên suốt module này.</p>
+<div class="callout info">
+<b>Dòng thời gian liên quan tới module này</b>
+<ul style="margin:.5em 0 0">
+<li><b>Giữa TK 19</b> — Florence Nightingale dùng biểu đồ hình quạt để trình bày dữ liệu tử vong quân y, thuyết phục chính phủ Anh cải cách vệ sinh bệnh viện.</li>
+<li><b>1893</b> — Karl Pearson đưa ra thuật ngữ "độ lệch chuẩn" (standard deviation) theo nghĩa hiện đại.</li>
+<li><b>1977</b> — John Tukey xuất bản <i>Exploratory Data Analysis</i>, phổ biến boxplot và tư duy "khám phá dữ liệu bằng mắt trước khi kiểm định".</li>
+</ul>
+</div>
+
+<h3>🔎 Case study thực tế</h3>
+<div class="card accent-c">
+<h4>Case 1 — Nightingale và biểu đồ thay đổi một cuộc chiến</h4>
+<p>Trong Chiến tranh Crimea, quân đội Anh mất nhiều lính vì bệnh tật hơn vì súng đạn. Số liệu thô (bảng tần số tử vong theo tháng, theo nguyên nhân) đã tồn tại, nhưng KHÔNG ai hành động — cho tới khi Nightingale trình bày lại bằng biểu đồ trực quan. Đây chính là bài học "40.2 Tần số & biểu đồ" của module này ở quy mô lịch sử: cùng một dữ liệu, cách trình bày quyết định việc người đọc có hành động hay không.</p>
+</div>
+<div class="card accent-c">
+<h4>Case 2 — Tukey và "nhìn trước khi tin"</h4>
+<p>Trước thập niên 1970, nhiều nhà nghiên cứu chạy thẳng kiểm định giả thuyết (t-test, ANOVA) mà không nhìn qua phân bố dữ liệu. Tukey chỉ ra: một bộ số liệu có thể "qua được" kiểm định nhưng vẫn chứa lỗi nhập liệu, ngoại lai, hoặc phân phối kỳ lạ mà chỉ boxplot/histogram mới lộ ra. Ba tập số cùng mean=6 ở slide trên chính là một phiên bản thu nhỏ của bài học Tukey: KHÔNG BAO GIỜ tin một con số tóm tắt duy nhất mà không nhìn qua hình dạng dữ liệu.</p>
+</div>
+
 <h2 id="quiz">6. Tự kiểm tra (30 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Tài liệu tự học, phi lợi nhuận. Mã nguồn site:

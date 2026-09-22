@@ -93,6 +93,30 @@ CORRELATIONS VARIABLES=r_hours r_math.</pre>
  <a class="btn ghost" href="../../../data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 Notebook PISA (tương quan trường học)</a>
 </div>
 
+
+<h3>📜 Bối cảnh lý thuyết & lịch sử</h3>
+<p>Khái niệm "tương quan" ra đời từ một câu hỏi rất cụ thể: <b>Francis Galton</b> (anh em họ của Charles Darwin) năm 1888 nghiên cứu xem con cái có xu hướng cao/thấp giống cha mẹ đến mức nào. Ông gọi hiện tượng này là "co-relation". Điều thú vị Galton phát hiện: con của cha mẹ rất cao có xu hướng thấp hơn cha mẹ một chút (gần về trung bình quần thể hơn) — hiện tượng ông gọi là "hồi quy về trung bình" (regression toward the mean), đặt nền cho cả hai khái niệm tương quan LẪN hồi quy (Module 09) cùng lúc.</p>
+<p>Tám năm sau, năm 1896, nhà thống kê <b>Karl Pearson</b> — học trò của Galton — hình thức hoá ý tưởng "co-relation" thành công thức toán học chính xác mà bạn dùng trong SPSS hôm nay: hệ số tương quan tích-mô-men Pearson (Pearson product-moment correlation), chính là tên gọi "Pearson r". Năm 1904, nhà tâm lý học <b>Charles Spearman</b> phát triển phiên bản dùng cho dữ liệu xếp hạng (không cần giả định phân phối chuẩn) — trở thành Spearman's rho bạn học ở module này.</p>
+<div class="callout info">
+<b>Dòng thời gian liên quan tới module này</b>
+<ul style="margin:.5em 0 0">
+<li><b>1888</b> — Francis Galton nghiên cứu di truyền chiều cao, đặt tên hiện tượng "co-relation" và phát hiện "hồi quy về trung bình".</li>
+<li><b>1896</b> — Karl Pearson hình thức hoá công thức tương quan tích-mô-men — ra đời "Pearson r".</li>
+<li><b>1904</b> — Charles Spearman giới thiệu hệ số tương quan hạng (rank correlation) — "Spearman's rho".</li>
+<li><b>Nay</b> — Trang tylervigen.com/spurious-correlations (Tyler Vigen) sưu tầm hàng trăm cặp biến tương quan cao một cách hoàn toàn ngẫu nhiên, dùng rộng rãi trong giảng dạy để minh hoạ "tương quan ≠ nhân quả".</li>
+</ul>
+</div>
+
+<h3>🔎 Case study thực tế</h3>
+<div class="card accent-b">
+<h4>Case 1 — Dữ liệu chiều cao gốc của Galton</h4>
+<p>Galton đo chiều cao hàng trăm cặp cha mẹ - con cái. Ông vẽ biểu đồ phân tán (đúng loại biểu đồ bạn đã học ở Module 03 và dùng lại ở đây), nhận ra các điểm tạo thành một đám hình elip nghiêng — không phải một đường thẳng hoàn hảo, nhưng có xu hướng rõ. Từ hình dạng đám điểm đó, ông và sau này Pearson mới nghĩ ra cách TÓM TẮT xu hướng đó bằng MỘT con số duy nhất — chính là ý tưởng cốt lõi mà hệ số r vẫn làm tới ngày nay.</p>
+</div>
+<div class="card accent-b">
+<h4>Case 2 — "Tương quan giả": phim Nicolas Cage và người chết đuối</h4>
+<p>Dự án nổi tiếng "Spurious Correlations" của Tyler Vigen từng chỉ ra: số phim Nicolas Cage ra rạp mỗi năm tương quan RẤT cao (r trên 0,6, có năm gần 0,9) với số người chết đuối trong bể bơi ở Mỹ cùng năm đó — dù rõ ràng không có mối liên hệ nhân quả nào. Đây là minh hoạ cực đoan (và hài hước có chủ đích) cho đúng bài học "tương quan không phải nhân quả" (tr.768) mà module này nhấn mạnh: với đủ nhiều biến và đủ nhiều năm dữ liệu, tương quan cao xuất hiện ngẫu nhiên là chuyện bình thường về mặt thống kê (liên hệ tới bài học p-hacking ở Module 06/07 của khoá học gốc).</p>
+</div>
+
 <h2 id="quiz">6. Tự kiểm tra (30 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">Tài liệu tự học, phi lợi nhuận. Mã nguồn site:
