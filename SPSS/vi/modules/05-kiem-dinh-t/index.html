@@ -87,6 +87,26 @@
 <p>Đúng như Module 04 đã nhấn mạnh: ý nghĩa thống kê (p-value) chỉ nói "có phải do ngẫu nhiên", không nói "khác biệt lớn tới đâu". Với ví dụ Dự án vs Truyền thống ở trên: Cohen's d = 0,981 (mức trung bình-mạnh, gần chạm ngưỡng "lớn" 1,00). Kết hợp t=7,59 (rất có ý nghĩa) VÀ d=0,981 (hiệu ứng đáng kể) cho bức tranh đầy đủ nhất — nên báo cáo cả hai chỉ số, không chỉ một.</p>
 
 <h2 id="thuc-hanh">5. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. T-test mẫu độc lập (so gain giữa 2 phương pháp dạy):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test...</code></li>
+<li>Chọn <code>gain</code>, bấm mũi tên đưa vào ô <i>Test Variable(s)</i>.</li>
+<li>Chọn <code>method</code>, bấm mũi tên đưa vào ô <i>Grouping Variable</i> (ô sẽ hiện <code>method(? ?)</code>).</li>
+<li>Bấm nút <code>Define Groups...</code> → gõ <code>Dự án</code> vào ô Group 1, gõ <code>Truyền thống</code> vào ô Group 2 → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code>.</li>
+<li>Đọc kết quả: bảng "Independent Samples Test" có 2 hàng — trước tiên nhìn cột <i>Sig.</i> của <b>Levene's Test</b> (bên trái): nếu &lt;0,05 đọc hàng dưới ("Equal variances not assumed"), nếu ≥0,05 đọc hàng trên ("Equal variances assumed"). Từ đúng hàng đó, đọc cột <i>Sig. (2-tailed)</i> để có p-value.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. T-test mẫu bắt cặp (so pretest với posttest):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test...</code></li>
+<li>Ở khung trái, bấm chọn <code>pretest</code> RỒI bấm chọn <code>posttest</code> (giữ Ctrl để chọn cả 2 cùng lúc) → bấm mũi tên đưa cả cặp vào bảng <i>Paired Variables</i> (sẽ hiện thành 1 dòng "Variable 1 = pretest, Variable 2 = posttest").</li>
+<li>Bấm <code>OK</code>.</li>
+<li>Đọc bảng "Paired Samples Test": cột <i>Sig. (2-tailed)</i> ở dòng "Pair 1" chính là p-value; bảng "Paired Samples Statistics" phía trên cho Mean/SD của từng biến.</li>
+</ol>
+<div class="callout warn" style="margin-top:10px"><b>Mẹo:</b> nếu muốn chỉ chạy t-test trên 1 phân nhóm (vd chỉ học sinh Nam), làm TRƯỚC bước 1: <code>Data</code> → <code>Select Cases...</code> → chọn <i>If condition is satisfied</i> → bấm <code>If...</code> → gõ điều kiện (vd <code>gender = 'Nam'</code>) → <code>Continue</code> → <code>OK</code>, rồi mới làm theo các bước A/B ở trên.</div>
+</div>
 <div class="callout"><b>T-test độc lập (Box 41.1, tr.780):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test</code> → đưa biến phụ thuộc vào <i>Test variable</i>, biến nhóm vào <i>Grouping variable</i> → bấm <i>Define Groups</i> nhập mã 2 nhóm.<br/>
 <b>T-test bắt cặp (Box 41.2, tr.780):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test</code> → đưa 2 biến vào <i>Variable 1</i> và <i>Variable 2</i>. Muốn giới hạn vào 1 phân nhóm (vd chỉ nam)? Dùng <code>Data</code> → <code>Select Cases</code> TRƯỚC khi chạy.</div>
 <pre>T-TEST GROUPS=method('Du an','Truyen thong') /VARIABLES=gain.

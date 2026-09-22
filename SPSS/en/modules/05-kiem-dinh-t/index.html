@@ -87,6 +87,26 @@
 <p>As Module 04 emphasised: statistical significance (the p-value) only tells you "is this due to chance", not "how big is the difference". For the Project vs Traditional example above: Cohen's d = 0.981 (moderate-to-large, close to the "large" 1.00 threshold). Combining t=7.59 (highly significant) AND d=0.981 (a substantial effect) gives the fullest picture — both metrics should be reported, not just one.</p>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Independent-samples t-test (comparing gain between the two teaching methods):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test...</code></li>
+<li>Select <code>gain</code>, click the arrow to send it to the <i>Test Variable(s)</i> box.</li>
+<li>Select <code>method</code>, click the arrow to send it to the <i>Grouping Variable</i> box (it will show as <code>method(? ?)</code>).</li>
+<li>Click <code>Define Groups...</code> → type <code>Dự án</code> in the Group 1 box, type <code>Truyền thống</code> in the Group 2 box → <code>Continue</code>.</li>
+<li>Click <code>OK</code>.</li>
+<li>Reading the result: the "Independent Samples Test" table has 2 rows — first check the <i>Sig.</i> column of <b>Levene's Test</b> (on the left): if &lt;0.05 read the bottom row ("Equal variances not assumed"), if ≥0.05 read the top row ("Equal variances assumed"). From that correct row, read the <i>Sig. (2-tailed)</i> column for the p-value.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Paired-samples t-test (comparing pretest with posttest):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test...</code></li>
+<li>In the left-hand list, click <code>pretest</code> THEN click <code>posttest</code> (hold Ctrl to select both at once) → click the arrow to send the pair into the <i>Paired Variables</i> table (it will appear as one row "Variable 1 = pretest, Variable 2 = posttest").</li>
+<li>Click <code>OK</code>.</li>
+<li>Read the "Paired Samples Test" table: the <i>Sig. (2-tailed)</i> column on the "Pair 1" row is the p-value; the "Paired Samples Statistics" table above gives the Mean/SD of each variable.</li>
+</ol>
+<div class="callout warn" style="margin-top:10px"><b>Tip:</b> to run the t-test on only one subgroup (e.g. male students only), do this FIRST, before step 1: <code>Data</code> → <code>Select Cases...</code> → choose <i>If condition is satisfied</i> → click <code>If...</code> → type the condition (e.g. <code>gender = 'Nam'</code>) → <code>Continue</code> → <code>OK</code>, then follow steps A/B above.</div>
+</div>
 <div class="callout"><b>Independent t-test (Box 41.1, p.780):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test</code> → send the dependent variable to <i>Test variable</i>, the grouping variable to <i>Grouping variable</i> → click <i>Define Groups</i> to enter the two group codes.<br/>
 <b>Paired t-test (Box 41.2, p.780):</b> <code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test</code> → send the two variables to <i>Variable 1</i> and <i>Variable 2</i>. To restrict to one subgroup (e.g. males only)? Use <code>Data</code> → <code>Select Cases</code> BEFORE running.</div>
 <pre>T-TEST GROUPS=method('Du an','Truyen thong') /VARIABLES=gain.

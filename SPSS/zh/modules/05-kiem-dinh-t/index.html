@@ -87,6 +87,26 @@
 <p>正如第4单元所强调的：统计显著性（p值）只能说明"是否可能由偶然造成"，而不能说明"差异有多大"。以上文项目式vs传统式的例子为例：Cohen's d = 0.981（中到大，接近"大"效应的1.00阈值）。将t=7.59（高度显著）与d=0.981（实质性效应）结合起来，才能获得最完整的图景——两个指标都应报告，而不是只报告其中之一。</p>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
+<p style="margin:.6em 0 .3em"><b>A. 独立样本t检验（比较两种教学方法的gain）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test...</code></li>
+<li>选择<code>gain</code>，点击箭头送入<i>Test Variable(s)</i>框。</li>
+<li>选择<code>method</code>，点击箭头送入<i>Grouping Variable</i>框（会显示为<code>method(? ?)</code>）。</li>
+<li>点击<code>Define Groups...</code> → 在Group 1框中输入<code>Dự án</code>，在Group 2框中输入<code>Truyền thống</code> → <code>Continue</code>。</li>
+<li>点击<code>OK</code>。</li>
+<li>阅读结果："Independent Samples Test"表有两行——首先查看左侧<b>Levene's Test</b>的<i>Sig.</i>列：若&lt;0.05则阅读下方行（"Equal variances not assumed"），若≥0.05则阅读上方行（"Equal variances assumed"）。从正确的那一行中阅读<i>Sig. (2-tailed)</i>列即为p值。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. 配对样本t检验（比较课前测与课后测）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test...</code></li>
+<li>在左侧列表中点击<code>pretest</code>，再按住Ctrl点击<code>posttest</code>（同时选中两者）→ 点击箭头将该配对送入<i>Paired Variables</i>表（会显示为一行"Variable 1 = pretest, Variable 2 = posttest"）。</li>
+<li>点击<code>OK</code>。</li>
+<li>阅读"Paired Samples Test"表："Pair 1"行的<i>Sig. (2-tailed)</i>列即为p值；上方的"Paired Samples Statistics"表给出各变量的Mean/SD。</li>
+</ol>
+<div class="callout warn" style="margin-top:10px"><b>小提示：</b>若只想对某个子组运行t检验（如仅男生），需在步骤1之前先执行：<code>Data</code> → <code>Select Cases...</code> → 选择<i>If condition is satisfied</i> → 点击<code>If...</code> → 输入条件（如<code>gender = 'Nam'</code>）→ <code>Continue</code> → <code>OK</code>，然后再按上述A/B步骤操作。</div>
+</div>
 <div class="callout"><b>独立t检验（Box 41.1，第780页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>Independent-Samples T Test</code> → 将因变量送入<i>Test variable</i>，分组变量送入<i>Grouping variable</i> → 点击<i>Define Groups</i>输入两组代码。<br/>
 <b>配对t检验（Box 41.2，第780页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>Paired-Samples T Test</code> → 将两个变量分别送入<i>Variable 1</i>和<i>Variable 2</i>。想限定于某个子组（如仅男生）？运行前先用<code>Data</code> → <code>Select Cases</code>。</div>
 <pre>T-TEST GROUPS=method('Du an','Truyen thong') /VARIABLES=gain.
