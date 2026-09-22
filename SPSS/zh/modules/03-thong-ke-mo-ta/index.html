@@ -96,6 +96,33 @@
 <p>总结规则（第765页）：<b>全部四种量表</b>都能计算频数／百分比／众数／交叉表。<b>定序及以上</b>才能计算中位数。<b>只有定距和定比数据</b>（在SPSS中合并为"Scale"）才能计算平均数和标准差。单侧偏态：长尾偏向正方向称为正偏态，偏向负方向称为负偏态。</p>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP 实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作（请按顺序进行）：</b>
+<p style="margin:.6em 0 .3em"><b>A. 数学成绩的描述统计（Frequencies）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>打开数据文件：<code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li>进入菜单<code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>对话框出现后：在左侧列表中点选变量<code>math</code>，然后点击中间的<b>▶</b>箭头，将其送入右侧的<i>Variable(s)</i>框。</li>
+<li>点击对话框底部的<code>Statistics...</code>按钮。</li>
+<li>新窗口中勾选<i>Mean</i>、<i>Median</i>、<i>Std. deviation</i>、<i>Minimum</i>、<i>Maximum</i>、<i>Skewness</i> → 点击<code>Continue</code>返回。</li>
+<li>点击主对话框中的<code>OK</code>。</li>
+<li>结果出现在<i>Output Viewer</i>窗口中：找到"Statistics"表，阅读<code>math</code>列对应的Mean/Median/Std. Deviation行。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. 数学成绩按学校分组的箱线图（Explore）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>将<code>math</code>送入<i>Dependent List</i>框（先选中变量，再点击该框旁边的箭头）。</li>
+<li>将<code>school</code>送入<i>Factor List</i>框。</li>
+<li>点击<code>Plots...</code>，在"Boxplots"部分选择<i>Factor levels together</i> → <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 箱线图出现在Output Viewer中，可直观比较3所学校的箱体。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. 性别×教学方法交叉表（Crosstabs）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>将<code>gender</code>送入<i>Row(s)</i>框，将<code>method</code>送入<i>Column(s)</i>框。</li>
+<li>点击<code>Cells...</code>，在"Percentages"部分勾选<i>Row</i> → <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 在Output中阅读频数＋行百分比表。</li>
+</ol>
+</div>
 <div class="callout">
 <b>SPSS操作步骤（Box 40.2，第765页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → 将变量送入 <i>Variables</i> 框 → 点击 <i>Statistics</i> 按钮：勾选集中趋势（平均数/众数/中位数）+ 离散程度（标准差/方差/全距/最小值/最大值/标准误）+ 分布形态（偏度/峰度）→ <i>Continue</i> → 点击 <i>Charts</i> 按钮：选择图表类型 → <i>OK</i>。
 </div>

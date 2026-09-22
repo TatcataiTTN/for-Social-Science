@@ -96,6 +96,33 @@
 <p>Summary rule (p.765): <b>all four scales</b> support frequencies/percentages/mode/crosstabs. <b>Ordinal and above</b> supports the median. <b>Only interval and ratio</b> data (merged as "Scale" in SPSS) support the mean and standard deviation. One-sided skew: a long tail toward the positive end is a positive skew, a long tail toward the negative end is a negative skew.</p>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS (follow this exact order):</b>
+<p style="margin:.6em 0 .3em"><b>A. Descriptive statistics for maths score (Frequencies):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Open the data file: <code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li>Go to <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>In the dialog: click to select <code>math</code> in the left-hand list, then click the <b>▶</b> arrow in the middle to send it to the <i>Variable(s)</i> box on the right.</li>
+<li>Click the <code>Statistics...</code> button at the bottom of the dialog.</li>
+<li>In the new window: check <i>Mean</i>, <i>Median</i>, <i>Std. deviation</i>, <i>Minimum</i>, <i>Maximum</i>, <i>Skewness</i> → click <code>Continue</code>.</li>
+<li>Click <code>OK</code> in the main dialog.</li>
+<li>Results appear in the <i>Output Viewer</i>: find the "Statistics" table and read the Mean/Median/Std. Deviation rows for the <code>math</code> column.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Boxplot of maths score by school (Explore):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>Send <code>math</code> to the <i>Dependent List</i> box (select the variable, then click the arrow next to that box).</li>
+<li>Send <code>school</code> to the <i>Factor List</i> box.</li>
+<li>Click <code>Plots...</code>, under "Boxplots" select <i>Factor levels together</i> → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → the boxplot appears in the Output Viewer, comparing the 3 school boxes visually.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Crosstabulation of gender × teaching method (Crosstabs):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>Send <code>gender</code> to the <i>Row(s)</i> box, send <code>method</code> to the <i>Column(s)</i> box.</li>
+<li>Click <code>Cells...</code>, under "Percentages" check <i>Row</i> → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → read the frequency + row-percentage table in the Output.</li>
+</ol>
+</div>
 <div class="callout">
 <b>SPSS sequence (Box 40.2, p.765):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → send variables to the <i>Variables</i> box → <i>Statistics</i> button: check central tendency (mean/mode/median) + dispersal (SD/variance/range/min/max/SE) + distribution shape (skewness/kurtosis) → <i>Continue</i> → <i>Charts</i> button: pick a chart type → <i>OK</i>.
 </div>

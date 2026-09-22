@@ -96,6 +96,33 @@
 <p>Quy tắc tổng hợp (tr.765): với <b>cả 4 thang đo</b> đều tính được tần số/%/mode/bảng chéo. <b>Từ thứ bậc trở lên</b> mới tính được trung vị. <b>Chỉ khoảng &amp; tỉ lệ</b> (gộp thành "Scale" trong SPSS) mới tính được trung bình &amp; độ lệch chuẩn. Dữ liệu lệch (skewed) một chiều — đuôi dài về phía dương gọi là lệch dương (positive skew), đuôi dài về phía âm là lệch âm (negative skew).</p>
 
 <h2 id="thuc-hanh">5. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS (làm theo đúng thứ tự):</b>
+<p style="margin:.6em 0 .3em"><b>A. Thống kê mô tả cho điểm Toán (Frequencies):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Mở file dữ liệu: <code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li>Vào menu <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>Hộp thoại hiện ra: ở khung bên trái bấm chọn biến <code>math</code>, rồi bấm mũi tên <b>▶</b> ở giữa để đưa nó sang khung <i>Variable(s)</i> bên phải.</li>
+<li>Bấm nút <code>Statistics...</code> ở góc dưới hộp thoại.</li>
+<li>Cửa sổ mới hiện ra: tích vào các ô <i>Mean</i>, <i>Median</i>, <i>Std. deviation</i>, <i>Minimum</i>, <i>Maximum</i>, <i>Skewness</i> → bấm <code>Continue</code> để quay lại.</li>
+<li>Bấm <code>OK</code> ở hộp thoại chính.</li>
+<li>Kết quả hiện ra trong cửa sổ <i>Output Viewer</i>: tìm bảng "Statistics", đọc các hàng Mean/Median/Std. Deviation tương ứng với cột <code>math</code>.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Boxplot điểm Toán theo trường (Explore):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>Đưa biến <code>math</code> vào ô <i>Dependent List</i> (bấm chọn biến rồi bấm mũi tên cạnh ô đó).</li>
+<li>Đưa biến <code>school</code> vào ô <i>Factor List</i>.</li>
+<li>Bấm nút <code>Plots...</code>, ở mục "Boxplots" chọn <i>Factor levels together</i> → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → biểu đồ boxplot xuất hiện trong Output Viewer, so sánh trực quan 3 hộp theo từng trường.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Bảng chéo giới tính × phương pháp dạy (Crosstabs):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>Đưa <code>gender</code> vào ô <i>Row(s)</i>, đưa <code>method</code> vào ô <i>Column(s)</i>.</li>
+<li>Bấm nút <code>Cells...</code>, ở mục "Percentages" tích <i>Row</i> → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → đọc bảng tần số + phần trăm theo hàng trong Output.</li>
+</ol>
+</div>
 <div class="callout">
 <b>Trình tự SPSS (Box 40.2, tr.765):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → đưa biến vào ô <i>Variables</i> → nút <i>Statistics</i>: chọn đo trung tâm (mean/mode/median) + đo phân tán (SD/variance/range/min/max/SE) + đo hình dạng (skewness/kurtosis) → <i>Continue</i> → nút <i>Charts</i>: chọn loại biểu đồ → <i>OK</i>.
 </div>
