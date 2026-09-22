@@ -119,6 +119,23 @@ This is a live demonstration: <b>statistical significance and effect size are tw
 <p>Four parameters determine power: (1) effect size, (2) sample size, (3) α level, (4) desired β level (p.751). The book's rough estimates (α=0.05, power=0.80): a two-tailed difference test seeking d=0.5 needs ~130 people; a two-tailed correlation test seeking r=0.5 needs only ~30.</p>
 
 <h2 id="thuc-hanh">8. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Computing skewness/kurtosis (Frequencies):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>Select <code>study_hours</code> and <code>pretest</code> in the left-hand list, click the <b>▶</b> arrow to send both to the <i>Variable(s)</i> box.</li>
+<li>Click <code>Statistics...</code> → check <i>Skewness</i> and <i>Kurtosis</i> (under "Distribution") → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → read the "Statistics" table in the Output, noting the Skewness/Std. Error of Skewness rows.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Testing for normal distribution (Explore + Shapiro-Wilk):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>Send <code>study_hours</code> and <code>pretest</code> to the <i>Dependent List</i> box.</li>
+<li>Click <code>Plots...</code> → check <i>Normality plots with tests</i> (this automatically runs both Shapiro-Wilk and Kolmogorov-Smirnov) → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → find the "Tests of Normality" table in the Output, read the Sig. column on the Shapiro-Wilk row (if Sig.&lt;0.05 → the normal-distribution hypothesis is not supported).</li>
+</ol>
+</div>
 <div class="callout"><b>Computing skewness/kurtosis (Box 38.1, p.736):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → <code>Statistics</code> button → check <i>Skewness</i>, <i>Kurtosis</i>.<br/>
 <b>Normality testing (Box 38.2, p.736):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore</code> → <code>Plots</code> button → check <i>Normality plots with tests</i> (Shapiro-Wilk, Kolmogorov-Smirnov).</div>
 <pre>FREQUENCIES VARIABLES=study_hours pretest /STATISTICS=SKEWNESS KURTOSIS.

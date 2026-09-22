@@ -119,6 +119,23 @@
 <p>四个参数决定检验力：(1)效应量，(2)样本量，(3)α水平，(4)期望的β水平（第751页）。书中的粗略估计（α=0.05，power=0.80）：双尾差异检验若要探测d=0.5需要约130人；双尾相关检验若要探测r=0.5只需约30人。</p>
 
 <h2 id="thuc-hanh">8. SPSS/PSPP 实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
+<p style="margin:.6em 0 .3em"><b>A. 计算偏度／峰度（Frequencies）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>在左侧列表中选择<code>study_hours</code>和<code>pretest</code>，点击<b>▶</b>箭头将两者送入<i>Variable(s)</i>框。</li>
+<li>点击<code>Statistics...</code> → 在"Distribution"部分勾选<i>Skewness</i>和<i>Kurtosis</i> → <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 在Output中阅读"Statistics"表，注意Skewness/Std. Error of Skewness行。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. 正态分布检验（Explore + Shapiro-Wilk）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>将<code>study_hours</code>和<code>pretest</code>送入<i>Dependent List</i>框。</li>
+<li>点击<code>Plots...</code> → 勾选<i>Normality plots with tests</i>（会自动同时运行Shapiro-Wilk和Kolmogorov-Smirnov）→ <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 在Output中找到"Tests of Normality"表，阅读Shapiro-Wilk行的Sig.列（若Sig.&lt;0.05 → 不支持正态分布假设）。</li>
+</ol>
+</div>
 <div class="callout"><b>计算偏度／峰度（Box 38.1，第736页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → 点击<code>Statistics</code>按钮 → 勾选<i>Skewness</i>、<i>Kurtosis</i>。<br/>
 <b>正态性检验（Box 38.2，第736页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore</code> → 点击<code>Plots</code>按钮 → 勾选<i>Normality plots with tests</i>（Shapiro-Wilk、Kolmogorov-Smirnov）。</div>
 <pre>FREQUENCIES VARIABLES=study_hours pretest /STATISTICS=SKEWNESS KURTOSIS.

@@ -119,6 +119,23 @@
 <p>Bốn tham số quyết định power: (1) cỡ hiệu ứng, (2) cỡ mẫu, (3) mức α, (4) mức β mong muốn (tr.751). Ước tính thô của sách (α=0,05, power=0,80): kiểm định khác biệt 2 đuôi tìm d=0,5 cần ~130 người; kiểm định tương quan 2 đuôi tìm r=0,5 chỉ cần ~30 người.</p>
 
 <h2 id="thuc-hanh">8. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Tính skewness/kurtosis (Frequencies):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies...</code></li>
+<li>Chọn <code>study_hours</code> và <code>pretest</code> ở khung trái, bấm mũi tên <b>▶</b> đưa cả 2 sang khung <i>Variable(s)</i>.</li>
+<li>Bấm nút <code>Statistics...</code> → tích <i>Skewness</i> và <i>Kurtosis</i> (ở mục "Distribution") → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → đọc bảng "Statistics" trong Output, chú ý hàng Skewness/Std. Error of Skewness.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Kiểm định phân phối chuẩn (Explore + Shapiro-Wilk):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>Đưa <code>study_hours</code> và <code>pretest</code> vào ô <i>Dependent List</i>.</li>
+<li>Bấm nút <code>Plots...</code> → tích <i>Normality plots with tests</i> (mục này tự động chạy cả Shapiro-Wilk lẫn Kolmogorov-Smirnov) → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → tìm bảng "Tests of Normality" trong Output, đọc cột Sig. ở hàng Shapiro-Wilk (nếu Sig.&lt;0,05 → không ủng hộ giả thuyết phân phối chuẩn).</li>
+</ol>
+</div>
 <div class="callout"><b>Tính skewness/kurtosis (Box 38.1, tr.736):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → nút <code>Statistics</code> → tích <i>Skewness</i>, <i>Kurtosis</i>.<br/>
 <b>Kiểm định normality (Box 38.2, tr.736):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore</code> → nút <code>Plots</code> → tích <i>Normality plots with tests</i> (Shapiro-Wilk, Kolmogorov-Smirnov).</div>
 <pre>FREQUENCIES VARIABLES=study_hours pretest /STATISTICS=SKEWNESS KURTOSIS.
