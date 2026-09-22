@@ -93,6 +93,47 @@ Both are valid 'not found' examples — unlike the book's highly significant exa
 <div class="callout warn"><b>A key commonality among the 4 non-parametric tests:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman all give ONLY statistical significance, NOT effect size — unlike t-test/ANOVA (Cohen's d, eta²). Friedman does have Kendall's W, but it's typically used to measure rater agreement rather than effect size between variables (p.799).</div>
 
 <h2 id="thuc-hanh">7. SPSS/PSPP practice</h2>
+<div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Chi-square crosstabulation (gender × teaching method):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → select <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>Send <code>gender</code> to the <i>Row(s)</i> box, send <code>method</code> to the <i>Column(s)</i> box.</li>
+<li>Click <code>Statistics...</code> → check <i>Chi-square</i> and <i>Phi and Cramer's V</i> → <code>Continue</code>.</li>
+<li>Click <code>Cells...</code> → under "Percentages" check <i>Total</i> (to see the % of cells with expected count &lt;5) → <code>Continue</code>.</li>
+<li>Click <code>OK</code> → read the "Chi-Square Tests" table, the "Pearson Chi-Square" row, Sig. (2-sided) column.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Mann-Whitney U (h1 rating by gender):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples...</code></li>
+<li>Send <code>h1</code> to the <i>Test Variable List</i> box.</li>
+<li>Send <code>gender</code> to the <i>Grouping Variable</i> box, click <code>Define Groups...</code> → type <code>Nam</code> for Group 1, <code>Nữ</code> for Group 2 → <code>Continue</code>.</li>
+<li>Make sure the <i>Mann-Whitney U</i> box is checked (default) → click <code>OK</code>.</li>
+<li>Read the "Test Statistics" table, the "Asymp. Sig. (2-tailed)" row — this is the p-value.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Wilcoxon (comparing rating items a1 vs a2, same group):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Related Samples...</code></li>
+<li>In the left-hand list, click <code>a1</code> then click <code>a2</code>, click the arrow to send the pair into the <i>Test Pair(s) List</i>.</li>
+<li>Make sure the <i>Wilcoxon</i> box is checked (default) → click <code>OK</code>.</li>
+<li>Read the "Test Statistics" table, the "Asymp. Sig. (2-tailed)" row.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>D. Kruskal-Wallis (h1 rating by 3 schools):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Independent Samples...</code></li>
+<li>Send <code>h1</code> to the <i>Test Variable List</i> box, send <code>school</code> to the <i>Grouping Variable</i> box.</li>
+<li>Click <code>Define Range...</code> → type the smallest school code in <i>Minimum</i>, the largest in <i>Maximum</i> (if schools are coded A/B/C, first recode them to 1/2/3 via <code>Transform</code> → <code>Recode into Different Variables</code>) → <code>Continue</code>.</li>
+<li>Make sure the <i>Kruskal-Wallis H</i> box is checked → click <code>OK</code>.</li>
+<li>Read the "Test Statistics" table, the "Asymp. Sig." row.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>E. Friedman (3 rating items a1, a2, a3, same group):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Related Samples...</code></li>
+<li>Select <code>a1</code>, <code>a2</code>, <code>a3</code> in turn, then click the arrow to send all 3 into the <i>Test Variables</i> box.</li>
+<li>Make sure <i>Friedman</i> is checked (default); optionally also check <i>Kendall's W</i> for an agreement effect size → click <code>OK</code>.</li>
+<li>Read the "Test Statistics" table, the "Asymp. Sig." row.</li>
+</ol>
+</div>
 <div class="callout"><b>Chi-square crosstabulation (Box 41.8):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs</code> → Rows/Columns → <i>Statistics</i> button → check <i>Chi-square</i>, <i>Phi and Cramer's V</i>.<br/>
 <b>Mann-Whitney (Box 41.10):</b> <code>Analyze</code> → <code>Nonparametric statistics</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples</code>.<br/>
 <b>Wilcoxon (Box 41.11):</b> ...→ <code>2 Related Samples</code>.<br/>

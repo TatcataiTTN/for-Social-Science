@@ -93,6 +93,47 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <div class="callout warn"><b>Điểm chung của 4 kiểm định phi tham số:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman đều CHỈ cho biết ý nghĩa thống kê, KHÔNG cho cỡ hiệu ứng — khác với t-test/ANOVA (Cohen's d, eta²). Riêng Friedman có thêm Kendall's W, nhưng thường dùng để đo mức đồng thuận giữa người xếp hạng hơn là cỡ hiệu ứng giữa các biến (tr.799).</div>
 
 <h2 id="thuc-hanh">7. Thực hành SPSS/PSPP</h2>
+<div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>
+<p style="margin:.6em 0 .3em"><b>A. Chi-square bảng chéo (giới tính × phương pháp dạy):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → chọn <code>lop_hoc_240.sav</code> → <code>Open</code>.</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>Đưa <code>gender</code> vào ô <i>Row(s)</i>, đưa <code>method</code> vào ô <i>Column(s)</i>.</li>
+<li>Bấm nút <code>Statistics...</code> → tích <i>Chi-square</i> và <i>Phi and Cramer's V</i> → <code>Continue</code>.</li>
+<li>Bấm nút <code>Cells...</code> → mục "Percentages" tích <i>Total</i> (để tính % tần số kỳ vọng &lt;5) → <code>Continue</code>.</li>
+<li>Bấm <code>OK</code> → đọc bảng "Chi-Square Tests", hàng "Pearson Chi-Square", cột Sig. (2-sided).</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Mann-Whitney U (đánh giá h1 theo giới tính):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples...</code></li>
+<li>Đưa <code>h1</code> vào ô <i>Test Variable List</i>.</li>
+<li>Đưa <code>gender</code> vào ô <i>Grouping Variable</i>, bấm <code>Define Groups...</code> → gõ <code>Nam</code> vào Group 1, <code>Nữ</code> vào Group 2 → <code>Continue</code>.</li>
+<li>Đảm bảo ô <i>Mann-Whitney U</i> đã được tích sẵn (mặc định) → bấm <code>OK</code>.</li>
+<li>Đọc bảng "Test Statistics", hàng "Asymp. Sig. (2-tailed)" — đây là p-value.</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Wilcoxon (so 2 mục đánh giá a1 vs a2, cùng nhóm):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Related Samples...</code></li>
+<li>Ở khung trái, chọn <code>a1</code> rồi chọn <code>a2</code>, bấm mũi tên đưa cả cặp vào bảng <i>Test Pair(s) List</i>.</li>
+<li>Đảm bảo ô <i>Wilcoxon</i> đã tích sẵn (mặc định) → bấm <code>OK</code>.</li>
+<li>Đọc bảng "Test Statistics", hàng "Asymp. Sig. (2-tailed)".</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>D. Kruskal-Wallis (đánh giá h1 theo 3 trường):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Independent Samples...</code></li>
+<li>Đưa <code>h1</code> vào ô <i>Test Variable List</i>, đưa <code>school</code> vào ô <i>Grouping Variable</i>.</li>
+<li>Bấm <code>Define Range...</code> → gõ mã trường nhỏ nhất vào <i>Minimum</i>, mã lớn nhất vào <i>Maximum</i> (nếu trường là chữ A/B/C, cần mã hoá lại thành số 1/2/3 trước — <code>Transform</code> → <code>Recode into Different Variables</code>) → <code>Continue</code>.</li>
+<li>Đảm bảo ô <i>Kruskal-Wallis H</i> đã tích sẵn → bấm <code>OK</code>.</li>
+<li>Đọc bảng "Test Statistics", hàng "Asymp. Sig.".</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>E. Friedman (3 mục đánh giá a1, a2, a3, cùng nhóm):</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Related Samples...</code></li>
+<li>Chọn lần lượt <code>a1</code>, <code>a2</code>, <code>a3</code> rồi bấm mũi tên đưa cả 3 vào ô <i>Test Variables</i>.</li>
+<li>Đảm bảo ô <i>Friedman</i> đã tích sẵn (mặc định); có thể tích thêm <i>Kendall's W</i> nếu muốn cỡ hiệu ứng đồng thuận → bấm <code>OK</code>.</li>
+<li>Đọc bảng "Test Statistics", hàng "Asymp. Sig.".</li>
+</ol>
+</div>
 <div class="callout"><b>Chi-square bảng chéo (Box 41.8):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs</code> → Rows/Columns → nút <i>Statistics</i> → tích <i>Chi-square</i>, <i>Phi and Cramer's V</i>.<br/>
 <b>Mann-Whitney (Box 41.10):</b> <code>Analyze</code> → <code>Nonparametric statistics</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples</code>.<br/>
 <b>Wilcoxon (Box 41.11):</b> ...→ <code>2 Related Samples</code>.<br/>

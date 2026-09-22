@@ -93,6 +93,47 @@
 <div class="callout warn"><b>4种非参数检验的一个重要共同点：</b>Mann-Whitney、Wilcoxon、Kruskal-Wallis、Friedman都只能给出统计显著性，不能给出效应量——这与能给出Cohen's d、eta²的t检验/ANOVA不同。Friedman虽然有Kendall's W，但通常用于衡量评分者一致性，而非变量之间的效应量（第799页）。</div>
 
 <h2 id="thuc-hanh">7. SPSS/PSPP实践</h2>
+<div class="callout good"><b>🖱️ SPSS逐步点击操作：</b>
+<p style="margin:.6em 0 .3em"><b>A. 卡方列联表（性别×教学方法）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code> → <code>Open</code>。</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs...</code></li>
+<li>将<code>gender</code>送入<i>Row(s)</i>框，将<code>method</code>送入<i>Column(s)</i>框。</li>
+<li>点击<code>Statistics...</code> → 勾选<i>Chi-square</i>和<i>Phi and Cramer's V</i> → <code>Continue</code>。</li>
+<li>点击<code>Cells...</code> → 在"Percentages"部分勾选<i>Total</i>（用于查看期望频数&lt;5的单元格百分比）→ <code>Continue</code>。</li>
+<li>点击<code>OK</code> → 阅读"Chi-Square Tests"表，"Pearson Chi-Square"行，Sig. (2-sided)列。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>B. Mann-Whitney U（h1评分按性别）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples...</code></li>
+<li>将<code>h1</code>送入<i>Test Variable List</i>框。</li>
+<li>将<code>gender</code>送入<i>Grouping Variable</i>框，点击<code>Define Groups...</code> → Group 1输入<code>Nam</code>，Group 2输入<code>Nữ</code> → <code>Continue</code>。</li>
+<li>确认<i>Mann-Whitney U</i>已勾选（默认）→ 点击<code>OK</code>。</li>
+<li>阅读"Test Statistics"表的"Asymp. Sig. (2-tailed)"行——即p值。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>C. Wilcoxon（比较评分项目a1与a2，同一组）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>2 Related Samples...</code></li>
+<li>在左侧列表中点击<code>a1</code>，再点击<code>a2</code>，点击箭头将该配对送入<i>Test Pair(s) List</i>。</li>
+<li>确认<i>Wilcoxon</i>已勾选（默认）→ 点击<code>OK</code>。</li>
+<li>阅读"Test Statistics"表的"Asymp. Sig. (2-tailed)"行。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>D. Kruskal-Wallis（h1评分按3所学校）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Independent Samples...</code></li>
+<li>将<code>h1</code>送入<i>Test Variable List</i>框，将<code>school</code>送入<i>Grouping Variable</i>框。</li>
+<li>点击<code>Define Range...</code> → 在<i>Minimum</i>中输入最小学校代码，在<i>Maximum</i>中输入最大代码（若学校编码为A/B/C，需先通过<code>Transform</code> → <code>Recode into Different Variables</code>重新编码为1/2/3）→ <code>Continue</code>。</li>
+<li>确认<i>Kruskal-Wallis H</i>已勾选 → 点击<code>OK</code>。</li>
+<li>阅读"Test Statistics"表的"Asymp. Sig."行。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>E. Friedman（3个评分项目a1、a2、a3，同一组）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Nonparametric Tests</code> → <code>Legacy Dialogs</code> → <code>K Related Samples...</code></li>
+<li>依次选择<code>a1</code>、<code>a2</code>、<code>a3</code>，点击箭头将三者都送入<i>Test Variables</i>框。</li>
+<li>确认<i>Friedman</i>已勾选（默认）；如需一致性效应量可额外勾选<i>Kendall's W</i> → 点击<code>OK</code>。</li>
+<li>阅读"Test Statistics"表的"Asymp. Sig."行。</li>
+</ol>
+</div>
 <div class="callout"><b>卡方列联表（Box 41.8）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Crosstabs</code> → Rows/Columns → <i>Statistics</i>按钮 → 勾选<i>Chi-square</i>、<i>Phi and Cramer's V</i>。<br/>
 <b>Mann-Whitney（Box 41.10）：</b><code>Analyze</code> → <code>Nonparametric statistics</code> → <code>Legacy Dialogs</code> → <code>2 Independent Samples</code>。<br/>
 <b>Wilcoxon（Box 41.11）：</b>...→<code>2 Related Samples</code>。<br/>
