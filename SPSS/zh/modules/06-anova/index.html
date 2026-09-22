@@ -1,0 +1,130 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>06·单因素／双因素方差分析与事后检验</title>
+<meta name="description" content="One-way and two-way ANOVA, Tukey post-hoc, MANOVA — Cohen et al. 2018 ch.41.3"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 06·方差分析</nav>
+<div class="langsw"><a href="../../../../SPSS/vi/modules/06-anova/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/06-anova/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/06-anova/index.html" class="active">中文</a></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>06·单因素／双因素方差分析与事后检验</h1>
+<p class="lead">第6单元／共12单元 · 内容依据Cohen, Manion &amp; Morrison所著《Research Methods in Education》第8版（Routledge，2018年）第41章第41.3节"Analysis of Variance"（第781–787页）。</p>
+<div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第6单元 · COHEN ET AL., CH.41.3</div>
+       <h2>方差分析（ANOVA）</h2>
+       <p>比较3组以上的平均数：F比率、Tukey事后检验、双因素ANOVA与交互效应。</p>
+       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide"><div class="kicker">1 · 为什么需要ANOVA</div><h2>t检验只能比较2组——那3组以上呢？</h2>
+       <p>ANOVA扩展了t检验：在相同4项安全检查下，同时比较3组以上的平均数。</p>
+       <p class="cap">例如：4种学校类型（乡村／城市 × 小学／中学）的考试成绩。</p></div><div class="mdeck-slide"><div class="kicker">F比率</div><h2>组间变异 vs 组内变异</h2>
+       <p class="big">F = 组间方差 / 组内方差</p>
+       <p class="cap">F值越大→组间差异远超每组内部的随机噪声。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>3所学校的数学成绩：F(2,237)=5.87，p=0.003</h2>
+       <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/></div><div class="mdeck-slide"><div class="kicker">关键点</div><h2 class="warn">ANOVA只说"存在差异"——不说"在哪里"</h2>
+       <p>显著的F值只能说明：各组之间某处存在差异。</p>
+       <p class="warn">需要事后检验才能准确定位是哪一对存在差异！</p></div><div class="mdeck-slide"><div class="kicker">2 · Tukey事后检验</div><h2>Tukey vs Games-Howell</h2>
+       <table><tr><th>检验</th><th>条件</th></tr>
+       <tr><td>Tukey HSD</td><td>方差齐性＋各子组样本量大致相等</td></tr>
+       <tr><td>Games-Howell</td><td>用于方差不齐的情况</td></tr></table></div><div class="mdeck-slide"><div class="kicker">真实Tukey结果</div><h2>A学校单独分离，B和C归为一组</h2>
+       <p>A-B：p=0.046（显著）。A-C：p=0.0031（显著）。B-C：p=0.427（不显著）。</p>
+       <p class="cap">→ 两个同质子集：{A}和{B, C}。</p></div><div class="mdeck-slide"><div class="kicker">3 · 双因素ANOVA</div><h2>两个自变量同时存在＋交互效应</h2>
+       <img src="../../../assets/diagrams/anova_twoway_interaction.png" alt="anova interaction"/></div><div class="mdeck-slide"><div class="kicker">解读结果</div><h2>学校显著，性别与交互均不显著</h2>
+       <table><tr><th>效应</th><th>F</th><th>p</th></tr>
+       <tr><td>学校</td><td>5.81</td><td class="warn">0.003</td></tr>
+       <tr><td>性别</td><td>1.71</td><td>0.192</td></tr>
+       <tr><td>学校×性别</td><td>1.16</td><td>0.315</td></tr></table></div><div class="mdeck-slide"><div class="kicker">4 · MANOVA</div><h2>同时分析多个因变量</h2>
+       <p>ANOVA：1个因变量。MANOVA：同时分析多个因变量。</p>
+       <p class="warn">MANOVA对假设违反非常敏感——信任结果前需仔细检查。</p></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>单因素ANOVA + Tukey</h2>
+       <p>Analyze → Compare Means → One-Way ANOVA → Factor / Dependent → Post Hoc → Tukey、Games-Howell。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方完整内容，然后自测30道题</h2>
+       <p>幻灯片仅为摘要。完整算例＋费舍尔／Rothamsted历史＋案例研究见下方。</p></div></div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ 上一页</button>
+  <button class="mdeck-next" type="button">下一页 ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ 全屏</button>
+</div></div>
+
+<div class="btnrow">
+ <a class="tag" href="#an-toan">安全检查</a><a class="tag" href="#mot-chieu">单因素ANOVA</a>
+ <a class="tag" href="#tukey">Tukey事后检验</a><a class="tag" href="#hai-chieu">双因素ANOVA</a>
+ <a class="tag" href="#manova">MANOVA</a><a class="tag" href="#thuc-hanh">实践</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="an-toan">1. 为什么需要ANOVA及安全检查</h2>
+<p>t检验只能比较2组的平均数。当教育研究需要比较3组或以上时（如4种学校类型的考试成绩），就需要方差分析（ANOVA）——它基于与t检验相同的参数假设（第781页）：</p>
+<table><tr><th>#</th><th>条件</th></tr>
+<tr><td>1</td><td>连续的参数数据（定距／定比）</td></tr>
+<tr><td>2</td><td>随机抽样</td></tr>
+<tr><td>3</td><td>正态分布（大样本通常可缓解）</td></tr>
+<tr><td>4</td><td>方差齐性（Levene检验；若违反，SPSS提供更稳健的Brown-Forsythe和Welch检验）</td></tr></table>
+<p>ANOVA计算<b>F比率</b>=组间方差除以组内方差。F值越大，意味着组间差异远超每组内部的随机变异。</p>
+
+<h2 id="mot-chieu">2. 单因素方差分析</h2>
+<p>Cohen等人的例子（第781–782页）：4种学校类型的标准化数学考试成绩（乡村小学=59.85%；乡村中学=60.44%；城市小学=50.64%；城市中学=51.70%）。H0："4个平均数之间没有显著差异"。SPSS结果：F(3, df)=8.976，p=0.000→<b>拒绝H0</b>，4组之间某处存在显著差异。</p>
+<div class="callout"><b>真实班级数据（3所学校A/B/C，数学成绩）：</b>A校（n=80）M=50.67；B校（n=99）M=47.26；C校（n=61）M=45.34。单因素ANOVA：<b>F(2,237)=5.87，p=0.003</b>→存在显著差异。对3所学校方差的Levene检验：p=0.292（≥0.05）→方差齐性，满足Tukey检验的条件。</div>
+<div class="figure"><img src="../../../assets/diagrams/anova_school_box.png" alt=""/><figcaption>真实3所学校的数学成绩分布。A校最高，C校最低——但ANOVA只能说明存在差异，尚不能确定具体是哪一对。</figcaption></div>
+<div class="callout warn"><b>F检验不能告诉你什么：</b>显著的F值只能说明‘各组之间某处存在差异’——并不意味着每一对都不同，也没有指出是哪一对（第782页）。下一步需要进行事后检验。</div>
+
+<h2 id="tukey">3. Tukey事后检验与同质子集</h2>
+<p>事后检验的目的是准确找出哪些组之间存在显著差异（第782页）。Tukey HSD假设方差齐性且各子样本量大致相等；若不满足，则改用Games-Howell。</p>
+<div class="callout"><b>真实Tukey结果（数学成绩，3所学校）：</b>
+<table><tr><th>组对</th><th>平均差</th><th>p（调整后）</th><th>结论</th></tr>
+<tr><td>A – B</td><td>3.41</td><td>0.046</td><td>显著</td></tr>
+<tr><td>A – C</td><td>5.34</td><td>0.0031</td><td>显著</td></tr>
+<tr><td>B – C</td><td>1.93</td><td>0.427</td><td>不显著</td></tr></table>
+→ 同质子集：<b>{A}</b>单独分离，<b>{B, C}</b>属于同一组——A校与B、C都存在明显差异，而B和C之间差异不大。</div>
+<p>书中原始例子（4种学校类型，第783–784页）显示出类似的模式：两所乡村学校（小学+中学）归为一组，两所城市学校归为一组——结论：<b>差异源于地理位置（乡村／城市），而非学段</b>。</p>
+<div class="callout"><b>正确的表述方式（依据第784页模板）：</b>"方差分析发现3所学校之间存在统计显著性差异（F(2,237)=5.87，p=0.003）。Tukey检验显示A校（M=50.67）与B校（M=47.26，p=0.046）和C校（M=45.34，p=0.003）均存在显著差异，而B校和C校之间没有显著差异（p=0.427）。"Cohen等人建议<b>同时使用这两种检验</b>：ANOVA回答‘是否存在差异’，Tukey回答‘在哪里’（第783页）。</p>
+
+<h2 id="hai-chieu">4. 双因素方差分析与交互效应</h2>
+<p>双因素方差分析估计两个定类自变量对一个连续因变量的影响，外加<b>交互效应</b>：变量A的影响是否因变量B的水平而不同（第784–785页）。</p>
+<div class="figure"><img src="../../../assets/diagrams/anova_twoway_interaction.png" alt=""/><figcaption>按学校×性别划分的数学成绩平均值。两条线几乎平行→没有明显的交互效应迹象。</figcaption></div>
+<div class="callout"><b>真实双因素ANOVA结果（数学成绩~学校×性别）：</b>
+<table><tr><th>效应</th><th>F</th><th>df</th><th>p</th><th>结论</th></tr>
+<tr><td>学校（主效应）</td><td>5.81</td><td>2, 234</td><td>0.003</td><td>显著</td></tr>
+<tr><td>性别（主效应）</td><td>1.71</td><td>1, 234</td><td>0.192</td><td>不显著</td></tr>
+<tr><td>学校×性别（交互）</td><td>1.16</td><td>2, 234</td><td>0.315</td><td>不显著</td></tr></table>
+解读：学校确实造成了数学成绩的差异，但这种影响在男女之间没有显著不同（无交互）——可以较为笼统地说明学校对两性的影响。</div>
+<div class="callout warn"><b>如果交互效应显著会怎样？</b>那样笼统地陈述主效应（如"学校总是以相同方式影响成绩"）将会产生误导——需要更谨慎地解读，因为一个变量的影响取决于另一个变量的水平。</div>
+
+<h2 id="manova">5. MANOVA——当存在多个因变量时</h2>
+<p>多元方差分析（MANOVA）将ANOVA扩展到同时分析多个连续因变量的情形（如同时分析多门考试科目），而不仅仅是一个因变量（第785–786页）。</p>
+<div class="callout warn"><b>警告：</b>MANOVA"对假设非常敏感"（第786页）——在信任结果之前，必须仔细检查多元正态性和协方差矩阵齐性，因为这里违反假设比单变量ANOVA更容易导致错误结论。</div>
+
+<h2 id="thuc-hanh">6. SPSS/PSPP实践</h2>
+<div class="callout"><b>单因素ANOVA + Tukey（Box 41.3，第784页）：</b><code>Analyze</code> → <code>Compare Means</code> → <code>One-Way ANOVA</code> → 自变量送入<i>Factor</i>，因变量送入<i>Dependent</i> → <i>Post Hoc</i>按钮 → 勾选<i>Tukey</i>、<i>Games-Howell</i> → <i>Options</i>按钮 → 勾选<i>Homogeneity of variance test</i>、<i>Brown-Forsythe</i>、<i>Welch</i>。<br/>
+<b>重复测量ANOVA（Box 41.4）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Repeated Measures</code>——用于同一组在3种以上条件下被测量的情况（配对t检验的扩展）。<br/>
+<b>双因素ANOVA（Box 41.5）：</b><code>Analyze</code> → <code>General Linear Model</code> → <code>Univariate</code>。</div>
+<pre>ONEWAY math BY school /POSTHOC=TUKEY /STATISTICS=DESCRIPTIVES HOMOGENEITY.
+UNIANOVA math BY school gender /DESIGN=school gender school*gender.
+* PSPP支持ONEWAY命令加/POSTHOC=TUKEY选项，结果与Python/statsmodels及SPSS一致。</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
+ <a class="btn ghost" href="../../../data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 笔记本：ANOVA与非参数检验</a>
+</div>
+
+<h3>📜 理论背景与历史</h3>
+<p><b>罗纳德·费舍尔（Ronald Fisher）</b>在1920年代于英国<b>Rothamsted</b>农业试验站工作期间开发了方差分析，当时他需要一种方法，能够同时比较多个试验田（多种肥料、多个作物品种）之间的产量差异——若对每一对分别运行t检验，将大大增加第一类错误的风险。F比率中的"F"正是以费舍尔命名（后由乔治·斯奈德克（George Snedecor）提出，以纪念他）。Tukey HSD检验由约翰·图基（John Tukey）于1953年提出，恰好解决了"多重两两比较"问题，避免了像多次独立运行t检验那样使假阳性风险急剧上升。</p>
+<div class="callout info"><b>时间线</b>
+<ul style="margin:.5em 0 0">
+<li><b>1918–1925年</b>——费舍尔在Rothamsted开发方差分析，应用于农业试验。</li>
+<li><b>1925年</b>——费舍尔出版《Statistical Methods for Research Workers》，系统化了ANOVA。</li>
+<li><b>1953年</b>——约翰·图基提出"诚实显著差异"（HSD）检验。</li>
+<li><b>1980–1990年代</b>——Bonferroni、Scheffé、Games-Howell在社会科学中得到更广泛的应用。</li>
+</ul>
+</div>
+
+<h3>🔎 真实案例研究</h3>
+<div class="card accent-a">
+<h4>案例1——为什么"运行多个t检验"是一个常见陷阱</h4>
+<p>一项比较4组（如4种教学方法）的研究，若运行6次独立的两两t检验，每次均在α=0.05水平下，其至少出现一次第一类错误的概率将远高于运行一次ANOVA加上经过调整的事后检验（如Tukey）。这正是费舍尔在Rothamsted发明ANOVA的历史原因——在不"人为寻找"假阳性的前提下解决多组农业比较问题。</p>
+</div>
+<div class="card accent-a">
+<h4>案例2——双因素ANOVA在教育干预评估中的应用</h4>
+<p>在多所学校及按性别评估一项干预方案（如新的教学方法）时，双因素ANOVA不仅能回答"该方案是否有效"（主效应），还能回答"其效果在男女之间是否不同"（交互效应）。在上述班级数据例子中，未检测到交互效应（p=0.315）——这是个好消息：学校改进政策很可能对两性带来相当均衡的益处，无需针对性别设计不同的干预方案。</p>
+</div>
+
+<h2 id="quiz">7. 自测（30题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">非营利自学资料。网站源代码：
+<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div></footer><script src="../../../_shared/deck.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "方差分析（ANOVA）用于比较什么？", "opts": ["恰好2组的平均数", "两个定类变量之间的关系", "单个变量的方差", "3组或以上的平均数"], "correct": 3, "explain": "t检验只能比较2组，而ANOVA将其扩展为同时比较3组或以上的平均数，基于与t检验相同的参数假设（Cohen et al.，第781页）。"}, {"q": "ANOVA的四项安全检查与t检验有何不同？", "opts": ["ANOVA不关心方差", "ANOVA不需要连续数据", "完全不同，毫无关联", "本质上与t检验相同（连续数据、随机抽样、正态分布、方差齐性）——因为ANOVA是同一参数检验家族的扩展"], "correct": 3, "explain": "Cohen等人（第781页）明确指出ANOVA‘premised on the same assumptions as t-tests’——相同的4项条件，只是比较的组数不同。"}, {"q": "ANOVA中的F比率是如何计算的？", "opts": ["组间方差除以组内方差", "平方和除以样本量", "组数除以总观测数", "组平均数除以总体标准差"], "correct": 0, "explain": "F=组间方差／组内方差。F值大意味着组之间的差异远大于每组内部的随机波动（第781页）。"}, {"q": "在真实班级数据中：比较3所学校（A、B、C）的数学成绩，F(2,237)=5.87，p=0.003。在α=0.05水平下正确的结论是？", "opts": ["3所学校两两之间都存在差异", "3所学校之间没有任何差异", "需要将α提高到0.10才能达到显著", "3所学校中至少有一对之间存在统计显著性差异——但ANOVA本身尚不能说明是哪一对"], "correct": 3, "explain": "p=0.003&lt;0.05→拒绝原假设（H0：三个平均数相等）。但F检验只能说明‘在某处存在差异’，并不能指出具体是哪一对不同——需要事后检验（第782页）。"}, {"q": "在Cohen等人的学校例子中（4种学校类型），ANOVA给出p=0.000（显著）后，为什么仍需要进行事后检验（post hoc）？", "opts": ["因为ANOVA可能出错", "因为需要重新计算样本量", "因为显著的ANOVA结果只能说明‘4个组中某处存在差异’，并不能说明具体是哪一对组不同——事后检验才能准确定位差异所在", "事后检验是ANOVA之前必须进行的步骤，而不是之后"], "correct": 2, "explain": "完全对应原文（第782–783页）：‘The purpose of a post hoc test is to find out exactly where those differences are’——ANOVA只回答是否，事后检验回答何处。"}, {"q": "Tukey HSD检验要求哪个Games-Howell不要求的条件？", "opts": ["数据必须是定类的", "样本量必须超过1000", "组间方差齐性，且各子样本量大致相等", "两者之间没有任何条件差异"], "correct": 2, "explain": "Tukey假设方差齐性且子样本量大致相等；当方差不齐或子样本量差异较大时使用Games-Howell（第783页）。"}, {"q": "在真实班级数据中：对3所学校数学成绩进行的Levene检验给出p=0.292。应选择哪种事后检验？", "opts": ["根本不需要任何事后检验", "Tukey HSD，因为Levene不显著（p=0.292&gt;0.05）→方差被视为齐性，满足Tukey的条件", "Games-Howell，因为Levene不显著", "必须使用Bonferroni代替Tukey"], "correct": 1, "explain": "Levene p=0.292&gt;0.05→3所学校方差齐性→满足Tukey的使用条件（只有当Levene显著时才需要改用Games-Howell）。"}, {"q": "在班级数据（数学成绩，3所学校A/B/C）上真实的Tukey结果：A-B p=0.046；A-C p=0.0031；B-C p=0.427。正确的结论是什么？", "opts": ["没有任何一对存在显著差异", "只有B-C存在显著差异", "三对都存在显著差异", "A学校与B和C都存在显著差异；但B和C彼此之间没有显著差异——A单独构成一个同质子集，B和C属于同一个同质子集"], "correct": 3, "explain": "A-B（0.046）和A-C（0.0031）都&lt;0.05→显著；B-C（0.427）&gt;0.05→不显著。因此A单独分离出来，而B和C属于同一同质子集——与乡村／城市学校例子的逻辑完全相同（第783–784页）。"}, {"q": "在Cohen等人的4种学校类型例子中（乡村小学／中学，城市小学／中学），Tukey同质子集表揭示了差异的来源是什么？", "opts": ["差异源于学段（小学vs中学）", "没有明显的模式", "差异源于地理位置（乡村vs城市），而非学段——两所乡村学校归为一组，两所城市学校归为一组", "差异完全是随机的"], "correct": 2, "explain": "书中明确得出结论（第784页）：‘the differences relate to geographical location rather than age group in the school’——两所乡村学校（小学+中学）构成一组，两所城市学校构成另一组。"}, {"q": "按照Cohen等人（第784页）的规范，正确的ANOVA+Tukey结果表述应包含什么？", "opts": ["只需画图，不需要写数字", "ANOVA的F值、df、p值；以及Tukey结果，明确指出哪些组之间存在／不存在差异，并附上具体的平均数", "只需列出每对Tukey的p值，不需要F检验", "只需说‘存在差异’即可"], "correct": 1, "explain": "书中的表述模板：‘Analysis of Variance found... (F14 = 8.975, p&lt;0.001). The Tukey test found that the means for...’——完整的F、df、p值，加上带有具体数字的同质子集解读（第784页）。"}, {"q": "如果ANOVA在家长、教师、学生、学校领导之间对某一问题（如加强科学教学）给出p&gt;0.05（不显著），Cohen等人建议怎么理解？", "opts": ["必须将样本量增加10倍", "这同样是一个有价值的发现：各群体之间的共同认知（一致性）可能会增加所提议的教育创新成功的机会", "这一结果无法作出任何解释", "这是一次需要摒弃的研究失败"], "correct": 1, "explain": "完全符合第784页的精神（呼应t检验阶段第5单元的‘双赢’教训）：未发现差异同样有价值——此处，相关群体之间的一致性可能是创新成功推行的有利条件。"}, {"q": "双因素方差分析（two-way ANOVA）与单因素方差分析有何不同？", "opts": ["双因素同时有两个自变量（定类），而非一个，并能额外估计这两个变量之间的交互效应", "双因素只适用于样本量小于30的情况", "双因素用于定类数据，单因素用于连续数据", "没有实质性区别"], "correct": 0, "explain": "双因素方差分析估计两个自变量对一个因变量的影响，外加交互效应——例如年龄和性别的影响，以及年龄的影响是否因性别而异（第784–785页）。"}, {"q": "双因素方差分析中的‘交互效应’（interaction effect）是什么意思？", "opts": ["一个自变量对因变量的影响会随另一个自变量的取值而改变", "是一种测量误差", "两个自变量总是产生相同的结果", "只适用于两组样本量相等的情况"], "correct": 0, "explain": "书中的例子（第785页）：年龄组对考试成绩的影响可能因性别（男／女）而异——这正是交互效应，不同于各变量单独的主效应（main effect）。"}, {"q": "在真实班级数据中：数学成绩~学校×性别的双因素方差分析给出：学校F(2,234)=5.81，p=0.003；性别F(1,234)=1.71，p=0.192；学校×性别交互F(2,234)=1.16，p=0.315。正确的解读是什么？", "opts": ["只有学校的主效应显著（p=0.003）；性别的主效应不显著（p=0.192）；交互效应也不显著（p=0.315）——学校对数学成绩的影响不因性别而不同", "三个效应都显著", "没有任何效应显著", "只要主效应显著，交互效应就一定显著"], "correct": 0, "explain": "只有‘学校’的p&lt;0.05；另外两个p都&gt;0.05。结论：学校造成了数学成绩的差异，但学校影响成绩的方式在男女之间没有显著不同（无交互）。"}, {"q": "如果双因素方差分析中的交互效应具有统计显著性，这对主效应的解读会产生什么影响？", "opts": ["总是意味着数据存在错误", "没有任何影响，可以照常解读主效应", "必须将主效应完全从报告中删除", "需要更加谨慎地解读主效应——因为一个自变量的影响可能因另一个变量的水平而不同，笼统的表述可能会产生误导"], "correct": 3, "explain": "这是双因素方差分析中的标准原则：显著的交互效应意味着‘变量X是否有影响’这一问题的答案取决于变量Y的取值——因此当交互效应较强时，应避免对主效应做出绝对的笼统表述。"}, {"q": "多元方差分析（MANOVA）与双因素方差分析的核心区别是什么？", "opts": ["MANOVA不需要自变量", "MANOVA只适用于定类数据", "MANOVA允许同时分析多个连续因变量，而不像普通ANOVA那样每次只处理一个因变量", "MANOVA只能用于1个因变量"], "correct": 2, "explain": "MANOVA将ANOVA扩展到同时分析多个因变量的情形（如同时分析多门考试科目），而单／双因素ANOVA每次只能处理一个因变量（第785–786页）。"}, {"q": "根据Cohen等人，MANOVA‘对假设非常敏感’——这在实践中意味着什么？", "opts": ["无论数据如何，MANOVA总能给出可靠的结果", "只适用于样本量超过10000的情况", "MANOVA完全没有任何假设", "在信任MANOVA结果之前，必须仔细检查各项假设（多元正态性、协方差矩阵齐性等）——违反假设比普通ANOVA更容易导致错误结论"], "correct": 3, "explain": "书中警告（第786页）：MANOVA比单变量ANOVA对假设违反更为敏感，因此在信任结果之前，检查‘安全检查’项就显得更加重要。"}, {"q": "在SPSS中运行带Tukey检验的单因素方差分析的操作序列是什么（Box 41.3）？", "opts": ["Analyze → Compare means → One-Way ANOVA → 将自变量送入‘Factor’，因变量送入‘Dependent’ → Post Hoc → 勾选Tukey和Games-Howell", "Analyze → Correlate → Bivariate", "Analyze → Regression → Linear", "Graphs → Legacy Dialogs → Boxplot"], "correct": 0, "explain": "Box 41.3（第784页）：‘Analyze’→‘Compare means’→‘One-Way ANOVA’→自变量送入Factor，因变量送入Dependent→Post Hoc按钮→勾选Tukey/Games-Howell→Options按钮→勾选Homogeneity of variance test、Brown-Forsythe、Welch。"}, {"q": "在Box 41.3中，SPSS何时建议使用Brown-Forsythe和Welch检验代替普通ANOVA？", "opts": ["当方差齐性检验表明违反齐性假设时（即Levene显著）——此时Brown-Forsythe和Welch比普通ANOVA更稳健", "应始终使用它们代替ANOVA", "当样本量过小时", "当组数少于3时"], "correct": 0, "explain": "书中指出（第784页），当方差齐性被违反时，Brown-Forsythe和Welch检验比普通ANOVA的F检验更稳健（robust）。"}, {"q": "重复测量方差分析（repeated measures ANOVA，Box 41.4）在什么情况下使用？", "opts": ["SPSS中不存在此功能", "当同一组被试在3种或以上条件下被测量时（相当于配对t检验向2个以上条件的扩展）", "只能用于定类数据", "当存在3个完全独立的组时"], "correct": 1, "explain": "正如配对t检验在同一组存在3种或以上条件时扩展为重复测量方差分析一样（第784–785页，Box 41.4）。"}, {"q": "在重复测量方差分析（Box 41.4）中，效应量（偏eta平方）应从SPSS输出的哪个位置读取？", "opts": ["在‘Descriptive Statistics’表中", "在‘Multivariate Tests’表的最右边一列", "在Levene检验表中", "SPSS中不显示，必须手动计算"], "correct": 1, "explain": "根据Box 41.4（第785页）：偏eta平方位于‘Multivariate Tests’表最右边一列，位于包含Pillai's Trace、Wilk's Lambda等统计量的行。"}, {"q": "如果一项研究运行多个独立的t检验（例如对4组进行两两比较：共6次比较）而不是一次ANOVA，主要风险是什么？", "opts": ["多次运行t检验总是比ANOVA更保守（假阳性更少）", "没有任何风险，结果与ANOVA完全等价", "只有当样本量小于10时才有问题", "由于在同一α=0.05水平下重复检验，增加了第一类错误（假阳性）的风险——这正是ANOVA+事后检验优于多次独立t检验的原因"], "correct": 3, "explain": "以α=0.05分别进行6次独立t检验，会大大提高整体至少出现一次第一类错误的概率，远高于一次ANOVA加上经过调整的事后检验（如Tukey）——这正是ANOVA存在的核心原因。"}, {"q": "Bonferroni和Scheffé检验（与Tukey一起被提及）相较于Tukey有什么特点？", "opts": ["比Tukey宽松，更容易产生假阳性", "在降低第一类错误方面比Tukey更严格，但以牺牲统计检验力为代价（更难发现真实差异）", "只能用于2组的情况", "与Tukey完全相同，只是名称不同"], "correct": 1, "explain": "书中提到（第783页）：Bonferroni和Scheffé‘more rigorous than the Tukey test’——更好地降低第一类错误，但可能因此错过真实差异（检验力下降），与第4／5单元学到的α与β权衡相同。"}, {"q": "一项研究发现ANOVA的F值显著（p=0.001），但eta平方只有0.02（非常小）。与第4单元相呼应，正确的解读是什么？", "opts": ["统计显著性和效应量是两个不同的问题：p=0.001说明差异不太可能由偶然造成（大样本下常见），但eta²=0.02说明该差异在实践上相当小——应同时报告并解读两者，而不仅是p值", "只要p显著，eta平方就必须大于0.10", "应该舍弃p值，只保留eta²", "结果一定有误，因为两个指标相互矛盾"], "correct": 0, "explain": "这正是连接第4单元与ANOVA的教训：大样本下小p值不代表大效应——需要同时报告两个指标，以避免‘统计上显著但实践上无意义’的情况（第781页，呼应第745页）。"}, {"q": "PSPP是否支持与SPSS等效的、带Tukey事后检验的单因素方差分析？", "opts": ["支持——PSPP通过ONEWAY命令加上/POSTHOC=TUKEY选项支持，本课程中已验证其结果与Python/SPSS一致", "只能在Linux系统上运行", "完全不支持任何事后检验", "只能运行ANOVA，没有Tukey"], "correct": 0, "explain": "PSPP支持ONEWAY命令的/POSTHOC=TUKEY选项（及其他事后检验），结果与Python/statsmodels及SPSS一致。"}, {"q": "如果只需要比较2组（而非3组以上），应该使用ANOVA还是t检验？", "opts": ["t检验永远不能与ANOVA在同一研究中一起使用", "应始终使用ANOVA，因为它更强大", "当恰好只有2组时，两者在数学上给出完全等价的结果（F=t²），但对于恰好2组而言，t检验是更自然、更简单的选择", "ANOVA无法用于2组的情况"], "correct": 2, "explain": "从数学上看，恰好2组的单因素方差分析给出的F=t²，且p值与独立t检验完全相同——但按照惯例，恰好2组时使用t检验，3组及以上才使用ANOVA。"}, {"q": "在Tukey同质子集表中，SPSS按什么顺序排列各组？", "opts": ["按各组的样本量排列", "按平均数的升序排列——平均数最低的组出现在第一列，最高的出现在最后一列", "按组名的字母顺序", "随机排列"], "correct": 1, "explain": "书中指出（第784页）：SPSS‘automatically groups these and places them in ascending order (the group with the lowest means appears in the first column...)’。"}, {"q": "为什么Cohen等人建议‘同时使用这两种检验’（ANOVA和Tukey），而不是只用其中一种？", "opts": ["因为它们总是给出相互矛盾的结果，需要相互印证", "没有什么特别的原因", "因为ANOVA说明各组之间总体上是否存在差异，而Tukey则准确指出差异具体在哪里——这是两个互补的问题，谁也无法替代谁", "因为SPSS强制要求两者同时运行"], "correct": 2, "explain": "原文（第783页）：‘We advise using the two tests together’——正因为ANOVA回答‘是否存在差异’，Tukey回答‘差异在哪里’，这是两个不同且同样必要的问题。"}, {"q": "ANOVA（单因素或双因素）中的自变量必须是什么量表？", "opts": ["量表类型并不重要", "必须与因变量一样是定距／定比", "定类／定序（分类型）——如学校、性别、教学方法", "必须是二分变量（只有2个取值）"], "correct": 2, "explain": "ANOVA要求自变量为分类型（定类，如学校类型、性别），因变量为连续的定距／定比（如考试成绩）——与t检验结构相同，但允许自变量有3个或以上水平（第781、784页）。"}, {"q": "根据Cohen的效应量阈值表（表39.2，呼应第4单元），班级数据ANOVA的eta²（0.047，比较3所学校）属于哪个等级？", "opts": ["中（0.06–0.14）", "小（0.01–0.06）", "ANOVA的eta²没有阈值表", "大（≥0.14）"], "correct": 1, "explain": "根据表39.2（第746页，第4单元）：ANOVA eta²的阈值为小=0.01，中=0.06，大=0.14。0.047这一数值落在‘小’区间内，尽管F值具有统计显著性（p=0.003）——这再次证明统计显著性与效应量是两个不同的问题。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
