@@ -17,20 +17,32 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第7单元 · COHEN ET AL., CH.41.4–41.7</div>
        <h2>卡方检验与非参数检验</h2>
        <p>列联表、χ²、自由度、Mann-Whitney、Wilcoxon、Kruskal-Wallis、Friedman。</p>
-       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide"><div class="kicker">1 · 卡方检验</div><h2>观察值 vs 期望值</h2>
+       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/4 部分</div>
+       <div class="part-num">01</div>
+       <h2>卡方检验与自由度</h2>
+       <ul class="part-list"><li>观察值 vs 期望值</li><li>真实数据：性别×方法</li><li>警告：20%规则</li><li>自由度是什么</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 卡方检验</div><h2>观察值 vs 期望值</h2>
        <p>χ²在列联表中比较观察频数与期望频数（定类数据）。</p>
        <p class="cap">每格期望值=（行合计×列合计）／总合计。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>性别×方法：χ²(1)=1.37，p=0.243</h2>
        <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">警告</div><h2 class="warn">20%规则：不超过20%的单元格观察数&lt;5</h2>
        <p>违反→结果不可靠，即使计算机仍会给出一个数值。</p>
        <p class="cap">&gt;25%单元格过小→改用费舍尔精确检验。</p></div><div class="mdeck-slide"><div class="kicker">2 · 自由度</div><h2>受约束前可自由变化的数值</h2>
        <p class="big">df = （行数－1）＋（列数－1）</p>
-       <p class="cap">2×3表→df=3。每增加一个约束（如固定总和）就减少1个自由度。</p></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>独立t检验的非参数等效版本</h2>
+       <p class="cap">2×3表→df=3。每增加一个约束（如固定总和）就减少1个自由度。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/4 部分</div>
+       <div class="part-num">02</div>
+       <h2>t检验的非参数替代方法</h2>
+       <ul class="part-list"><li>Mann-Whitney U——独立t检验的非参数等效版本</li><li>真实数据：按性别评分</li><li>Wilcoxon——配对t检验的非参数等效版本</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>独立t检验的非参数等效版本</h2>
        <p>基于秩次，无需正态分布假设——但不能显示差异具体在哪里。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>h1评分按性别：U=6416，p=0.127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>配对t检验的非参数等效版本</h2>
-       <p>用于同一组提供两个数值（两个变量／时间点），但数据不满足参数条件。</p></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis与Friedman</div><h2>ANOVA的非参数等效版本</h2>
+       <p>用于同一组提供两个数值（两个变量／时间点），但数据不满足参数条件。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/4 部分</div>
+       <div class="part-num">03</div>
+       <h2>ANOVA的非参数替代方法</h2>
+       <ul class="part-list"><li>Kruskal-Wallis与Friedman——ANOVA的非参数等效版本</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis与Friedman</div><h2>ANOVA的非参数等效版本</h2>
        <table><tr><th>参数检验</th><th>非参数检验</th></tr>
        <tr><td>单因素ANOVA</td><td>Kruskal-Wallis</td></tr>
-       <tr><td>重复测量ANOVA</td><td>Friedman</td></tr></table></div><div class="mdeck-slide"><div class="kicker">完整对应表</div><h2>记住4组参数↔非参数对应关系</h2>
+       <tr><td>重复测量ANOVA</td><td>Friedman</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/4 部分</div>
+       <div class="part-num">04</div>
+       <h2>总结与下一步</h2>
+       <ul class="part-list"><li>4组参数↔非参数对应关系完整表</li><li>共同点：只有显著性，没有效应量</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">完整对应表</div><h2>记住4组参数↔非参数对应关系</h2>
        <table><tr><th>参数检验</th><th>非参数检验</th></tr>
        <tr><td>独立t检验</td><td>Mann-Whitney U</td></tr>
        <tr><td>配对t检验</td><td>Wilcoxon</td></tr>

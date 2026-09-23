@@ -17,7 +17,10 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 03 · COHEN ET AL., CH.40</div>
        <h2>Thống kê mô tả</h2>
        <p>Dữ liệu thiếu, tần số, bảng chéo, xu hướng trung tâm & phân tán.</p>
-       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide"><div class="kicker">1 · Dữ liệu thiếu</div><h2>Ba kiểu thiếu — không phải kiểu nào cũng "vô hại"</h2>
+       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div>
+       <div class="part-num">01</div>
+       <h2>Dữ liệu thiếu</h2>
+       <ul class="part-list"><li>Ba kiểu thiếu dữ liệu, không phải kiểu nào cũng vô hại</li><li>Listwise vs Pairwise: hai cách xoá, hai cái giá khác nhau</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Dữ liệu thiếu</div><h2>Ba kiểu thiếu — không phải kiểu nào cũng "vô hại"</h2>
        <table><tr><th>Kiểu</th><th>Đặc điểm</th></tr>
        <tr><td><b>MCAR</b></td><td>Hoàn toàn ngẫu nhiên</td></tr>
        <tr><td><b>MAR</b></td><td>Có khuôn mẫu, không liên quan biến chính</td></tr>
@@ -25,13 +28,19 @@
        <p class="cap">Dữ liệu lớp học: biến h2 thiếu 3/240 ca (1,25%).</p></div><div class="mdeck-slide"><div class="kicker">Listwise vs Pairwise</div><h2>Hai cách xoá dữ liệu thiếu, hai cái giá khác nhau</h2>
        <p><b>Listwise:</b> loại cả trường hợp nếu thiếu BẤT KỲ biến nào.</p>
        <p><b>Pairwise:</b> chỉ loại khi biến ĐANG tính bị thiếu.</p>
-       <p class="warn">Listwise giảm cỡ mẫu mạnh hơn — chỉ 1 ô thiếu là mất cả 1 người.</p></div><div class="mdeck-slide"><div class="kicker">2 · Bảng chéo</div><h2>Bẫy: cỡ nhóm lệch làm số đếm thô gây hiểu lầm</h2>
+       <p class="warn">Listwise giảm cỡ mẫu mạnh hơn — chỉ 1 ô thiếu là mất cả 1 người.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
+       <div class="part-num">02</div>
+       <h2>Bảng chéo</h2>
+       <ul class="part-list"><li>Bẫy cỡ nhóm lệch khi đọc số đếm thô</li><li>Ví dụ thật: Giới × Phương pháp học</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Bảng chéo</div><h2>Bẫy: cỡ nhóm lệch làm số đếm thô gây hiểu lầm</h2>
        <img src="../../../assets/diagrams/boxplot_math_school.png" alt="boxplot"/>
        <p class="cap">Luôn so sánh bằng % theo HÀNG khi hai nhóm cỡ khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật</div><h2>Giới × Phương pháp học (240 HS)</h2>
        <table><tr><th></th><th>Dự án</th><th>Truyền thống</th></tr>
        <tr><td>Nam (n=121)</td><td>52,1%</td><td>47,9%</td></tr>
        <tr><td>Nữ (n=119)</td><td>43,7%</td><td>56,3%</td></tr></table>
-       <p class="cap">63&gt;52 (số thô) dễ hiểu nhầm — nhưng % hàng chỉ chênh ~8 điểm.</p></div><div class="mdeck-slide"><div class="kicker">3 · Xu hướng trung tâm</div><h2>Mode · Median · Mean — dùng khi nào?</h2>
+       <p class="cap">63&gt;52 (số thô) dễ hiểu nhầm — nhưng % hàng chỉ chênh ~8 điểm.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <div class="part-num">03</div>
+       <h2>Xu hướng trung tâm & độ phân tán</h2>
+       <ul class="part-list"><li>Mode · Median · Mean — dùng khi nào</li><li>3 tập số cùng mean nhưng SD khác hẳn</li><li>SD · Range · IQR</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Xu hướng trung tâm</div><h2>Mode · Median · Mean — dùng khi nào?</h2>
        <table><tr><th>Đo</th><th>Thang đo</th><th>Bền ngoại lai?</th></tr>
        <tr><td>Mode</td><td>Mọi thang</td><td>Có</td></tr>
        <tr><td>Median</td><td>Thứ bậc+</td><td>Có</td></tr>
@@ -40,7 +49,10 @@
        <p class="cap">SD tập có ngoại lai gấp 11 lần SD tập tụ quanh trung bình.</p></div><div class="mdeck-slide"><div class="kicker">Ba đo phân tán</div><h2>SD · Range · IQR</h2>
        <p><b>SD:</b> khoảng cách trung bình mỗi điểm tới mean.</p>
        <p><b>Range:</b> max−min — rất nhạy ngoại lai.</p>
-       <p><b>IQR:</b> Q3−Q1 — bền hơn range.</p></div><div class="mdeck-slide"><div class="kicker">4 · Taking stock</div><h2>Chọn đúng thống kê theo thang đo</h2>
+       <p><b>IQR:</b> Q3−Q1 — bền hơn range.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
+       <div class="part-num">04</div>
+       <h2>Chọn đúng & áp dụng</h2>
+       <ul class="part-list"><li>Chọn đúng thống kê theo thang đo</li><li>Thực hành trong SPSS</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Taking stock</div><h2>Chọn đúng thống kê theo thang đo</h2>
        <p>4 thang đo → tần số/%/mode/bảng chéo.</p>
        <p>Thứ bậc+ → thêm median.</p>
        <p class="warn">Chỉ Khoảng & Tỉ lệ ("Scale") → thêm mean & SD.</p></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies</h2>

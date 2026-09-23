@@ -17,26 +17,38 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 06 · COHEN ET AL., CH.41.3</div>
        <h2>ANOVA — Analysis of Variance</h2>
        <p>Comparing 3+ group means: the F-ratio, Tukey post-hoc, two-way ANOVA & interaction.</p>
-       <p class="cap">← → to navigate.</p></div><div class="mdeck-slide"><div class="kicker">1 · Why ANOVA</div><h2>A t-test only compares 2 groups — what about 3+?</h2>
+       <p class="cap">← → to navigate.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/4</div>
+       <div class="part-num">01</div>
+       <h2>One-way ANOVA</h2>
+       <ul class="part-list"><li>A t-test only compares 2 groups — what about 3+?</li><li>The F-ratio: variation between vs within groups</li><li>Real data: maths score by 3 schools</li><li>ANOVA says there IS a difference, not WHERE</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Why ANOVA</div><h2>A t-test only compares 2 groups — what about 3+?</h2>
        <p>ANOVA extends the t-test: comparing 3+ group means at once, under the same 4 safety checks.</p>
        <p class="cap">Example: exam scores across 4 school types (rural/urban × primary/secondary).</p></div><div class="mdeck-slide"><div class="kicker">The F-ratio</div><h2>Variation BETWEEN groups vs WITHIN groups</h2>
        <p class="big">F = Between-groups variance / Within-groups variance</p>
        <p class="cap">A large F → the difference between groups exceeds the random noise within each group.</p></div><div class="mdeck-slide"><div class="kicker">Real data</div><h2>Maths score by 3 schools: F(2,237)=5.87, p=0.003</h2>
        <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/></div><div class="mdeck-slide"><div class="kicker">Key point</div><h2 class="warn">ANOVA says "there IS a difference" — not "WHERE"</h2>
        <p>A significant F only tells you: a difference exists somewhere among the groups.</p>
-       <p class="warn">A post-hoc test is needed to pinpoint EXACTLY which pair differs!</p></div><div class="mdeck-slide"><div class="kicker">2 · Tukey post-hoc</div><h2>Tukey vs Games-Howell</h2>
+       <p class="warn">A post-hoc test is needed to pinpoint EXACTLY which pair differs!</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/4</div>
+       <div class="part-num">02</div>
+       <h2>Tukey post-hoc</h2>
+       <ul class="part-list"><li>Tukey vs Games-Howell</li><li>Real Tukey results on the 3-school data</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Tukey post-hoc</div><h2>Tukey vs Games-Howell</h2>
        <table><tr><th>Test</th><th>Condition</th></tr>
        <tr><td>Tukey HSD</td><td>Homogeneous variance + roughly equal subgroup sizes</td></tr>
        <tr><td>Games-Howell</td><td>Used when variance is NOT homogeneous</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Real Tukey results</div><h2>School A stands apart, B & C in the same group</h2>
        <p>A-B: p=0.046 (significant). A-C: p=0.0031 (significant). B-C: p=0.427 (not significant).</p>
-       <p class="cap">→ Two homogeneous subsets: {A} and {B, C}.</p></div><div class="mdeck-slide"><div class="kicker">3 · Two-way ANOVA</div><h2>Two independent variables at once + an interaction effect</h2>
+       <p class="cap">→ Two homogeneous subsets: {A} and {B, C}.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/4</div>
+       <div class="part-num">03</div>
+       <h2>Two-way ANOVA & MANOVA</h2>
+       <ul class="part-list"><li>Two independent variables at once + an interaction effect</li><li>Reading the output: school significant, gender is not</li><li>MANOVA: multiple dependent variables at once</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Two-way ANOVA</div><h2>Two independent variables at once + an interaction effect</h2>
        <img src="../../../assets/diagrams/anova_twoway_interaction.png" alt="anova interaction"/></div><div class="mdeck-slide"><div class="kicker">Reading the output</div><h2>School significant, gender & interaction are not</h2>
        <table><tr><th>Effect</th><th>F</th><th>p</th></tr>
        <tr><td>School</td><td>5.81</td><td class="warn">0.003</td></tr>
        <tr><td>Gender</td><td>1.71</td><td>0.192</td></tr>
        <tr><td>School×Gender</td><td>1.16</td><td>0.315</td></tr></table></div><div class="mdeck-slide"><div class="kicker">4 · MANOVA</div><h2>Multiple dependent variables at once</h2>
        <p>ANOVA: 1 dependent variable. MANOVA: MULTIPLE dependent variables analysed simultaneously.</p>
-       <p class="warn">MANOVA is very sensitive to violated assumptions — check carefully before trusting results.</p></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>One-Way ANOVA + Tukey</h2>
+       <p class="warn">MANOVA is very sensitive to violated assumptions — check carefully before trusting results.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/4</div>
+       <div class="part-num">04</div>
+       <h2>Practice & what's next</h2>
+       <ul class="part-list"><li>SPSS Box 41.3 — One-Way ANOVA + Tukey</li><li>What's next</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>One-Way ANOVA + Tukey</h2>
        <p>Analyze → Compare Means → One-Way ANOVA → Factor / Dependent → Post Hoc → Tukey, Games-Howell.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the full content below, then self-test with 30 questions</h2>
        <p>Slides are only a summary. Worked examples + Fisher/Rothamsted history + case study are below.</p></div></div>
 <div class="mdeck-bar">

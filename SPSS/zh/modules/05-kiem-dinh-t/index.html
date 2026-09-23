@@ -17,12 +17,18 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第5单元 · COHEN ET AL., CH.41.1–41.2</div>
        <h2>t检验</h2>
        <p>比较两组平均数：独立t检验与配对t检验，正确解读Levene检验。</p>
-       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide"><div class="kicker">1 · 四项安全检查</div><h2>运行t检验之前</h2>
+       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/5 部分</div>
+       <div class="part-num">01</div>
+       <h2>安全检查</h2>
+       <ul class="part-list"><li>运行任何t检验之前需要检查的4个条件</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 四项安全检查</div><h2>运行t检验之前</h2>
        <table><tr><th>条件</th><th>若违反</th></tr>
        <tr><td>定距／定比数据</td><td>改用非参数检验</td></tr>
        <tr><td>随机抽样</td><td>难以推广结论</td></tr>
        <tr><td>正态分布</td><td>大样本可缓解</td></tr>
-       <tr><td>方差齐性</td><td>阅读正确的Levene行</td></tr></table></div><div class="mdeck-slide"><div class="kicker">2 · 两种变体</div><h2>独立 vs 配对</h2>
+       <tr><td>方差齐性</td><td>阅读正确的Levene行</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/5 部分</div>
+       <div class="part-num">02</div>
+       <h2>独立t检验</h2>
+       <ul class="part-list"><li>Levene检验决定阅读哪一行</li><li>真实数据：项目式 vs 传统式</li><li>对比：男生 vs 女生</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · 两种变体</div><h2>独立 vs 配对</h2>
        <p><b>独立：</b>两组完全不相关（如男生／女生）。</p>
        <p><b>配对：</b>同一组，测量两次／两个变量（如课前测–课后测）。</p></div><div class="mdeck-slide"><div class="kicker">阅读结果的关键</div><h2 class="warn">Levene检验决定阅读哪一行</h2>
        <p>Levene <b>p&lt;0.05</b> → 方差不相等 → 阅读"not assumed"行。</p>
@@ -31,14 +37,23 @@
        <img src="../../../assets/diagrams/ttest_indep.png" alt="independent ttest"/>
        <p class="cap">Levene p=0.526（相等）→ 提分幅度8.66 vs 2.89，差异非常明显。</p></div><div class="mdeck-slide"><div class="kicker">对比</div><h2>男生 vs 女生，数学成绩：p=0.178</h2>
        <p class="big">没有足够证据表明存在差异</p>
-       <p class="cap">"未发现"同样是有价值的研究结果（Cohen et al.，第779页）。</p></div><div class="mdeck-slide"><div class="kicker">3 · 配对t检验</div><h2>同一批学生，前测与后测</h2>
+       <p class="cap">"未发现"同样是有价值的研究结果（Cohen et al.，第779页）。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/5 部分</div>
+       <div class="part-num">03</div>
+       <h2>配对t检验</h2>
+       <ul class="part-list"><li>同一批学生，前测与后测</li><li>为什么配对更强</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · 配对t检验</div><h2>同一批学生，前测与后测</h2>
        <img src="../../../assets/diagrams/ttest_paired.png" alt="paired ttest"/>
        <p class="cap">课前测60.3 → 课后测66.0。t=13.37，df=239，p&lt;0.001。</p></div><div class="mdeck-slide"><div class="kicker">为什么配对更强</div><h2>消除个体变异</h2>
        <p>同一学生的课前测与课后测相关r=0.857（第4单元）。</p>
-       <p class="cap">配对利用了这一相关性 → 比独立检验强大得多。</p></div><div class="mdeck-slide"><div class="kicker">4 · SPSS Box 41.1</div><h2>SPSS中的独立t检验</h2>
+       <p class="cap">配对利用了这一相关性 → 比独立检验强大得多。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/5 部分</div>
+       <div class="part-num">04</div>
+       <h2>SPSS实践</h2>
+       <ul class="part-list"><li>SPSS Box 41.1——独立t检验</li><li>SPSS Box 41.2——配对t检验</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · SPSS Box 41.1</div><h2>SPSS中的独立t检验</h2>
        <p>Analyze → Compare Means → Independent-Samples T Test → Test variable / Grouping variable → Define Groups。</p></div><div class="mdeck-slide"><div class="kicker">SPSS Box 41.2</div><h2>SPSS中的配对t检验</h2>
        <p>Analyze → Compare Means → Paired-Samples T Test → Variable 1 / Variable 2。</p>
-       <p class="cap">想先筛选某个子组？运行前先用Data → Select Cases。</p></div><div class="mdeck-slide"><div class="kicker">5 · 显著性之外</div><h2>始终附上效应量</h2>
+       <p class="cap">想先筛选某个子组？运行前先用Data → Select Cases。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 5/5 部分</div>
+       <div class="part-num">05</div>
+       <h2>显著性之外与下一步</h2>
+       <ul class="part-list"><li>显著性之后始终附上效应量</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · 显著性之外</div><h2>始终附上效应量</h2>
        <p class="big">d = 0.981（中到大）</p>
        <p class="cap">t=7.59高度显著，且d=0.981足够大值得关注——两者都要报告（呼应第4单元）。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方完整内容，然后自测30道题</h2>
        <p>幻灯片仅为摘要。完整SPSS示例＋"Student"t检验的历史＋案例研究见下方。</p></div></div>

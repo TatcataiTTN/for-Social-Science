@@ -17,20 +17,32 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 07 · COHEN ET AL., CH.41.4–41.7</div>
        <h2>Chi-square & Non-parametric Tests</h2>
        <p>Crosstabulations, χ², degrees of freedom, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman.</p>
-       <p class="cap">← → to navigate.</p></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Observed vs Expected</h2>
+       <p class="cap">← → to navigate.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/4</div>
+       <div class="part-num">01</div>
+       <h2>Chi-square & degrees of freedom</h2>
+       <ul class="part-list"><li>Observed vs Expected</li><li>Real data: Gender × Method</li><li>Warning: the 20% rule</li><li>What degrees of freedom means</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Observed vs Expected</h2>
        <p>χ² compares OBSERVED frequencies with EXPECTED frequencies in a crosstabulation (nominal data).</p>
        <p class="cap">Expected per cell = (Row total × Column total) / Grand total.</p></div><div class="mdeck-slide"><div class="kicker">Real data</div><h2>Gender × Method: χ²(1)=1.37, p=0.243</h2>
        <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">Warning</div><h2 class="warn">The 20% rule: no more than 20% of cells with &lt;5 observations</h2>
        <p>Violation → results are UNRELIABLE, even though the computer still returns a number.</p>
        <p class="cap">&gt;25% small cells → use Fisher's Exact Test instead.</p></div><div class="mdeck-slide"><div class="kicker">2 · Degrees of freedom</div><h2>Values FREE to vary before being constrained</h2>
        <p class="big">df = (rows − 1) + (columns − 1)</p>
-       <p class="cap">A 2×3 table → df=3. Each constraint (e.g. a fixed total) removes 1 degree of freedom.</p></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Non-parametric equivalent of the independent t-test</h2>
+       <p class="cap">A 2×3 table → df=3. Each constraint (e.g. a fixed total) removes 1 degree of freedom.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/4</div>
+       <div class="part-num">02</div>
+       <h2>Non-parametric alternatives to the t-test</h2>
+       <ul class="part-list"><li>Mann-Whitney U — non-parametric equivalent of the independent t-test</li><li>Real data: rating by gender</li><li>Wilcoxon — non-parametric equivalent of the paired t-test</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Non-parametric equivalent of the independent t-test</h2>
        <p>Based on RANKS, no normal-distribution assumption needed — but does NOT show exactly where the difference lies.</p></div><div class="mdeck-slide"><div class="kicker">Real data</div><h2>Rating h1 by gender: U=6416, p=0.127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>Non-parametric equivalent of the paired t-test</h2>
-       <p>Used when the SAME group provides two values (two variables/time points) but data don't meet parametric conditions.</p></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Non-parametric equivalents of ANOVA</h2>
+       <p>Used when the SAME group provides two values (two variables/time points) but data don't meet parametric conditions.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/4</div>
+       <div class="part-num">03</div>
+       <h2>Non-parametric alternative to ANOVA</h2>
+       <ul class="part-list"><li>Kruskal-Wallis & Friedman — non-parametric equivalents of ANOVA</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Non-parametric equivalents of ANOVA</h2>
        <table><tr><th>Parametric</th><th>Non-parametric</th></tr>
        <tr><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
-       <tr><td>Repeated-measures ANOVA</td><td>Friedman</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Full correspondence table</div><h2>Remember the 4 parametric ↔ non-parametric pairs</h2>
+       <tr><td>Repeated-measures ANOVA</td><td>Friedman</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/4</div>
+       <div class="part-num">04</div>
+       <h2>Wrap-up & what's next</h2>
+       <ul class="part-list"><li>Full correspondence table of the 4 parametric ↔ non-parametric pairs</li><li>The common thread: significance only, no effect size</li><li>What's next</li></ul></div><div class="mdeck-slide"><div class="kicker">Full correspondence table</div><h2>Remember the 4 parametric ↔ non-parametric pairs</h2>
        <table><tr><th>Parametric</th><th>Non-parametric</th></tr>
        <tr><td>Independent t-test</td><td>Mann-Whitney U</td></tr>
        <tr><td>Paired t-test</td><td>Wilcoxon</td></tr>

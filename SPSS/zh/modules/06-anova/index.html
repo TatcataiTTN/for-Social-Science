@@ -17,26 +17,38 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第6单元 · COHEN ET AL., CH.41.3</div>
        <h2>方差分析（ANOVA）</h2>
        <p>比较3组以上的平均数：F比率、Tukey事后检验、双因素ANOVA与交互效应。</p>
-       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide"><div class="kicker">1 · 为什么需要ANOVA</div><h2>t检验只能比较2组——那3组以上呢？</h2>
+       <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/4 部分</div>
+       <div class="part-num">01</div>
+       <h2>单因素ANOVA</h2>
+       <ul class="part-list"><li>t检验只能比较2组，那3组以上呢</li><li>F比率：组间变异 vs 组内变异</li><li>真实数据：3所学校的数学成绩</li><li>ANOVA只说存在差异，不说在哪里</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 为什么需要ANOVA</div><h2>t检验只能比较2组——那3组以上呢？</h2>
        <p>ANOVA扩展了t检验：在相同4项安全检查下，同时比较3组以上的平均数。</p>
        <p class="cap">例如：4种学校类型（乡村／城市 × 小学／中学）的考试成绩。</p></div><div class="mdeck-slide"><div class="kicker">F比率</div><h2>组间变异 vs 组内变异</h2>
        <p class="big">F = 组间方差 / 组内方差</p>
        <p class="cap">F值越大→组间差异远超每组内部的随机噪声。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>3所学校的数学成绩：F(2,237)=5.87，p=0.003</h2>
        <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/></div><div class="mdeck-slide"><div class="kicker">关键点</div><h2 class="warn">ANOVA只说"存在差异"——不说"在哪里"</h2>
        <p>显著的F值只能说明：各组之间某处存在差异。</p>
-       <p class="warn">需要事后检验才能准确定位是哪一对存在差异！</p></div><div class="mdeck-slide"><div class="kicker">2 · Tukey事后检验</div><h2>Tukey vs Games-Howell</h2>
+       <p class="warn">需要事后检验才能准确定位是哪一对存在差异！</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/4 部分</div>
+       <div class="part-num">02</div>
+       <h2>Tukey事后检验</h2>
+       <ul class="part-list"><li>Tukey vs Games-Howell</li><li>3所学校数据上的真实Tukey结果</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Tukey事后检验</div><h2>Tukey vs Games-Howell</h2>
        <table><tr><th>检验</th><th>条件</th></tr>
        <tr><td>Tukey HSD</td><td>方差齐性＋各子组样本量大致相等</td></tr>
        <tr><td>Games-Howell</td><td>用于方差不齐的情况</td></tr></table></div><div class="mdeck-slide"><div class="kicker">真实Tukey结果</div><h2>A学校单独分离，B和C归为一组</h2>
        <p>A-B：p=0.046（显著）。A-C：p=0.0031（显著）。B-C：p=0.427（不显著）。</p>
-       <p class="cap">→ 两个同质子集：{A}和{B, C}。</p></div><div class="mdeck-slide"><div class="kicker">3 · 双因素ANOVA</div><h2>两个自变量同时存在＋交互效应</h2>
+       <p class="cap">→ 两个同质子集：{A}和{B, C}。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/4 部分</div>
+       <div class="part-num">03</div>
+       <h2>双因素ANOVA与MANOVA</h2>
+       <ul class="part-list"><li>两个自变量同时存在＋交互效应</li><li>解读结果：学校显著，性别不显著</li><li>MANOVA：同时分析多个因变量</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · 双因素ANOVA</div><h2>两个自变量同时存在＋交互效应</h2>
        <img src="../../../assets/diagrams/anova_twoway_interaction.png" alt="anova interaction"/></div><div class="mdeck-slide"><div class="kicker">解读结果</div><h2>学校显著，性别与交互均不显著</h2>
        <table><tr><th>效应</th><th>F</th><th>p</th></tr>
        <tr><td>学校</td><td>5.81</td><td class="warn">0.003</td></tr>
        <tr><td>性别</td><td>1.71</td><td>0.192</td></tr>
        <tr><td>学校×性别</td><td>1.16</td><td>0.315</td></tr></table></div><div class="mdeck-slide"><div class="kicker">4 · MANOVA</div><h2>同时分析多个因变量</h2>
        <p>ANOVA：1个因变量。MANOVA：同时分析多个因变量。</p>
-       <p class="warn">MANOVA对假设违反非常敏感——信任结果前需仔细检查。</p></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>单因素ANOVA + Tukey</h2>
+       <p class="warn">MANOVA对假设违反非常敏感——信任结果前需仔细检查。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/4 部分</div>
+       <div class="part-num">04</div>
+       <h2>实践与下一步</h2>
+       <ul class="part-list"><li>SPSS Box 41.3——单因素ANOVA + Tukey</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>单因素ANOVA + Tukey</h2>
        <p>Analyze → Compare Means → One-Way ANOVA → Factor / Dependent → Post Hoc → Tukey、Games-Howell。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方完整内容，然后自测30道题</h2>
        <p>幻灯片仅为摘要。完整算例＋费舍尔／Rothamsted历史＋案例研究见下方。</p></div></div>
 <div class="mdeck-bar">

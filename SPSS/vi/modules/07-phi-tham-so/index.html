@@ -17,20 +17,32 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 07 · COHEN ET AL., CH.41.4–41.7</div>
        <h2>Chi-square & Kiểm định phi tham số</h2>
        <p>Bảng chéo, χ², bậc tự do, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman.</p>
-       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Quan sát vs Kỳ vọng</h2>
+       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div>
+       <div class="part-num">01</div>
+       <h2>Chi-square & bậc tự do</h2>
+       <ul class="part-list"><li>Quan sát vs Kỳ vọng</li><li>Dữ liệu thật: Giới tính × Phương pháp</li><li>Cảnh báo: quy tắc 20%</li><li>Bậc tự do là gì</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Quan sát vs Kỳ vọng</h2>
        <p>χ² so sánh tần số QUAN SÁT với tần số KỲ VỌNG trong bảng chéo (dữ liệu định danh).</p>
        <p class="cap">Kỳ vọng mỗi ô = (Tổng hàng × Tổng cột) / Tổng chung.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Giới tính × Phương pháp: χ²(1)=1,37, p=0,243</h2>
        <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">Quy tắc 20%: không quá 20% ô có &lt;5 quan sát</h2>
        <p>Vi phạm → kết quả KHÔNG đáng tin, dù máy tính vẫn ra một con số.</p>
        <p class="cap">&gt;25% ô nhỏ → dùng Fisher's Exact Test thay thế.</p></div><div class="mdeck-slide"><div class="kicker">2 · Bậc tự do</div><h2>Số giá trị được TỰ DO trước khi bị ràng buộc</h2>
        <p class="big">df = (số hàng − 1) + (số cột − 1)</p>
-       <p class="cap">Bảng 2×3 → df=3. Mỗi ràng buộc (vd tổng cố định) làm giảm 1 bậc tự do.</p></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Tương đương phi tham số của t-test độc lập</h2>
+       <p class="cap">Bảng 2×3 → df=3. Mỗi ràng buộc (vd tổng cố định) làm giảm 1 bậc tự do.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
+       <div class="part-num">02</div>
+       <h2>Thay thế t-test phi tham số</h2>
+       <ul class="part-list"><li>Mann-Whitney U — tương đương phi tham số của t-test độc lập</li><li>Dữ liệu thật: đánh giá theo giới tính</li><li>Wilcoxon — tương đương phi tham số của t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Tương đương phi tham số của t-test độc lập</h2>
        <p>Dựa trên THỨ HẠNG (ranks), không cần phân phối chuẩn — nhưng KHÔNG cho biết khác biệt cụ thể ở đâu.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo giới tính: U=6416, p=0,127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>Tương đương phi tham số của t-test bắt cặp</h2>
-       <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Tương đương phi tham số của ANOVA</h2>
+       <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <div class="part-num">03</div>
+       <h2>Thay thế ANOVA phi tham số</h2>
+       <ul class="part-list"><li>Kruskal-Wallis & Friedman — tương đương phi tham số của ANOVA</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Tương đương phi tham số của ANOVA</h2>
        <table><tr><th>Tham số</th><th>Phi tham số</th></tr>
        <tr><td>ANOVA một chiều</td><td>Kruskal-Wallis</td></tr>
-       <tr><td>ANOVA đo lường lặp lại</td><td>Friedman</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Bảng tương ứng đầy đủ</div><h2>Ghi nhớ 4 cặp tham số ↔ phi tham số</h2>
+       <tr><td>ANOVA đo lường lặp lại</td><td>Friedman</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
+       <div class="part-num">04</div>
+       <h2>Tổng kết & tiếp theo</h2>
+       <ul class="part-list"><li>Bảng tương ứng đầy đủ 4 cặp tham số ↔ phi tham số</li><li>Điểm chung: chỉ có ý nghĩa, không có cỡ hiệu ứng</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Bảng tương ứng đầy đủ</div><h2>Ghi nhớ 4 cặp tham số ↔ phi tham số</h2>
        <table><tr><th>Tham số</th><th>Phi tham số</th></tr>
        <tr><td>T-test độc lập</td><td>Mann-Whitney U</td></tr>
        <tr><td>T-test bắt cặp</td><td>Wilcoxon</td></tr>

@@ -17,12 +17,18 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 05 · COHEN ET AL., CH.41.1–41.2</div>
        <h2>Kiểm định t (t-Test)</h2>
        <p>So sánh trung bình 2 nhóm: t-test độc lập & t-test bắt cặp, đọc đúng kiểm định Levene.</p>
-       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide"><div class="kicker">1 · 4 kiểm tra an toàn</div><h2>Trước khi chạy t-test</h2>
+       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/5</div>
+       <div class="part-num">01</div>
+       <h2>Điều kiện an toàn</h2>
+       <ul class="part-list"><li>4 điều kiện cần kiểm tra trước khi chạy bất kỳ t-test nào</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 4 kiểm tra an toàn</div><h2>Trước khi chạy t-test</h2>
        <table><tr><th>Điều kiện</th><th>Nếu vi phạm</th></tr>
        <tr><td>Dữ liệu khoảng/tỉ lệ</td><td>Dùng kiểm định phi tham số</td></tr>
        <tr><td>Lấy mẫu ngẫu nhiên</td><td>Kết quả khó khái quát hoá</td></tr>
        <tr><td>Phân phối chuẩn</td><td>Mẫu lớn có thể khắc phục</td></tr>
-       <tr><td>Phương sai đồng nhất</td><td>Đọc dòng Levene phù hợp</td></tr></table></div><div class="mdeck-slide"><div class="kicker">2 · Hai biến thể</div><h2>Độc lập vs Bắt cặp</h2>
+       <tr><td>Phương sai đồng nhất</td><td>Đọc dòng Levene phù hợp</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
+       <div class="part-num">02</div>
+       <h2>T-test độc lập</h2>
+       <ul class="part-list"><li>Levene's test quyết định đọc dòng nào</li><li>Dữ liệu thật: Dự án vs Truyền thống</li><li>Đối chiếu: Nam vs Nữ</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Hai biến thể</div><h2>Độc lập vs Bắt cặp</h2>
        <p><b>Độc lập:</b> 2 nhóm hoàn toàn không liên quan (vd nam/nữ).</p>
        <p><b>Bắt cặp:</b> CÙNG một nhóm, đo 2 lần/2 biến (vd pretest–posttest).</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá đọc bảng kết quả</div><h2 class="warn">Kiểm định Levene quyết định đọc dòng nào</h2>
        <p>Levene <b>p&lt;0,05</b> → phương sai KHÔNG bằng nhau → đọc dòng "not assumed".</p>
@@ -31,14 +37,23 @@
        <img src="../../../assets/diagrams/ttest_indep.png" alt="ttest doc lap"/>
        <p class="cap">Levene p=0,526 (đồng nhất) → mức tăng điểm 8,66 vs 2,89, khác biệt rất rõ.</p></div><div class="mdeck-slide"><div class="kicker">Đối chiếu</div><h2>Nam vs Nữ, điểm Toán: p=0,178</h2>
        <p class="big">Không đủ bằng chứng khác biệt</p>
-       <p class="cap">"Không tìm thấy" cũng là một kết quả có giá trị nghiên cứu (Cohen et al., tr.779).</p></div><div class="mdeck-slide"><div class="kicker">3 · T-test bắt cặp</div><h2>Cùng học sinh, trước & sau</h2>
+       <p class="cap">"Không tìm thấy" cũng là một kết quả có giá trị nghiên cứu (Cohen et al., tr.779).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
+       <div class="part-num">03</div>
+       <h2>T-test bắt cặp</h2>
+       <ul class="part-list"><li>Cùng học sinh, đo trước & sau</li><li>Vì sao bắt cặp mạnh hơn</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · T-test bắt cặp</div><h2>Cùng học sinh, trước & sau</h2>
        <img src="../../../assets/diagrams/ttest_paired.png" alt="ttest bat cap"/>
        <p class="cap">Pretest 60,3 → Posttest 66,0. t=13,37, df=239, p&lt;0,001.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao bắt cặp mạnh hơn</div><h2>Loại bỏ biến thiên cá nhân</h2>
        <p>Pretest & posttest của CÙNG học sinh tương quan r=0,857 (Module 04).</p>
-       <p class="cap">Bắt cặp tận dụng tương quan này → kiểm định mạnh hơn nhiều so với độc lập.</p></div><div class="mdeck-slide"><div class="kicker">4 · SPSS Box 41.1</div><h2>T-test độc lập trong SPSS</h2>
+       <p class="cap">Bắt cặp tận dụng tương quan này → kiểm định mạnh hơn nhiều so với độc lập.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
+       <div class="part-num">04</div>
+       <h2>Thực hành trong SPSS</h2>
+       <ul class="part-list"><li>SPSS Box 41.1 — t-test độc lập</li><li>SPSS Box 41.2 — t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · SPSS Box 41.1</div><h2>T-test độc lập trong SPSS</h2>
        <p>Analyze → Compare Means → Independent-Samples T Test → Test variable / Grouping variable → Define Groups.</p></div><div class="mdeck-slide"><div class="kicker">SPSS Box 41.2</div><h2>T-test bắt cặp trong SPSS</h2>
        <p>Analyze → Compare Means → Paired-Samples T Test → Variable 1 / Variable 2.</p>
-       <p class="cap">Muốn lọc 1 phân nhóm trước? Dùng Data → Select Cases trước khi chạy.</p></div><div class="mdeck-slide"><div class="kicker">5 · Sau ý nghĩa thống kê</div><h2>Luôn kèm cỡ hiệu ứng</h2>
+       <p class="cap">Muốn lọc 1 phân nhóm trước? Dùng Data → Select Cases trước khi chạy.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <div class="part-num">05</div>
+       <h2>Diễn giải kết quả & tiếp theo</h2>
+       <ul class="part-list"><li>Luôn kèm cỡ hiệu ứng sau ý nghĩa thống kê</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Sau ý nghĩa thống kê</div><h2>Luôn kèm cỡ hiệu ứng</h2>
        <p class="big">d = 0,981 (mạnh-vừa)</p>
        <p class="cap">t=7,59 rất có ý nghĩa VÀ d=0,981 đủ lớn để đáng chú ý — báo cáo cả hai (nối Module 04).</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Ví dụ SPSS đầy đủ + lịch sử "Student" t-test + case study nằm bên dưới.</p></div></div>
