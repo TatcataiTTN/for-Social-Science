@@ -1,11 +1,13 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
 <title>SPSS for Social Science / 社会科学 SPSS 教程</title>
 <link rel="stylesheet" href="SPSS/_shared/common.css"/>
 <style>
  body{display:flex;min-height:100vh;align-items:center;justify-content:center}
- .rootctl{position:fixed;top:14px;right:16px}
+ .rootctl{position:fixed;top:14px;right:16px;display:flex;gap:8px}
  .picker{max-width:760px;padding:40px 20px;text-align:center}
  .picker h1{font-size:1.7rem}
  .langs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
@@ -15,7 +17,8 @@
  .langs .sub{color:var(--muted);font-size:.85rem;margin-top:6px}
  @media (max-width:640px){.langs{grid-template-columns:1fr}}
 </style></head><body>
-<div class="rootctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details></div>
+<button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="Thông tin trang & liên hệ góp ý">i</button>
+<div class="rootctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><details class="fontsw"><summary>🔤 Phông chữ</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman (mặc định)</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details></div>
 <div class="picker">
   <div class="dot" style="width:12px;height:12px;border-radius:50%;background:var(--accent);margin:0 auto 14px"></div>
   <h1>SPSS &amp; Thống kê cho Khoa học Xã hội</h1>
@@ -27,6 +30,9 @@
   </div>
   <p style="margin-top:34px;color:var(--muted);font-size:.82rem">⚠️ Phần lớn nội dung trên site do AI tạo ra — xem chi tiết ở banner đầu mỗi trang bài giảng.<br/>
   Most content on this site is AI-generated — see the banner at the top of every lesson page for details.</p>
+  <button class="info-footer-btn" type="button" data-info-open>ℹ️ Thông tin trang & liên hệ góp ý / xin tài liệu</button>
 </div>
+<div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="Đóng">✕</button><h3 id="info-modal-title">ℹ️ Thông tin về trang &amp; liên hệ góp ý</h3><h4>🤖 Nội dung AI hỗ trợ soạn thảo</h4><p>Phần lớn nội dung trên toàn bộ website này — giải thích khái niệm, câu hỏi tự kiểm tra, một số sơ đồ minh hoạ — được soạn với sự hỗ trợ của AI, sau đó người phụ trách kiểm tra lại trong khả năng cho phép (đối chiếu số liệu với dữ liệu thật, đối chiếu khái niệm với giáo trình gốc). Vì khối lượng nội dung lớn và thời gian có hạn, không thể đảm bảo mọi câu chữ đều đã được rà soát kỹ. Nếu phát hiện sai sót ở bất kỳ đâu, rất mong nhận được góp ý theo thông tin liên hệ bên dưới.</p><h4>📩 Liên hệ góp ý / báo lỗi</h4><p><b>Trương Tuấn Nghĩa</b><br/>Gọi / Zalo / Telegram: <a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook: <a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>Email: <a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 Về nguồn giáo trình</h4><p>Nội dung bám theo sách <i>Research Methods in Education</i> (Cohen, Manion &amp; Morrison, ấn bản 8, Routledge 2018). Vì lý do bản quyền, trang này không đính kèm file sách — ai cần bản PDF để tự đọc thêm ngoài bài giảng có thể tìm qua một số kênh không chính thống, ví dụ:<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>Lưu ý: các trang trên hay đổi tên miền hoặc bị chặn — nếu link nào không vào được, xin tự tìm tên miền mới của cùng dịch vụ.</p><h4>🤝 Muốn đóng góp, hoặc xin tài liệu để tự dạy?</h4><p>Rất hoan nghênh! Nếu bạn muốn giúp cải thiện học liệu (sửa lỗi, viết thêm module, dịch thuật...), hoặc muốn xin lại toàn bộ/một phần tài liệu này để tự dạy cho <b>môn học khác của riêng bạn</b> (không giới hạn ở SPSS/Khoa học Xã hội) — cứ thoải mái liên hệ:<ul><li>Gửi email mô tả bạn muốn làm gì / cần gì, kèm link GitHub cá nhân nếu muốn được thêm quyền cộng tác trực tiếp vào project.</li><li>Hoặc tự do fork / clone / pull mã nguồn tại <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a> — không cần xin phép trước, đây là tài liệu mở, phi lợi nhuận.</li></ul>Định hướng lâu dài là phát triển thêm nhiều học liệu tương tự cho các môn khác — nếu có ý tưởng hợp tác, luôn chào đón. Xin cảm ơn!</p></div></div>
 <script src="SPSS/_shared/theme.js"></script>
+<script src="SPSS/_shared/info.js"></script>
 </body></html>
