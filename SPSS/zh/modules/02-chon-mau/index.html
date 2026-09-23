@@ -1,0 +1,161 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
+<title>02·抽样与样本量</title>
+<meta name="description" content="Population, sampling frame, probability & non-probability sampling, sampling error, sample size — Cohen et al. 2018 ch.12"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="页面信息与反馈">i</button><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 02·抽样</nav>
+<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><details class="fontsw"><summary>🔤 字体</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman（默认）</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/02-chon-mau/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/02-chon-mau/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/02-chon-mau/index.html" class="active">中文</a></div></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>02·抽样与样本量</h1>
+<p class="lead">第2/12单元 · 内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge，2018年）第12章"Sampling"（抽样）编写，并补充了真实的样本量公式（statsmodels）与来自PISA 2025真实数据的样本权重示例。</p>
+<div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第2单元 · COHEN ET AL. 第12章</div>
+       <h2>抽样与样本量</h2>
+       <p>从总体到样本：概率／非概率抽样、抽样误差，以及有科学依据的样本量计算。</p>
+       <p class="cap">使用 ← → 键切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/5 部分</div>
+       <div class="part-num">01</div>
+       <h2>总体、抽样框架与样本</h2>
+       <ul class="part-list"><li>三个常被混淆的层次：总体、抽样框架、样本</li><li>覆盖误差（coverage error）</li><li>真实例子：PISA 195所学校</li></ul></div><div class="mdeck-slide"><div class="kicker">1·三个不同层次</div><h2>总体、抽样框架、样本——并非同一回事</h2>
+       <p><b>总体（population）：</b>理论上想要推论到的全部群体。</p>
+       <p><b>抽样框架（sampling frame）：</b>实际可以从中抽样的名单。</p>
+       <p><b>样本（sample）：</b>实际被测量的子集。</p></div><div class="mdeck-slide"><div class="kicker">覆盖误差</div><h2 class="warn">抽样框架 ≠ 真实总体</h2>
+       <img src="../../../assets/diagrams/pipeline_population_frame.png" alt="population frame sample"/>
+       <p class="cap">抽样框架只包含已报名参加的学校——可能无法代表所有学校。</p></div><div class="mdeck-slide"><div class="kicker">真实例子</div><h2>越南PISA 2025：195所学校</h2>
+       <p>理论总体：越南全部15岁学生。抽样框架：教育培训部提供给经合组织的学校名单。</p>
+       <p class="cap">实际样本：195所同意参加的学校，7,368名学生被测量。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/5 部分</div>
+       <div class="part-num">02</div>
+       <h2>概率抽样</h2>
+       <ul class="part-list"><li>简单随机与系统抽样</li><li>分层抽样</li><li>整群与多阶段抽样</li></ul></div><div class="mdeck-slide"><div class="kicker">2·简单随机与系统抽样</div><h2>每个单位被抽中的机会都相等</h2>
+       <p><b>简单随机：</b>从整个抽样框架中随机抽取。</p>
+       <p><b>系统抽样：</b>每隔k个单位抽取一次（如名单中每第10名学生）。</p></div><div class="mdeck-slide"><div class="kicker">分层抽样</div><h2>先分组，再在每组内随机抽样</h2>
+       <p>按相关特征（地区、学校类型）将抽样框架分层，确保每一层都按比例出现在样本中。</p>
+       <p class="cap">PISA正是这样做的——先按地区分层，再抽取学校。</p></div><div class="mdeck-slide"><div class="kicker">整群与多阶段</div><h2>整群抽取，而非逐个抽取个体</h2>
+       <p>随机抽取学校（群），再测量其中全部或部分学生——比在全国范围内随机抽取分散的学生个体便宜得多。</p>
+       <p class="cap">PISA：第一阶段抽取学校（群），第二阶段在校内抽取学生——即"多阶段"。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/5 部分</div>
+       <div class="part-num">03</div>
+       <h2>非概率抽样</h2>
+       <ul class="part-list"><li>方便、目的性、配额、滚雪球抽样</li><li>何时可以接受</li></ul></div><div class="mdeck-slide"><div class="kicker">3·四种常见类型</div><h2>每个单位被抽中的概率未知</h2>
+       <p><b>方便抽样：</b>选取最容易接触到的对象。<b>目的性抽样：</b>按既定标准选取。</p>
+       <p><b>配额抽样：</b>按组凑足数量，组内不随机。<b>滚雪球抽样：</b>由参与者互相介绍。</p></div><div class="mdeck-slide"><div class="kicker">何时可以接受</div><h2 class="warn">无法代表总体——但并非总是错误</h2>
+       <p>适用于探索性研究、难以接触的群体，或目标是深入理解而非广泛推论的情况。</p>
+       <p class="cap">常见错误：使用非概率抽样，却仍然用统计方法推论到整个总体。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/5 部分</div>
+       <div class="part-num">04</div>
+       <h2>抽样误差与样本量计算</h2>
+       <ul class="part-list"><li>什么是抽样误差</li><li>预试样本量：真实规则（Julious 2005）</li><li>正式样本量：公式＋真实数据</li></ul></div><div class="mdeck-slide"><div class="kicker">4·抽样误差</div><h2>样本与总体之间的自然差异</h2>
+       <p>即使抽样完全正确（正确随机化），样本仍会因偶然性而与总体略有不同——这是抽样误差，不同于抽样偏误（bias，由抽样过程本身存在问题导致）。</p></div><div class="mdeck-slide"><div class="kicker">预试样本量</div><h2>每组至少12个观测值（Julious，2005）</h2>
+       <p class="big">n<sub>预试</sub> ≥ 每组12人</p>
+       <p class="cap">低于此数值，估计出的标准差波动过大，不足以作为计算正式样本量的可靠输入。</p></div><div class="mdeck-slide"><div class="kicker">正式样本量</div><h2>n ≈ (z<sub>α/2</sub>+z<sub>β</sub>)² × 2 / d²</h2>
+       <table><tr><th>效应量d</th><th>每组样本量</th></tr>
+       <tr><td>0.2（小）</td><td>≈394</td></tr><tr><td>0.5（中）</td><td>≈64</td></tr><tr><td>0.8（大）</td><td>≈26</td></tr></table>
+       <p class="cap">使用statsmodels计算，α=0.05，power=0.80——完整表格见主页底部。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 5/5 部分</div>
+       <div class="part-num">05</div>
+       <h2>应用于实际</h2>
+       <ul class="part-list"><li>PISA 2025的真实抽样设计</li><li>实践：评估一个抽样设计</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">应用于真实数据</div><h2>越南PISA 2025：分层＋整群＋多阶段</h2>
+       <p>第一阶段：按5个地区分层，在每个地区内按与学校规模成比例的概率随机抽取学校（群）。</p>
+       <p class="cap">第二阶段：在每所抽中的学校内随机抽取学生——恰好两个阶段，且经过分层。</p></div><div class="mdeck-slide"><div class="kicker">实践</div><h2>阅读与评估一个抽样设计</h2>
+       <p>查看PISA数据中的<code>W_NRASCHBWT</code>（学校权重）变量——为什么分析时每所学校的"权重"并不相等？</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
+       <p>幻灯片只是摘要。完整的抽样类型对比表和真实数据示例就在下方。</p></div></div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ 上一页</button>
+  <button class="mdeck-next" type="button">下一页 ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ 全屏</button>
+</div></div>
+
+<div class="btnrow">
+ <a class="tag" href="#tong-the">总体与框架</a><a class="tag" href="#xac-suat">概率抽样</a>
+ <a class="tag" href="#phi-xac-suat">非概率抽样</a><a class="tag" href="#co-mau">样本量</a>
+ <a class="tag" href="#thuc-hanh">实践</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="tong-the">1. 总体、抽样框架与样本</h2>
+<p>三个常被混淆的概念，抽样前必须先区分清楚：<b>总体（population）</b>是理论上想要推论到的全部群体；<b>抽样框架（sampling frame）</b>是可以从中实际抽样的真实名单；<b>样本（sample）</b>是实际被测量的子集。</p>
+<div class="figure"><img src="../../../assets/diagrams/pipeline_population_frame.png" alt=""/><figcaption>三个不同层次——总体、抽样框架、样本——及其对应的两种误差来源：覆盖误差与抽样误差。</figcaption></div>
+<div class="callout warn"><b>覆盖误差（coverage error）：</b>抽样框架与真实总体之间的差距。例如：PISA的抽样框架只包含已报名参加调查的学校——如果偏远地区学校报名率较低，即使框架内的抽样完全随机且执行正确，样本仍可能存在偏差。</div>
+<table><tr><th>层次</th><th>在越南PISA 2025例子中</th></tr>
+<tr><td>总体</td><td>越南全部15岁学生</td></tr>
+<tr><td>抽样框架</td><td>教育培训部提供给经合组织的学校名单</td></tr>
+<tr><td>样本</td><td>195所同意参加的学校，7,368名学生被测量</td></tr></table>
+
+<h2 id="xac-suat">2. 概率抽样（probability sampling）</h2>
+<p>定义性特征：每个单位被抽中的概率必须是可确定的（不必相等）。这是能够对总体进行有效统计推论的必要条件。</p>
+<table><tr><th>类型</th><th>做法</th><th>优点</th><th>缺点</th></tr>
+<tr><td>简单随机</td><td>对整个抽样框架随机化</td><td>简单，若框架良好则无偏</td><td>需要完整框架；地理分散时成本高</td></tr>
+<tr><td>系统抽样</td><td>按名单每隔k个单位抽取一次</td><td>易于执行，在名单上均匀分布</td><td>若名单存在与k吻合的隐藏周期则有风险</td></tr>
+<tr><td>分层抽样</td><td>按相关特征划分框架，在每层内随机抽样</td><td>确保每个重要群体按比例出现，降低误差</td><td>需要事先了解该特征</td></tr>
+<tr><td>整群／多阶段</td><td>先抽取整个群（如学校），再在群内抽样</td><td>后勤成本低得多</td><td>相同样本量下精度不如简单随机抽样</td></tr></table>
+<div class="callout"><b>PISA同时使用两者：</b>先按5个地区分层，再在每个地区内按与学校规模成比例的概率进行整群抽样（学校）——正是"分层多阶段整群抽样"。</div>
+
+<h2 id="phi-xac-suat">3. 非概率抽样（non-probability sampling）</h2>
+<p>定义性特征：每个单位被抽中的概率无法确定。这并不意味着"错误"——只是意味着不应该用它来对总体做精确的统计推论。</p>
+<table><tr><th>类型</th><th>做法</th><th>适用情况</th></tr>
+<tr><td>方便抽样</td><td>选取最容易接触到的对象</td><td>初步探索性研究，时间／经费严重受限</td></tr>
+<tr><td>目的性抽样</td><td>根据与研究问题相关的标准有意选取</td><td>需要专家／典型案例，深度定性研究</td></tr>
+<tr><td>配额抽样</td><td>按组凑足目标数量，组内不随机</td><td>需要按比例分组但缺乏完整框架</td></tr>
+<tr><td>滚雪球抽样</td><td>参与者介绍下一位</td><td>稀少、隐蔽、难以接触的群体</td></tr></table>
+<div class="callout warn"><b>常见错误：</b>使用方便抽样（如仅调查自己所教的班级），却仍然把结论写得像适用于"学生总体"一样。使用非概率抽样时，必须清楚说明推广性方面的局限。</div>
+
+<h2 id="co-mau">4. 抽样误差与有科学依据的样本量</h2>
+<p><b>抽样误差（sampling error）</b>是样本与总体之间因偶然性产生的自然差异——即使抽样完全正确也依然存在。不同于<b>抽样偏误（sampling bias）</b>，后者反映抽样过程本身存在系统性缺陷。</p>
+<div class="callout"><b>预试样本量（Julious，2005，<i>Pharmaceutical Statistics</i>）：</b>每组至少12个观测值——低于此数值，估计出的标准差之标准误波动过大（超出真实值的±20%），不足以作为下方正式样本量公式的可靠输入。</div>
+<p><b>每组样本量的近似公式（Cohen，1988）：</b></p>
+<div class="pd-formula"><div class="pd-formula-label">每组样本量——独立t检验</div><div class="pd-formula-math">n ≈ (z<sub>α/2</sub> + z<sub>β</sub>)² × 2 / d²</div></div>
+<ul class="pd-legend"><li><b>n</b><span>每组所需样本量</span></li>
+<li><b>z<sub>α/2</sub></b><span>对应显著性水平α的临界值——α=0.05时z=1.96</span></li>
+<li><b>z<sub>β</sub></b><span>对应β=1−检验力的临界值——检验力=0.80时z=0.84</span></li>
+<li><b>d</b><span>预期效应量（来自文献综述或预试）</span></li></ul>
+<table><tr><th>效应量d</th><th>水平</th><th>每组样本量</th></tr>
+<tr><td>0.2</td><td>小</td><td>≈394</td></tr><tr><td>0.5</td><td>中</td><td>≈64</td></tr><tr><td>0.8</td><td>大</td><td>≈26</td></tr></table>
+<p class="cap">使用<code>statsmodels.stats.power.TTestIndPower</code>计算，α=0.05，检验力=0.80——包含ANOVA与相关分析在内的完整表格见主页底部14步流程表的"正式样本量计算"部分。</p>
+
+<h2 id="thuc-hanh">5. 应用于真实数据：PISA样本权重</h2>
+<p>由于PISA按与学校规模成比例的概率进行整群抽样，各学校在分析时的"权重"并不相等——大学校在真实总体中代表的学生数量比小学校更多。<code>W_NRASCHBWT</code>变量正是用来修正这一点的。</p>
+<div class="callout good"><b>🖱️ 用真实SPSS/PSPP验证——加权如何改变结果：</b>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>打开<code>vnm_truong_195_tong_hop.sav</code>。</li>
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Descriptives...</code> → 将<code>EDULEAD</code>送入 → <code>OK</code>（尚未加权）。</li>
+<li><code>Data</code> → <code>Weight Cases...</code> → 选择<i>Weight cases by</i> → 将<code>W_NRASCHBWT</code>送入 → <code>OK</code>。</li>
+<li>重新运行第2步——比较两次结果。</li>
+</ol></div>
+<div class="callout"><b>真实结果（已用PSPP验证）：</b>未加权的EDULEAD平均数=0.7653（N=195所学校，每所计为1）。加权后平均数=0.7874（有效N=7,284.6，反映真实学生人数）。权重范围从1.0到617.2——意味着权重最高的学校所代表的学生数量是权重最低学校的617倍。在本例中忽略权重对结论影响不大（相差0.02），但对于与学校规模相关性更强的变量，误差可能大得多。</div>
+<pre>WEIGHT BY W_NRASCHBWT.
+DESCRIPTIVES VARIABLES=EDULEAD.
+* PSPP完全支持WEIGHT BY命令，已验证与Python手工计算结果一致。</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.csv">⬇ 下载PISA学校数据（.csv）</a>
+ <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ 下载PISA学校数据（.sav）</a>
+</div>
+
+<h3>📜 理论背景与历史</h3>
+<p>现代抽样理论可追溯到<b>耶日·奈曼（Jerzy Neyman）</b>1934年的研究，他首次严谨地证明了为什么概率抽样（而非当时流行的凭主观判断的"代表性抽样"）才能客观地计算抽样误差——为现代推论统计奠定了基础。<b>威廉·科克伦（William G. Cochran）</b>的教材《Sampling Techniques》（1953年）系统化了分层与整群抽样技术，这些技术至今仍原封不动地被使用，包括在PISA的设计中。</p>
+<div class="callout info"><b>时间线</b>
+<ul style="margin:.5em 0 0">
+<li><b>1895年</b>——安德斯·基尔（挪威）提出"代表性方法"，是抽样的早期雏形。</li>
+<li><b>1934年</b>——耶日·奈曼证明了概率抽样与最优分层的数学基础。</li>
+<li><b>1953年</b>——威廉·科克伦出版《Sampling Techniques》，系统化整群／多阶段抽样理论。</li>
+<li><b>2000年至今</b>——经合组织在80多个国家的PISA中采用分层＋整群＋多阶段设计。</li>
+</ul></div>
+
+<h3>🔎 真实案例研究</h3>
+<div class="card accent-a">
+<h4>为什么PISA不对全体学生进行简单随机抽样？</h4>
+<p>面对一个国家内数百万分散的15岁学生，简单随机抽样会抽中分布在成千上万所不同学校的学生——调查团队将不得不奔赴每一所学校，仅为测量1-2名学生，后勤成本完全不可行。按学校进行整群抽样，是用一部分统计精度换取现实中的可行性——这正是PISA样本（7,368名学生）远大于理论上完美简单随机抽样所需样本量的原因。</p>
+</div>
+<div class="card accent-a">
+<h4>样本权重——分析真实数据时为何不能忽略</h4>
+<p>在上述例子中，加权与未加权平均数之间的差距只有0.02——相当小，因为EDULEAD与学校规模的相关性并不强。但对于与学校规模相关性更强的变量（如设施条件、教师数量），忽略权重可能会显著扭曲结论——这正是经合组织所有官方PISA报告在公布任何数字之前都必须先加权的原因。</p>
+</div>
+
+<h2 id="quiz">6. 自测（30题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">
+<div>非营利自学资料。网站源代码： <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
+<button class="info-footer-btn" type="button" data-info-open>ℹ️ 页面信息、反馈与资料申请</button>
+</div></footer><div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="关闭">✕</button><h3 id="info-modal-title">ℹ️ 关于本站与反馈方式</h3><h4>🤖 AI 辅助撰写的内容</h4><p>本网站的大部分内容——概念讲解、自测题、部分示意图——都是借助 AI 撰写的，之后由维护者在时间允许的范围内进行核对（将数据与真实数据对照、将概念与原始教材对照）。由于内容量大、时间有限，无法保证每一句话都经过仔细校对。如果您在任何地方发现错误，非常欢迎通过下方联系方式反馈。</p><h4>📩 反馈与报错</h4><p><b>Trương Tuấn Nghĩa</b><br/>电话 / Zalo / Telegram：<a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook：<a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>邮箱：<a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 关于教材来源</h4><p>内容依据教材《Research Methods in Education》（Cohen, Manion &amp; Morrison 著，第8版，Routledge，2018年）编写。由于版权原因，本站不提供该书的文件——如需 PDF 以便在课程之外自行阅读，可通过以下非官方渠道查找：<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>请注意：以上网站经常更换域名或被屏蔽——如果某个链接无法访问，请自行搜索同一服务的最新域名。</p><h4>🤝 想要参与改进，或申请用于自己的教学？</h4><p>非常欢迎！如果您想帮助改进教材（修正错误、编写新单元、翻译等），或希望申请本教材的全部/部分内容用于<b>您自己的其他课程</b>（不限于 SPSS／社会科学）——请随时联系：<ul><li>发送邮件说明您想做什么／需要什么，并附上您的 GitHub 链接（如希望直接获得项目协作权限）。</li><li>或直接在 <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a> 自由 fork／clone／pull 源代码——无需事先征得同意，这是开放、非营利的教学资料。</li></ul>长期计划是为其他学科开发更多类似的教材——欢迎任何合作想法。谢谢！</p></div></div><script src="../../../_shared/theme.js"></script><script src="../../../_shared/deck.js"></script><script src="../../../_shared/info.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "什么是总体（population）？", "opts": ["理论上想要推论到的全部群体", "实际被测量的子集——这其实是样本的定义，而不是总体", "可以从中抽样的真实名单——这其实是抽样框架的定义，而不是总体", "样本的平均数字——这是一个描述统计量，而不是总体这个概念"], "correct": 0, "explain": "总体是一个理论概念——泛指想要研究的全部对象，而不是某个具体的名单。"}, {"q": "什么是抽样框架（sampling frame）？", "opts": ["理论上的总体——比抽样框架更抽象的概念，而不是一份具体名单", "最终的分析结果——这是统计推断的产物，与抽样框架无关", "所需的最小样本量——这是检验力分析得出的数字，不是一份名单", "可以从中抽取样本的真实名单"], "correct": 3, "explain": "抽样框架是用来抽取样本的具体、真实的名单——不同于总体（更抽象的概念）。"}, {"q": "覆盖误差（coverage error）在什么情况下发生？", "opts": ["抽样框架与真实总体不一致时", "软件计算公式出错时——这是技术性错误，不是抽样框架的概念", "样本量过小时——这是另一个问题，与抽样误差有关，而非覆盖误差", "受访者撒谎时——这属于测量误差，与抽样框架无关"], "correct": 0, "explain": "覆盖误差指抽样框架（实际使用的名单）与想要推论到的理论总体之间的差距。"}, {"q": "在越南PISA 2025中，抽样框架是什么？", "opts": ["教育培训部提供给经合组织的学校名单", "越南全部儿童——这更接近总体的定义，而不是具体的抽样框架", "已参加的195所学校——这其实是实际抽取到的样本，而不是原始的抽样框架", "被测量的7,368名学生——这是样本中最终的测量单位，而不是抽样框架"], "correct": 0, "explain": "抽样框架是用来抽取样本的名单；195所学校是实际的样本，而不是框架本身。"}, {"q": "概率抽样的核心特征是什么？", "opts": ["总是比非概率抽样便宜——通常恰恰相反，因为需要完整的抽样框架", "总是产生更小的样本量——样本量由检验力分析决定，与是否概率抽样无关", "完全不需要抽样框架——恰恰相反，概率抽样总是需要清晰的框架才能计算被抽中概率", "每个单位都有已知且非零的被抽中概率"], "correct": 3, "explain": "每个单位的被抽中概率必须是已知的（不必相等）——这是概率抽样的定义性条件。"}, {"q": "简单随机抽样是如何运作的？", "opts": ["先分组，再在组内抽样", "框架中每个单位被抽中的机会都相等", "按研究者的既定标准选取", "整群抽取，而非逐个个体"], "correct": 1, "explain": "简单随机抽样：每个单位被抽中的概率完全相等，事先不进行任何分组或分层。"}, {"q": "系统抽样与简单随机抽样有何不同？", "opts": ["完全不需要抽样框架——系统抽样仍需要名单来计数并每隔k个单位抽取一次", "只适用于定性数据——系统抽样是一种抽样方法，适用于任何类型的数据", "按名单每隔k个单位抽取一次", "总是产生更大的样本量——样本量由研究者事先决定，与抽样方法无关"], "correct": 2, "explain": "系统抽样按固定间隔k在名单上抽取（如每第10人），而不是完全随机抽取。"}, {"q": "分层抽样在抽取之前先做什么？", "opts": ["预先计算效应量——这是检验力分析的准备步骤，与分层无关", "把多个抽样框架合并为一个——分层是把框架拆分开，而不是合并", "按相关特征把抽样框架分成若干组", "删除所有缺失数据——这是数据清洗步骤（第3单元），不是抽样步骤"], "correct": 2, "explain": "分层先按特征（如地区、学校类型）把抽样框架分成若干层，再在每一层内部随机抽样。"}, {"q": "在相同样本量下，为什么分层抽样通常比简单随机抽样更精确？", "opts": ["总是使用更大的样本量——分层并不会自动增加样本量，只是重新组织抽样方式", "不需要抽样框架——分层仍然需要抽样框架才能先划分层", "确保每个重要群体都按比例出现在样本中", "完全消除了抽样误差——分层只能减少一部分误差，无法完全消除"], "correct": 2, "explain": "分层降低了某个重要层因偶然性而完全未被抽中的风险，而简单随机抽样无法保证这一点。"}, {"q": "整群抽样（cluster sampling）首先抽取的是什么？", "opts": ["分散在全国各地的个体——这描述的是简单随机抽样，而不是整群抽样", "熟人介绍熟人——这描述的是滚雪球抽样，而不是整群抽样", "最容易接触到的人——这描述的是方便抽样，而不是整群抽样", "整个群体／群（如一所学校），而非个体"], "correct": 3, "explain": "整群抽样先抽取整个群（学校、地区），再测量其中的个体——比逐个接触分散的个体便宜得多。"}, {"q": "PISA的'多阶段'设计主要包含几个抽样阶段？", "opts": ["没有阶段，抽取全部总体", "三个——先抽省，再抽县，再抽乡", "一个——直接在全国范围内抽学生", "两个——先抽学校，再在校内抽学生"], "correct": 3, "explain": "PISA：第一阶段抽取学校（群，按地区分层），第二阶段在每所抽中的学校内抽取学生。"}, {"q": "所有类型的非概率抽样有什么共同点？", "opts": ["必须有完整的抽样框架", "总是比概率抽样样本量更大", "总是比概率抽样更昂贵", "无法确定每个单位被抽中的概率"], "correct": 3, "explain": "非概率抽样的定义性特征：每个单位被抽中的概率是未知的，这与概率抽样完全不同。"}, {"q": "什么是方便抽样（convenience sampling）？", "opts": ["选取最容易接触到的对象", "参与者介绍其他参与者", "在小组内随机选取", "按既定标准选取"], "correct": 0, "explain": "方便抽样只是根据谁最容易接触、最容易调查来选取——不使用其他任何筛选标准。"}, {"q": "目的性抽样（purposive）与方便抽样有何不同？", "opts": ["样本量总是超过1000——样本量并非这种抽样类型的定义性特征", "根据与研究问题直接相关的标准有意选取", "完全不使用任何标准——这与目的性抽样的本质相反，它恰恰总是依据标准", "完全随机——目的性抽样完全不是随机的，而是根据标准有意选取"], "correct": 1, "explain": "目的性抽样根据与研究问题直接相关的标准有意选取，而不仅仅是因为容易接触到。"}, {"q": "配额抽样（quota）在思路上与哪种抽样最相似，但区别在哪？", "opts": ["不与任何其他抽样类型相似——它显然在分组思路上与分层抽样相似", "与分层抽样的分组思路相似，但组内并非随机抽样", "与系统抽样相似但不需要名单——配额抽样不需要像系统抽样那样的有序名单", "与整群抽样相似但更随机——配额抽样在组内其实比整群抽样更不随机"], "correct": 1, "explain": "配额抽样也像分层抽样那样按组划分，但每组内部选人的方式并非随机——这正是配额抽样仍属于非概率抽样的原因。"}, {"q": "滚雪球抽样（snowball）最适合哪种情况？", "opts": ["研究一个稀少、难以直接接触的群体", "调查整个城市的人口", "需要对全国进行精确统计推论时", "已经有完整的全体成员名单时"], "correct": 0, "explain": "滚雪球抽样依靠参与者介绍下一位——适用于难以直接界定或接触的群体（如某些隐蔽群体）。"}, {"q": "为什么不应该用非概率样本的结果对整个总体做统计推论？", "opts": ["被抽中概率未知，无法保证代表性", "软件无法为非概率样本计算统计量——软件依然能算出数字，问题是这个数字缺乏有效依据", "非概率样本总是太小——样本量可以很大，问题在于代表性而非数量", "法律禁止这样做——这不是法律问题，而是统计推论的数学依据问题"], "correct": 0, "explain": "不知道每个单位被抽中的概率，就没有数学依据把抽样误差推广到整个总体。"}, {"q": "抽样误差（sampling error）与抽样偏误（sampling bias）有何不同？", "opts": ["这两个概念完全相同", "偏误只发生在概率抽样中——偏误在两种抽样方式中都可能发生，只要抽样过程存在缺陷", "误差只发生在大样本中——抽样误差实际上在任何样本量下都会发生，包括小样本", "误差是自然的偶然波动；偏误源于抽样过程本身存在缺陷"], "correct": 3, "explain": "即使抽样完全正确（正确随机化），抽样误差依然存在，源于自然的偶然性；偏误则反映抽样方式本身存在系统性缺陷。"}, {"q": "增大样本量对抽样误差有什么影响？", "opts": ["通常会减小抽样误差", "只对非概率抽样有影响", "完全没有关系", "总是会增大抽样误差"], "correct": 0, "explain": "样本量越大，估计通常越稳定，抽样误差（多次抽样之间的波动）会相应减小。"}, {"q": "根据Julious（2005），预试研究每组最少建议多少样本量？", "opts": ["12", "1000", "3", "100"], "correct": 0, "explain": "Julious（2005，Pharmaceutical Statistics）建议预试每组至少12个观测值——低于此数值，估计出的标准差波动过大。"}, {"q": "预试研究（pilot study）的主要目的是什么？", "opts": ["仅仅是为了申请经费——这可能是附带好处，但不是预试研究的核心科学目的", "直接回答正式的研究问题——这是正式研究的职责，而非预试研究", "估计参数（标准差、缺失数据比例），为正式研究做准备", "完全取代正式研究——预试只是为正式研究做准备，无法取代它"], "correct": 2, "explain": "预试用于估计标准差、在投入正式样本之前发现实践中的问题——而不是用来回答研究问题本身。"}, {"q": "公式 n ≈ (z_α/2+z_β)² × 2 / d² 用于计算什么？", "opts": ["独立t检验每组所需的样本量", "皮尔逊相关系数——这是完全不同的统计量，衡量两个连续变量之间的关系", "平均数的标准误——那个公式是标准差除以样本量的平方根，与此样本量公式不同", "卡方检验的自由度——那个公式是（行数−1）×（列数−1），与此完全不同"], "correct": 0, "explain": "这是Cohen（1988）提出的独立t检验每组样本量的近似公式，基于α、检验力和效应量d计算得出。"}, {"q": "在样本量公式中，符号d代表什么？", "opts": ["自由度——自由度通常用df或ν表示，而不是这个样本量公式中的d", "预期的效应量", "样本的标准差——标准差是用来计算d的一个组成部分，但d本身并不是标准差", "需要比较的组数——组数并不直接出现在这个两组独立t检验的样本量公式中"], "correct": 1, "explain": "d是预期的Cohen's d效应量——需事先从文献综述或预试中估计得出，绝不能凭空猜测。"}, {"q": "预期效应量越小，所需样本量会如何变化？", "opts": ["无关", "不变", "越小", "越大"], "correct": 3, "explain": "效应越小越难被探测到，因此在同样检验力下需要大得多的样本量——例如d=0.2需要约394人/组，d=0.8只需约26人/组。"}, {"q": "把检验力从0.80提高到0.90，对所需样本量有什么影响？", "opts": ["需要更小的样本量", "只有α也改变时才有影响", "完全没有影响", "需要更大的样本量"], "correct": 3, "explain": "更高的检验力（更少遗漏真实效应）总是需要更大的样本量——这是检验力分析中一个固定的权衡关系。"}, {"q": "PISA数据中的学校权重变量W_NRASCHBWT用于什么？", "opts": ["调整学校被抽中概率不相等的问题", "计算平均学费——与财务完全无关，这是一个用于抽样的技术性权重", "为学校质量排名——抽样权重与评价学校教育质量毫无关系", "衡量学校的平均分数——这是一个学业成绩指标，与用于调整抽样概率的权重完全不同"], "correct": 0, "explain": "由于PISA按与学校规模成比例的概率进行整群抽样，各学校的'权重'并不相等——该权重在分析时用于修正这一点，以正确推论到总体。"}, {"q": "如果一项研究因时间限制无法达到理想样本量，诚实的做法是什么？", "opts": ["在报告中隐瞒这一局限——违反了整个课程始终强调的科学透明原则", "编造额外数据凑够样本量——这是严重的科学造假行为，绝对不能这样做", "把α提高以更容易达到显著——这是一种p-hacking行为，不是诚实的处理方式", "清楚报告在可行样本量下实际达到的检验力"], "correct": 3, "explain": "诚实报告在可行样本量下实际达到的检验力（即使较低）才是正确做法；为了'更容易显著'而提高α属于一种p-hacking行为。"}, {"q": "为什么PISA选择整群设计，而不是在全国学生总体中进行简单随机抽样？", "opts": ["简单随机抽样不被法律允许——完全没有法律问题，这纯粹是成本和后勤方面的考量", "不存在全体学生的完整名单——真正的问题是调查成本，而不是缺少名单", "整群抽样总是比简单随机抽样更精确——实际上恰恰相反，在相同样本量下整群通常精度较低，只是成本低得多", "在全国范围内接触分散个体的成本和后勤压力过大"], "correct": 3, "explain": "在数百万分散的学生中进行简单随机抽样，其交通与后勤成本极其高昂；按学校整群抽样则可行得多。"}, {"q": "研究设计（第1单元）与抽样设计（第2单元）有何不同？", "opts": ["抽样只适用于实验研究——抽样实际上同时适用于实验研究和观察性研究", "研究设计只适用于定性数据——研究设计同时适用于定性数据和定量数据", "研究设计决定推论的类型；抽样设计决定测量的对象是谁", "这两个概念完全相同"], "correct": 2, "explain": "研究设计（实验性／观察性）决定能否进行因果推论；抽样设计决定样本是否能代表总体——这是两个相互独立的问题。"}, {"q": "一项研究方便地抽取了研究者自己所教班级的全部学生来调查学习态度。报告中最应指出的局限是什么？", "opts": ["比其他研究需要更多的伦理审批", "完全无法计算任何描述统计量", "样本量肯定太小，无法分析", "结果难以推广到该具体班级之外"], "correct": 3, "explain": "来自某个特定班级的方便样本并不能代表学生总体——应指出的核心局限是可推广性有限，而不是样本量或伦理问题。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
