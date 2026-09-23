@@ -157,8 +157,20 @@ h4{color:var(--gold);font-size:1.02rem;margin:.3em 0}
 .pd-q{font-weight:700;color:var(--accent2);margin-bottom:5px;font-size:.95rem}
 .pd-a{color:var(--text);font-size:.92rem;line-height:1.6}
 .pd-cite{color:var(--muted);font-size:.8rem;margin-top:5px;font-style:italic}
-.pd-formula{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:8px 12px;margin:6px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;overflow-x:auto}
+.pd-formula{background:var(--code);border:2px solid var(--accent);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:1.05rem;overflow-x:auto;text-align:center;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.pd-formula-label{font-family:inherit;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;text-align:left}
+.pd-formula-math{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.1rem;color:var(--text);font-weight:700}
+.pd-legend{list-style:none;margin:8px 0 0;padding:0;font-size:.86rem;color:var(--text);display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.pd-legend li{display:contents}
+.pd-legend b{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent2);white-space:nowrap}
+.pd-theory{background:var(--panel2);border-left:4px solid var(--accent2);border-radius:0 8px 8px 0;padding:10px 14px;margin:10px 0 14px;font-size:.9rem;line-height:1.6}
+.pd-theory-label{font-weight:800;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent2);margin-bottom:5px;display:block}
+.pd-example{background:var(--code);border:1px dashed var(--border);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.88rem;line-height:1.6}
+.pd-example-label{font-weight:800;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--warn,#c98a1c);margin-bottom:5px;display:block}
+.pd-img{margin:12px 0;text-align:center}
+.pd-img img{max-width:100%;border-radius:10px;border:1px solid var(--border)}
+.pd-img figcaption{font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic}
 .pd-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.86rem}
 .pd-table th,.pd-table td{border:1px solid var(--border);padding:5px 9px;text-align:left}
 .pd-table th{background:var(--panel2);color:var(--accent2)}
-@media(max-width:640px){.pd-body{padding-left:18px}}
+@media(max-width:640px){.pd-body{padding-left:18px}.pd-legend{grid-template-columns:1fr}}
