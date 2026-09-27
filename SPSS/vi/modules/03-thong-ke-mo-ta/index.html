@@ -104,6 +104,16 @@
 <tr><td>Mean (trung bình)</td><td>Khoảng, tỉ lệ</td><td><b>Không</b> — dễ bị ngoại lai kéo lệch</td></tr>
 </table>
 <p>Ba đo độ phân tán: <b>độ lệch chuẩn (SD)</b> — trung bình khoảng cách mỗi điểm tới trung bình; <b>range</b> — max−min, rất nhạy ngoại lai; <b>IQR</b> — Q3−Q1, bền hơn range.</p>
+<div class="pd-formula"><div class="pd-formula-label">Trung bình mẫu (sample mean)</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
+<ul class="pd-legend"><li><b>x̄</b><span>trung bình mẫu</span></li>
+<li><b>Σxᵢ</b><span>tổng tất cả giá trị quan sát</span></li>
+<li><b>n</b><span>số quan sát trong mẫu</span></li></ul>
+<div class="pd-formula"><div class="pd-formula-label">Phương sai & độ lệch chuẩn mẫu (sample variance & SD)</div><div class="pd-formula-math">s² = Σ(xᵢ − x̄)² / (n − 1) &nbsp;&nbsp;·&nbsp;&nbsp; s = √s²</div></div>
+<ul class="pd-legend"><li><b>s²</b><span>phương sai mẫu — trung bình bình phương độ lệch so với x̄</span></li>
+<li><b>(xᵢ − x̄)</b><span>độ lệch của từng quan sát so với trung bình</span></li>
+<li><b>n − 1</b><span>bậc tự do — chia n−1 (không phải n) để ước lượng không chệch phương sai tổng thể (hiệu chỉnh Bessel)</span></li>
+<li><b>s</b><span>độ lệch chuẩn mẫu — căn bậc hai phương sai, cùng đơn vị với dữ liệu gốc nên dễ diễn giải hơn s²</span></li></ul>
+<div class="callout"><b>Tính tay trên ví dụ nhỏ:</b> 3 điểm Toán {6, 7, 8} → x̄ = (6+7+8)/3 = 7. Độ lệch: (6−7)=−1, (7−7)=0, (8−7)=1. Bình phương: 1, 0, 1 → tổng=2. s² = 2/(3−1) = 1 → s = √1 = 1. Diễn giải: điểm số dao động trung bình khoảng ±1 quanh trung bình 7.</div>
 <div class="figure"><img src="../../../assets/diagrams/dispersion_3sets.png" alt=""/><figcaption>Ba tập số CÙNG trung bình = 6 (ví dụ Cohen et al., tr.762–764) nhưng SD khác hẳn nhau — minh hoạ vì sao chỉ báo cáo trung bình là chưa đủ.</figcaption></div>
 <div class="callout warn"><b>Bài học:</b> không bao giờ báo cáo một mình trung bình. Tập (1) có ngoại lai (giá trị 20) đẩy SD lên 7,91 — gấp 11 lần tập (3) dù cùng trung bình = 6. Luôn kèm SD hoặc vẽ biểu đồ.</div>
 
@@ -141,15 +151,15 @@
 <div class="callout">
 <b>Trình tự SPSS (Box 40.2, tr.765):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → đưa biến vào ô <i>Variables</i> → nút <i>Statistics</i>: chọn đo trung tâm (mean/mode/median) + đo phân tán (SD/variance/range/min/max/SE) + đo hình dạng (skewness/kurtosis) → <i>Continue</i> → nút <i>Charts</i>: chọn loại biểu đồ → <i>OK</i>.
 </div>
-<p>PSPP tương đương (đã kiểm chứng chạy được — xem <code>pspp/01_mo_ta_tuong_quan.sps</code> ở trang Bộ dữ liệu):</p>
+<p>PSPP tương đương (đã kiểm chứng chạy được — xem <code>pspp/03_thong_ke_mo_ta.sps</code> ở trang Bộ dữ liệu):</p>
 <pre>FREQUENCIES VARIABLES=math /STATISTICS=MEAN MEDIAN STDDEV MIN MAX SKEWNESS.
 EXAMINE VARIABLES=math BY school /PLOT=BOXPLOT /STATISTICS=DESCRIPTIVES.
 CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">🚀 Xem notebook Python (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 Xem notebook Python (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/03_thong_ke_mo_ta.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta.ipynb" target="_blank">🚀 Xem notebook Python (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta.ipynb" target="_blank">📓 Xem notebook Python (GitHub)</a>
 </div>
 
 

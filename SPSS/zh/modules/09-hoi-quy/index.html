@@ -1,0 +1,148 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
+<title>09·简单与多元线性回归</title>
+<meta name="description" content="Simple & multiple linear regression, standardized beta, multicollinearity (VIF), residual assumptions — Cohen et al. 2018 ch.42"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="页面信息与反馈">i</button><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>社会科学 SPSS 教程</a>
+<nav class="crumbs"><a href="../../index.html">课程</a> / 09·回归分析</nav>
+<div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><details class="fontsw"><summary>🔤 字体</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman（默认）</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="langsw"><a href="../../../../SPSS/vi/modules/09-hoi-quy/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/09-hoi-quy/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/09-hoi-quy/index.html" class="active">中文</a></div></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
+<h1>09·简单与多元线性回归</h1>
+<p class="lead">第9／12单元・内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第42章"回归分析"。本课所有回归系数均来自真实数据（240名学生），同时用 Python（statsmodels）与 PSPP（<code>REGRESSION</code>）计算，两者结果完全一致。</p>
+<div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第09单元 · COHEN ET AL., CH.42</div>
+       <h2>简单与多元线性回归</h2>
+       <p>从"两变量相关"（第08单元）到"可以用一个变量预测另一个变量的值"。</p>
+       <p class="cap">使用 ← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第1/5部分</div>
+       <div class="part-num">01</div>
+       <h2>简单回归</h2>
+       <ul class="part-list"><li>从相关关系到预测方程</li><li>斜率与截距的含义</li></ul></div><div class="mdeck-slide"><div class="kicker">1·从r到方程</div><h2>相关说"有关联"，回归说"能预测"</h2>
+       <p>第08单元：r只衡量关系强弱，双向对称。回归更进一步：建立一条直线方程，用X来预测Y的值，方向明确（因变量~自变量）。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>数学成绩 ~ 学习时长（n=240）</h2>
+       <p class="big">math = 35.58 + 2.51 × study_hours</p>
+       <p class="cap">每周学习时间每增加1小时→预测数学成绩提高2.51分。R²=0.338。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第2/5部分</div>
+       <div class="part-num">02</div>
+       <h2>多元回归</h2>
+       <ul class="part-list"><li>为什么需要同时使用多个自变量</li><li>如何理解B系数："保持其他变量不变"</li></ul></div><div class="mdeck-slide"><div class="kicker">2·多个自变量</div><h2>math ~ study_hours + h1 + a1</h2>
+       <p class="big">R²=0.495（相比只用1个变量时的0.338）</p>
+       <p class="cap">增加2个变量（兴趣、焦虑）多解释了约16%的数学成绩变异。</p></div><div class="mdeck-slide"><div class="kicker">如何理解B系数</div><h2>"保持其他变量不变"</h2>
+       <p>B(study_hours)=2.49：多学习1小时→数学成绩提高2.49分，<b>前提是</b>兴趣和焦虑保持不变。这是与简单回归的核心区别。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第3/5部分</div>
+       <div class="part-num">03</div>
+       <h2>标准化系数（Beta）</h2>
+       <ul class="part-list"><li>为什么不能直接比较原始B系数</li><li>比较"哪个变量更重要"</li></ul></div><div class="mdeck-slide"><div class="kicker">3·标准化Beta</div><h2>不能把B(小时)和B(李克特点)直接比较</h2>
+       <p>study_hours以"小时"为单位，h1/a1则用1-5量表——单位完全不同。标准化Beta（统一换算成"标准差"单位）才能进行比较。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>study_hours影响最强（β=0.577）</h2>
+       <p class="cap">β：study_hours=0.577 &gt; a1=−0.297 &gt; h1=0.229——学习时长是3个变量中最强的预测因子。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第4/5部分</div>
+       <div class="part-num">04</div>
+       <h2>假设检验</h2>
+       <ul class="part-list"><li>多重共线性（VIF）</li><li>误差独立性（Durbin-Watson）</li><li>残差正态性</li></ul></div><div class="mdeck-slide"><div class="kicker">4·四项主要假设</div><h2>严重违反假设时回归结果不可信</h2>
+       <p>VIF&lt;5（无多重共线性）、Durbin-Watson≈2（误差独立）、残差正态、误差方差齐性（homoscedasticity）。</p></div><div class="mdeck-slide"><div class="kicker">真实验证</div><h2>本例中四项假设均满足</h2>
+       <p class="cap">最高VIF为1.02；Durbin-Watson=2.05；残差Shapiro-Wilk检验p=0.356——模型可信。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第5/5部分</div>
+       <div class="part-num">05</div>
+       <h2>应用与练习</h2>
+       <ul class="part-list"><li>SPSS/PSPP实操练习</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">实操</div><h2>SPSS：Analyze → Regression → Linear</h2>
+       <p class="cap">PSPP：REGRESSION命令——已验证与Python结果完全一致。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
+       <p>幻灯片只是摘要。完整公式、假设检验和SPSS实操内容见下方。</p></div></div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ 上一页</button>
+  <button class="mdeck-next" type="button">下一页 ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ 全屏</button>
+</div></div>
+
+<div class="btnrow">
+ <a class="tag" href="#don-bien">简单回归</a><a class="tag" href="#da-bien">多元回归</a>
+ <a class="tag" href="#beta">标准化Beta</a><a class="tag" href="#gia-dinh">假设检验</a>
+ <a class="tag" href="#thuc-hanh">实操练习</a><a class="tag" href="#quiz">自测</a>
+</div>
+
+<h2 id="don-bien">1. 简单线性回归</h2>
+<p>简单线性回归建立一条直线，用ONE个自变量（X）来预测因变量（Y）的值——不同于相关关系（第08单元），它具有明确的方向：X预测Y，而不是反过来（参见第08单元第5节关于回归不对称性的讨论）。</p>
+<div class="pd-formula"><div class="pd-formula-label">简单回归方程</div><div class="pd-formula-math">Ŷ = a + b·X</div></div>
+<ul class="pd-legend"><li><b>Ŷ</b><span>Y的预测值（不是实际观测到的真实值）</span></li>
+<li><b>a</b><span>截距（intercept）——当X=0时Ŷ的预测值</span></li>
+<li><b>b</b><span>斜率（slope）——X每增加1个单位，Y变化多少</span></li></ul>
+<div class="callout"><b>真实数据（n=240）：</b>math = 35.58 + 2.51 × study_hours。斜率b=2.51（SE=0.228, t=11.03, p&lt;0.001, 95%CI=[2.06, 2.96]）与第08单元讨论斜率不对称性时计算出的数值完全一致。R²=0.338——与第08单元Pearson r的r²完全相同（因为简单回归与Pearson相关分析共用同一套底层计算，只是呈现方式不同）。</div>
+<div class="callout warn"><b>study_hours=0的学生，预测数学成绩为35.58——这有实际意义吗？</b>在本数据中，实际观测到的最低study_hours是0.5小时——没有任何一名学生真正学习0小时。截距a只有数学意义（Y轴截点），若要按实际含义解读（外推到观测数据范围之外），需要非常谨慎。</div>
+
+<h2 id="da-bien">2. 多元回归</h2>
+<p>多元回归把上述思路扩展到同时使用MULTIPLE个自变量——回答的问题是："在控制了其他变量的影响之后，这个X变量还能额外贡献多少？"</p>
+<div class="pd-formula"><div class="pd-formula-label">多元回归方程</div><div class="pd-formula-math">Ŷ = a + b₁X₁ + b₂X₂ + ... + bₖXₖ</div></div>
+<ul class="pd-legend"><li><b>b₁, b₂, ...</b><span>各自变量各自的斜率系数——每个b衡量该变量在模型中保持所有其他变量不变时的影响（其他条件不变原则）</span></li>
+<li><b>k</b><span>模型中自变量的数量</span></li></ul>
+<div class="callout"><b>真实数据——模型 math ~ study_hours + h1 + a1（n=240）：</b>
+<table><tr><th>变量</th><th>B</th><th>SE</th><th>t</th><th>p</th></tr>
+<tr><td>（常数）</td><td>37.23</td><td>2.10</td><td>17.76</td><td>&lt;0.001</td></tr>
+<tr><td>study_hours（学习时长）</td><td>2.49</td><td>0.20</td><td>12.43</td><td>&lt;0.001</td></tr>
+<tr><td>h1（兴趣，1-5量表）</td><td>2.15</td><td>0.44</td><td>4.91</td><td>&lt;0.001</td></tr>
+<tr><td>a1（焦虑，1-5量表）</td><td>−2.68</td><td>0.42</td><td>−6.36</td><td>&lt;0.001</td></tr></table>
+R²=0.495（调整后R²=0.488），F(3,236)=77.05, p&lt;0.001——模型整体具有统计显著性，且三个自变量各自的贡献均显著。✅ 已验证Python（statsmodels）与PSPP（<code>REGRESSION</code>命令）结果100%一致。</div>
+<div class="callout warn"><b>与第1节简单回归的比较：</b>study_hours的系数从2.51（简单回归）略降至2.49（多元回归）——几乎不变，因为study_hours与h1/a1的相关性很弱（参见第4节的VIF）。如果两个自变量之间相关性较强，添加或删除变量时B系数可能出现大幅变化——因此在信任B系数之前，务必先检查VIF。</div>
+<div class="callout"><b>调整后R²（Adjusted R²）与普通R²有何不同？</b>普通R²在添加变量后总是会上升（不会下降），即使该变量毫无意义——调整后R²会对添加变量进行"惩罚"，只有当新变量确实充分改善模型时才会上升。此处R²=0.495与调整后R²=0.488相当接近——这是好现象，说明模型中没有"多余"的变量。</div>
+
+<h2 id="beta">3. 标准化回归系数（Beta）——比较哪个变量"更重要"</h2>
+<p>原始B系数无法在测量单位不同的变量之间直接比较——B(study_hours)=2.49意味着"每多学1小时，数学多2.49分"，而B(h1)=2.15意味着"李克特1-5量表每多1分，数学多2.15分"——两者单位完全不同，不能仅凭B的大小判断哪个"更重要"。</p>
+<div class="pd-formula"><div class="pd-formula-label">标准化Beta系数</div><div class="pd-formula-math">β = b × (X的SD / Y的SD)</div></div>
+<ul class="pd-legend"><li><b>β</b><span>将X和Y都标准化为同一"标准差数量"（z分数）尺度后得到的回归系数——不再受原始测量单位影响，可在变量间比较</span></li></ul>
+<div class="callout"><b>真实数据：</b>β(study_hours)=0.577；β(h1)=0.229；β(a1)=−0.297。尽管原始B(study_hours)=2.49只是略高于B(h1)=2.15，但β显示study_hours的影响明显更强（0.577 相对于 0.229 和 −0.297）——因为study_hours的离散程度（SD）与1-5李克特量表截然不同。<b>正确结论：以标准化单位衡量，学习时长是三个变量中最强的预测因子。</b></div>
+<div class="callout warn"><b>常见陷阱：</b>当自变量测量单位不同时，直接比较原始B系数来判断"哪个变量更重要"——这是常见的解读错误。比较相对重要性时应始终使用标准化Beta；预测实际数值时则应使用原始B（因为原始B保留了原始单位，便于按情境解读）。</div>
+
+<h2 id="gia-dinh">4. 回归假设检验</h2>
+<p>回归结果只有在满足4项主要假设时才可信——严重违反假设可能导致B系数和p值被错误估计，而不仅仅是精度下降。</p>
+<table><tr><th>假设</th><th>检验方式</th><th>真实结果（第2节模型）</th></tr>
+<tr><td>无多重共线性</td><td>每个自变量的VIF（方差膨胀因子）</td><td>最高VIF = 1.02（安全阈值&lt;5，理想值&lt;2.5）→ ✅ 满足</td></tr>
+<tr><td>误差独立</td><td>Durbin-Watson（理想值接近2）</td><td>DW=2.05 → ✅ 满足（2.05非常接近2）</td></tr>
+<tr><td>残差（residuals）正态分布</td><td>残差Shapiro-Wilk检验</td><td>W=0.993, p=0.356（≥0.05）→ ✅ 满足，没有足够证据拒绝正态性</td></tr>
+<tr><td>误差方差齐性（homoscedasticity）</td><td>绘制残差对预测值的散点图，寻找喇叭形</td><td>见下方图形——未见明显喇叭形 → ✅ 满足</td></tr></table>
+<div class="pd-formula"><div class="pd-formula-label">方差膨胀因子（VIF）</div><div class="pd-formula-math">VIF(Xᵢ) = 1 / (1 − R²ᵢ)</div></div>
+<ul class="pd-legend"><li><b>R²ᵢ</b><span>用模型中所有其他自变量来回归Xᵢ本身所得到的R²——R²ᵢ越高，说明Xᵢ与其他变量的信息越"重复"</span></li>
+<li><b>VIF过高</b><span>（通常按惯例&gt;5或&gt;10）→ 存在严重多重共线性，B系数变得不稳定（增删一个观测值就会大幅波动）</span></li></ul>
+<div class="callout warn"><b>为什么多重共线性很危险？</b>如果2个自变量几乎测量同一件事（例如两道内容几乎相同的题目），模型就无法"判断"该把影响归因于哪个变量——两者的B系数都可能变得没有意义（甚至出现不符合逻辑的符号反转），即使整体模型指标（R²、F）看起来仍然正常。这正是为什么在解读每个单独的B系数之前，必须先检查VIF。</div>
+
+<h2 id="thuc-hanh">5. SPSS/PSPP实操练习</h2>
+<div class="callout good"><b>🖱️ SPSS鼠标操作步骤：</b>
+<p style="margin:.6em 0 .3em"><b>0. 首先清理study_hours的离群值（与第04/05/08单元相同）：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Transform</code> → <code>Compute Variable...</code> → 目标变量=<code>study_hours</code>，数值表达式=<code>study_hours / 10</code> → <code>If...</code> → 条件<code>study_hours &gt; 20</code> → <code>OK</code>。</li>
+</ol>
+<p style="margin:.8em 0 .3em"><b>A. 多元回归：</b></p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>File</code> → <code>Open</code> → <code>Data...</code> → 选择<code>lop_hoc_240.sav</code>。</li>
+<li><code>Analyze</code> → <code>Regression</code> → <code>Linear...</code></li>
+<li>将<code>math</code>放入<i>Dependent</i>框；将<code>study_hours</code>、<code>h1</code>、<code>a1</code>放入<i>Independent(s)</i>框。</li>
+<li>点击<code>Statistics...</code> → 额外勾选<i>Collinearity diagnostics</i>（以获得VIF）和<i>Durbin-Watson</i> → <code>Continue</code>。</li>
+<li>点击<code>Plots...</code> → 将<code>*ZRESID</code>（标准化残差）放入Y轴，<code>*ZPRED</code>（标准化预测值）放入X轴 → 额外勾选<i>Histogram</i> → <code>Continue</code> → <code>OK</code>。</li>
+<li>阅读"Model Summary"表（R²、调整后R²、Durbin-Watson）、"ANOVA"表（整体F、p）、"Coefficients"表（各变量的B、Beta、t、p、VIF）。</li>
+</ol>
+</div>
+<p>对应的PSPP语法（已验证与SPSS/Python结果完全一致——见<code>pspp/09_hoi_quy_zh.sps</code>）：</p>
+<pre>GET FILE='lop_hoc_240.sav'.
+DO IF (study_hours &gt; 20).
+COMPUTE study_hours = study_hours / 10.
+END IF.
+EXECUTE.
+REGRESSION
+  /DEPENDENT math
+  /METHOD=ENTER study_hours h1 a1.
+* PSPP会输出Model Summary + ANOVA + Coefficients（B、Beta、t、Sig.）——
+* 已验证B=2.49/2.15/-2.68与Python结果完全一致。</pre>
+<div class="btnrow">
+ <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
+ <a class="btn secondary" href="../../../data/pspp/09_hoi_quy_zh.sps">⬇ PSPP语法示例（.sps）</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/09_hoi_quy_zh.ipynb" target="_blank">🚀 Notebook：简单/多元回归与假设检验（Colab）</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/09_hoi_quy_zh.ipynb" target="_blank">📓 Notebook：简单/多元回归与假设检验（GitHub）</a>
+</div>
+
+<h3>📜 理论背景</h3>
+<p>线性回归起源于19世纪末<b>Francis Galton</b>对父子身高关系的研究（他称之为"向平庸回归"——非常高的父亲，其子女的身高往往会比父亲矮一些，向平均值"回归"）。<b>Karl Pearson</b>随后用严谨的数学形式将其公式化，与第08单元学到的相关系数r基于同一套数学基础——这正是为什么简单回归的R²总是等于这两个变量之间Pearson相关系数的r²。</p>
+
+<h2 id="quiz">6. 自测（30题）</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">
+<div>免费自学资料，非商业性质。网站源码：<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
+<button class="info-footer-btn" type="button" data-info-open>ℹ️ 页面信息、反馈与资料索取</button>
+</div></footer><div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="关闭">✕</button><h3 id="info-modal-title">ℹ️ 关于本站与反馈</h3><h4>🤖 AI辅助生成的内容</h4><p>本网站的大部分内容——概念讲解、自测题、部分图示——是在AI协助下撰写的，之后由维护者在时间允许的范围内进行了审核（核对数据与真实数据、核对概念与原始教材）。由于内容量大且时间有限，无法保证每一句话都经过仔细校对。如发现任何错误，欢迎通过下方联系方式反馈。</p><h4>📩 反馈 / 报告错误</h4><p><b>Trương Tuấn Nghĩa</b><br/>电话 / Zalo / Telegram：<a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook：<a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>邮箱：<a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 关于教材来源</h4><p>内容依据《Research Methods in Education》（Cohen, Manion &amp; Morrison，第8版，Routledge 2018）。由于版权原因，本站不提供该书文件——如需PDF以便课外阅读，可通过一些非官方渠道查找，例如：<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>提示：以上网站常更换域名或被屏蔽——如果链接打不开，请自行搜索同一服务的最新域名。</p><h4>🤝 想要贡献内容，或索取资料自行授课？</h4><p>非常欢迎！如果你想帮助改进学习资料（修正错误、编写新单元、翻译等），或希望获取本资料的全部/部分内容用于<b>自己的其他课程</b>（不限于SPSS/社会科学）——欢迎随时联系：<ul><li>发邮件说明你想做什么/需要什么，如需直接加入项目协作，请附上你的GitHub链接。</li><li>或直接fork / clone / pull源码：<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a>——无需事先征求同意，这是开放、非营利的资料。</li></ul>长期方向是为更多学科开发类似的学习资料——如有合作想法，随时欢迎。谢谢！</p></div></div><script src="../../../_shared/theme.js"></script><script src="../../../_shared/deck.js"></script><script src="../../../_shared/info.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "得分：{s}/{n}", "items": [{"q": "在简单回归方程 Ŷ = a + b·X 中，符号'a'代表什么？", "opts": ["X和Y之间的Pearson相关系数，与回归完全是不同的量", "截距（intercept）——当X=0时Ŷ的预测值", "斜率——X每增加1个单位时Y的变化量", "用于估计该回归模型的样本量"], "correct": 1, "explain": "'a'是截距，即X=0时Y的预测值——与斜率'b'（Y随X变化的量）不同。"}, {"q": "真实数据中：math = 35.58 + 2.51 × study_hours。斜率b=2.51是什么意思？", "opts": ["在全部240人的样本中，学生平均每周学习2.51小时", "学习时长与数学成绩之间的相关系数是2.51——这一具体细节正是准确理解本题的关键所在——这一具体细节正是准确理解本题的关键所在", "每周多学习1小时，预测数学成绩平均提高2.51分——这一具体数字正是此处正确解读的关键所在", "样本中有35.58%的学生数学成绩比总体平均高出2.51分"], "correct": 2, "explain": "斜率b表示当X恰好增加1个单位时Y的变化量——此处即每多学1小时，数学成绩多2.51分。"}, {"q": "简单回归模型math~study_hours的R²=0.338，与第08单元计算的Pearson相关系数r之间是什么关系？", "opts": ["简单回归的R²就是r²（r=0.582, r²≈0.338）——两者基于同一套计算", "按照统计学的固定惯例，R²永远等于r值的两倍——这是初学此部分时相当常见的误解", "两者毫无关系，是完全独立的两种计算——这是初学此部分时相当常见的误解", "R²只适用于多元回归，不适用于简单回归——这一具体细节正是准确理解本题的关键所在——这一具体细节正是准确理解本题的关键所在"], "correct": 0, "explain": "简单回归与Pearson相关分析基于同一套数学基础——简单回归的R²总是等于这两个变量之间Pearson相关系数的平方。"}, {"q": "为什么在本例中解读截距a=35.58（study_hours=0时的预测数学成绩）需要谨慎？", "opts": ["因为无论数据如何，截距在任何线性回归模型中都永远没有意义——这是初学此部分时相当常见的误解", "因为按标准统计学惯例，截距只有在样本量超过1000个观测值时才有意义——这是初学此部分时相当常见的误解", "因为样本中没有任何学生实际每周学习0小时（最低为0.5小时）——这是将结果外推到数据范围之外", "因为在同一个回归方程中，截距的计算公式与斜率的计算公式完全不同"], "correct": 2, "explain": "实际观测到的最低study_hours是0.5小时——解读X=0处的预测值属于将结果外推到真实数据范围之外，需要谨慎。"}, {"q": "多元回归（multiple regression）与简单回归的核心区别是什么？", "opts": ["多元回归总是得出负的斜率，这一点与简单回归不同", "多元回归同时使用MULTIPLE个自变量来预测一个因变量——这一点是理解本节内容的关键所在", "多元回归不需要像简单回归那样计算R²——这一具体细节正是准确理解本题的关键所在——这一具体细节正是准确理解本题的关键所在", "多元回归只能用于名义数据，不能用于连续数据"], "correct": 1, "explain": "核心区别在于：多元回归把多个自变量同时纳入同一个模型，从而可以控制它们相互之间的影响。"}, {"q": "在模型math ~ study_hours + h1 + a1中，R²=0.495，而只用study_hours的模型R²=0.338。这说明了什么？", "opts": ["简单回归模型计算有误，需要重新计算——这是初学此部分时相当常见的误解", "增加2个变量（兴趣h1、焦虑a1）有助于多解释一部分数学成绩的变异", "这两个模型因为变量数量不同，根本无法相互比较——这是初学此部分时相当常见的误解", "按数学惯例，多元回归的R²总是小于简单回归"], "correct": 1, "explain": "R²从0.338上升到0.495，说明新增的2个变量（h1、a1）在study_hours已解释的部分之外，为数学成绩提供了额外的解释信息。"}, {"q": "在多元回归中，一个自变量的B系数是按照'其他条件不变'（ceteris paribus）原则来解读的——这是什么意思？", "opts": ["该系数只有在所有自变量都用同一量表测量时才成立——这是初学此部分时相当常见的误解", "解读时完全忽略模型中其他自变量的影响", "该变量对因变量的影响，是在保持模型中所有其他自变量取值不变的条件下衡量的", "只适用于最先输入模型的那个自变量——这是初学此部分时相当常见的误解"], "correct": 2, "explain": "'其他条件不变'是多元回归的核心解读原则：每个B系数衡量的是该变量自身的影响，同时保持其他变量固定不变。"}, {"q": "真实模型中，多元回归下B(study_hours)=2.49，而简单回归下b=2.51——为什么这两个数字如此接近？", "opts": ["因为样本量n=240太小，系数在两个模型之间不可能有明显变化——这是初学此部分时相当常见的误解", "因为这永远是一条固定规律，系数在两类模型之间绝不会改变", "因为软件在最后一步计算中出现了四舍五入的误差——这是初学此部分时相当常见的误解", "因为study_hours与模型中另外2个变量（h1、a1）的相关性很弱——见第4节的VIF"], "correct": 3, "explain": "当一个自变量与模型中其他自变量相关性不强（VIF较低）时，无论增删其他变量，它自身的B系数变化都很小。"}, {"q": "调整后R²（Adjusted R²）与普通R²有何不同？", "opts": ["在所有情况下，调整后R²总是大于普通R²——这是初学此部分时相当常见的误解", "调整后R²和普通R²只是同一个数字的两种不同叫法——这是初学此部分时相当常见的误解", "调整后R²会对添加无意义变量的行为进行'惩罚'，不像普通R²那样会自动上升", "调整后R²只能用于简单回归，不能用于多元回归"], "correct": 2, "explain": "普通R²在添加变量后总是上升（不会下降），即使该变量毫无意义——调整后R²会按变量数量打折扣，只有当新变量确实充分改善模型时才会上升。"}, {"q": "真实案例中，R²=0.495与调整后R²=0.488彼此相当接近。这说明了什么？", "opts": ["样本量n=240肯定不足以信任任何回归结果", "模型肯定计算有误，因为这两个数字必须完全相等", "应该立即从模型中剔除study_hours变量，因为R²太低", "在这个三变量模型中，没有出现无意义的'多余'变量的迹象"], "correct": 3, "explain": "R²与调整后R²彼此接近（0.495对0.488），说明模型中的各个变量都做出了真实的贡献，没有'多余'变量人为地虚增R²。"}, {"q": "为什么不能直接用B(study_hours)=2.49与B(h1)=2.15相比较，得出'study_hours只是略微比h1重要'的结论？", "opts": ["因为这两个B系数所用的原始测量单位不同（小时 vs 1-5李克特点数），无法直接比较——这正是理解此题的关键所在", "因为B(h1)实际上比B(study_hours)更大，而不是像数字显示的那样更小——这一具体细节正是准确理解本题的关键所在", "因为在这个多元回归模型中，h1变量的B系数其实从未被计算出来——这是初学此部分时相当常见的误解", "因为只有当两个变量都是名义变量时，B系数才能相互比较——这是初学此部分时相当常见的误解"], "correct": 0, "explain": "原始B保留了每个变量各自的原始测量单位——在单位不同的变量之间直接比较（小时 vs 李克特量表）是常见的解读错误。需要用标准化Beta来进行这种比较。"}, {"q": "标准化Beta系数（β）用什么公式计算？", "opts": ["β = b × (X的SD / Y的SD)", "β = 截距a乘以模型的斜率b——这一具体细节正是准确理解本题的关键所在", "β = 原始B除以研究的样本量n", "β = 对应简单回归模型的r²"], "correct": 0, "explain": "标准化公式：β = b × (X的SD / Y的SD)——统一换算成'标准差数量'这一单位，消除原始测量单位带来的影响。"}, {"q": "真实数据给出β(study_hours)=0.577、β(h1)=0.229、β(a1)=−0.297。以标准化单位衡量，哪个变量是最强的预测因子？", "opts": ["a1（焦虑），因为其系数为负号，意味着反方向影响最强", "study_hours，因为它在3个变量中|β|最大", "h1（兴趣），因为它的原始B系数与study_hours最接近", "仅凭Beta系数无法判断哪个变量最强"], "correct": 1, "explain": "比较相对重要性必须使用|β|（标准化Beta的绝对值）——|0.577| > |−0.297| > |0.229|，因此study_hours是最强的预测因子。"}, {"q": "自变量Xᵢ的VIF（方差膨胀因子）是基于什么计算的？", "opts": ["仅仅是Xᵢ与因变量Y之间的相关系数——这是初学此部分时相当常见的误解", "用模型中所有其他自变量来回归Xᵢ本身所得到的R²", "变量Xᵢ上数据缺失（missing）的观测数量——这是初学此部分时相当常见的误解", "变量Xᵢ相对于数据中所有其他变量的标准差"], "correct": 1, "explain": "VIF(Xᵢ) = 1/(1−R²ᵢ)，其中R²ᵢ是用其他自变量回归Xᵢ所得到的R²——R²ᵢ越高，说明Xᵢ与其他变量的信息'重复'越多。"}, {"q": "真实案例中，3个自变量里最高的VIF是1.02。这说明了什么？", "opts": ["不存在令人担忧的多重共线性（常见的安全阈值是VIF&lt;5）", "模型肯定有误，因为VIF必须大于5才算有效", "如果没有其他信息，VIF的含义无法解读——这一具体细节正是准确理解本题的关键所在", "存在严重的多重共线性，需要立即从模型中剔除变量"], "correct": 0, "explain": "VIF=1.02非常接近理论上可能的最小值（VIF=1，即某变量与其他变量完全不相关）——没有多重共线性的迹象。"}, {"q": "为什么多重共线性（VIF过高）会给B系数的解读带来危险？", "opts": ["因为模型无法'判断'该把影响归因于两个几乎重复的变量中的哪一个，导致每个变量各自的B系数变得不稳定", "因为多重共线性总是会把整个模型的整体R²拉低到一个无效的负值——这是初学此部分时相当常见的误解", "因为多重共线性只影响截距a，完全不会影响任何斜率系数B——这一具体细节正是准确理解本题的关键所在——这一具体细节正是准确理解本题的关键所在", "因为多重共线性会让统计软件立即报错，拒绝计算出任何结果——这是初学此部分时相当常见的误解"], "correct": 0, "explain": "当2个自变量几乎测量同一件事时，模型无法判断该把多少影响归因于哪一个——每个单独的B系数都会变得不稳定，即使整体的R²和F看起来仍然正常。"}, {"q": "Durbin-Watson统计量用来检验回归的哪一项假设？", "opts": ["模型中自变量之间完全不存在多重共线性的假设", "因变量Y在进入模型之前呈正态分布的假设", "误差（残差）彼此独立、不存在自相关的假设", "样本量必须大于某个最低阈值的假设——这是初学此部分时相当常见的误解"], "correct": 2, "explain": "Durbin-Watson检验的是误差的独立性（无自相关）——数值接近2表示误差独立，这一点对时间序列数据尤为重要。"}, {"q": "真实案例中，Durbin-Watson=2.05。这是好现象吗？", "opts": ["不是，因为Durbin-Watson必须大于4才算达标", "如果不与其他模型比较，就无法得出任何结论", "不是，因为Durbin-Watson必须正好等于0才算达标——这一点恰恰与正确判断标准相反", "是的，因为2.05非常接近理想值2——误差看起来是独立的"], "correct": 3, "explain": "Durbin-Watson的理想值接近2（量表范围是0到4）；2.05非常接近2，说明没有令人担忧的误差自相关证据。"}, {"q": "对回归模型的残差（residuals）而不是原始变量进行Shapiro-Wilk检验，是为了检验什么？", "opts": ["检验因变量Y在原始形式下、进入回归模型之前是否呈正态分布", "检验模型的残差（预测误差）是否呈正态分布——这是精确统计推断所需要的一项假设", "检验样本量n=240是否足够大到可以进行线性回归——这是初学此部分时相当常见的误解", "检验模型中的自变量彼此之间是否高度相关，类似于VIF——这是初学此部分时相当常见的误解"], "correct": 1, "explain": "回归中的正态性假设适用于残差（真实值与预测值之间的误差），而不是Y或X变量本身。"}, {"q": "真实案例中，残差的Shapiro-Wilk检验给出p=0.356。正确的结论是什么？", "opts": ["p=0.356 &lt; 0.05，因此残差NOT呈正态分布，模型不可信——这是初学此部分时相当常见的误解", "如果不知道样本量的更多信息，p=0.356无法解读——这是初学此部分时相当常见的误解", "p=0.356 ≥ 0.05，因此没有足够证据拒绝'残差呈正态分布'这一假设——假设成立", "p=0.356只适用于简单回归，不适用于多元回归"], "correct": 2, "explain": "p≥0.05意味着没有足够证据拒绝'残差呈正态分布'这一假设——假设成立，支持模型的可信度。"}, {"q": "检验'误差方差齐性'（homoscedasticity）最常见的方法是什么？", "opts": ["统计因变量Y中缺失值（missing）的数量——这是初学此部分时相当常见的误解", "绘制标准化残差（ZRESID）对标准化预测值（ZPRED）的散点图，寻找喇叭形", "计算模型中任意两个自变量之间的Pearson相关系数——这一具体细节正是准确理解本题的关键所在", "直接比较简单回归模型与多元回归模型的R²数值——这是初学此部分时相当常见的误解"], "correct": 1, "explain": "绘制残差对预测值的散点图是最常见的直观检验方法——喇叭形（残差离散程度随预测值增大或减小）是违反此假设的信号。"}, {"q": "如果误差方差NOT齐性（异方差，heteroscedasticity），回归结果可能会发生什么？", "opts": ["与这项假设完全满足时相比，各自变量的B系数反而会变得明显更准确", "B系数的标准误（SE）可能被错误估计，导致p值和置信区间不可信——这正是异方差问题的核心危害", "整个模型的R²会自动跳升到绝对最大值1.00，无论数据如何", "完全没有值得关注的影响，这纯粹只是绘制残差图时的美观问题——这一具体细节正是准确理解本题的关键所在"], "correct": 1, "explain": "异方差不会让B系数产生太大偏差，但会让标准误（SE）——以及由此得出的p值、置信区间——被错误估计，导致统计结论不可信。"}, {"q": "在SPSS中，要在Coefficients表中同时得到标准化Beta系数与VIF，需要怎么做？", "opts": ["这两项指标在SPSS中都无法计算，必须完全改用其他统计软件——这是初学此部分时相当常见的误解", "只需在Linear Regression的Statistics对话框中勾选一个名为'Descriptives'的选项即可——这是初学此部分时相当常见的误解", "必须分别单独运行两次完全不同的回归，一次只为了得到Beta，一次只为了得到VIF", "标准化Beta默认会自动显示，而VIF则需要在Statistics中额外勾选'Collinearity diagnostics'"], "correct": 3, "explain": "Coefficients表默认已包含标准化Beta列；若想额外获得VIF（Tolerance）列，需要在Linear Regression的Statistics对话框中勾选'Collinearity diagnostics'。"}, {"q": "PSPP是否支持用于多元回归的REGRESSION命令？", "opts": ["不支持，PSPP 2.1.1会像UNIANOVA一样报错'REGRESSION is not yet implemented'", "支持，但只能用于简单回归，不能用于多元回归", "如果不额外安装PSPP的扩展包，就无法确定", "支持——已验证可以运行，结果与Python/statsmodels完全一致"], "correct": 3, "explain": "与UNIANOVA、NONPAR CORR、PARTIAL CORR（在前几个单元中PSPP尚不支持的命令）不同，REGRESSION命令已被PSPP完整支持，并已验证与Python结果完全一致。"}, {"q": "多元回归模型ANOVA表中的F(3,236)=77.05, p&lt;0.001，检验的是哪个假设？", "opts": ["原假设：仅仅study_hours这一个变量自身的系数等于0——这是初学此部分时相当常见的误解", "原假设：该回归模型的全部残差都绝对完美地呈正态分布——这是初学此部分时相当常见的误解", "原假设：自变量之间完全不存在任何多重共线性现象", "原假设：所有斜率系数B（不含常数项）同时等于0——即模型完全无法解释任何东西"], "correct": 3, "explain": "回归ANOVA中的整体F检验，检验的原假设是所有斜率系数同时等于0（模型毫无用处）——F检验显著，意味着至少有一个自变量做出了真实贡献。"}, {"q": "Coefficients表中针对每个B系数分别进行的t检验（例如study_hours的t=12.43），检验的是哪个假设？", "opts": ["原假设：整个回归模型完全无法解释Y的任何变异", "原假设：整个回归模型的R²数值绝对等于0——这一具体细节正是准确理解本题的关键所在", "原假设：仅仅该变量自身的B系数等于0，且已控制模型中的其他变量", "原假设：样本量n=240个观测值不足以运行这个回归模型"], "correct": 2, "explain": "Coefficients表中的每个t检验，专门检验该变量自身的B系数是否不同于0（同时保持其他变量不变）——这与上一题讨论的整体F检验不同。"}, {"q": "统计学中'回归'（regression）这一术语的历史渊源来自哪里？", "opts": ["来自19世纪末Francis Galton对父子身高的研究（'向平庸回归'）", "来自现代医学中的一个术语，21世纪才被借用到统计学中", "来自SPSS软件公司首次开发回归功能时所用的名称——这是初学此部分时相当常见的误解", "来自古典拉丁语，与任何具体的统计学研究都无关——这是初学此部分时相当常见的误解"], "correct": 0, "explain": "Francis Galton在观察到以下现象时创造了这个术语：身材非常高的父母，其子女身高往往比父母矮一些（但仍高于平均水平）——向总体平均值'回归'。"}, {"q": "如果研究者向模型中添加一个COMPLETELY RANDOM（完全随机、与Y毫无关系）的自变量，普通（未调整）的R²一定会发生什么变化？", "opts": ["普通R²会上升（或至少保持不变），哪怕升幅极小，即使这个变量毫无意义", "普通R²一定会下降，因为随机变量会给模型带来噪声——这是初学此部分时相当常见的误解", "普通R²与添加变量前相比完全不会有任何变化——这是初学此部分时相当常见的误解", "在这种情况下，普通R²的变化方向根本无法预测"], "correct": 0, "explain": "这正是需要调整后R²的原因：从数学上讲，添加任何变量（哪怕是与Y完全无关的随机变量）都必然会使普通R²上升或保持不变。"}, {"q": "从模拟班级数据集的生成方式来看，为什么回归模型math~study_hours+h1+a1是一个很好的教学案例？", "opts": ["因为该数据集本就是用内置公式生成的：数学成绩对学习时长和兴趣呈正向依赖，对焦虑呈负向依赖——回归模型恰好'重新发现'了这一结构", "因为整个数据集是完全随机生成的，各变量之间根本没有预先设定任何真实关系——这是初学此部分时相当常见的误解", "因为这其实是现实中收集到的真实PISA数据，根本不是模拟数据，所以可信度绝对无可置疑", "因为240名学生的样本量，是教育研究领域有史以来记录过的最大样本量——这是初学此部分时相当常见的误解，这与统计软件实际的计算方式并不相符"], "correct": 0, "explain": "该班级数据集是用内置公式生成的（math对study_hours及潜在兴趣变量呈正向依赖，对潜在焦虑变量呈负向依赖）——回归模型'重新发现'了这一预先设定好的结构，证实了该方法运作正确。"}, {"q": "如果想在信任线性回归结果之前，先检验'X与Y之间的关系是否为直线关系'，首先应该做什么？", "opts": ["完全跳过这一步，因为线性回归适用于ANY（任何）形状的关系", "在考虑其他任何事情之前，先立即计算标准化Beta系数", "绘制X对Y的散点图，用肉眼观察其形状是否接近一条直线", "不做任何检验，直接运行REGRESSION命令，因为软件会自动报告任何问题"], "correct": 2, "explain": "就像第08单元的课程内容（非线性/曲线关系）一样，在信任线性回归之前，务必先绘制散点图——如果真实关系是曲线形的，即使其他指标看起来正常，线性模型也会给出误导性的结果。"}, {"q": "在教育研究的背景下，发现R²=0.495（解释了数学成绩49.5%的变异）应该如何谨慎地解读？", "opts": ["这个49.5%的数字绝对完美，证明模型已经解释了数学成绩的ENTIRE（全部）成因", "R²=0.495已经确凿无疑地证明这三个变量通过直接的因果关系CAUSE（导致）了数学成绩——这是初学此部分时相当常见的误解，这与统计软件实际的计算方式并不相符", "这个数字被认为过低，因此可以得出整个回归模型已经不再具有任何实际使用价值的结论——这是初学此部分时相当常见的误解，这与统计软件实际的计算方式并不相符", "数学成绩变异中约有50.5%尚未被这3个变量解释——可能是由于其他未测量的因素（先天能力、教学质量、家庭支持等）或测量误差"], "correct": 3, "explain": "R²=0.495对社会科学数据而言已属较好水平，但仍有近一半的变异未被解释——而且和任何建立在观测数据上的回归分析一样，它并不能自动证明因果关系（这是从第01单元起就贯穿全课的重要教训）。"}]}</script><script src="../../../_shared/quiz.js"></script></body></html>

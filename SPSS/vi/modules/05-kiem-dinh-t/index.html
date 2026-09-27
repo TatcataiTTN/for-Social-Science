@@ -83,6 +83,11 @@
 
 <h2 id="doc-lap">2. T-test mẫu độc lập</h2>
 <p>Dùng khi 2 nhóm HOÀN TOÀN không liên quan (vd nam và nữ, Dự án và Truyền thống). Giả thuyết không (H0) luôn phát biểu "không có" khác biệt trung bình giữa 2 nhóm (tr.777).</p>
+<div class="pd-formula"><div class="pd-formula-label">Thống kê t — mẫu độc lập (phương sai đồng nhất)</div><div class="pd-formula-math">t = (x̄₁ − x̄₂) / SE<sub>diff</sub> &nbsp;&nbsp;·&nbsp;&nbsp; df = n₁ + n₂ − 2</div></div>
+<ul class="pd-legend"><li><b>x̄₁ − x̄₂</b><span>chênh lệch giữa 2 trung bình nhóm — "tử số" đo độ lớn khác biệt quan sát được</span></li>
+<li><b>SE<sub>diff</sub></b><span>sai số chuẩn của độ chênh lệch — ước lượng từ SD gộp (pooled) của cả 2 nhóm và cỡ từng nhóm</span></li>
+<li><b>df</b><span>bậc tự do — tổng cỡ 2 nhóm trừ 2 (mỗi nhóm "mất" 1 bậc tự do khi ước lượng trung bình riêng)</span></li></ul>
+<p class="cap">Trực giác: t là "chênh lệch quan sát được" chia cho "chênh lệch ngẫu nhiên mong đợi nếu H0 đúng" — |t| càng lớn, càng khó giải thích chênh lệch chỉ do may rủi lấy mẫu.</p>
 <div class="callout warn"><b>Chìa khoá đọc bảng kết quả — Levene's Test:</b> SPSS/PSPP luôn in 2 dòng kết quả t-test: "Equal variances assumed" và "Equal variances not assumed". Kiểm định Levene (H0 riêng: "2 phương sai bằng nhau") quyết định đọc dòng nào:
 <ul style="margin:.5em 0 0">
 <li>Levene <b>p&lt;0,05</b> → phương sai KHÔNG bằng nhau → đọc dòng thứ 2 ("not assumed", dùng t Welch).</li>
@@ -97,6 +102,11 @@
 
 <h2 id="bat-cap">3. T-test mẫu bắt cặp (Paired-samples)</h2>
 <p>Dùng khi CÙNG một nhóm đối tượng cho 2 giá trị: 2 thời điểm (trước/sau), 2 biến, hoặc 2 điều kiện. Ví dụ của Cohen et al. (tr.779–780): cùng 1.000 người đánh giá 2 khía cạnh khác nhau ("sự quan tâm dạy-học" và "chất lượng chuẩn bị bài giảng").</p>
+<div class="pd-formula"><div class="pd-formula-label">Thống kê t — mẫu bắt cặp</div><div class="pd-formula-math">t = d̄ / (s<sub>d</sub> / √n) &nbsp;&nbsp;·&nbsp;&nbsp; df = n − 1</div></div>
+<ul class="pd-legend"><li><b>d̄</b><span>trung bình của các độ chênh lệch cá nhân (posttest − pretest của từng người)</span></li>
+<li><b>s<sub>d</sub></b><span>độ lệch chuẩn của các độ chênh lệch đó (không phải SD của pretest hay posttest riêng lẻ)</span></li>
+<li><b>n</b><span>số CẶP quan sát (số người, không phải số điểm số)</span></li></ul>
+<p class="cap">Khác biệt cốt lõi so với t độc lập: công thức chỉ dùng MỘT cột số liệu (độ chênh lệch d), vì đã "gộp" 2 lần đo trên cùng người thành 1 con số duy nhất trước khi tính — đây chính là lý do bắt cặp loại bỏ được biến thiên cá nhân.</p>
 <div class="figure"><img src="../../../assets/diagrams/ttest_paired.png" alt=""/><figcaption>Dữ liệu lớp học thật (mẫu 40/240 học sinh để minh hoạ): điểm pretest → posttest. Xanh = tăng điểm, cam = giảm. TB pretest=60,35 (SD=10,89) → TB posttest=66,00 (SD=12,70). Khác biệt trung bình=5,65, t=13,37, df=239, p&lt;0,001.</figcaption></div>
 <div class="callout"><b>Vì sao t-test bắt cặp mạnh hơn t-test độc lập ở đây?</b> Pretest và posttest của CÙNG một học sinh tương quan rất cao (r=0,857, xem Module 04/08). Bắt cặp loại bỏ phần biến thiên do khác biệt CÁ NHÂN giữa các học sinh (học sinh giỏi vốn có cả 2 điểm cao), chỉ còn lại biến thiên do TÁC ĐỘNG của việc học — làm kiểm định mạnh hơn t độc lập rất nhiều với cùng cỡ mẫu.</div>
 <div class="callout warn"><b>Nhầm lẫn thường gặp:</b> nếu 2 cột số liệu thực chất đo trên CÙNG đối tượng (trước/sau, 2 biến cùng người) mà lại chạy t-test ĐỘC LẬP, kết quả sẽ bỏ qua tương quan giữa 2 lần đo, làm kiểm định kém mạnh hơn hẳn và có thể dẫn tới kết luận sai (bỏ lỡ một khác biệt thực sự có ý nghĩa).</div>
@@ -139,8 +149,9 @@ T-TEST PAIRS=pretest WITH posttest (PAIRED).
 * PSPP hỗ trợ đầy đủ GROUPS= (độc lập) và PAIRS= (bắt cặp), kết quả khớp Python/SPSS.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">🚀 Notebook: CLT, CI, kiểm định (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">📓 Notebook: CLT, CI, kiểm định (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/05_kiem_dinh_t.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/05_kiem_dinh_t.ipynb" target="_blank">🚀 Notebook: t-test độc lập & bắt cặp (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/05_kiem_dinh_t.ipynb" target="_blank">📓 Notebook: t-test độc lập & bắt cặp (GitHub)</a>
 </div>
 
 <h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>

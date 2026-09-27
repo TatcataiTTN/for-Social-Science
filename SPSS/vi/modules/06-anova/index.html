@@ -74,6 +74,14 @@
 <tr><td>3</td><td>Phân phối chuẩn (mẫu lớn thường khắc phục được)</td></tr>
 <tr><td>4</td><td>Phương sai đồng nhất (Levene test; nếu vi phạm, SPSS cung cấp Brown-Forsythe & Welch mạnh mẽ hơn)</td></tr></table>
 <p>ANOVA tính <b>F-ratio</b> = phương sai GIỮA các nhóm (between-groups) chia cho phương sai TRONG mỗi nhóm (within-groups). F lớn nghĩa là khác biệt giữa nhóm vượt trội hơn nhiều so với biến thiên ngẫu nhiên trong từng nhóm.</p>
+<div class="pd-formula"><div class="pd-formula-label">Tỉ số F</div><div class="pd-formula-math">F = MS<sub>between</sub> / MS<sub>within</sub> &nbsp;&nbsp;·&nbsp;&nbsp; MS = SS / df</div></div>
+<ul class="pd-legend"><li><b>SS<sub>between</sub></b><span>tổng bình phương độ lệch của TỪNG trung bình nhóm so với trung bình chung — đo biến thiên GIỮA các nhóm</span></li>
+<li><b>SS<sub>within</sub></b><span>tổng bình phương độ lệch của TỪNG quan sát so với trung bình nhóm của nó — đo biến thiên TRONG mỗi nhóm (nhiễu tự nhiên)</span></li>
+<li><b>MS</b><span>mean square — SS chia cho bậc tự do tương ứng, để so sánh được 2 nguồn biến thiên có "đơn vị" khác cỡ nhau</span></li>
+<li><b>df<sub>between</sub></b><span>số nhóm − 1</span></li>
+<li><b>df<sub>within</sub></b><span>tổng cỡ mẫu − số nhóm</span></li></ul>
+<div class="pd-formula"><div class="pd-formula-label">Eta² — cỡ hiệu ứng ANOVA</div><div class="pd-formula-math">η² = SS<sub>between</sub> / SS<sub>total</sub></div></div>
+<p class="cap">η² là tỉ lệ % biến thiên của biến phụ thuộc được "giải thích" bởi biến nhóm — xem bảng ngưỡng nhỏ/vừa/lớn ở Module 04, mục Cỡ hiệu ứng.</p>
 
 <h2 id="mot-chieu">2. ANOVA một chiều (One-way ANOVA)</h2>
 <p>Ví dụ của Cohen et al. (tr.781–782): điểm thi Toán chuẩn hoá của 4 loại trường (nông thôn tiểu học=59,85%; nông thôn trung học=60,44%; thành thị tiểu học=50,64%; thành thị trung học=51,70%). H0: "không có khác biệt có ý nghĩa giữa 4 trung bình". Kết quả SPSS: F(3, df)=8,976, p=0,000 → <b>bác bỏ H0</b>, có khác biệt có ý nghĩa ở đâu đó trong 4 nhóm.</p>
@@ -137,8 +145,9 @@ UNIANOVA math BY school gender /DESIGN=school gender school*gender.
 * PSPP hỗ trợ ONEWAY với /POSTHOC=TUKEY, kết quả khớp Python/statsmodels và SPSS.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">🚀 Notebook: ANOVA & phi tham số (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 Notebook: ANOVA & phi tham số (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/06_anova.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/06_anova.ipynb" target="_blank">🚀 Notebook: ANOVA một/hai chiều + Tukey (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/06_anova.ipynb" target="_blank">📓 Notebook: ANOVA một/hai chiều + Tukey (GitHub)</a>
 </div>
 
 <h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>

@@ -89,6 +89,7 @@
 <h2 id="rieng-phan">4. 偏相关</h2>
 <p>当怀疑第三个变量"混入"两个主要变量之间的关系时使用。书中的例子（第770页）：<i>篮球经验</i>与<i>表现</i>之间的相关可能受<i>身高</i>的混淆影响——偏相关剔除身高的影响，以揭示两个主要变量之间的"真实"关系。</p>
 <h3>在越南PISA真实数据上尝试（195所学校）</h3>
+<p class="cap">📖 EDUSHORT、STAFFSHORT等PISA变量的含义：<a href="../../data/index.html#bianliang-cidian">变量词典 — 学校层级数据集</a>。</p>
 <p><i>学习材料短缺</i>（EDUSHORT）与<i>学校科学平均成绩</i>之间的零阶相关：r = <b>−0.039</b>（非常弱）。怀疑的混淆变量：<i>人员短缺</i>（STAFFSHORT），它与学习材料短缺的相关较高（r=0.61）——类似于篮球例子中的“身高”。在控制人员短缺后，偏相关为：r = <b>−0.051</b>——<b>几乎没有变化</b>。</p>
 <div class="callout"><b>为什么与书中的例子不同？</b>只有当控制变量与另外两个变量都存在真实关联时，偏相关才会发生明显变化。这里，人员短缺与科学成绩几乎无关（r≈0.002）——因此"剔除"它对原始结果影响甚微。这是真实的结果，并非每份数据都能像教材例子那样呈现戏剧性的变化。</div>
 
@@ -139,9 +140,9 @@ RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
 CORRELATIONS VARIABLES=r_hours r_math.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ 示例 PSPP 语法（.sps）</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">🚀 PISA notebook（学校相关分析） (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 PISA notebook（学校相关分析） (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/08_tuong_quan_zh.sps">⬇ 示例 PSPP 语法（.sps）</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan_zh.ipynb" target="_blank">🚀 PISA notebook（学校相关分析） (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan_zh.ipynb" target="_blank">📓 PISA notebook（学校相关分析） (GitHub)</a>
 </div>
 
 

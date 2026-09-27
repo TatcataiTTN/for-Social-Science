@@ -84,7 +84,13 @@
 
 <h2 id="ci">2. Khoảng tin cậy (Confidence Interval)</h2>
 <p>APA (2010, tr.34, dẫn theo tr.733) YÊU CẦU báo cáo khoảng tin cậy trong công bố khoa học. CI cho biết: nếu lặp lại quy trình lấy mẫu nhiều lần, bao nhiêu % các khoảng dựng ra sẽ chứa giá trị THẬT của tổng thể (thường 95%).</p>
-<div class="callout"><b>Ví dụ dữ liệu thật:</b> điểm Toán trung bình (n=240) = 47,91, SE = 0,625 → CI95% = <b>[46,68; 49,14]</b>. Diễn giải đúng: "nếu lặp lại lấy mẫu 240 học sinh nhiều lần, ~95% các khoảng tính được sẽ chứa trung bình thật của tổng thể", <b>không phải</b> "95% xác suất trung bình thật nằm trong khoảng này" (tr.733).</div>
+<div class="pd-formula"><div class="pd-formula-label">Khoảng tin cậy 95% cho trung bình</div><div class="pd-formula-math">CI₉₅ = x̄ ± 1,96 × SE &nbsp;&nbsp;·&nbsp;&nbsp; SE = s / √n</div></div>
+<ul class="pd-legend"><li><b>x̄</b><span>trung bình mẫu</span></li>
+<li><b>SE</b><span>sai số chuẩn của trung bình — độ lệch chuẩn CỦA CHÍNH các trung bình mẫu nếu lặp lại lấy mẫu nhiều lần</span></li>
+<li><b>1,96</b><span>giá trị tới hạn z ứng với 95% diện tích giữa của phân phối chuẩn (2 đuôi, α=0,05)</span></li>
+<li><b>s</b><span>độ lệch chuẩn mẫu</span></li>
+<li><b>n</b><span>cỡ mẫu</span></li></ul>
+<div class="callout"><b>Ví dụ dữ liệu thật:</b> điểm Toán trung bình (n=240) = 47,91, s=9,68 → SE = 9,68/√240 = 0,625 → CI95% = 47,91 ± 1,96×0,625 = <b>[46,68; 49,14]</b>. Diễn giải đúng: "nếu lặp lại lấy mẫu 240 học sinh nhiều lần, ~95% các khoảng tính được sẽ chứa trung bình thật của tổng thể", <b>không phải</b> "95% xác suất trung bình thật nằm trong khoảng này" (tr.733).</div>
 <p>Torgerson &amp; Torgerson (2008, tr.135, dẫn theo tr.734): mẫu nhỏ → CI rộng (kém chính xác); mẫu lớn → CI hẹp hơn (chính xác hơn).</p>
 
 <h2 id="phan-phoi">3. Phân phối chuẩn, skewness & kurtosis</h2>
@@ -115,6 +121,10 @@
 
 <h2 id="effect">6. Cỡ hiệu ứng (Effect Size)</h2>
 <p>Cỡ hiệu ứng đo ĐỘ LỚN của khác biệt/liên hệ — điều mà riêng p-value không cho biết. Cohen et al. lưu ý "effect size" là thuật ngữ không chính xác: chữ "effect" ngụ ý nhân quả nhưng phép đo này không hề chứng minh nhân quả (tr.745).</p>
+<div class="pd-formula"><div class="pd-formula-label">Cohen's d (khác biệt 2 trung bình)</div><div class="pd-formula-math">d = (x̄₁ − x̄₂) / s<sub>pooled</sub></div></div>
+<ul class="pd-legend"><li><b>x̄₁, x̄₂</b><span>trung bình của 2 nhóm so sánh</span></li>
+<li><b>s<sub>pooled</sub></b><span>độ lệch chuẩn gộp của 2 nhóm — ước lượng SD chung, có tính tới cỡ từng nhóm</span></li>
+<li><b>d</b><span>số SD chênh lệch giữa 2 trung bình — không phụ thuộc đơn vị đo gốc, so sánh được giữa các nghiên cứu khác nhau</span></li></ul>
 <table><tr><th>Thống kê</th><th>Nhỏ</th><th>Vừa</th><th>Lớn</th></tr>
 <tr><td>Cohen's d (t-test)</td><td>0,20</td><td>0,50</td><td>0,80</td></tr>
 <tr><td>Pearson r</td><td>0,10</td><td>0,30</td><td>0,50</td></tr>
@@ -166,8 +176,9 @@ EXAMINE VARIABLES=study_hours pretest /PLOT=NPPLOT HISTOGRAM /STATISTICS=DESCRIP
 * PSPP hiện KHÔNG có sẵn Shapiro-Wilk trong EXAMINE như SPSS — dùng Python/scipy.stats.shapiro để đối chiếu.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">🚀 Notebook: CLT, CI, kiểm định (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi2_suy_luan_uoc_luong.ipynb" target="_blank">📓 Notebook: CLT, CI, kiểm định (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/04_phan_phoi_y_nghia.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/04_phan_phoi_y_nghia.ipynb" target="_blank">🚀 Notebook: CI, skewness, Cohen's d, power (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/04_phan_phoi_y_nghia.ipynb" target="_blank">📓 Notebook: CI, skewness, Cohen's d, power (GitHub)</a>
 </div>
 
 <h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>

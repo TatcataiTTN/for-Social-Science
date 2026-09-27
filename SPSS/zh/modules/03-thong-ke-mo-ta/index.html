@@ -141,15 +141,15 @@
 <div class="callout">
 <b>SPSS操作步骤（Box 40.2，第765页）：</b><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → 将变量送入 <i>Variables</i> 框 → 点击 <i>Statistics</i> 按钮：勾选集中趋势（平均数/众数/中位数）+ 离散程度（标准差/方差/全距/最小值/最大值/标准误）+ 分布形态（偏度/峰度）→ <i>Continue</i> → 点击 <i>Charts</i> 按钮：选择图表类型 → <i>OK</i>。
 </div>
-<p>PSPP 对应语法（已测试可运行——见数据集页面的 <code>pspp/01_mo_ta_tuong_quan.sps</code>）：</p>
+<p>PSPP 对应语法（已测试可运行——见数据集页面的 <code>pspp/03_thong_ke_mo_ta_zh.sps</code>）：</p>
 <pre>FREQUENCIES VARIABLES=math /STATISTICS=MEAN MEDIAN STDDEV MIN MAX SKEWNESS.
 EXAMINE VARIABLES=math BY school /PLOT=BOXPLOT /STATISTICS=DESCRIPTIVES.
 CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ 下载班级数据（.csv）</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ 示例 PSPP 语法（.sps）</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">🚀 查看 Python notebook (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 查看 Python notebook (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/03_thong_ke_mo_ta_zh.sps">⬇ 示例 PSPP 语法（.sps）</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta_zh.ipynb" target="_blank">🚀 查看 Python notebook (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta_zh.ipynb" target="_blank">📓 查看 Python notebook (GitHub)</a>
 </div>
 
 

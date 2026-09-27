@@ -75,6 +75,11 @@
 
 <h2 id="pearson">2. Pearson r: hướng, độ mạnh, và ý nghĩa</h2>
 <p>Hệ số r chạy từ −1 đến +1. Dấu (+/−) chỉ <b>hướng</b>: cùng tăng-giảm (dương) hay ngược chiều (âm). Độ lớn |r| chỉ <b>độ mạnh</b> — chính hệ số r cũng là cỡ hiệu ứng (effect size), không cần tính riêng (tr.767).</p>
+<div class="pd-formula"><div class="pd-formula-label">Hệ số tương quan Pearson</div><div class="pd-formula-math">r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √[Σ(xᵢ−x̄)² · Σ(yᵢ−ȳ)²]</div></div>
+<ul class="pd-legend"><li><b>(xᵢ−x̄)(yᵢ−ȳ)</b><span>tích độ lệch của từng cặp quan sát so với trung bình của biến X và biến Y — dương khi cả hai cùng lệch cùng chiều, âm khi lệch ngược chiều</span></li>
+<li><b>Σ(xᵢ−x̄)(yᵢ−ȳ)</b><span>hiệp phương sai (covariance) chưa chuẩn hoá — tổng các tích độ lệch trên toàn mẫu</span></li>
+<li><b>√[Σ(xᵢ−x̄)²·Σ(yᵢ−ȳ)²]</b><span>chuẩn hoá theo độ phân tán riêng của từng biến, để r luôn nằm trong [−1, 1] bất kể đơn vị đo gốc</span></li></ul>
+<p class="cap">r² (hệ số xác định) = phần trăm biến thiên của Y "giải thích được" bởi X — vd r=0,582 ở ví dụ dưới → r²=0,338, tức giờ tự học giải thích được ≈34% biến thiên điểm Toán.</p>
 <div class="figure"><img src="../../../assets/diagrams/corr_3panels.png" alt=""/><figcaption>Hình dạng scatterplot ứng với 3 mức tương quan (mô phỏng có kiểm soát r thật) — càng gần đường thẳng, |r| càng lớn.</figcaption></div>
 <div class="callout warn">
 <b>Bẫy kinh điển — tương quan không phải nhân quả (tr.768):</b> "bàn tay to tương quan với bàn chân to" không có nghĩa tay to <i>gây ra</i> chân to. Cả hai nhiều khả năng cùng liên quan một biến thứ ba (vóc dáng cơ thể). Luôn tự hỏi: có biến thứ ba nào giải thích cả hai không?
@@ -88,7 +93,13 @@
 
 <h2 id="rieng-phan">4. Tương quan riêng phần (partial correlation)</h2>
 <p>Dùng khi nghi ngờ một biến thứ ba đang "trộn" vào mối quan hệ hai biến chính. Ví dụ sách (tr.770): tương quan giữa <i>kinh nghiệm chơi bóng rổ</i> và <i>thành tích</i> có thể bị ảnh hưởng bởi <i>chiều cao</i> — tương quan riêng phần loại bỏ ảnh hưởng của chiều cao để thấy mối quan hệ "thật" giữa hai biến chính.</p>
+<div class="pd-formula"><div class="pd-formula-label">Tương quan riêng phần bậc 1 (kiểm soát 1 biến Z)</div><div class="pd-formula-math">r<sub>XY·Z</sub> = (r<sub>XY</sub> − r<sub>XZ</sub>r<sub>YZ</sub>) / √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</div></div>
+<ul class="pd-legend"><li><b>r<sub>XY</sub></b><span>tương quan gốc giữa 2 biến chính, chưa kiểm soát gì</span></li>
+<li><b>r<sub>XZ</sub>, r<sub>YZ</sub></b><span>tương quan của biến kiểm soát Z với từng biến chính X và Y</span></li>
+<li><b>r<sub>XY·Z</sub></b><span>tương quan "thật" giữa X và Y sau khi trừ đi phần chung cả hai đều chia sẻ với Z</span></li></ul>
+<p class="cap">Nếu Z không tương quan với cả X lẫn Y (r<sub>XZ</sub>≈0 và r<sub>YZ</sub>≈0), công thức tự động cho r<sub>XY·Z</sub>≈r<sub>XY</sub> — đúng như ví dụ PISA bên dưới, nơi thiếu nhân sự gần như không liên quan điểm Khoa học.</p>
 <h3>Thử trên dữ liệu PISA Việt Nam thật (195 trường)</h3>
+<p class="cap">📖 Ý nghĩa của EDUSHORT, STAFFSHORT và các biến PISA khác: <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 <p>Tương quan gốc giữa <i>thiếu học liệu</i> (EDUSHORT) và <i>điểm Khoa học TB trường</i>: r = <b>−0,039</b> (rất yếu). Biến nghi ngờ gây nhiễu: <i>thiếu nhân sự</i> (STAFFSHORT), có tương quan khá cao với thiếu học liệu (r=0,61) — giống tình huống "chiều cao" trong ví dụ bóng rổ. Sau khi kiểm soát thiếu nhân sự, tương quan riêng phần: r = <b>−0,051</b> — <b>gần như không đổi</b>.</p>
 <div class="callout"><b>Vì sao khác ví dụ sách?</b> Tương quan riêng phần chỉ thay đổi mạnh khi biến kiểm soát có liên hệ THẬT với <i>cả hai</i> biến kia. Ở đây, thiếu nhân sự gần như không liên quan điểm Khoa học (r≈0,002) — nên "loại bỏ" nó không thay đổi nhiều bức tranh ban đầu. Đây là kết quả thật, không phải lúc nào dữ liệu cũng cho ra ví dụ kịch tính như trong sách.</div>
 
@@ -139,9 +150,9 @@ RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
 CORRELATIONS VARIABLES=r_hours r_math.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">🚀 Notebook PISA (tương quan trường học) (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 Notebook PISA (tương quan trường học) (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/08_tuong_quan.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan.ipynb" target="_blank">🚀 Notebook: Pearson, Spearman, tương quan riêng phần (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan.ipynb" target="_blank">📓 Notebook: Pearson, Spearman, tương quan riêng phần (GitHub)</a>
 </div>
 
 

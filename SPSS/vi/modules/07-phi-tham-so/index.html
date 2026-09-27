@@ -69,6 +69,11 @@
 <h2 id="chi2">1. Kiểm định Chi-square (χ²)</h2>
 <p>Chi-square là kiểm định phổ biến nhất cho dữ liệu định danh, so sánh tần số QUAN SÁT (observed) với tần số KỲ VỌNG (expected) trong bảng chéo. Kỳ vọng mỗi ô = (tổng hàng × tổng cột) / tổng chung (tr.789–790).</p>
 <p>Ví dụ của Cohen et al. (tr.789–790): 195 người (nam/nữ) bỏ phiếu thích/không thích Toán. Chi-square tính ra <b>χ²=28,87</b>, so với giá trị tới hạn 9,21 (mức 0,01) → <b>28,87&gt;9,21</b>, có ý nghĩa thống kê rất cao. Viết báo cáo: "Một khác biệt có ý nghĩa thống kê được tìm thấy giữa nam và nữ (χ²=28,87, df=2, p=0,000)."</p>
+<div class="pd-formula"><div class="pd-formula-label">Thống kê chi-square (χ²)</div><div class="pd-formula-math">χ² = Σ (O − E)² / E</div></div>
+<ul class="pd-legend"><li><b>O</b><span>tần số QUAN SÁT được ở mỗi ô của bảng chéo</span></li>
+<li><b>E</b><span>tần số KỲ VỌNG ở ô đó nếu H0 đúng (2 biến độc lập) — tính bằng (tổng hàng × tổng cột) / tổng mẫu</span></li>
+<li><b>Σ</b><span>cộng dồn (O−E)²/E qua TẤT CẢ các ô trong bảng</span></li></ul>
+<p class="cap">Trực giác: mỗi ô đóng góp phần "lệch khỏi kỳ vọng" bình phương hoá — χ² càng lớn, bảng quan sát càng khác xa với giả định "2 biến không liên quan".</p>
 <div class="callout warn"><b>Quy tắc 20% — giới hạn quan trọng của chi-square (tr.791):</b> không quá 20% số ô trong bảng được có ít hơn 5 quan sát. Ví dụ Bảng 41.15 của sách (bảng 2×5) có 30% số ô &lt;5 → kết quả KHÔNG đáng tin cậy dù máy tính vẫn tính ra một con số. Nếu &gt;25% ô nhỏ, dùng <b>Fisher's Exact Probability Test</b> (SPSS tự động tính khi cần).</div>
 <p><b>Yates's correction (continuity correction):</b> bù đắp cho việc chi-square bị phóng đại trong bảng 2×2; SPSS tự động áp dụng cho bảng 2×2.</p>
 <p><b>Cỡ hiệu ứng:</b> bảng 2×2 dùng hệ số <b>Phi</b> (ngưỡng như Cohen's d: nhỏ=0,10, vừa=0,30, lớn=0,50); bảng lớn hơn dùng <b>Cramer's V</b> (tr.791–792).</p>
@@ -87,6 +92,10 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 
 <h2 id="mw">3. Mann-Whitney U test</h2>
 <p>Tương đương phi tham số của <b>t-test mẫu độc lập</b> — dùng cho 2 mẫu độc lập với ít nhất 1 biến thứ bậc, không cần giả định phân phối chuẩn. Dựa trên THỨ HẠNG: đếm số lần điểm nhóm này xếp cao hơn nhóm kia (tr.793).</p>
+<div class="pd-formula"><div class="pd-formula-label">Thống kê U (Mann-Whitney)</div><div class="pd-formula-math">U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁</div></div>
+<ul class="pd-legend"><li><b>n₁, n₂</b><span>cỡ mẫu của nhóm 1 và nhóm 2</span></li>
+<li><b>R₁</b><span>tổng THỨ HẠNG (rank) của nhóm 1, sau khi gộp cả 2 nhóm rồi xếp hạng chung toàn bộ quan sát</span></li>
+<li><b>U₁</b><span>số lần một quan sát nhóm 1 xếp hạng cao hơn một quan sát nhóm 2 — U càng lệch xa giá trị kỳ vọng (n₁n₂/2), càng có bằng chứng khác biệt</span></li></ul>
 <p>Ví dụ sách (tr.793–794): đánh giá khoá học theo giới tính (thang 5 điểm), U=2.732,500, p=0,019 → có ý nghĩa, nam cảm thấy mạnh mẽ hơn nữ về việc khoá học cho phép học theo tốc độ riêng.</p>
 <div class="figure"><img src="../../../assets/diagrams/nonparam_ranks.png" alt=""/><figcaption>Dữ liệu lớp học thật: đánh giá h1 theo giới tính. Mann-Whitney U=6416, p=0,127 — không có ý nghĩa.</figcaption></div>
 <div class="callout warn"><b>Hạn chế quan trọng:</b> không như t-test (đọc trực tiếp trung bình) hay Tukey (bảng nhóm đồng nhất), Mann-Whitney chỉ cho biết CÓ hay KHÔNG khác biệt — muốn biết khác biệt cụ thể ở đâu phải quay lại bảng chéo tần số (tr.794).</div>
@@ -162,8 +171,9 @@ NPAR TESTS /FRIEDMAN=a1 a2 a3.
 * PSPP hỗ trợ đầy đủ CROSSTABS /STATISTICS=CHISQ và NPAR TESTS, kết quả khớp Python/SPSS.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Tải dữ liệu lớp học (.csv)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">🚀 Notebook: ANOVA & phi tham số (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi3_anova_phi_tham_so.ipynb" target="_blank">📓 Notebook: ANOVA & phi tham số (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/07_phi_tham_so.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/07_phi_tham_so.ipynb" target="_blank">🚀 Notebook: chi-square & phi tham số (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/07_phi_tham_so.ipynb" target="_blank">📓 Notebook: chi-square & phi tham số (GitHub)</a>
 </div>
 
 <h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>

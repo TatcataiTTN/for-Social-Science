@@ -115,6 +115,7 @@
 <tr><td>0.2</td><td>Small</td><td>≈394</td></tr><tr><td>0.5</td><td>Medium</td><td>≈64</td></tr><tr><td>0.8</td><td>Large</td><td>≈26</td></tr></table>
 <p class="cap">Computed with <code>statsmodels.stats.power.TTestIndPower</code>, α=0.05, power=0.80 — the full table (including ANOVA, correlation) is in the "Formal sample size" section of the 14-step pipeline table at the bottom of the home page.</p>
 
+<p class="cap">📖 Full meaning of the PISA variables used in this module (including the 7 WLE indices): <a href="../../data/index.html#variable-dictionary">Variable dictionary — school-level dataset</a>.</p>
 <h2 id="thuc-hanh">5. Applying it to real data: PISA sample weights</h2>
 <p>Because PISA samples clusters with probability PROPORTIONAL TO school size, schools don't carry equal "weight" during analysis — a large school represents more students in the true population than a small one. The <code>W_NRASCHBWT</code> variable corrects for this.</p>
 <div class="callout good"><b>🖱️ Verified in real SPSS/PSPP — how weighting changes the result:</b>
@@ -131,7 +132,7 @@ DESCRIPTIVES VARIABLES=EDULEAD.
 <div class="btnrow">
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.csv">⬇ Download PISA school data (.csv)</a>
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ Download PISA school data (.sav)</a>
-</div>
+ <a class="btn secondary" href="../../../data/pspp/02_chon_mau_en.sps">⬇ Sample PSPP syntax (.sps)</a> <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau_en.ipynb" target="_blank">🚀 Notebook: sample weighting & sample size (Colab)</a> <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau_en.ipynb" target="_blank">📓 Notebook: sample weighting & sample size (GitHub)</a></div>
 
 <h3>📜 Theoretical background & history</h3>
 <p>Modern sampling theory traces back to <b>Jerzy Neyman</b>'s 1934 work, the first to rigorously show why PROBABILITY sampling (not the "representative sampling" done by judgement, the common practice before) allows sampling error to be computed objectively — laying the foundation for modern inferential statistics. <b>William G. Cochran</b>'s textbook <i>Sampling Techniques</i> (1953) systematised the stratified and cluster techniques still used unchanged today, including in PISA's design.</p>

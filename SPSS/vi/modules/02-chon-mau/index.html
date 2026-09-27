@@ -115,6 +115,7 @@
 <tr><td>0,2</td><td>Nhỏ</td><td>≈394</td></tr><tr><td>0,5</td><td>Vừa</td><td>≈64</td></tr><tr><td>0,8</td><td>Lớn</td><td>≈26</td></tr></table>
 <p class="cap">Tính bằng <code>statsmodels.stats.power.TTestIndPower</code>, α=0,05, power=0,80 — bảng đầy đủ (kể cả ANOVA, tương quan) nằm ở phần "Tính cỡ mẫu chính thức" trong bảng pipeline 14 bước cuối trang chủ.</p>
 
+<p class="cap">📖 Ý nghĩa đầy đủ của các biến PISA dùng trong module này (kể cả 7 chỉ số WLE): <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 <h2 id="thuc-hanh">5. Áp dụng dữ liệu thật: trọng số mẫu PISA</h2>
 <p>Vì PISA chọn mẫu theo cụm với xác suất TỈ LỆ VỚI QUY MÔ trường, các trường không có "quyền số" ngang nhau khi phân tích — trường lớn đại diện cho nhiều học sinh hơn trường nhỏ trong tổng thể thật. Biến <code>W_NRASCHBWT</code> bù đắp lại điều này.</p>
 <div class="callout good"><b>🖱️ Kiểm chứng thật bằng SPSS/PSPP — trọng số làm thay đổi kết quả thế nào:</b>
@@ -131,6 +132,9 @@ DESCRIPTIVES VARIABLES=EDULEAD.
 <div class="btnrow">
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.csv">⬇ Tải dữ liệu PISA trường (.csv)</a>
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ Tải dữ liệu PISA trường (.sav)</a>
+ <a class="btn secondary" href="../../../data/pspp/02_chon_mau.sps">⬇ Cú pháp PSPP mẫu (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau.ipynb" target="_blank">🚀 Notebook: trọng số mẫu & cỡ mẫu (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau.ipynb" target="_blank">📓 Notebook: trọng số mẫu & cỡ mẫu (GitHub)</a>
 </div>
 
 <h3>📜 Khung lý thuyết & lịch sử</h3>

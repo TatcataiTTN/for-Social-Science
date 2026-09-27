@@ -89,6 +89,7 @@
 <h2 id="rieng-phan">4. Partial correlation</h2>
 <p>Used when a third variable is suspected of "mixing into" the relationship between two main variables. The book's example (p.770): the correlation between <i>basketball experience</i> and <i>performance</i> may be confounded by <i>height</i> — partial correlation removes height's influence to reveal the "true" relationship between the two main variables.</p>
 <h3>Trying it on real PISA Vietnam data (195 schools)</h3>
+<p class="cap">📖 Meaning of EDUSHORT, STAFFSHORT and other PISA variables: <a href="../../data/index.html#variable-dictionary">Variable dictionary — school-level dataset</a>.</p>
 <p>The zero-order correlation between <i>material shortage</i> (EDUSHORT) and <i>the school's average science score</i>: r = <b>−0.039</b> (very weak). Suspected confound: <i>staff shortage</i> (STAFFSHORT), which correlates fairly highly with material shortage (r=0.61) — analogous to "height" in the basketball example. After controlling for staff shortage, the partial correlation is: r = <b>−0.051</b> — <b>almost unchanged</b>.</p>
 <div class="callout"><b>Why does this differ from the book's example?</b> A partial correlation shifts substantially only when the control variable has a REAL relationship with <i>both</i> other variables. Here, staff shortage is almost unrelated to the science score (r≈0.002) — so "removing" it barely changes the original picture. This is a genuine result, not every dataset produces as dramatic an example as the textbook's.</div>
 
@@ -139,9 +140,9 @@ RANK VARIABLES=study_hours math /RANK INTO r_hours r_math.
 CORRELATIONS VARIABLES=r_hours r_math.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Download classroom data (.csv)</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Sample PSPP syntax (.sps)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">🚀 PISA notebook (school correlations) (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/pisa/01_mo_ta.ipynb" target="_blank">📓 PISA notebook (school correlations) (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/08_tuong_quan_en.sps">⬇ Sample PSPP syntax (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan_en.ipynb" target="_blank">🚀 PISA notebook (school correlations) (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/08_tuong_quan_en.ipynb" target="_blank">📓 PISA notebook (school correlations) (GitHub)</a>
 </div>
 
 

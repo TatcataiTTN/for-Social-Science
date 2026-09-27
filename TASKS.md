@@ -22,18 +22,28 @@ Trạng thái: 🟢 xong · 🟡 đang làm · ⚪ chưa làm. Cập nhật file
 ### Bản đồ 12 module (nguồn: sách, chương 12,14,38–44 + tài liệu HNUE)
 | # | Module | Nguồn sách | Nguồn HNUE | Trạng thái |
 |---|---|---|---|---|
-| 01 | Thang đo & bản chất dữ liệu định lượng | ch.38 (38.2–38.5) | !Huong dan SPSS.docx | ⚪ |
-| 02 | Chọn mẫu & cỡ mẫu | ch.12 | — | ⚪ |
-| 03 | Thống kê mô tả (tần số, xu hướng trung tâm, phân tán) | ch.40 | Video 9 (làm sạch) | 🟢 |
-| 04 | Phân phối, giả thuyết, ý nghĩa thống kê, effect size, power | ch.38.6–38.10, ch.39 | — | ⚪ |
-| 05 | Kiểm định t (độc lập, bắt cặp, một mẫu) | ch.41.2 | Bài 16-17 | ⚪ |
-| 06 | ANOVA một/hai chiều + hậu kiểm | ch.41.3 | Bài 19 | ⚪ |
-| 07 | Chi-square & kiểm định phi tham số (Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman) | ch.41.4–41.7 | Bài 18 | ⚪ |
-| 08 | Tương quan Pearson & tương quan riêng phần | ch.40.5–40.6 | Bài 22 | 🟢 |
-| 09 | Hồi quy tuyến tính đơn & đa biến, chuẩn hoá điểm | ch.42 | Bài 23, 24 | ⚪ |
-| 10 | Phân tích nhân tố, phân tích cụm, SEM/đa cấp (giới thiệu) | ch.43 | — | ⚪ |
-| 11 | Chọn đúng kiểm định thống kê (cây quyết định) | ch.44 | — | ⚪ |
-| 12 | Độ tin cậy, độ giá trị & đạo đức nghiên cứu | ch.14, ch.40.7 | — | ⚪ |
+| 01 | Thang đo & bản chất dữ liệu định lượng | ch.38 (38.2–38.5) | !Huong dan SPSS.docx | 🟢 VI · ⚪ EN/ZH |
+| 02 | Chọn mẫu & cỡ mẫu | ch.12 | — | 🟢 VI · ⚪ EN/ZH |
+| 03 | Thống kê mô tả (tần số, xu hướng trung tâm, phân tán) | ch.40 | Video 9 (làm sạch) | 🟢 VI+EN+ZH |
+| 04 | Phân phối, giả thuyết, ý nghĩa thống kê, effect size, power | ch.38.6–38.10, ch.39 | — | 🟢 VI+EN+ZH |
+| 05 | Kiểm định t (độc lập, bắt cặp, một mẫu) | ch.41.2 | Bài 16-17 | 🟢 VI+EN+ZH |
+| 06 | ANOVA một/hai chiều + hậu kiểm | ch.41.3 | Bài 19 | 🟢 VI+EN+ZH |
+| 07 | Chi-square & kiểm định phi tham số (Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman) | ch.41.4–41.7 | Bài 18 | 🟢 VI+EN+ZH |
+| 08 | Tương quan Pearson & tương quan riêng phần | ch.40.5–40.6 | Bài 22 | 🟢 VI+EN+ZH |
+| 09 | Hồi quy tuyến tính đơn & đa biến, chuẩn hoá điểm | ch.42 | Bài 23, 24 | 🟢 VI+EN+ZH |
+| 10 | Phân tích nhân tố, phân tích cụm, SEM/đa cấp (giới thiệu) | ch.43 | — | 🟢 VI+EN+ZH |
+| 11 | Chọn đúng kiểm định thống kê (cây quyết định) | ch.44 | — | 🟢 VI+EN+ZH |
+| 12 | Độ tin cậy, độ giá trị & đạo đức nghiên cứu | ch.14, ch.40.7 | — | 🟢 VI+EN+ZH |
+
+**Cập nhật 24/9:** Module 01-08 đều đã có bản EN+ZH (trang + `.sps` + notebook riêng từng ngôn ngữ,
+không dùng chung code nữa).
+**Cập nhật 25/9:** Module 09-12 nay cũng đã có đầy đủ bản EN+ZH (trang + `.sps` + notebook), verify
+bằng `pspp` CLI + `jupyter nbconvert --execute` khớp số liệu 100% với bản VI gốc; quiz EN/ZH đã audit
+lại length-bias sau dịch (module 09 EN/ZH ban đầu lệch 16-35%, đã vá về 0.0%) và giữ nguyên thứ tự
+index đáp án đúng đã audit ở bản VI. Link điều hướng trang chủ EN/ZH đã kích hoạt cho module 09-12
+(trước đó là thẻ "Coming soon"/"即将推出"). **Toàn bộ 12 module đã có đủ 3 ngôn ngữ.**
+Mọi module đều có: 5-part slide deck, formula box có công thức+legend, "🎯 phương pháp này trả lời
+câu hỏi gì" trước mỗi kiểm định, quiz 26-31 câu đã audit length-bias (<5%) + vị trí đáp án cân bằng.
 
 ## Epic 2 — Sản xuất slide (mỗi module = 1 sub-task, lặp lại cho 12 module × 3 ngôn ngữ)
 Quy trình chuẩn cho MỖI module (ghi rõ để làm lặp lại được across sessions):

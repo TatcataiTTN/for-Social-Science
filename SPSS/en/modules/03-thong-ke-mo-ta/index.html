@@ -141,15 +141,15 @@
 <div class="callout">
 <b>SPSS sequence (Box 40.2, p.765):</b> <code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Frequencies</code> → send variables to the <i>Variables</i> box → <i>Statistics</i> button: check central tendency (mean/mode/median) + dispersal (SD/variance/range/min/max/SE) + distribution shape (skewness/kurtosis) → <i>Continue</i> → <i>Charts</i> button: pick a chart type → <i>OK</i>.
 </div>
-<p>PSPP equivalent (tested and confirmed to run — see <code>pspp/01_mo_ta_tuong_quan.sps</code> on the Datasets page):</p>
+<p>PSPP equivalent (tested and confirmed to run — see <code>pspp/03_thong_ke_mo_ta_en.sps</code> on the Datasets page):</p>
 <pre>FREQUENCIES VARIABLES=math /STATISTICS=MEAN MEDIAN STDDEV MIN MAX SKEWNESS.
 EXAMINE VARIABLES=math BY school /PLOT=BOXPLOT /STATISTICS=DESCRIPTIVES.
 CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
 <div class="btnrow">
  <a class="btn" href="../../../data/lop_hoc_240.csv">⬇ Download classroom data (.csv)</a>
- <a class="btn secondary" href="../../../data/pspp/01_mo_ta_tuong_quan.sps">⬇ Sample PSPP syntax (.sps)</a>
- <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">🚀 View Python notebook (Colab)</a>
- <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/buoi1_nen_tang_mo_ta.ipynb" target="_blank">📓 View Python notebook (GitHub)</a>
+ <a class="btn secondary" href="../../../data/pspp/03_thong_ke_mo_ta_en.sps">⬇ Sample PSPP syntax (.sps)</a>
+ <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta_en.ipynb" target="_blank">🚀 View Python notebook (Colab)</a>
+ <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/03_thong_ke_mo_ta_en.ipynb" target="_blank">📓 View Python notebook (GitHub)</a>
 </div>
 
 

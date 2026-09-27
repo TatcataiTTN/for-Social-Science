@@ -115,6 +115,7 @@
 <tr><td>0.2</td><td>小</td><td>≈394</td></tr><tr><td>0.5</td><td>中</td><td>≈64</td></tr><tr><td>0.8</td><td>大</td><td>≈26</td></tr></table>
 <p class="cap">使用<code>statsmodels.stats.power.TTestIndPower</code>计算，α=0.05，检验力=0.80——包含ANOVA与相关分析在内的完整表格见主页底部14步流程表的"正式样本量计算"部分。</p>
 
+<p class="cap">📖 本单元使用的PISA变量完整含义（含7个WLE指数）：<a href="../../data/index.html#bianliang-cidian">变量词典 — 学校层级数据集</a>。</p>
 <h2 id="thuc-hanh">5. 应用于真实数据：PISA样本权重</h2>
 <p>由于PISA按与学校规模成比例的概率进行整群抽样，各学校在分析时的"权重"并不相等——大学校在真实总体中代表的学生数量比小学校更多。<code>W_NRASCHBWT</code>变量正是用来修正这一点的。</p>
 <div class="callout good"><b>🖱️ 用真实SPSS/PSPP验证——加权如何改变结果：</b>
@@ -131,7 +132,7 @@ DESCRIPTIVES VARIABLES=EDULEAD.
 <div class="btnrow">
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.csv">⬇ 下载PISA学校数据（.csv）</a>
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ 下载PISA学校数据（.sav）</a>
-</div>
+ <a class="btn secondary" href="../../../data/pspp/02_chon_mau_zh.sps">⬇ PSPP 示例语法（.sps）</a> <a class="btn" href="https://colab.research.google.com/github/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau_zh.ipynb" target="_blank">🚀 Notebook：抽样权重与样本量（Colab）</a> <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/02_chon_mau_zh.ipynb" target="_blank">📓 Notebook：抽样权重与样本量（GitHub）</a></div>
 
 <h3>📜 理论背景与历史</h3>
 <p>现代抽样理论可追溯到<b>耶日·奈曼（Jerzy Neyman）</b>1934年的研究，他首次严谨地证明了为什么概率抽样（而非当时流行的凭主观判断的"代表性抽样"）才能客观地计算抽样误差——为现代推论统计奠定了基础。<b>威廉·科克伦（William G. Cochran）</b>的教材《Sampling Techniques》（1953年）系统化了分层与整群抽样技术，这些技术至今仍原封不动地被使用，包括在PISA的设计中。</p>
