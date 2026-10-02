@@ -107,8 +107,11 @@ code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 pre{background:var(--code);border:1px solid var(--border);border-radius:10px;padding:14px;overflow:auto}
 code{background:var(--code);padding:.1em .4em;border-radius:5px}
 .btn{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:9px 15px;border-radius:10px;font-size:.9rem;border:none;cursor:pointer}
-.btn.secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn.secondary,.btn.alt{background:transparent;border:1px solid var(--border);color:var(--text)}
 .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.exam{background:var(--warn);color:#fff}
+.quiz-score{font-weight:700;color:var(--accent2);display:inline-block;margin:6px 0}
+p.cap{color:var(--muted);font-size:.85rem;margin:6px 0}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
 .callout{border-left:4px solid var(--accent2);background:var(--panel2);padding:12px 16px;border-radius:8px;margin:16px 0}
 .callout.warn{border-color:var(--warn)}
@@ -207,3 +210,19 @@ h4{color:var(--gold);font-size:1.02rem;margin:.3em 0}
 .pd-table th,.pd-table td{border:1px solid var(--border);padding:5px 9px;text-align:left}
 .pd-table th{background:var(--panel2);color:var(--accent2)}
 @media(max-width:640px){.pd-body{padding-left:18px}.pd-legend{grid-template-columns:1fr}}
+
+/* ---- Widget mô phỏng/tính toán tương tác (.sim) — paste dữ liệu, chạy công thức thật trong trình duyệt ---- */
+.sim{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:16px 0}
+.sim .simh{font-weight:800;color:var(--accent);margin-bottom:10px;font-size:1.02rem}
+.sim .row{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0;align-items:flex-start}
+.sim .row>label{flex:1;min-width:160px;font-size:.85rem;color:var(--muted)}
+.sim textarea,.sim input[type="text"],.sim input[type="number"]{width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86rem;background:var(--code);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px;margin-top:4px}
+.sim .btn.alt{background:var(--panel2);color:var(--text);border:1px solid var(--border)}
+.sim .out{margin-top:14px}
+.sim .out table.t{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+.sim .out table.t th,.sim .out table.t td{border:1px solid var(--border);padding:6px 9px;text-align:left}
+.sim .out table.t th{background:var(--panel2);color:var(--accent2)}
+.sim .out .ok{color:var(--good);font-weight:700}
+.sim .out .no{color:var(--wrong-border,#e05353);font-weight:700}
+.sim .out .hl{background:var(--correct-bg)}
+.sim .out .cap{color:var(--muted);font-size:.82rem}
