@@ -31,6 +31,10 @@
   --md-radial:#dcf0e2; --md-th-bg:#d9edde; --md-bar-bg:#e7f4ea;
 }
 .mdeck .mdeck-viewport{position:relative; aspect-ratio:16/9; background:radial-gradient(circle at 20% 15%,var(--md-radial),var(--md-bg) 70%)}
+/* Màn hình hẹp: khung 16/9 quá thấp cho slide nhiều chữ — đổi sang khung cao hơn để fit() có chỗ
+   đặt cỡ chữ đọc được, thay vì phải co nhỏ hết mức hoặc tràn phải cuộn liên tục. */
+@media (max-width:640px){.mdeck .mdeck-viewport{aspect-ratio:3/4}}
+@media (max-width:420px){.mdeck .mdeck-viewport{aspect-ratio:2/3}}
 .mdeck .mdeck-slide{
   position:absolute; inset:0; padding:6% 7%; display:none; flex-direction:column; justify-content:center;
   overflow:auto;
@@ -79,3 +83,14 @@
 .mdeck .mdeck-slide .kicker.gold{color:var(--md-gold)}
 .mdeck .mdeck-slide .big.violet{color:var(--md-violet)}
 .mdeck .mdeck-slide .big.gold{color:var(--md-gold)}
+
+/* Zoom-in/out: mỗi slide mặc định chỉ hiện khẳng định + 1 bằng chứng (zoom tổng quan).
+   Khung .slide-zoom (đóng mặc định) chứa công thức/bước SPSS/lịch sử — người học tự "phóng to"
+   khi cần, không bị bắt đọc hết mọi chi tiết ngay từ lần xem đầu. */
+.mdeck .mdeck-slide .slide-zoom{margin-top:.9em; border:1px solid var(--md-border); border-radius:10px; background:var(--md-panel); font-size:.92em}
+.mdeck .mdeck-slide .slide-zoom summary{cursor:pointer; font-weight:800; font-size:.85em; color:var(--md-accent); padding:.55em .8em; list-style:none}
+.mdeck .mdeck-slide .slide-zoom summary::-webkit-details-marker{display:none}
+.mdeck .mdeck-slide .slide-zoom summary::before{content:"🔍 "}
+.mdeck .mdeck-slide .slide-zoom[open] summary::before{content:"🔎 "}
+.mdeck .mdeck-slide .slide-zoom-body{padding:0 .9em .7em; line-height:1.55}
+.mdeck .mdeck-slide .slide-zoom .slide-zoom{margin-top:.6em; font-size:.95em}
