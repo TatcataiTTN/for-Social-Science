@@ -25,37 +25,62 @@
        <table><tr><th>Độ đo</th><th>Biến</th></tr>
        <tr><td><b>Spearman's rho</b></td><td>Hai biến thứ bậc</td></tr>
        <tr><td><b>Pearson r</b></td><td>Hai biến khoảng/tỉ lệ</td></tr>
-       <tr><td>Phi</td><td>Hai biến nhị phân thật</td></tr></table></div><div class="mdeck-slide"><div class="kicker">2 · Pearson r</div><h2>Dấu = hướng, độ lớn = độ mạnh</h2>
+       <tr><td>Phi</td><td>Hai biến nhị phân thật</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Phi coefficient</div><h2>Khi cả 2 biến chỉ có đúng 2 giá trị</h2>
+       <p>Ví dụ: giới tính (nam/nữ) × đậu/rớt bài thi — cả hai là "nhị phân THẬT", không phải gộp nhóm từ thang liên tục.</p>
+       <p class="cap">Về công thức, Phi tương đương Pearson r tính trên dữ liệu đã mã hoá 0/1.</p></div><div class="mdeck-slide"><div class="kicker">Eta (η)</div><h2>Khi quan hệ là đường CONG, không phải đường thẳng</h2>
+       <p>So phương sai GIỮA các nhóm giá trị X với tổng phương sai Y — không bị "triệt tiêu" như Pearson r khi đường cong có cả đoạn tăng và giảm.</p>
+       <p class="cap">Thử trực tiếp ở widget tương tác mục 3 bên dưới.</p></div><div class="mdeck-slide"><div class="kicker">Multiple correlation (R)</div><h2>Dự đoán 1 biến từ TỔ HỢP nhiều biến độc lập</h2>
+       <p>Khác Pearson r (chỉ 2 biến) và tương quan riêng phần (kiểm soát 1 biến thứ 3) — R là nền tảng khái niệm của hồi quy đa biến.</p>
+       <p class="cap">Sẽ gặp lại đầy đủ ở Module 09.</p></div><div class="mdeck-slide"><div class="kicker">2 · Pearson r</div><h2>Dấu = hướng, độ lớn = độ mạnh</h2>
        <img src="../../../assets/diagrams/corr_3panels.png" alt="corr panels"/>
        <p class="cap">r chính là cỡ hiệu ứng (effect size) — không cần tính riêng.</p>
        <details class="slide-zoom"><summary>Xem công thức đầy đủ</summary><div class="slide-zoom-body">
        <div class="pd-formula"><div class="pd-formula-label">Hệ số tương quan Pearson</div><div class="pd-formula-math">r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √[Σ(xᵢ−x̄)² · Σ(yᵢ−ȳ)²]</div></div>
        <p class="cap">r² = % biến thiên của Y "giải thích được" bởi X. Chi tiết từng ký hiệu + ví dụ số: xem mục 2 bên dưới deck.</p>
-       </div></details></div><div class="mdeck-slide"><div class="kicker">Bẫy kinh điển</div><h2 class="warn">Tương quan ≠ Nhân quả</h2>
+       </div></details></div><div class="mdeck-slide"><div class="kicker">Diễn giải r²</div><h2>r²=0,338 nghĩa là gì?</h2>
+       <p>≈34% biến thiên của điểm Toán "giải thích được" bởi giờ tự học — KHÔNG phải "34% học sinh đạt điểm cao hơn".</p>
+       <p class="cap">r² luôn là số KHÔNG ÂM (0 đến 1), bất kể dấu của r.</p></div><div class="mdeck-slide"><div class="kicker">Lịch sử</div><h2>Galton (1888) → Pearson (1896) → Spearman (1904)</h2>
+       <p>Galton nghiên cứu di truyền chiều cao, đặt tên "co-relation". Pearson hình thức hoá công thức tích-mô-men. Spearman giới thiệu hệ số tương quan hạng.</p></div><div class="mdeck-slide"><div class="kicker">Case study</div><h2>Đám mây điểm hình elip của Galton</h2>
+       <p>Galton vẽ scatterplot chiều cao cha-con, thấy các điểm tạo hình elip nghiêng — không thẳng hàng hoàn hảo nhưng có xu hướng rõ.</p>
+       <p class="cap">Chính từ đó ông và Pearson nghĩ ra cách tóm tắt xu hướng đó bằng MỘT con số duy nhất.</p></div><div class="mdeck-slide"><div class="kicker">Bẫy kinh điển</div><h2 class="warn">Tương quan ≠ Nhân quả</h2>
        <p>"Bàn tay to tương quan với bàn chân to" — không có nghĩa tay to GÂY RA chân to.</p>
        <p>Có thể cả hai cùng liên quan một biến thứ ba (vóc dáng cơ thể).</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Giờ tự học vs điểm Toán (n=240)</h2>
        <img src="../../../assets/diagrams/corr_real_scatter.png" alt="real scatter"/>
-       <p class="cap">r=0,582, r²=0,338 — cỡ hiệu ứng LỚN theo chuẩn Cohen et al.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/3</div>
+       <p class="cap">r=0,582, r²=0,338 — cỡ hiệu ứng LỚN theo chuẩn Cohen et al.</p></div><div class="mdeck-slide"><div class="kicker">Viết báo cáo APA</div><h2>Nêu độ lớn + dấu + ý nghĩa — KHÔNG suy ra nhân quả</h2>
+       <p class="cap">"Bằng hệ số Pearson, tìm thấy cỡ hiệu ứng lớn (r=0,58) và tương quan có ý nghĩa thống kê (p&lt;0,001)... Học sinh tự học nhiều hơn có xu hướng đạt điểm cao hơn."</p>
+       <p class="warn">KHÔNG viết "giờ tự học LÀM TĂNG điểm" — đây là dữ liệu quan sát.</p></div><div class="mdeck-slide"><div class="kicker">Tương quan giả</div><h2 class="warn">Phim Nicolas Cage ~ người chết đuối, r&gt;0,6</h2>
+       <p>Dự án "Spurious Correlations" (Tyler Vigen): số phim Cage ra rạp/năm tương quan RẤT cao với số người chết đuối trong bể bơi Mỹ cùng năm — rõ ràng không nhân quả.</p>
+       <p class="cap">Với đủ nhiều biến + đủ nhiều năm dữ liệu, tương quan cao ngẫu nhiên là chuyện bình thường về thống kê.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/3</div>
        <div class="part-num">02</div>
        <h2>Phi tuyến & tương quan riêng phần</h2>
        <ul class="part-list"><li>Khi đường KHÔNG PHẢI đường thẳng</li><li>Loại bỏ ảnh hưởng của biến thứ ba</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Phi tuyến</div><h2>Khi đường KHÔNG PHẢI đường thẳng</h2>
        <p>Căng thẳng vừa phải → hiệu suất tăng; căng thẳng quá cao → hiệu suất giảm.</p>
-       <p class="warn">Pearson r có thể ra gần 0 dù quan hệ RẤT rõ — luôn vẽ scatterplot trước!</p></div><div class="mdeck-slide"><div class="kicker">4 · Tương quan riêng phần</div><h2>Loại bỏ ảnh hưởng của biến thứ ba</h2>
+       <p class="warn">Pearson r có thể ra gần 0 dù quan hệ RẤT rõ — luôn vẽ scatterplot trước!</p></div><div class="mdeck-slide"><div class="kicker">🧮 Thử ngay</div><h2>Kéo thanh trượt ở widget bên dưới deck</h2>
+       <p class="cap">Dịch chuyển đỉnh parabol căng thẳng~hiệu suất, xem Pearson r và eta cập nhật trực tiếp — tự mắt thấy r "bỏ sót" quan hệ cong.</p></div><div class="mdeck-slide"><div class="kicker">4 · Tương quan riêng phần</div><h2>Loại bỏ ảnh hưởng của biến thứ ba</h2>
        <p>Ví dụ sách: kinh nghiệm bóng rổ ~ thành tích, bị nhiễu bởi CHIỀU CAO.</p>
-       <p>Tương quan riêng phần cho thấy quan hệ "thật" sau khi kiểm soát chiều cao.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/3</div>
+       <p>Tương quan riêng phần cho thấy quan hệ "thật" sau khi kiểm soát chiều cao.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>r<sub>XY·Z</sub> = (r<sub>XY</sub> − r<sub>XZ</sub>r<sub>YZ</sub>) / √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</h2>
+       <p class="cap">Nếu Z không tương quan với cả X lẫn Y, công thức tự động cho r_XY·Z ≈ r_XY — không đổi.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/3</div>
        <div class="part-num">03</div>
        <h2>Áp dụng & thực hành</h2>
        <ul class="part-list"><li>Thử trên dữ liệu PISA thật</li><li>Thực hành trong SPSS</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Thử trên dữ liệu thật</div><h2>195 trường PISA VN</h2>
        <p>r(thiếu học liệu, điểm KH) = <b>−0,039</b></p>
        <p>Kiểm soát "thiếu nhân sự" (r với thiếu học liệu = 0,61):</p>
        <p class="big">r riêng phần = <span class="warn">−0,051</span></p>
-       <p class="cap">Gần như KHÔNG đổi — khác ví dụ sách, vì biến kiểm soát gần như không liên quan điểm KH.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật · TALIS 2024</div><h2>4.348 giáo viên THCS Việt Nam</h2>
+       <p class="cap">Gần như KHÔNG đổi — khác ví dụ sách, vì biến kiểm soát gần như không liên quan điểm KH.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao khác ví dụ sách?</div><h2>Biến kiểm soát phải liên hệ THẬT với cả 2 biến chính</h2>
+       <p>STAFFSHORT gần như không liên quan điểm KH (r≈0,002) — "loại bỏ" nó không đổi nhiều bức tranh ban đầu.</p>
+       <p class="cap">Đây là kết quả THẬT — không phải lúc nào dữ liệu cũng cho ví dụ kịch tính như sách.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật · TALIS 2024</div><h2>4.348 giáo viên THCS Việt Nam</h2>
        <p>r(tự tin nghề nghiệp, hài lòng công việc) = <b>0,244</b></p>
        <p class="cap">Cỡ hiệu ứng NHỎ-VỪA — khác hẳn r=0,58 ở ví dụ lớp học, vẫn có ý nghĩa thống kê (p&lt;0,001) vì n rất lớn.</p>
        <details class="slide-zoom"><summary>Vì sao dùng TALIS, không chỉ PISA?</summary><div class="slide-zoom-body">
        <p class="cap">PISA hỏi HỌC SINH, TALIS hỏi GIÁO VIÊN/HIỆU TRƯỞNG — cùng kỹ thuật Pearson r nhưng đơn vị phân tích khác hẳn. Đã kiểm chứng chéo Python (pandas, weighted r=0,2439) và PSPP thật (WEIGHT BY TCHWGT, r=0,244) — khớp nhau. Chi tiết: mục 4bis bên dưới deck.</p>
-       </div></details></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Correlate → Bivariate</h2>
-       <p class="cap">PSPP chưa có NONPAR CORR — dùng RANK rồi CORRELATIONS để tính Spearman.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       </div></details></div><div class="mdeck-slide"><div class="kicker">Ví dụ thư viện</div><h2>%R=63/14=4,5 — đo BẤT ĐỐI XỨNG</h2>
+       <p>Lao động không-hội-viên nhiều gấp 4,5 lần trung lưu không-hội-viên.</p>
+       <p class="cap">Đổi chiều (14/63≈0,22) vẫn hợp lệ — khác Pearson r luôn ĐỐI XỨNG: r(A,B)=r(B,A).</p></div><div class="mdeck-slide"><div class="kicker">Định nghĩa</div><h2>Biến liên tục vs nhị phân thật</h2>
+       <p><b>Liên tục:</b> nhận BẤT KỲ giá trị nào giữa 2 điểm (vd cân nặng, thời gian).</p>
+       <p><b>Nhị phân thật:</b> CHỈ 2 giá trị theo bản chất, không do gộp nhóm (vd đậu/rớt).</p></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Correlate → Bivariate</h2>
+       <p>Tích Pearson hoặc Spearman (hoặc cả 2) trong cùng hộp thoại, Two-tailed.</p>
+       <p class="cap">PSPP chưa có NONPAR CORR — dùng RANK rồi CORRELATIONS để tính Spearman.</p></div><div class="mdeck-slide"><div class="kicker">🧮📚 Tự học sâu hơn</div><h2>Công cụ tự tính + Ngân hàng 44 câu + 6 tự luận</h2>
+       <p class="cap">Mục 6-7 bên dưới deck: tự tính Pearson r trên dữ liệu của bạn (vẽ scatterplot tự động), hoặc luyện ngân hàng câu hỏi lọc theo chủ đề.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 34 câu</h2>
        <p>Slide chỉ tóm tắt. Ví dụ số liệu đầy đủ + cú pháp SPSS/PSPP nằm bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
@@ -84,6 +109,12 @@
 </table>
 <p>(Rút gọn từ Bảng 40.13, tr.765 — Cohen et al. khuyên <b>Spearman</b> và <b>Pearson</b> là hai loại nên dùng chính.)</p>
 
+<h3>1bis. Ba độ đo ít dùng hơn, nhưng cần biết tên và đúng tình huống áp dụng</h3>
+<p><b>Phi coefficient (φ):</b> dành riêng cho hai biến "nhị phân thật" (true dichotomy) ở thang định danh — nghĩa là biến CHỈ có thể nhận 2 giá trị theo BẢN CHẤT (không phải do gộp nhóm từ một thang liên tục). Ví dụ kinh điển: giới tính (nam/nữ sinh học) × đậu/rớt một bài thi. Về công thức, Phi tính tương đương Pearson r áp dụng lên dữ liệu đã mã hoá 0/1 — SPSS/PSPP tính Phi ngay trong bảng Crosstabs khi cả hai biến đều có đúng 2 giá trị (tr.765, 767).</p>
+<p><b>Eta (η):</b> dùng khi quan hệ giữa hai biến là PHI TUYẾN (không phải đường thẳng) — chính là tình huống ở mục 3 bên dưới (căng thẳng~hiệu suất). Về cơ chế, eta so sánh phương sai GIỮA các nhóm giá trị của biến độc lập với tổng phương sai của biến phụ thuộc, nên không bị "triệt tiêu" như Pearson r khi đường cong có cả đoạn tăng và đoạn giảm. Thử trực tiếp bằng widget tương tác ở mục 3 để thấy sự khác biệt bằng số thật.</p>
+<p><b>Multiple correlation (R):</b> đo mức độ MỘT biến phụ thuộc có thể được dự đoán từ TỔ HỢP TUYẾN TÍNH của 2 biến độc lập hoặc nhiều hơn — khác hẳn Pearson r (chỉ 2 biến) hay tương quan riêng phần (kiểm soát 1 biến thứ 3 nhưng vẫn chỉ xét quan hệ giữa 2 biến chính). Multiple correlation chính là nền tảng khái niệm của hồi quy đa biến — nội dung sẽ gặp lại đầy đủ ở Module 09 (tr.766).</p>
+<div class="callout info"><b>Tại sao sách gộp cả 5 độ đo vào một bảng?</b> Vì chúng đều trả lời chung một câu hỏi — "hai (hay nhiều) biến liên hệ với nhau mạnh tới mức nào" — chỉ khác nhau ở bản chất thang đo và hình dạng quan hệ. Chọn SAI độ đo (vd dùng Pearson cho dữ liệu thứ bậc, hoặc dùng Pearson cho quan hệ cong) là lỗi phương pháp luận nghiêm trọng hơn một lỗi tính toán đơn thuần, vì nó có thể làm "biến mất" một liên hệ thật sự tồn tại.</div>
+
 <h2 id="pearson">2. Pearson r: hướng, độ mạnh, và ý nghĩa</h2>
 <p>Hệ số r chạy từ −1 đến +1. Dấu (+/−) chỉ <b>hướng</b>: cùng tăng-giảm (dương) hay ngược chiều (âm). Độ lớn |r| chỉ <b>độ mạnh</b> — chính hệ số r cũng là cỡ hiệu ứng (effect size), không cần tính riêng (tr.767).</p>
 <div class="pd-formula"><div class="pd-formula-label">Hệ số tương quan Pearson</div><div class="pd-formula-math">r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √[Σ(xᵢ−x̄)² · Σ(yᵢ−ȳ)²]</div></div>
@@ -98,6 +129,11 @@
 <h3>Ví dụ trên dữ liệu thật (lớp học, n=240)</h3>
 <div class="figure"><img src="../../../assets/diagrams/corr_real_scatter.png" alt=""/><figcaption>Giờ tự học/tuần vs điểm Toán, dữ liệu thật sau khi xử lý 1 ngoại lai (48→4,8). r=0,582, r²=0,338 (Spearman rho=0,554, gần Pearson vì quan hệ khá tuyến tính).</figcaption></div>
 <p>Cách báo cáo theo mẫu sách (tr.768): <i>"Bằng hệ số Pearson, tìm thấy cỡ hiệu ứng lớn (r = 0,58) và tương quan có ý nghĩa thống kê (p &lt; 0,001) giữa giờ tự học và điểm Toán. Học sinh tự học nhiều hơn có xu hướng đạt điểm cao hơn."</i> — nhưng <b>không</b> viết "giờ tự học làm tăng điểm" (đây là dữ liệu quan sát).</p>
+
+<h3>2bis. Hai độ đo liên hệ "không chuẩn" nhưng Cohen et al. vẫn dạy — %R và phần trăm khác biệt</h3>
+<p>Ngoài Pearson r, sách còn giới thiệu 2 cách đơn giản hơn để mô tả liên hệ giữa 2 biến định danh, dùng được khi không cần (hoặc không thể) tính hệ số tương quan chuẩn. Ví dụ thư viện công cộng (tr.767): trong số KHÔNG là hội viên thư viện, 63% thuộc tầng lớp lao động, chỉ 14% thuộc tầng lớp trung lưu.</p>
+<p><b>Tỉ số phần trăm (%R):</b> %R = 63/14 = <b>4,5</b> — tầng lớp lao động không-là-hội-viên nhiều gấp 4,5 lần tầng lớp trung lưu không-là-hội-viên.</p>
+<div class="callout warn"><b>Cả hai đều là đo BẤT ĐỐI XỨNG (asymmetric):</b> đổi chiều tính (14/63≈0,22) vẫn là phép tính hợp lệ, chỉ là đang hỏi câu khác (so trung lưu với lao động) — không giống Pearson r, nơi r(X,Y) LUÔN bằng r(Y,X) bất kể tính theo chiều nào (đo ĐỐI XỨNG). Đây là sự khác biệt quan trọng cần phân biệt khi chọn cách báo cáo liên hệ giữa 2 biến định danh.</div>
 
 <h2 id="khong-tuyen-tinh">3. Khi quan hệ KHÔNG phải đường thẳng</h2>
 <p>Pearson r giả định quan hệ <b>tuyến tính</b>. Ví dụ Cohen et al. (tr.769): căng thẳng vừa phải giúp tập trung hơn (tương quan dương), căng thẳng quá cao lại làm giảm hiệu suất (tương quan âm) — đường biểu diễn hình chữ U ngược, không phải đường thẳng. Nếu tính Pearson r cho toàn bộ dữ liệu này, kết quả có thể ra gần 0 dù thực tế có liên hệ rất rõ — vì phần dương và phần âm triệt tiêu lẫn nhau trong một hệ số duy nhất. Luôn <b>vẽ scatterplot trước</b> khi tin vào con số r.</p>
