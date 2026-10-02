@@ -24,40 +24,68 @@
        <ul class="part-list"><li>H0 vs H1 — ai phải chứng minh?</li><li>Kiểm định có hướng vs phi hướng, 1 đuôi hay 2 đuôi</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Giả thuyết</div><h2>H0 vs H1 — ai phải chứng minh?</h2>
        <p><b>H0 (giả thuyết không):</b> "không có" khác biệt/liên hệ — gánh nặng chứng minh đặt lên người nghiên cứu.</p>
        <p><b>H1:</b> "có" khác biệt/liên hệ — chỉ được ủng hộ khi H0 không được ủng hộ.</p>
-       <p class="cap">Cohen et al. khuyên dùng "được ủng hộ / không được ủng hộ", không dùng "đúng/sai".</p></div><div class="mdeck-slide"><div class="kicker">Có hướng vs phi hướng</div><h2>1 đuôi hay 2 đuôi?</h2>
+       <p class="cap">Cohen et al. khuyên dùng "được ủng hộ / không được ủng hộ", không dùng "đúng/sai".</p></div><div class="mdeck-slide"><div class="kicker">Vì sao chọn từ này</div><h2>"Được ủng hộ" — không phải "đúng/sai"</h2>
+       <p>"Bác bỏ/chấp nhận" ngụ ý kết luận TUYỆT ĐỐI — điều một nghiên cứu phạm vi giới hạn hiếm khi chứng minh được.</p>
+       <p class="cap">Đây là lựa chọn từ ngữ có chủ đích của Cohen et al., không phải tiểu tiết văn phong.</p></div><div class="mdeck-slide"><div class="kicker">Có hướng vs phi hướng</div><h2>1 đuôi hay 2 đuôi?</h2>
        <table><tr><th>Giả thuyết</th><th>Kiểm định</th><th>Ngưỡng</th></tr>
        <tr><td>Có hướng ("cao hơn")</td><td>1 đuôi</td><td>95% một phía</td></tr>
        <tr><td>Phi hướng ("khác nhau")</td><td>2 đuôi</td><td>97,5% mỗi phía</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
        <div class="part-num">02</div>
        <h2>Khoảng tin cậy & phân phối chuẩn</h2>
-       <ul class="part-list"><li>Khoảng tin cậy 95% nghĩa là gì</li><li>Quy tắc 68-95-99,7 của phân phối chuẩn</li><li>Đọc skewness trên dữ liệu thật</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Khoảng tin cậy</div><h2>Không phải "95% xác suất" — mà là "95% quy trình"</h2>
+       <ul class="part-list"><li>Khoảng tin cậy 95% nghĩa là gì</li><li>Quy tắc 68-95-99,7 của phân phối chuẩn</li><li>Đọc skewness trên dữ liệu thật</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Khoảng tin cậy</div><h2>Công thức: CI95% = x̄ ± 1,96 × SE</h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>SE = s/√n</td><td>sai số chuẩn của trung bình</td></tr>
+       <tr><td>1,96</td><td>giá trị z ứng với 95% (2 đuôi)</td></tr></table>
+       <p class="cap">APA (2010) YÊU CẦU báo cáo CI trong công bố khoa học, không chỉ p-value.</p></div><div class="mdeck-slide"><div class="kicker">2 · Khoảng tin cậy</div><h2>Không phải "95% xác suất" — mà là "95% quy trình"</h2>
        <p class="big">CI95% điểm Toán = [46,68; 49,14]</p>
-       <p class="cap">Lặp lại lấy mẫu nhiều lần: ~95% các khoảng dựng ra sẽ chứa trung bình THẬT.</p></div><div class="mdeck-slide"><div class="kicker">3 · Phân phối chuẩn</div><h2>Quy tắc 68 – 95 – 99,7</h2>
-       <img src="../../../assets/diagrams/normal_curve.png" alt="normal curve"/></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Skewness: lệch dương vs gần đối xứng</h2>
+       <p class="cap">Lặp lại lấy mẫu nhiều lần: ~95% các khoảng dựng ra sẽ chứa trung bình THẬT.</p></div><div class="mdeck-slide"><div class="kicker">Mẫu nhỏ vs mẫu lớn</div><h2>Mẫu nhỏ → CI rộng; mẫu lớn → CI hẹp</h2>
+       <p>Torgerson &amp; Torgerson (2008): cỡ mẫu nhỏ cho ước lượng kém chính xác (khoảng rộng); cỡ mẫu lớn cho ước lượng chính xác hơn (khoảng hẹp).</p>
+       <p class="cap">Đây là lý do CI — không chỉ p-value — nên luôn đi kèm báo cáo cỡ mẫu.</p></div><div class="mdeck-slide"><div class="kicker">3 · Phân phối chuẩn</div><h2>Quy tắc 68 – 95 – 99,7</h2>
+       <img src="../../../assets/diagrams/normal_curve.png" alt="normal curve"/></div><div class="mdeck-slide"><div class="kicker">Lệch & độ nhọn</div><h2>Skewness (lệch) và kurtosis (độ nhọn)</h2>
+       <p>Lệch dương: đuôi dài về bên PHẢI. Lệch âm: đuôi dài về bên TRÁI.</p>
+       <p>Platykurtic: phẳng hơn chuẩn. Leptokurtic: nhọn hơn chuẩn.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Skewness: lệch dương vs gần đối xứng</h2>
        <img src="../../../assets/diagrams/skew_real.png" alt="skew"/>
-       <p class="cap">study_hours: |skew| vượt 2×SE → lệch có ý nghĩa. pretest: trong ngưỡng → gần chuẩn.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <p class="cap">study_hours: |skew| vượt 2×SE → lệch có ý nghĩa. pretest: trong ngưỡng → gần chuẩn.</p></div><div class="mdeck-slide"><div class="kicker">Ngưỡng ±2×SE</div><h2>study_hours: skew=0,658 VƯỢT ngưỡng 0,314</h2>
+       <table><tr><th>Biến</th><th>Skew</th><th>Ngưỡng ±2SE</th><th>Shapiro-Wilk</th></tr>
+       <tr><td>study_hours</td><td class="warn">0,658</td><td>±0,314</td><td>p&lt;0,001 (lệch)</td></tr>
+       <tr><td>pretest</td><td>−0,097</td><td>±0,314</td><td>p=0,117 (gần chuẩn)</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
        <div class="part-num">03</div>
        <h2>Ý nghĩa thống kê & sai lầm</h2>
        <ul class="part-list"><li>Ví dụ 'bàn tay – bàn chân' của Cohen et al.</li><li>Phê phán NHST của Carver (1978)</li><li>Sai lầm loại I & loại II</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Ý nghĩa thống kê</div><h2>Ví dụ "bàn tay – bàn chân" của Cohen et al.</h2>
        <p>95/100 lần đúng → mức 0,05. 99/100 → mức 0,01. 999/1.000 → mức 0,001.</p>
-       <p class="warn">p-value = xác suất DỮ LIỆU nếu H0 đúng — không phải xác suất H0 đúng!</p></div><div class="mdeck-slide"><div class="kicker">Phê phán NHST</div><h2 class="warn">"Corrupt scientific method" — Carver (1978)</h2>
+       <p class="warn">p-value = xác suất DỮ LIỆU nếu H0 đúng — không phải xác suất H0 đúng!</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ tính tay</div><h2>n=8: r=0,7857 có ý nghĩa ở 0,05, KHÔNG ở 0,01</h2>
+       <table><tr><th>n</th><th>Ngưỡng 0,05</th><th>Ngưỡng 0,01</th></tr>
+       <tr><td>8</td><td>r≥0,78</td><td>r≥0,875</td></tr>
+       <tr><td>30</td><td>r≥0,36</td><td>—</td></tr></table>
+       <p class="cap">Cỡ mẫu càng LỚN, ngưỡng r cần thiết để có ý nghĩa càng NHỎ.</p></div><div class="mdeck-slide"><div class="kicker">Phê phán NHST</div><h2 class="warn">"Corrupt scientific method" — Carver (1978)</h2>
        <p>H0 gần như luôn là "người rơm" (straw man) — gần chắc chắn sai ngay từ đầu.</p>
-       <p>Sai lầm "điều kiện bị đảo ngược": P(dữ liệu|H0) ≠ P(H0|dữ liệu).</p></div><div class="mdeck-slide"><div class="kicker">5 · Type I & Type II</div><h2>Hai kiểu sai lầm, hai cái giá khác nhau</h2>
+       <p>Sai lầm "điều kiện bị đảo ngược": P(dữ liệu|H0) ≠ P(H0|dữ liệu).</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ minh hoạ</div><h2>Người treo cổ vs người đã chết</h2>
+       <p>P(chết | bị treo cổ) rất CAO. Nhưng P(bị treo cổ | đã chết) lại rất THẤP.</p>
+       <p class="cap">p-value chỉ trả lời P(dữ liệu | H0) — vế thứ nhất, không phải vế người ta THƯỜNG muốn biết.</p></div><div class="mdeck-slide"><div class="kicker">5 · Type I & Type II</div><h2>Hai kiểu sai lầm, hai cái giá khác nhau</h2>
        <table><tr><th></th><th>H0 đúng</th><th>H0 sai</th></tr>
        <tr><td>Ủng hộ H0</td><td>Đúng</td><td class="warn">Type II (β)</td></tr>
-       <tr><td>Không ủng hộ H0</td><td class="warn">Type I (α)</td><td>Đúng</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
+       <tr><td>Không ủng hộ H0</td><td class="warn">Type I (α)</td><td>Đúng</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Cảnh báo quan trọng</div><h2 class="warn">"Statistically significant" ≠ "important"</h2>
+       <p>Có thể tìm r có ý nghĩa thống kê giữa thời gian học Toán và thời gian đi mua sắm — hoàn toàn KHÔNG quan trọng.</p>
+       <p class="cap">Ngược lại: p=0,065 không nên vội "không có khác biệt" — ngưỡng 0,05 chỉ là quy ước tương đối.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
        <div class="part-num">04</div>
        <h2>Cỡ hiệu ứng, power & tiếp theo</h2>
-       <ul class="part-list"><li>p-value không nói to hay nhỏ — effect size mới nói</li><li>d lớn nhưng eta² nhỏ, có thể cùng lúc</li><li>Statistical power và đánh đổi với α</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>p-value không nói "to hay nhỏ" — effect size mới nói</h2>
+       <ul class="part-list"><li>p-value không nói to hay nhỏ — effect size mới nói</li><li>d lớn nhưng eta² nhỏ, có thể cùng lúc</li><li>Statistical power và đánh đổi với α</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>"Effect size" là tên gọi không hoàn toàn chính xác</h2>
+       <p>Chữ "effect" ngụ ý nhân quả — nhưng cỡ hiệu ứng KHÔNG hề chứng minh nhân quả, chỉ đo độ lớn liên hệ/khác biệt quan sát được.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>Cohen's d = (x̄₁ − x̄₂) / s<sub>pooled</sub></h2>
+       <p>d = số SD chênh lệch giữa 2 trung bình — không phụ thuộc đơn vị đo gốc.</p>
+       <p class="cap">So sánh được GIỮA các nghiên cứu khác nhau, khác hẳn p-value.</p></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>p-value không nói "to hay nhỏ" — effect size mới nói</h2>
        <table><tr><th>Thống kê</th><th>Nhỏ</th><th>Vừa</th><th>Lớn</th></tr>
        <tr><td>Cohen's d</td><td>0,20</td><td>0,50</td><td>0,80</td></tr>
        <tr><td>Pearson r</td><td>0,10</td><td>0,30</td><td>0,50</td></tr>
-       <tr><td>Eta² (ANOVA)</td><td>0,01</td><td>0,06</td><td>0,14</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>d=0,981 (mạnh) nhưng eta²=0,047 (nhỏ) — cùng lúc</h2>
+       <tr><td>Eta² (ANOVA)</td><td>0,01</td><td>0,06</td><td>0,14</td></tr>
+       <tr><td>R² (hồi quy)</td><td>0,02</td><td>0,13</td><td>0,26</td></tr></table>
+       <p class="cap">Thompson (2001): đừng dùng ngưỡng này máy móc — "ngu ngốc theo thước đo khác" nếu áp dụng cứng nhắc.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>d=0,981 (mạnh) nhưng eta²=0,047 (nhỏ) — cùng lúc</h2>
        <p>Phương pháp dạy → mức tăng điểm: Cohen's d = <b>0,981</b> (trung bình-mạnh).</p>
        <p>3 trường → điểm Toán: eta² = <b>0,047</b> (nhỏ), dù F có ý nghĩa (p=0,003).</p>
        <p class="cap">Cùng dữ liệu lớp học, hai câu hỏi khác nhau cho hai cỡ hiệu ứng rất khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">7 · Statistical power</div><h2>α càng lớn → power càng cao, nhưng dễ Sai lầm I hơn</h2>
        <img src="../../../assets/diagrams/alpha_power.png" alt="alpha power"/>
-       <p class="cap">Cohen (1988): quy ước α=0,05, β=0,20 → power=0,80 (tỉ lệ coi trọng 4:1).</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p class="cap">Cohen (1988): quy ước α=0,05, β=0,20 → power=0,80 (tỉ lệ coi trọng 4:1).</p></div><div class="mdeck-slide"><div class="kicker">4 tham số của power</div><h2>Cỡ hiệu ứng, cỡ mẫu, α, β — cần đủ cả 4</h2>
+       <p>Ước tính thô (α=0,05, power=0,80): tìm d=0,5 (2 đuôi) cần ~<b>130 người</b>; tìm r=0,5 (2 đuôi) chỉ cần ~<b>30 người</b>.</p>
+       <p class="cap">Hiệu ứng nhỏ cần mẫu lớn hơn hẳn để có đủ power phát hiện ra nó.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Ví dụ số liệu đầy đủ + phê phán NHST + cú pháp SPSS/PSPP nằm bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
