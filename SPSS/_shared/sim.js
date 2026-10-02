@@ -63,6 +63,47 @@ function effectLabel(r){
   if(a<0.5) return 'vừa';
   return 'lớn';
 }
+function etaRatio(x,y){
+  var groups={}; var gm=mean(y), ssT=0, ssB=0;
+  for(var i=0;i<y.length;i++) ssT+=(y[i]-gm)*(y[i]-gm);
+  x.forEach(function(v,i){ (groups[v]=groups[v]||[]).push(y[i]) });
+  Object.keys(groups).forEach(function(k){ var g=groups[k], mg=mean(g); ssB+=g.length*(mg-gm)*(mg-gm) });
+  return Math.sqrt(ssT>0 ? ssB/ssT : 0);
+}
+
+// --- Vẽ scatterplot SVG tương tác: điểm + đường hồi quy tuyến tính, hover xem toạ độ ---
+function scatterSVG(x,y,extraLine){
+  var n=x.length, w=460,h=280, ml=46,mr=14,mt=14,mb=34;
+  var xmin=Math.min.apply(null,x), xmax=Math.max.apply(null,x);
+  var ymin=Math.min.apply(null,y), ymax=Math.max.apply(null,y);
+  var xr=(xmax-xmin)||1, yr=(ymax-ymin)||1;
+  var px=xr*0.08, py=yr*0.08;
+  xmin-=px; xmax+=px; ymin-=py; ymax+=py; xr=xmax-xmin; yr=ymax-ymin;
+  function sx(v){ return ml + (v-xmin)/xr*(w-ml-mr) }
+  function sy(v){ return h-mb - (v-ymin)/yr*(h-mt-mb) }
+  var mx=mean(x), my=mean(y), sxy=0,sxx=0;
+  for(var i=0;i<n;i++){ sxy+=(x[i]-mx)*(y[i]-my); sxx+=(x[i]-mx)*(x[i]-mx) }
+  var b=sxx?sxy/sxx:0, a=my-b*mx;
+  var pts='';
+  for(i=0;i<n;i++){
+    pts+='<circle class="pt" cx="'+sx(x[i]).toFixed(1)+'" cy="'+sy(y[i]).toFixed(1)+'" r="4"><title>x='+fnum(x[i],2)+', y='+fnum(y[i],2)+'</title></circle>';
+  }
+  var extra='';
+  if(extraLine){ // mảng [[x,y],...] vẽ đường cong tuỳ ý (vd đường cong bậc 2 minh hoạ eta)
+    extra='<polyline class="curve" points="'+extraLine.map(function(p){return sx(p[0]).toFixed(1)+','+sy(p[1]).toFixed(1)}).join(' ')+'"/>';
+  }
+  return '<svg viewBox="0 0 '+w+' '+h+'" width="100%" style="max-width:480px;display:block;margin:10px auto" class="scatter-svg">'+
+    '<line x1="'+ml+'" y1="'+(h-mb)+'" x2="'+(w-mr)+'" y2="'+(h-mb)+'" class="axis"/>'+
+    '<line x1="'+ml+'" y1="'+mt+'" x2="'+ml+'" y2="'+(h-mb)+'" class="axis"/>'+
+    '<line x1="'+sx(xmin+px).toFixed(1)+'" y1="'+sy(a+b*(xmin+px)).toFixed(1)+'" x2="'+sx(xmax-px).toFixed(1)+'" y2="'+sy(a+b*(xmax-px)).toFixed(1)+'" class="reg"/>'+
+    extra+pts+
+    '<text x="'+ml+'" y="'+(h-10)+'" class="axlabel">'+fnum(xmin+px,1)+'</text>'+
+    '<text x="'+(w-mr)+'" y="'+(h-10)+'" class="axlabel" text-anchor="end">'+fnum(xmax-px,1)+'</text>'+
+    '<text x="'+(ml-6)+'" y="'+(h-mb)+'" class="axlabel" text-anchor="end">'+fnum(ymin+py,1)+'</text>'+
+    '<text x="'+(ml-6)+'" y="'+(mt+8)+'" class="axlabel" text-anchor="end">'+fnum(ymax-py,1)+'</text>'+
+    '</svg>';
+}
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296 } }
 
 var W={};
 W.pearson=function(root){
@@ -83,6 +124,8 @@ W.pearson=function(root){
       if(z&&z.length!==x.length) throw new Error('Z phải có cùng số quan sát với X/Y (Z có '+z.length+').');
       var rxy=pearson(x,y);
       var html='<p>n = '+rxy.n+', df = '+rxy.df+'</p>'+
+        scatterSVG(x,y)+
+        '<p class="cap" style="text-align:center">Chấm = từng quan sát (di chuột xem toạ độ) · nét đứt = đường hồi quy tuyến tính tốt nhất</p>'+
         tbl(['Cặp biến','r','r²','t','p (2 phía)','Cỡ hiệu ứng'],
           [['X, Y', fnum(rxy.r,3), fnum(rxy.r*rxy.r,3), fnum(rxy.t,3), pLabel(rxy.p), effectLabel(rxy.r)]]);
       if(z){
@@ -107,6 +150,29 @@ W.pearson=function(root){
       run();
     }).catch(function(){ $(root,'.out').innerHTML='<p class="no">Không tải được dữ liệu mẫu (kiểm tra kết nối).</p>' });
   };
+};
+W.curve=function(root){
+  frame(root,'Vì sao Pearson r "bỏ sót" quan hệ phi tuyến — kéo thanh trượt để xem trực tiếp',
+    '<div class="row"><label>Đỉnh hiệu suất rơi vào mức căng thẳng = <span id="pv">5</span><br/>'+
+    '<input id="peak" type="range" min="2" max="9" step="0.5" value="5" style="width:100%"></label></div>'+
+    '<div class="out"></div>');
+  var rnd=mulberry32(42), noise=[], stress=[];
+  for(var s=1;s<=10;s++) for(var k=0;k<6;k++){ stress.push(s); noise.push((rnd()-0.5)*3.2) }
+  function run(){
+    var peak=parseFloat($(root,'#peak').value); $(root,'#pv').textContent=peak;
+    var perf=stress.map(function(x,i){ return 10 - 0.9*(x-peak)*(x-peak) + noise[i] });
+    var rxy=pearson(stress,perf), eta=etaRatio(stress,perf);
+    var curve=[]; for(var xx=1;xx<=10;xx+=0.25) curve.push([xx, 10-0.9*(xx-peak)*(xx-peak)]);
+    $(root,'.out').innerHTML=
+      scatterSVG(stress,perf,curve)+
+      '<p class="cap" style="text-align:center">Nét đứt thẳng = hồi quy tuyến tính Pearson giả định · đường cong mảnh = quan hệ THẬT (parabol, đỉnh tại mức '+peak+')</p>'+
+      tbl(['Chỉ số','Giá trị','Diễn giải'],[
+        ['Pearson r (tuyến tính)', fnum(rxy.r,3), effectLabel(rxy.r)+' — đo quan hệ ĐƯỜNG THẲNG'],
+        ['Eta η (phi tuyến)', fnum(eta,3), effectLabel(eta)+' — đo được cả quan hệ CONG']
+      ])+
+      '<p class="cap">Khi đỉnh ở giữa khoảng (~5-6): Pearson r gần 0 dù eta vẫn cao — minh hoạ đúng bài học Cohen et al. (tr.769): Pearson r có thể đánh giá THẤP một quan hệ phi tuyến rất thật. Kéo đỉnh về gần 2 hoặc 9 (lệch về một phía) để thấy r tăng lên — khi đó đoạn đường cong quan sát được gần giống một đường thẳng hơn.</p>';
+  }
+  $(root,'#peak').oninput=run; run();
 };
 document.querySelectorAll('.sim[data-sim]').forEach(function(root){var f=W[root.getAttribute('data-sim')];if(f)f(root)});
 })();

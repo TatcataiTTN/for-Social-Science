@@ -226,3 +226,10 @@ h4{color:var(--gold);font-size:1.02rem;margin:.3em 0}
 .sim .out .no{color:var(--wrong-border,#e05353);font-weight:700}
 .sim .out .hl{background:var(--correct-bg)}
 .sim .out .cap{color:var(--muted);font-size:.82rem}
+.sim .scatter-svg .pt{fill:var(--accent);fill-opacity:.65;transition:.1s}
+.sim .scatter-svg .pt:hover{fill-opacity:1;r:6}
+.sim .scatter-svg .axis{stroke:var(--muted);stroke-width:1}
+.sim .scatter-svg .reg{stroke:var(--warn);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.sim .scatter-svg .curve{stroke:var(--accent2);stroke-width:2;fill:none}
+.sim .scatter-svg .axlabel{font-size:9px;fill:var(--muted)}
+.sim input[type="range"]{accent-color:var(--accent)}

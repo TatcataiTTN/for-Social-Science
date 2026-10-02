@@ -4,9 +4,9 @@
 var root=document.getElementById('bank');if(!root)return;
 var D=JSON.parse(document.getElementById('bank-data').textContent);
 var KEY='bank:'+D.module;
-var state={ans:{},topic:'all',origin:'all',page:0,onlyWrong:false,order:D.items.map(function(_,i){return i}),size:12};
-try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.ans)state.ans=s.ans}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify({ans:state.ans}))}catch(e){}}
+var state={ans:{},ess:{},topic:'all',origin:'all',tab:'mcq',page:0,onlyWrong:false,order:D.items.map(function(_,i){return i}),size:12};
+try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s){state.ans=s.ans||{};state.ess=s.ess||{}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({ans:state.ans,ess:state.ess}))}catch(e){}}
 var topics=[];D.items.forEach(function(i){if(topics.indexOf(i.topic)<0)topics.push(i.topic)});
 function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!==undefined)e.textContent=txt;return e}
 function stats(){var n=D.items.length,a=0,c=0;D.items.forEach(function(it){var v=state.ans[it.id];if(v!==undefined){a++;if(v===it.correct)c++}});return {n:n,a:a,c:c}}
@@ -27,9 +27,14 @@ function render(){
   var b3=el('button','btn alt','⟲ Về thứ tự gốc');b3.type='button';b3.onclick=function(){state.order=D.items.map(function(_,i){return i});state.page=0;render()};
   var b2=el('button','btn','↺ Làm lại toàn bộ (xoá kết quả đã lưu)');b2.type='button';b2.onclick=function(){if(confirm('Xoá toàn bộ kết quả đã làm trong ngân hàng này và làm lại từ đầu?')){state.ans={};save();state.page=0;render()}};
   row2.appendChild(b1);row2.appendChild(b3);row2.appendChild(b2);top.appendChild(row2);
-  var p=el('div','quiz-score','Tiến độ: đã làm '+st.a+'/'+st.n+' câu · đúng '+st.c+' · sai '+(st.a-st.c)+(st.a?' · tỉ lệ đúng '+Math.round(100*st.c/st.a)+'%':''));top.appendChild(p);
+  var p=el('div','quiz-score','Tiến độ: đã làm '+st.a+'/'+st.n+' câu trắc nghiệm · đúng '+st.c+' · sai '+(st.a-st.c)+(st.a?' · tỉ lệ đúng '+Math.round(100*st.c/st.a)+'%':''));top.appendChild(p);
   root.appendChild(top);
-  renderList();
+  var tabs=el('div','row');
+  [['mcq','📝 Trắc nghiệm ('+D.items.length+')'],['ess','✍️ Tự luận ('+(D.essays||[]).length+')']].forEach(function(t){
+    var b=el('button','btn'+(state.tab===t[0]?'':' alt'),t[1]);b.type='button';b.onclick=function(){state.tab=t[0];state.page=0;render()};tabs.appendChild(b)
+  });
+  root.appendChild(tabs);
+  if(state.tab==='mcq') renderList(); else renderEss();
 }
 function renderList(){
   var list=filtered(),pages=Math.max(1,Math.ceil(list.length/state.size));if(state.page>=pages)state.page=pages-1;
@@ -56,6 +61,23 @@ function renderList(){
   var nx=el('button','btn alt','Trang sau ▶');nx.type='button';nx.disabled=state.page>=pages-1;nx.onclick=function(){state.page++;render();window.scrollTo(0,0)};
   nav.appendChild(pv);nav.appendChild(nx);root.appendChild(nav);
 }
-function refreshStats(){var st=stats();var p=root.querySelector('.quiz-score');if(p)p.textContent='Tiến độ: đã làm '+st.a+'/'+st.n+' câu · đúng '+st.c+' · sai '+(st.a-st.c)+(st.a?' · tỉ lệ đúng '+Math.round(100*st.c/st.a)+'%':'')}
+function refreshStats(){var st=stats();var p=root.querySelector('.quiz-score');if(p)p.textContent='Tiến độ: đã làm '+st.a+'/'+st.n+' câu trắc nghiệm · đúng '+st.c+' · sai '+(st.a-st.c)+(st.a?' · tỉ lệ đúng '+Math.round(100*st.c/st.a)+'%':'')}
+function renderEss(){
+  var list=(D.essays||[]).filter(function(e){return (state.origin==='all'||e.origin===state.origin)&&(state.topic==='all'||e.topic===state.topic)});
+  root.appendChild(el('p','cap','Tự luận: hãy tự làm nháp trước (viết tay hoặc gõ ra ngoài), rồi bấm "Xem lời giải" để đối chiếu. Đánh dấu bài đã làm được để theo dõi tiến độ riêng cho phần tự luận.'));
+  var done=(D.essays||[]).filter(function(e){return state.ess[e.id]}).length;
+  root.appendChild(el('div','quiz-score','Tự luận: đã làm được '+done+'/'+(D.essays||[]).length));
+  list.forEach(function(e){
+    var box=el('div','qitem');
+    var head=el('div');head.innerHTML='<span class="tag">'+e.id+'</span><span class="tag">'+e.topic+'</span>';box.appendChild(head);
+    var sr=el('div',null,(e.origin==='goc'?'📎 ':'➕ Bổ sung · ')+e.src);sr.style.fontSize='.78rem';sr.style.color='var(--muted)';sr.style.margin='4px 0';box.appendChild(sr);
+    var t=el('div',null,e.q);t.style.fontWeight='700';t.style.margin='6px 0';box.appendChild(t);
+    var sol=el('div','explain');sol.textContent=e.sol;box.appendChild(sol);
+    var sb=el('button','btn alt','👁 Xem lời giải');sb.type='button';sb.style.marginTop='6px';sb.onclick=function(){sol.classList.toggle('show');sb.textContent=sol.classList.contains('show')?'🙈 Ẩn lời giải':'👁 Xem lời giải'};
+    var mk=el('button','btn'+(state.ess[e.id]?'':' alt'),state.ess[e.id]?'✔ Đã làm được (bấm để bỏ đánh dấu)':'Đánh dấu: tôi đã làm được');mk.type='button';mk.style.marginLeft='6px';mk.style.marginTop='6px';
+    mk.onclick=function(){if(state.ess[e.id])delete state.ess[e.id];else state.ess[e.id]=1;save();render()};
+    box.appendChild(sb);box.appendChild(mk);root.appendChild(box);
+  });
+}
 render();
 })();
