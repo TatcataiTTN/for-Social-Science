@@ -26,37 +26,67 @@
        <tr><td>Dữ liệu khoảng/tỉ lệ</td><td>Dùng kiểm định phi tham số</td></tr>
        <tr><td>Lấy mẫu ngẫu nhiên</td><td>Kết quả khó khái quát hoá</td></tr>
        <tr><td>Phân phối chuẩn</td><td>Mẫu lớn có thể khắc phục</td></tr>
-       <tr><td>Phương sai đồng nhất</td><td>Đọc dòng Levene phù hợp</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
+       <tr><td>Phương sai đồng nhất</td><td>Đọc dòng Levene phù hợp</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Kiểm chứng thật</div><h2>Shapiro-Wilk: cả 2 nhóm đều chuẩn</h2>
+       <p>Biến gain, nhóm Dự án: p=0,888. Nhóm Truyền thống: p=0,587.</p>
+       <p class="cap">Cả hai đều &gt;0,05 → điều kiện phân phối chuẩn được thoả tốt trong ví dụ này.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
        <h2>T-test độc lập</h2>
        <ul class="part-list"><li>Levene's test quyết định đọc dòng nào</li><li>Dữ liệu thật: Dự án vs Truyền thống</li><li>Đối chiếu: Nam vs Nữ</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Hai biến thể</div><h2>Độc lập vs Bắt cặp</h2>
        <p><b>Độc lập:</b> 2 nhóm hoàn toàn không liên quan (vd nam/nữ).</p>
-       <p><b>Bắt cặp:</b> CÙNG một nhóm, đo 2 lần/2 biến (vd pretest–posttest).</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá đọc bảng kết quả</div><h2 class="warn">Kiểm định Levene quyết định đọc dòng nào</h2>
+       <p><b>Bắt cặp:</b> CÙNG một nhóm, đo 2 lần/2 biến (vd pretest–posttest).</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>t = (x̄₁ − x̄₂) / SE<sub>diff</sub>, df = n₁+n₂−2</h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>x̄₁−x̄₂</td><td>Chênh lệch 2 trung bình nhóm</td></tr>
+       <tr><td>SE<sub>diff</sub></td><td>Sai số chuẩn của độ chênh lệch (từ SD gộp)</td></tr>
+       <tr><td>df</td><td>Tổng cỡ 2 nhóm trừ 2</td></tr></table>
+       <p class="cap">|t| càng lớn, càng khó giải thích chênh lệch chỉ do may rủi lấy mẫu.</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá đọc bảng kết quả</div><h2 class="warn">Kiểm định Levene quyết định đọc dòng nào</h2>
        <p>Levene <b>p&lt;0,05</b> → phương sai KHÔNG bằng nhau → đọc dòng "not assumed".</p>
        <p>Levene <b>p≥0,05</b> → phương sai bằng nhau → đọc dòng "assumed".</p>
-       <p class="warn">Đọc sai dòng có thể đảo ngược cả kết luận nghiên cứu!</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Dự án vs Truyền thống: t=7,59, p&lt;0,001</h2>
+       <p class="warn">Đọc sai dòng có thể đảo ngược cả kết luận nghiên cứu!</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách — "thắng-thắng"</div><h2>Levene p=0,004 → Sig.=0,044 (ĐÚNG), KHÔNG phải 0,055</h2>
+       <p>Nhận thức lãnh đạo/GV về "sự tận tâm": Levene p=0,004 (&lt;0,05) → đọc dòng "not assumed" → có ý nghĩa.</p>
+       <p class="warn">Nếu NHẦM đọc dòng "assumed": Sig.=0,055 → kết luận SAI "không có ý nghĩa"!</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đối chiếu</div><h2>Levene p=0,728 → đọc "assumed" → Sig.=0,610</h2>
+       <p class="cap">Ví dụ 2 (tr.779): "sự quan tâm dạy-học" — không có ý nghĩa, nhưng Cohen et al. gọi đây là kết quả "thắng-thắng": nhận thức chung (dù tiêu cực) cũng là phát hiện có giá trị.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Dự án vs Truyền thống: t=7,59, p&lt;0,001</h2>
        <img src="../../../assets/diagrams/ttest_indep.png" alt="ttest doc lap"/>
-       <p class="cap">Levene p=0,526 (đồng nhất) → mức tăng điểm 8,66 vs 2,89, khác biệt rất rõ.</p></div><div class="mdeck-slide"><div class="kicker">Đối chiếu</div><h2>Nam vs Nữ, điểm Toán: p=0,178</h2>
+       <p class="cap">Levene p=0,526 (đồng nhất) → mức tăng điểm 8,66 vs 2,89, khác biệt rất rõ.</p></div><div class="mdeck-slide"><div class="kicker">Viết báo cáo APA</div><h2>Nêu đủ: trung bình, SD, t, df, p</h2>
+       <p class="cap">"Mức tăng điểm TB của nhóm Dự án (M=8,66, SD=5,77) cao hơn có ý nghĩa thống kê (t(238)=7,59, p&lt;0,001) so với nhóm Truyền thống (M=2,89, SD=6,00)."</p>
+       <p class="warn">Không suy ra nhân quả chỉ từ con số này.</p></div><div class="mdeck-slide"><div class="kicker">Đối chiếu</div><h2>Nam vs Nữ, điểm Toán: p=0,178</h2>
        <p class="big">Không đủ bằng chứng khác biệt</p>
        <p class="cap">"Không tìm thấy" cũng là một kết quả có giá trị nghiên cứu (Cohen et al., tr.779).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>T-test bắt cặp</h2>
        <ul class="part-list"><li>Cùng học sinh, đo trước & sau</li><li>Vì sao bắt cặp mạnh hơn</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · T-test bắt cặp</div><h2>Cùng học sinh, trước & sau</h2>
        <img src="../../../assets/diagrams/ttest_paired.png" alt="ttest bat cap"/>
-       <p class="cap">Pretest 60,3 → Posttest 66,0. t=13,37, df=239, p&lt;0,001.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao bắt cặp mạnh hơn</div><h2>Loại bỏ biến thiên cá nhân</h2>
+       <p class="cap">Pretest 60,3 → Posttest 66,0. t=13,37, df=239, p&lt;0,001.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>t = d̄ / (s<sub>d</sub> / √n), df = n−1</h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>d̄</td><td>TB các độ chênh lệch CÁ NHÂN (posttest−pretest)</td></tr>
+       <tr><td>s<sub>d</sub></td><td>SD của các độ chênh lệch đó (không phải SD riêng lẻ)</td></tr>
+       <tr><td>n</td><td>Số CẶP quan sát (số người)</td></tr></table>
+       <p class="cap">Chỉ dùng MỘT cột số liệu (độ chênh lệch) — đã "gộp" 2 lần đo thành 1 con số trước khi tính.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao bắt cặp mạnh hơn</div><h2>Loại bỏ biến thiên cá nhân</h2>
        <p>Pretest & posttest của CÙNG học sinh tương quan r=0,857 (Module 04).</p>
-       <p class="cap">Bắt cặp tận dụng tương quan này → kiểm định mạnh hơn nhiều so với độc lập.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
+       <p class="cap">Bắt cặp tận dụng tương quan này → kiểm định mạnh hơn nhiều so với độc lập.</p></div><div class="mdeck-slide"><div class="kicker">Nhầm lẫn thường gặp</div><h2 class="warn">Dữ liệu CÙNG người mà chạy t-test ĐỘC LẬP</h2>
+       <p>Bỏ qua tương quan giữa 2 lần đo → kiểm định kém mạnh hơn hẳn.</p>
+       <p class="warn">Có thể dẫn tới bỏ lỡ một khác biệt THỰC SỰ có ý nghĩa.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
        <div class="part-num">04</div>
        <h2>Thực hành trong SPSS</h2>
        <ul class="part-list"><li>SPSS Box 41.1 — t-test độc lập</li><li>SPSS Box 41.2 — t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · SPSS Box 41.1</div><h2>T-test độc lập trong SPSS</h2>
-       <p>Analyze → Compare Means → Independent-Samples T Test → Test variable / Grouping variable → Define Groups.</p></div><div class="mdeck-slide"><div class="kicker">SPSS Box 41.2</div><h2>T-test bắt cặp trong SPSS</h2>
+       <p>Analyze → Compare Means → Independent-Samples T Test → Test variable / Grouping variable → Define Groups.</p>
+       <p class="cap">Nhớ tính biến gain = posttest − pretest TRƯỚC (Transform → Compute Variable), nếu không SPSS báo lỗi "gain is not a variable".</p></div><div class="mdeck-slide"><div class="kicker">SPSS Box 41.2</div><h2>T-test bắt cặp trong SPSS</h2>
        <p>Analyze → Compare Means → Paired-Samples T Test → Variable 1 / Variable 2.</p>
-       <p class="cap">Muốn lọc 1 phân nhóm trước? Dùng Data → Select Cases trước khi chạy.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <p class="cap">Muốn lọc 1 phân nhóm trước? Dùng Data → Select Cases trước khi chạy.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>GROUPS= (độc lập), PAIRS= (bắt cặp)</h2>
+       <table><tr><td><code>COMPUTE gain = posttest - pretest.</code></td></tr>
+       <tr><td><code>T-TEST GROUPS=method('Dự án','Truyền thống') /VARIABLES=gain.</code></td></tr>
+       <tr><td><code>T-TEST PAIRS=pretest WITH posttest (PAIRED).</code></td></tr></table>
+       <p class="cap">PSPP hỗ trợ đầy đủ cả 2 cú pháp, kết quả khớp Python/SPSS.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
        <div class="part-num">05</div>
        <h2>Diễn giải kết quả & tiếp theo</h2>
        <ul class="part-list"><li>Luôn kèm cỡ hiệu ứng sau ý nghĩa thống kê</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Sau ý nghĩa thống kê</div><h2>Luôn kèm cỡ hiệu ứng</h2>
        <p class="big">d = 0,981 (mạnh-vừa)</p>
-       <p class="cap">t=7,59 rất có ý nghĩa VÀ d=0,981 đủ lớn để đáng chú ý — báo cáo cả hai (nối Module 04).</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p class="cap">t=7,59 rất có ý nghĩa VÀ d=0,981 đủ lớn để đáng chú ý — báo cáo cả hai (nối Module 04).</p></div><div class="mdeck-slide"><div class="kicker">Lịch sử</div><h2>"Student" t-test — bút danh của một nhân viên hãng bia</h2>
+       <p>William Sealy Gosset (Guinness, Dublin, 1899) không được công bố nghiên cứu dưới tên thật → 1908 công bố phân phối t trên <i>Biometrika</i> dưới bút danh "Student".</p>
+       <p class="cap">Giải quyết đúng vấn đề của ông: mẫu NHỎ (mẻ lúa mạch thử) cần phân phối "đuôi dày hơn" chuẩn.</p></div><div class="mdeck-slide"><div class="kicker">Case study</div><h2 class="warn">Đọc nhầm Levene có thể đảo ngược cả nghiên cứu</h2>
+       <p>0,044 (đúng) vs 0,055 (đọc nhầm dòng) — chênh rất nhỏ nhưng đủ đảo "có ý nghĩa" thành "không có ý nghĩa".</p>
+       <p class="cap">Lỗi thực tế phổ biến: chỉ nhìn Sig.(2-tailed) mà bỏ qua cột Levene bên trái.</p></div><div class="mdeck-slide"><div class="kicker">Case study</div><h2>Thiết kế trước-sau LUÔN ưu tiên bắt cặp</h2>
+       <p>Xử lý nhầm dữ liệu trước-sau như 2 nhóm độc lập → mất phần lớn power.</p>
+       <p class="warn">Một can thiệp THỰC SỰ hiệu quả có thể bị kết luận nhầm "không có ý nghĩa" chỉ vì chọn sai loại kiểm định.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Ví dụ SPSS đầy đủ + lịch sử "Student" t-test + case study nằm bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>

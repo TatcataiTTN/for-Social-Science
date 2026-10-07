@@ -142,6 +142,56 @@ var G = [
  full:"Hai biến tương quan cao có thể do: (1) một GÂY RA biến kia; (2) chiều NGƯỢC LẠI mới đúng (xem mục \"đảo chiều nhân quả\"); (3) cả hai cùng do một BIẾN THỨ BA gây ra (confounding); hoặc (4) hoàn toàn TRÙNG HỢP ngẫu nhiên (spurious correlation), đặc biệt khi so sánh rất nhiều biến/nhiều năm dữ liệu. Trước khi diễn giải một tương quan là có ý nghĩa THỰC TIỄN, luôn tự hỏi: có biến thứ ba nào giải thích cả hai không? Thiết kế nghiên cứu (quan sát hay thực nghiệm có kiểm soát) có cho phép suy luận nhân quả không?",
  example:"\"Spurious Correlations\" (Tyler Vigen): số phim Nicolas Cage ra rạp/năm tương quan r>0,6 với số người chết đuối trong bể bơi Mỹ cùng năm — rõ ràng không nhân quả, chỉ là trùng hợp thống kê."}},
 
+{id:"bon-thang-do", module:"01", tags:["thang đo"],
+ vi:{term:"Bốn thang đo dữ liệu", short:"Định danh → Thứ bậc → Khoảng → Tỉ lệ — mỗi thang KẾ THỪA đặc điểm thang trước rồi thêm 1 đặc điểm mới.",
+ full:"Định danh (nominal): chỉ phân loại (giới tính, loại trường) — chỉ đếm tần số/mode. Thứ bậc (ordinal): + có thứ tự lớn/nhỏ (thang Likert, xếp hạng) — thêm được trung vị/percentile. Khoảng (interval): + khoảng cách đều nhau nhưng KHÔNG có điểm 0 thật (nhiệt độ °C, điểm IQ) — thêm được trung bình/SD, KHÔNG lấy tỉ số. Tỉ lệ (ratio): + có điểm 0 thật (giờ tự học, điểm thi, tiền) — mọi phép tính đều hợp lệ kể cả tỉ số ('gấp đôi'). SPSS/PSPP gộp Khoảng+Tỉ lệ thành một loại gọi là 'Scale' vì hầu hết phép thống kê áp dụng như nhau cho cả hai.",
+ example:"Không thể nói '100°F nóng gấp đôi 50°F' (thang khoảng, 0°F không phải 'không có nhiệt') — gấp đôi thật của 50°F là 68°F. Tương tự, IQ 150 KHÔNG 'thông minh gấp đôi' IQ 75."}},
+
+{id:"tham-so-phi-tham-so", module:"01", tags:["thang đo"],
+ vi:{term:"Dữ liệu tham số & phi tham số", short:"Tham số cần dữ liệu khoảng/tỉ lệ + phân phối chuẩn; phi tham số không đòi hỏi những điều kiện đó.",
+ full:"Kiểm định tham số (t-test, ANOVA, Pearson r...) giả định dữ liệu ở thang khoảng/tỉ lệ VÀ xấp xỉ phân phối chuẩn — mạnh hơn (dễ phát hiện hiệu ứng thật hơn) nếu điều kiện được thoả. Kiểm định phi tham số (Mann-Whitney, Kruskal-Wallis, Spearman...) không đòi hỏi các điều kiện đó, dùng được cho dữ liệu thứ bậc hoặc lệch chuẩn nặng, nhưng thường kém mạnh hơn và thiếu cỡ hiệu ứng chuẩn đi kèm.",
+ example:"Dữ liệu thứ bậc (xếp hạng học lực) hoặc lệch chuẩn nặng (vd thu nhập) → ưu tiên phi tham số."}},
+
+{id:"xu-huong-trung-tam-phan-tan", module:"03", tags:["mô tả"],
+ vi:{term:"Xu hướng trung tâm & độ phân tán", short:"Mode/Median/Mean đo \"trung tâm\"; SD/Range/IQR đo \"phân tán\" — không bao giờ chỉ báo cáo một mình trung bình.",
+ full:"Mode (yếu vị): dùng cho mọi thang đo, đặc biệt định danh, bền với ngoại lai. Median (trung vị): dùng từ thứ bậc trở lên, bền với ngoại lai. Mean (trung bình, x̄=Σxᵢ/n): dùng cho khoảng/tỉ lệ, nhưng KHÔNG bền — dễ bị ngoại lai kéo lệch. Ba đo phân tán: SD (độ lệch chuẩn, s=√[Σ(xᵢ−x̄)²/(n−1)]) — trung bình khoảng cách mỗi điểm tới trung bình, chia n−1 (không phải n) để ước lượng không chệch (hiệu chỉnh Bessel); Range = max−min, rất nhạy ngoại lai; IQR = Q3−Q1, bền hơn range.",
+ example:"3 tập số CÙNG trung bình=6 nhưng SD khác hẳn: tập có ngoại lai (giá trị 20) → SD=7,91, gấp 11 lần tập không có ngoại lai — minh chứng vì sao chỉ báo cáo trung bình là chưa đủ."}},
+
+{id:"hoi-quy-don-da-bien", module:"09", tags:["hồi quy"],
+ vi:{term:"Hồi quy tuyến tính đơn biến & đa biến", short:"Ŷ = a + b·X (đơn biến) hoặc Ŷ = a + b₁X₁ + b₂X₂ +... (đa biến) — khác tương quan ở chỗ có HƯỚNG dự đoán rõ ràng.",
+ full:"Đơn biến: dựng đường thẳng dự đoán Y từ MỘT biến X. a (hệ số chặn) = giá trị Ŷ dự đoán khi X=0; b (hệ số góc/slope) = Y thay đổi bao nhiêu khi X tăng 1 đơn vị. R² giống hệt r² của Pearson r (cùng phép tính nền, khác cách trình bày). Đa biến: mở rộng sang NHIỀU biến độc lập cùng lúc — mỗi bₖ đo ảnh hưởng của biến đó khi GIỮ NGUYÊN tất cả biến còn lại trong mô hình (ceteris paribus).",
+ example:"math = 35,58 + 2,51×study_hours (n=240). b=2,51 (SE=0,228, t=11,03, p<0,001). Lưu ý: học sinh thấp nhất thật sự học 0,5 giờ — không ai học 0 giờ, nên diễn giải a=35,58 (ngoại suy X=0) cần thận trọng."}},
+
+{id:"beta-chuan-hoa", module:"09", tags:["hồi quy"],
+ vi:{term:"Hệ số Beta chuẩn hoá (β)", short:"So sánh biến nào \"quan trọng\" hơn — hệ số B thô KHÔNG so sánh được giữa các biến khác đơn vị đo.",
+ full:"β = b × (SD của X / SD của Y) — chuẩn hoá cả X và Y về cùng thang \"số độ lệch chuẩn\" (z-score), không còn đơn vị đo gốc, nên so sánh được giữa các biến có đơn vị khác nhau.",
+ example:"B(study_hours)=2,49 'điểm/giờ' vs B(h1)=2,15 'điểm/mức Likert' — không so được trực tiếp. Nhưng β(study_hours)=0,577 vs β(h1)=0,229 → study_hours mạnh hơn HẲN, dù B thô chỉ hơn nhẹ."}},
+
+{id:"vif-da-cong-tuyen", module:"09", tags:["hồi quy", "giả định"],
+ vi:{term:"VIF & đa cộng tuyến (multicollinearity)", short:"VIF cao → biến độc lập \"trùng lặp thông tin\" với nhau, làm hệ số B không ổn định.",
+ full:"VIF(Xᵢ) = 1/(1−R²ᵢ), với R²ᵢ = R² khi hồi quy CHÍNH biến Xᵢ theo TẤT CẢ biến độc lập còn lại trong mô hình. VIF cao (thường ngưỡng >5 hoặc >10 tuỳ quy ước) → đa cộng tuyến nghiêm trọng, hệ số B dao động mạnh khi thêm/bớt 1 quan sát — không đáng tin. Đây là 1 trong 4 giả định hồi quy cần kiểm tra, cùng với Durbin-Watson (sai số độc lập, lý tưởng gần 2), Shapiro-Wilk trên phần dư (chuẩn), và biểu đồ phần dư~giá trị dự đoán (homoscedasticity, tìm hình phễu).",
+ example:"Mô hình thật: VIF cao nhất=1,02 (rất an toàn, ngưỡng <5). Durbin-Watson=2,05 (rất gần 2, đạt)."}},
+
+{id:"efa-kmo-bartlett", module:"10", tags:["EFA"],
+ vi:{term:"EFA: KMO, Bartlett, Factor loading, Eigenvalue", short:"Rút gọn NHIỀU biến quan sát thành MỘT SỐ ÍT khái niệm ẩn (nhân tố) — 2 kiểm tra bắt buộc trước khi chạy.",
+ full:"KMO (Kaiser-Meyer-Olkin, 0-1): dữ liệu có đủ tương quan chung để \"đáng\" rút gọn thành nhân tố không — càng cao càng tốt. Kiểm định Bartlett: ma trận tương quan có khác ma trận đơn vị (biến hoàn toàn không tương quan) một cách có ý nghĩa không. Factor loading (λᵢⱼ): tương quan giữa biến quan sát i và nhân tố ẩn j, chạy -1 tới 1 giống hệ số tương quan, |λ|≥0,4-0,5 thường coi là \"tải rõ\". Communality (h²): tổng bình phương hệ số tải của 1 biến trên TẤT CẢ nhân tố — % biến thiên giải thích được. Eigenvalue >1 (tiêu chuẩn Kaiser) thường dùng để quyết định giữ bao nhiêu nhân tố.",
+ example:"Dữ liệu thật (h1-h3, a1-a3, n=237): KMO=0,688 (tạm được), Bartlett χ²=313,28 p<0,001 (đạt). EFA 2 nhân tố xoay Varimax: items hứng thú (h1-h3) tải rõ lên Nhân tố 2 (0,60-0,75), items lo âu (a1-a3) tải rõ lên Nhân tố 1 (0,70-0,73). Eigenvalue NT1=2,21, NT2=1,73 (cả hai >1)."}},
+
+{id:"phan-tich-cum", module:"10", tags:["cluster"],
+ vi:{term:"Phân tích cụm (Cluster Analysis)", short:"Nhóm các ĐỐI TƯỢNG QUAN SÁT (không phải BIẾN) thành các nhóm có hồ sơ tương tự nhau — khác EFA.",
+ full:"Bẫy dễ nhầm: EFA nhóm BIẾN lại ('các câu hỏi nào đo cùng một khái niệm?'); Cluster nhóm ĐỐI TƯỢNG lại ('các trường/người nào có hồ sơ giống nhau?'). Chỉ số Silhouette (đo mức tách biệt giữa các cụm, -1 tới 1, càng gần 1 càng tốt) thường dùng để chọn số cụm k tối ưu — nhưng tối ưu thống kê và khả năng DIỄN GIẢI ĐƯỢC đôi khi đánh đổi nhau.",
+ example:"K-means trên 5 chỉ số WLE PISA (n=195): k=2 có Silhouette=0,252 (tốt nhất về mặt thống kê, chia 63/132 trường), nhưng k=3 (Silhouette=0,180, thấp hơn) lại cho câu chuyện diễn giải rõ hơn — đánh đổi kinh điển."}},
+
+{id:"cronbach-alpha", module:"12", tags:["độ tin cậy"],
+ vi:{term:"Độ tin cậy (Reliability) & Cronbach's Alpha", short:"Đo công cụ có NHẤT QUÁN không (đo lại có ra kết quả ổn định không) — KHÁC với việc đo có ĐÚNG hay không (độ giá trị).",
+ full:"α = (k/(k−1)) × (1 − Σσᵢ²/σ²ₜ), với k=số item, Σσᵢ²=tổng phương sai từng item riêng lẻ, σ²ₜ=phương sai điểm tổng. α chạy 0-1, cao nghĩa là các item \"đồng hành\" chặt chẽ, đo cùng một khái niệm nhất quán. Ngưỡng phổ biến (không tuyệt đối): <0,60 kém, 0,60-0,70 tạm được, 0,70-0,80 chấp nhận được, 0,80-0,90 tốt, >0,90 xuất sắc (nhưng cũng có thể là dấu hiệu item TRÙNG LẶP quá mức). Item-total correlation và \"Alpha nếu xoá item\" giúp phát hiện item yếu kéo thấp độ tin cậy chung.",
+ example:"Thang Hứng thú (h1,h2,h3, n=237-240): α=0,713 (chấp nhận được). Thang Lo âu (a1,a2,a3): α=0,759 (gần mức tốt)."}},
+
+{id:"do-gia-tri-vs-tin-cay", module:"12", tags:["độ tin cậy", "validity"],
+ vi:{term:"Độ giá trị (Validity) vs Độ tin cậy (Reliability)", short:"Tin cậy = đo NHẤT QUÁN. Giá trị = đo ĐÚNG thứ cần đo. Tin cậy cao KHÔNG đảm bảo giá trị cao.",
+ full:"Một công cụ có thể RẤT nhất quán (đo đi đo lại ra cùng kết quả, Cronbach's α cao) nhưng vẫn đo SAI khái niệm cần đo — ví dụ một cái cân bị lệch luôn cho cùng một số sai, rất 'nhất quán' nhưng không 'đúng'. Ngược lại, độ giá trị cao đòi hỏi độ tin cậy ở mức tối thiểu chấp nhận được (không thể đo ĐÚNG nếu kết quả đo lại mỗi lần một khác). Độ tin cậy là điều kiện CẦN nhưng chưa ĐỦ cho độ giá trị.",
+ example:"Thang đo 'lo âu' có α=0,759 (nhất quán tốt) — nhưng nếu các câu hỏi thực ra đang đo 'căng thẳng' chứ không phải 'lo âu' thuần tuý, độ giá trị vẫn có vấn đề dù độ tin cậy cao."}},
+
 {id:"percentR-bat-doi-xung", module:"08", tags:["tương quan", "ít dùng"],
  vi:{term:"%R và phần trăm khác biệt (đo bất đối xứng)", short:"Khác Pearson r (luôn ĐỐI XỨNG), hai chỉ số này đổi chiều tính sẽ ra câu hỏi KHÁC, không phải lỗi.",
  full:"Dùng cho 2 biến định danh khi không cần/không thể tính hệ số tương quan chuẩn. %R = tỉ số phần trăm giữa hai nhóm ở cùng hạng mục. Đặc điểm BẤT ĐỐI XỨNG: đổi chiều tính (vd 14/63 thay vì 63/14) vẫn là phép tính hợp lệ, chỉ đang hỏi câu khác — khác hẳn Pearson r, nơi r(X,Y) LUÔN bằng r(Y,X) (đối xứng).",
@@ -226,19 +276,37 @@ function entryFor(item, lang){
   return {term:s.term, short:s.short, full:null, example:null};
 }
 function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
-function searchTerms(q, lang){
+function searchTerms(q, lang, limit){
+  limit = limit || 10;
   q = norm(q);
   if(!q) return [];
+  var tokens = q.split(/\s+/).filter(Boolean);
   var scored = [];
   G.forEach(function(item){
     var e = entryFor(item, lang);
     var ven = item.vi, en = EN_SHORT[item.id], zh = ZH_SHORT[item.id];
-    var hay = norm([e.term, e.short, e.full||'', ven.term, ven.short, ven.full, en&&en.term, en&&en.short, zh&&zh.term, zh&&zh.short].join(' '));
-    var idx = hay.indexOf(q);
-    if(idx>=0) scored.push({item:item, entry:e, score: idx===0?0:(norm(e.term).indexOf(q)>=0?1:2)});
+    var termHay = norm([e.term, ven.term, en&&en.term, zh&&zh.term].join(' '));
+    var fullHay = norm([e.term, e.short, e.full||'', ven.term, ven.short, ven.full, ven.example, en&&en.term, en&&en.short, zh&&zh.term, zh&&zh.short].join(' '));
+    // Exact/substring match on the whole phrase (highest priority — handles "p-value", "cỡ mẫu" as one unit)
+    if(fullHay.indexOf(q) >= 0){
+      scored.push({item:item, entry:e, score: termHay.indexOf(q)===0 ? 0 : (termHay.indexOf(q)>=0 ? 1 : 2)});
+      return;
+    }
+    // Token-based match: "giải thích gần tương tự" — match if ALL tokens appear somewhere (any order),
+    // so a query like "hieu ung ky vong" still finds "cỡ hiệu ứng kỳ vọng (d)" even out of exact phrase order.
+    var allTokensFound = tokens.every(function(t){ return fullHay.indexOf(t) >= 0 });
+    if(allTokensFound && tokens.length > 1){
+      scored.push({item:item, entry:e, score: 3});
+      return;
+    }
+    // Loosest fallback: at least one meaningful token (len>=3) matches, for partial/approximate queries
+    var anyTokenFound = tokens.some(function(t){ return t.length>=3 && fullHay.indexOf(t) >= 0 });
+    if(anyTokenFound){
+      scored.push({item:item, entry:e, score: 4});
+    }
   });
   scored.sort(function(a,b){return a.score-b.score});
-  return scored.slice(0,8);
+  return scored.slice(0,limit);
 }
 
 // ---------- Site-wide search bar (#site-search) ----------
@@ -314,14 +382,10 @@ function initGlossaryPage(){
   renderList(G);
   if(search){
     search.addEventListener('input', function(){
-      var q = norm(search.value.trim());
+      var q = search.value.trim();
       if(!q){ renderList(G); return; }
-      var filtered = G.filter(function(item){
-        var e = entryFor(item, lang);
-        var hay = norm([e.term,e.short,item.vi.term,item.vi.short,item.vi.full].join(' '));
-        return hay.indexOf(q) >= 0;
-      });
-      renderList(filtered);
+      var results = searchTerms(q, lang, /*limit*/ 999);
+      renderList(results.map(function(r){ return r.item }));
     });
   }
   // jump to anchored term if URL has #id (from search bar click)
