@@ -22,29 +22,46 @@
        <div class="part-num">01</div>
        <h2>Hồi quy đơn biến</h2>
        <ul class="part-list"><li>Từ tương quan tới phương trình dự đoán</li><li>Ý nghĩa của hệ số góc (slope) và hệ số chặn (intercept)</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Từ r tới phương trình</div><h2>Tương quan nói "liên hệ", hồi quy nói "dự đoán"</h2>
-       <p>Module 08: r chỉ đo độ mạnh liên hệ, đối xứng 2 chiều. Hồi quy đi xa hơn: dựng phương trình đường thẳng DỰ ĐOÁN giá trị Y từ X, có hướng rõ ràng (biến phụ thuộc ~ biến độc lập).</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Điểm Toán ~ Giờ tự học (n=240)</h2>
+       <p>Module 08: r chỉ đo độ mạnh liên hệ, đối xứng 2 chiều. Hồi quy đi xa hơn: dựng phương trình đường thẳng DỰ ĐOÁN giá trị Y từ X, có hướng rõ ràng (biến phụ thuộc ~ biến độc lập).</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>Ŷ = a + b·X</h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>Ŷ</td><td>Giá trị Y DỰ ĐOÁN (không phải giá trị thật)</td></tr>
+       <tr><td>a</td><td>Hệ số chặn — Ŷ khi X=0</td></tr>
+       <tr><td>b</td><td>Hệ số góc — Y đổi bao nhiêu khi X tăng 1</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Điểm Toán ~ Giờ tự học (n=240)</h2>
        <p class="big">math = 35,58 + 2,51 × study_hours</p>
-       <p class="cap">Tăng 1 giờ tự học/tuần → điểm Toán dự đoán tăng 2,51 điểm. R²=0,338.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
+       <p class="cap">b=2,51 (SE=0,228, t=11,03, p&lt;0,001, CI95%=[2,06;2,96]). R²=0,338 — giống hệt r² Pearson Module 08.</p></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">X=0 (học 0 giờ) — không ai trong mẫu thật sự học 0 giờ!</h2>
+       <p class="cap">study_hours thấp nhất quan sát được = 0,5 giờ. Diễn giải a=35,58 là NGOẠI SUY ra ngoài phạm vi dữ liệu — cần rất thận trọng.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
        <h2>Hồi quy đa biến</h2>
        <ul class="part-list"><li>Vì sao cần nhiều biến độc lập cùng lúc</li><li>Đọc hệ số B: "giữ nguyên các biến khác"</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Nhiều biến độc lập</div><h2>math ~ study_hours + h1 + a1</h2>
        <p class="big">R²=0,495 (so với 0,338 chỉ dùng 1 biến)</p>
-       <p class="cap">Thêm 2 biến (hứng thú, lo âu) giải thích thêm ≈16% biến thiên điểm Toán.</p></div><div class="mdeck-slide"><div class="kicker">Đọc hệ số B</div><h2>"Giữ nguyên các biến khác không đổi"</h2>
-       <p>B(study_hours)=2,49: tăng 1 giờ tự học → Toán tăng 2,49 điểm, <b>NẾU</b> hứng thú và lo âu giữ nguyên. Đây là điểm khác biệt cốt lõi so với hồi quy đơn biến.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
+       <p class="cap">Thêm 2 biến (hứng thú, lo âu) giải thích thêm ≈16% biến thiên điểm Toán.</p></div><div class="mdeck-slide"><div class="kicker">Bảng hệ số đầy đủ</div><h2>F(3,236)=77,05, p&lt;0,001 — cả mô hình VÀ 3 biến đều có ý nghĩa</h2>
+       <table><tr><th>Biến</th><th>B</th><th>p</th></tr>
+       <tr><td>study_hours</td><td>2,49</td><td>&lt;0,001</td></tr>
+       <tr><td>h1 (hứng thú)</td><td>2,15</td><td>&lt;0,001</td></tr>
+       <tr><td>a1 (lo âu)</td><td>−2,68</td><td>&lt;0,001</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Đọc hệ số B</div><h2>"Giữ nguyên các biến khác không đổi"</h2>
+       <p>B(study_hours)=2,49: tăng 1 giờ tự học → Toán tăng 2,49 điểm, <b>NẾU</b> hứng thú và lo âu giữ nguyên. Đây là điểm khác biệt cốt lõi so với hồi quy đơn biến.</p></div><div class="mdeck-slide"><div class="kicker">R² vs R² hiệu chỉnh</div><h2>R² LUÔN tăng khi thêm biến — R² hiệu chỉnh thì KHÔNG</h2>
+       <p class="cap">R²=0,495, R² hiệu chỉnh=0,488 — khá gần nhau → dấu hiệu TỐT, không có biến "thừa" vô nghĩa trong mô hình.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>Hệ số chuẩn hoá (Beta)</h2>
        <ul class="part-list"><li>Vì sao không so sánh trực tiếp hệ số B thô</li><li>So sánh "biến nào quan trọng hơn"</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Beta chuẩn hoá</div><h2>Không thể so B(giờ) với B(điểm Likert)</h2>
-       <p>study_hours đo bằng GIỜ, h1/a1 đo bằng thang 1-5 — đơn vị khác hẳn nhau. Beta chuẩn hoá (quy về cùng đơn vị "độ lệch chuẩn") mới so sánh được.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>study_hours mạnh nhất (β=0,577)</h2>
-       <p class="cap">β: study_hours=0,577 &gt; a1=−0,297 &gt; h1=0,229 — giờ tự học là yếu tố dự đoán mạnh nhất trong 3 biến.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
+       <p>study_hours đo bằng GIỜ, h1/a1 đo bằng thang 1-5 — đơn vị khác hẳn nhau. Beta chuẩn hoá (quy về cùng đơn vị "độ lệch chuẩn") mới so sánh được.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>β = b × (SD của X / SD của Y)</h2>
+       <p class="cap">Chuẩn hoá cả X và Y về z-score — không còn đơn vị gốc, so sánh được giữa các biến khác đơn vị.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>study_hours mạnh nhất (β=0,577)</h2>
+       <p class="cap">β: study_hours=0,577 &gt; a1=−0,297 &gt; h1=0,229 — giờ tự học là yếu tố dự đoán mạnh nhất trong 3 biến.</p></div><div class="mdeck-slide"><div class="kicker">Bẫy hay gặp</div><h2 class="warn">So B thô để nói "biến nào quan trọng hơn" là SAI</h2>
+       <p class="cap">Dùng β cho SO SÁNH độ quan trọng; dùng B thô cho DỰ ĐOÁN giá trị thực tế (giữ đúng đơn vị gốc).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
        <div class="part-num">04</div>
        <h2>Kiểm tra giả định</h2>
        <ul class="part-list"><li>Đa cộng tuyến (VIF)</li><li>Độc lập sai số (Durbin-Watson)</li><li>Chuẩn hoá phần dư</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Bốn giả định chính</div><h2>Hồi quy KHÔNG đáng tin nếu vi phạm nặng</h2>
-       <p>VIF&lt;5 (không đa cộng tuyến), Durbin-Watson≈2 (sai số độc lập), phần dư chuẩn, phương sai sai số đồng nhất (homoscedasticity).</p></div><div class="mdeck-slide"><div class="kicker">Kiểm chứng thật</div><h2>Cả 4 giả định đều đạt trong ví dụ này</h2>
+       <p>VIF&lt;5 (không đa cộng tuyến), Durbin-Watson≈2 (sai số độc lập), phần dư chuẩn, phương sai sai số đồng nhất (homoscedasticity).</p></div><div class="mdeck-slide"><div class="kicker">VIF nguy hiểm thế nào?</div><h2 class="warn">2 biến đo CÙNG 1 thứ → B có thể ĐỔI DẤU vô nghĩa</h2>
+       <p class="cap">VIF(Xᵢ)=1/(1−R²ᵢ). Mô hình tổng thể (R², F) vẫn trông ổn dù hệ số B từng biến đã vô nghĩa — PHẢI kiểm tra VIF trước khi diễn giải từng B riêng lẻ.</p></div><div class="mdeck-slide"><div class="kicker">Kiểm chứng thật</div><h2>Cả 4 giả định đều đạt trong ví dụ này</h2>
        <p class="cap">VIF cao nhất 1,02; Durbin-Watson=2,05; Shapiro-Wilk phần dư p=0,356 — mô hình đáng tin cậy.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
        <div class="part-num">05</div>
        <h2>Áp dụng & thực hành</h2>
        <ul class="part-list"><li>Thực hành SPSS/PSPP</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Regression → Linear</h2>
-       <p class="cap">PSPP: lệnh REGRESSION — đã kiểm chứng chạy khớp 100% với Python.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p class="cap">PSPP: lệnh REGRESSION — đã kiểm chứng chạy khớp 100% với Python.</p>
+       <p class="cap">Nhớ làm sạch outlier study_hours TRƯỚC (giống Module 04/05/08): Transform → Compute, chia 10 nếu &gt;20.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>REGRESSION /DEPENDENT /METHOD=ENTER</h2>
+       <table><tr><td><code>REGRESSION /DEPENDENT math /METHOD=ENTER study_hours h1 a1.</code></td></tr></table>
+       <p class="cap">Đã kiểm chứng B=2,49/2,15/−2,68 khớp tuyệt đối với Python.</p></div><div class="mdeck-slide"><div class="kicker">Lịch sử</div><h2>Francis Galton & "hồi quy về mức trung bình"</h2>
+       <p class="cap">Galton nghiên cứu chiều cao cha-con cuối TK19 ("regression toward mediocrity"). Karl Pearson hình thức hoá bằng toán học — cùng nền tảng với r đã học.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Công thức đầy đủ + kiểm định giả định + thực hành SPSS nằm ngay bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>

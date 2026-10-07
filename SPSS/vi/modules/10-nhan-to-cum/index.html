@@ -23,25 +23,41 @@
        <h2>Phân tích nhân tố khám phá (EFA)</h2>
        <ul class="part-list"><li>Ý tưởng: nhiều câu hỏi → ít khái niệm ẩn</li><li>KMO & Bartlett: dữ liệu có "đáng" phân tích nhân tố không</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Ý tưởng cốt lõi</div><h2>6 câu hỏi Likert → 2 khái niệm ẩn</h2>
        <p>h1-h3 (hứng thú) và a1-a3 (lo âu) là 6 CÂU HỎI quan sát được — EFA thử tìm xem chúng có thực sự đo 2 KHÁI NIỆM ẩn (latent) hay không.</p></div><div class="mdeck-slide"><div class="kicker">Kiểm tra trước</div><h2>KMO=0,688, Bartlett p&lt;0,001</h2>
-       <p class="cap">Dữ liệu đủ điều kiện chạy EFA (KMO&gt;0,6, Bartlett có ý nghĩa).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
+       <table><tr><th>Kiểm tra</th><th>Trả lời câu hỏi</th></tr>
+       <tr><td>KMO</td><td>Dữ liệu đủ tương quan chung để "đáng" rút gọn không?</td></tr>
+       <tr><td>Bartlett</td><td>Ma trận tương quan có khác ma trận đơn vị không?</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>λᵢⱼ = tương quan giữa biến i và nhân tố ẩn j</h2>
+       <p class="cap">Communality (h²) = tổng bình phương hệ số tải trên TẤT CẢ nhân tố — % biến thiên biến đó được giải thích.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
        <h2>Kết quả EFA thật</h2>
        <ul class="part-list"><li>2 nhân tố "phát hiện lại" đúng cấu trúc đã tạo ra</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Ma trận hệ số tải</div><h2>a1-a3 tải nhân tố 1, h1-h3 tải nhân tố 2</h2>
        <p class="big">Hệ số tải 0,60–0,75</p>
-       <p class="cap">Đúng khớp cấu trúc ẩn (interest/anxiety) đã dùng để TẠO ra dữ liệu.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
+       <p class="cap">Đúng khớp cấu trúc ẩn (interest/anxiety) đã dùng để TẠO ra dữ liệu.</p></div><div class="mdeck-slide"><div class="kicker">Eigenvalue</div><h2>NT1=2,21, NT2=1,73 (cả hai &gt;1) — tổng ≈65,7% phương sai</h2>
+       <p class="cap">Tiêu chí Kaiser: chỉ giữ nhân tố có eigenvalue &gt;1.</p></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">PCA ≠ EFA — dễ nhầm lẫn</h2>
+       <p class="cap">PCA tối đa hoá phương sai QUAN SÁT được (không tách chung/riêng). EFA chỉ mô hình hoá phần phương sai CHUNG — gần "khái niệm ẩn" hơn.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>Phân tích cụm (Cluster)</h2>
        <ul class="part-list"><li>Nhóm các TRƯỜNG (không phải câu hỏi) theo hồ sơ giống nhau</li><li>K-means & vấn đề chọn k</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Khác EFA ở đâu</div><h2>EFA nhóm BIẾN, Cluster nhóm ĐỐI TƯỢNG</h2>
        <p>195 trường PISA, mỗi trường có 5 chỉ số WLE — K-means nhóm các trường có HỒ SƠ giống nhau thành từng cụm.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>3 cụm trường với hồ sơ khác biệt rõ</h2>
-       <p class="cap">Cụm "khó khăn chồng chất" (thiếu cả nhân sự, học liệu, môi trường tiêu cực) vs cụm "ổn định".</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
+       <p class="cap">Cụm "khó khăn chồng chất" (thiếu cả nhân sự, học liệu, môi trường tiêu cực) vs cụm "ổn định".</p></div><div class="mdeck-slide"><div class="kicker">Chọn k bằng Silhouette</div><h2>k=2 tối ưu thống kê (0,252), k=3 dễ diễn giải hơn</h2>
+       <table><tr><th>k</th><th>Silhouette</th><th>Cỡ cụm</th></tr>
+       <tr><td>2</td><td><b>0,252</b></td><td>63/132</td></tr>
+       <tr><td>3</td><td>0,180</td><td>64/49/82</td></tr>
+       <tr><td>4</td><td>0,233</td><td>25/52/102/16</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>s(i) = (b(i) − a(i)) / max(a(i), b(i))</h2>
+       <p class="cap">a(i)=khoảng cách tới điểm CÙNG cụm. b(i)=khoảng cách tới cụm GẦN NHẤT khác. s(i) gần 1 = phân cụm tốt.</p></div><div class="mdeck-slide"><div class="kicker">Case study thật</div><h2 class="warn">PSPP & Python cho CỠ CỤM KHÁC NHAU, cùng k=3!</h2>
+       <p class="cap">PSPP: 37/128/30. Python: 64/49/82. KHÔNG phải lỗi — K-means rất nhạy điểm khởi tạo, 2 phần mềm khởi tạo khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">Bài học</div><h2>Luôn chạy K-means NHIỀU LẦN trước khi tin kết quả</h2>
+       <p class="cap">Python mặc định n_init=10 (chạy 10 lần, lấy tốt nhất) — không nên chỉ chạy 1 lần rồi coi là "sự thật".</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
        <div class="part-num">04</div>
        <h2>Giới thiệu SEM & đa cấp</h2>
        <ul class="part-list"><li>SEM: kết hợp EFA + hồi quy</li><li>Dữ liệu đa cấp: học sinh lồng trong trường</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Nhìn xa hơn</div><h2>PISA vốn LÀ dữ liệu đa cấp</h2>
-       <p>7.368 học sinh LỒNG TRONG 195 trường — vi phạm giả định độc lập quan sát của hồi quy thường, cần mô hình đa cấp (multilevel/HLM) hoặc SEM để xử lý đúng.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <p>7.368 học sinh LỒNG TRONG 195 trường — vi phạm giả định độc lập quan sát của hồi quy thường, cần mô hình đa cấp (multilevel/HLM) hoặc SEM để xử lý đúng.</p></div><div class="mdeck-slide"><div class="kicker">SEM là gì</div><h2>Kết hợp EFA (biến ẩn) + Hồi quy (Module 09) trong 1 mô hình</h2>
+       <p class="cap">Kiểm định đồng thời "câu hỏi có đo đúng khái niệm ẩn không" VÀ "các khái niệm ẩn quan hệ nhân quả thế nào" — cần AMOS/Mplus/lavaan, SPSS/PSPP cơ bản KHÔNG hỗ trợ.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao cần đa cấp?</div><h2 class="warn">Học sinh CÙNG trường giống nhau hơn khác trường</h2>
+       <p class="cap">Hồi quy thường giả định quan sát ĐỘC LẬP — vi phạm khi dữ liệu LỒNG NHAU, làm SE bị ước lượng THẤP hơn thực tế → dễ kết luận sai "có ý nghĩa".</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
        <div class="part-num">05</div>
        <h2>Áp dụng & thực hành</h2>
        <ul class="part-list"><li>Thực hành SPSS/PSPP</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Dimension Reduction → Factor</h2>
-       <p class="cap">PSPP: lệnh FACTOR và QUICK CLUSTER — đã kiểm chứng chạy được.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p class="cap">PSPP: lệnh FACTOR và QUICK CLUSTER — đã kiểm chứng chạy được.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>FACTOR & QUICK CLUSTER</h2>
+       <table><tr><td><code>FACTOR /VARIABLES=h1 h2 h3 a1 a2 a3 /ROTATION VARIMAX.</code></td></tr>
+       <tr><td><code>QUICK CLUSTER var1 var2 var3 /NUMBER=3.</code></td></tr></table></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Toàn bộ số liệu thật + thực hành SPSS nằm ngay bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
