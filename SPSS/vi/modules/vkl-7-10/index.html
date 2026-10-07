@@ -1,0 +1,215 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
+<title>Module VKL 7-10 · Phân phối chuẩn nâng cao & Ước lượng tham số</title>
+<meta name="description" content="Pearson & Spearman correlation, curvilinearity, partial correlation — Cohen et al. 2018 ch.40"/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="Thông tin trang & liên hệ góp ý">i</button><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
+<nav class="crumbs"><a href="../../index.html">Bài giảng</a> / Module VKL 7-10 (phụ lục riêng)</nav>
+<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><details class="fontsw"><summary>🔤 Phông chữ</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman (mặc định)</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="sitesearch"><input type="search" id="site-search" data-glossary-href="../glossary/index.html" autocomplete="off" placeholder="🔍 Tra cứu thuật ngữ..."/><div id="site-search-results" class="site-search-results" hidden></div></div><div class="langsw"><a href="index.html" class="active">VI</a></div></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách không có đủ thời gian và nguồn lực để tự soạn thảo toàn bộ tài liệu khoá học ở mức hoàn thiện mong muốn, nên đã dùng AI để dựng nội dung, sau đó kiểm tra lại số liệu và đối chiếu với giáo trình gốc trong khả năng cho phép. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap"><div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE VKL 7-10 · PHỤ LỤC RIÊNG CHO KHÁNH LINH</div>
+<h2>Phân phối chuẩn nâng cao & Ước lượng tham số</h2>
+<p>Gom lại đúng 2 chỗ Linh nhắn hỏi: "đặc điểm tiếp theo của phân phối chuẩn" và "thống kê tham số" — từ 2 tài liệu Linh gửi.</p>
+<p class="cap">← → để chuyển slide.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/5</div><div class="part-num">01</div>
+<h2>Phân phối chuẩn — 2 đặc điểm còn lại</h2>
+<ul class="part-list"><li>Chuyển đổi Z-score — vì sao cần</li><li>Diện tích dưới đường cong = xác suất</li><li>Bảng độ-lệch-chuẩn ↔ xác suất</li><li>Tính tay 1 ví dụ đầy đủ</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">1 · Nhắc lại</div><h2>3 đặc điểm Linh đã học trước đó</h2>
+<p>Đối xứng (TB=Trung vị=Mode) · Đỉnh ở giữa, 2 đuôi vô hạn · Hình dạng phụ thuộc μ (vị trí) và σ (độ nhọn/trải rộng).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">2 · Đặc điểm 4</div><h2>Mọi phân phối chuẩn đổi được về N(0,1)</h2>
+<p class="big">Z = (X − μ) / σ</p>
+<p class="cap">Dù μ, σ là số gì, sau khi đổi sang Z luôn về ĐÚNG 1 đường cong duy nhất — không cần bảng tra riêng cho từng phân phối.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Tính tay</div><h2>Điểm thi 85, μ=70, σ=10 → Z=1,5</h2>
+<p class="cap">Z=(85−70)/10=1,5 — bạn này cao hơn trung bình đúng 1,5 độ lệch chuẩn, BẤT KỂ thang điểm gốc là gì.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">3 · Đặc điểm 5</div><h2>Diện tích dưới đường cong = Xác suất</h2>
+<img src="../../../assets/diagrams/normal_curve.png" alt="normal curve"/>
+<p class="cap">Diện tích giữa 2 điểm = xác suất biến ngẫu nhiên rơi vào khoảng đó.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Bảng cốt lõi</div><h2>Độ lệch chuẩn ↔ Xác suất (diện tích)</h2>
+<table><tr><th>Khoảng</th><th>Xác suất</th></tr>
+<tr><td>±1σ</td><td>68,26%</td></tr><tr><td>±1,96σ</td><td>95%</td></tr>
+<tr><td>±2,58σ</td><td>99%</td></tr><tr><td>±3σ</td><td>99,73%</td></tr></table></div>
+
+<div class="mdeck-slide"><div class="kicker">Cầu nối</div><h2 class="warn">Số "1,96" trong CI 95% lấy từ ĐÂY</h2>
+<p>Khoảng tin cậy 95% = TB ± 1,96×SE — con số 1,96 chính là dòng "95%" trong bảng vừa học, không phải số tự nhiên bịa ra.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div><div class="part-num">02</div>
+<h2>Phân phối nhị thức & quan hệ với phân phối chuẩn</h2>
+<ul class="part-list"><li>Định nghĩa: chỉ 2 kết quả (Bernoulli)</li><li>Khi n lớn → xấp xỉ phân phối chuẩn</li><li>Kiểm chứng bằng số thật</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">4 · Định nghĩa</div><h2>Biến ngẫu nhiên RỜI RẠC, chỉ 2 kết quả</h2>
+<p>Đậu/Rớt, Đạt/Không đạt tiêu chuẩn, Sấp/Ngửa — mọi thí nghiệm "chỉ 2 khả năng" đều tuân theo phân phối nhị thức (Bernoulli).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">5 · Quan hệ với chuẩn</div><h2 class="warn">n càng lớn, nhị thức càng GIỐNG phân phối chuẩn</h2>
+<p class="cap">Khi số lần thử tăng tới vô cùng, phân phối giới hạn của nhị thức CHÍNH LÀ phân phối chuẩn — dùng xấp xỉ chuẩn để tính xác suất nhị thức, đỡ phải tính tổ hợp phức tạp.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Kiểm chứng số thật</div><h2>n=20, p=0,5: xấp xỉ sai khác chỉ 0,05%</h2>
+<table><tr><th>Cách tính P(X≥12)</th><th>Kết quả</th></tr>
+<tr><td>Nhị thức CHÍNH XÁC</td><td>0,2517</td></tr>
+<tr><td>Xấp xỉ chuẩn (μ=10, σ=2,236)</td><td>0,2512</td></tr></table>
+<p class="cap">Đã verify bằng Python (scipy) — 2 cách tính lệch nhau chưa tới 0,001, xấp xỉ rất tốt khi np≥5 và n(1−p)≥5.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div><div class="part-num">03</div>
+<h2>Ước lượng điểm & Ước lượng khoảng</h2>
+<ul class="part-list"><li>2 cách "đoán" tham số tổng thể từ mẫu</li><li>Vì sao ước lượng khoảng được ưu tiên</li><li>Công thức khoảng tin cậy</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">6 · Ước lượng điểm</div><h2>Đưa ra ĐÚNG MỘT con số</h2>
+<p>Ví dụ: "chiều cao TB học sinh = 165cm". Nhược điểm: không biết con số này có thể sai lệch bao nhiêu.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">7 · Ước lượng khoảng</div><h2>Đưa ra MỘT KHOẢNG kèm độ tin cậy</h2>
+<p class="big">"Tin 95% rằng TB nằm trong [162cm, 168cm]"</p>
+<p class="cap">Tự nói luôn "tôi có thể sai bao nhiêu" — đây là lý do được ưu tiên trong thực tế hơn ước lượng điểm.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Công thức</div><h2>CI = Ước lượng điểm ± (Giá trị tới hạn × Sai số chuẩn)</h2>
+<table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+<tr><td>Ước lượng điểm</td><td>x̄ (trung bình mẫu)</td></tr>
+<tr><td>Giá trị tới hạn</td><td>1,96 (ứng mức tin cậy 95%)</td></tr>
+<tr><td>Sai số chuẩn (SE)</td><td>Đo độ "dao động" của ước lượng giữa các mẫu</td></tr></table></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div><div class="part-num">04</div>
+<h2>Mức ý nghĩa & 4 tiêu chí "ước lượng tốt"</h2>
+<ul class="part-list"><li>α và 1−α liên hệ thế nào</li><li>Không chệch, Hiệu quả, Nhất quán, Đầy đủ</li><li>Ví dụ: vì sao chia n−1 chứ không phải n</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">8 · Mức ý nghĩa α</div><h2>α = xác suất BẠN SAI khi nói tham số nằm trong CI</h2>
+<p class="cap">Độ tin cậy 0,99 ⟺ mức ý nghĩa α=1−0,99=0,01 — hai cách nói về CÙNG một khoảng tin cậy.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">9 · Không chệch</div><h2 class="warn">x̄ không chệch — nhưng SD chia n lại CHỆCH</h2>
+<p>Lấy trung bình của VÔ SỐ lần ước lượng lặp lại phải đúng bằng giá trị thật. x̄ đạt điều này; s² phải chia (n−1), không phải n, mới hết chệch.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">10 · Hiệu quả</div><h2>Trong các ước lượng KHÔNG CHỆCH, chọn cái dao động ÍT nhất</h2>
+<p class="cap">x̄ thường hiệu quả hơn trung vị/mode để ước lượng giá trị trung tâm — ít "nhảy" giữa các mẫu khác nhau hơn.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">11 · Nhất quán</div><h2>n → ∞, ước lượng tiến SÁT giá trị thật</h2>
+<p class="cap">Mẫu càng lớn, càng đoán chuẩn — không có chuyện mẫu to mà vẫn sai tùm lum.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">12 · Đầy đủ</div><h2>Có dùng HẾT thông tin từ mọi quan sát không?</h2>
+<p class="cap">x̄ dùng hết mọi điểm số → đầy đủ. Mode (chỉ nhìn giá trị xuất hiện nhiều nhất) bỏ qua phần lớn thông tin → kém đầy đủ hơn.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div><div class="part-num">05</div>
+<h2>Ráp lại toàn bộ & thực hành nhanh</h2>
+<ul class="part-list"><li>3 mảnh nối vào nhau theo đúng thứ tự nào</li><li>Thực hành PSPP tính CI thật</li><li>Tiếp theo</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">Ráp lại</div><h2>3 mảnh kiến thức nối thẳng vào nhau</h2>
+<p>Phân phối chuẩn hoá (Phần 1) → cho công thức xác suất chuẩn (Z, 1,96) → DÙNG để xây khoảng tin cậy (Phần 3) → chỉ đáng tin nếu ước lượng điểm đứng sau là ước lượng TỐT (Phần 4).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>PSPP: DESCRIPTIVES cho ra CI 95% luôn</h2>
+<p class="cap">Analyze → Descriptive Statistics → Explore → tích "Descriptives" sẽ in kèm khoảng tin cậy 95% của trung bình — không cần tính tay.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra</h2>
+<p>Slide chỉ tóm tắt. Toàn bộ công thức, ví dụ tính tay, và đối chiếu 2 tài liệu gốc nằm bên dưới.</p></div>
+</div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ Trước</button>
+  <button class="mdeck-next" type="button">Sau ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ Toàn màn hình</button>
+</div></div>
+<h1>Module VKL 7-10 · Phân phối chuẩn nâng cao & Ước lượng tham số</h1>
+<p class="lead">Module phụ lục, soạn RIÊNG cho Vũ Khánh Linh — gom lại đúng 2 chỗ Linh nhắn hỏi trực tiếp ("đảo chiều nhân quả" đã trả lời và đưa vào <a href="../../glossary/index.html#dao-chieu-nhan-qua">Từ điển</a>; "đặc điểm tiếp theo của phân phối chuẩn" và "thống kê tham số" được viết đầy đủ ở đây), dựa trên 2 tài liệu Linh gửi: <i>正态分布与二项分布</i> (Phân phối chuẩn & nhị thức) và <i>基本概念</i> (Khái niệm cơ bản — ước lượng tham số). Không nằm trong 12 module chính của khoá SPSS, chỉ dùng để ôn riêng.</p>
+
+<div class="btnrow">
+ <a class="tag" href="#chuan-nang-cao">Phân phối chuẩn nâng cao</a><a class="tag" href="#nhi-thuc">Phân phối nhị thức</a>
+ <a class="tag" href="#uoc-luong">Ước lượng điểm & khoảng</a><a class="tag" href="#y-nghia-uoc-luong">Mức ý nghĩa & ước lượng tốt</a>
+ <a class="tag" href="#thuc-hanh">Thực hành nhanh</a><a class="tag" href="#quiz">Tự kiểm tra</a>
+</div>
+
+<h2 id="chuan-nang-cao">1. Phân phối chuẩn — 2 đặc điểm còn lại</h2>
+<p>Slide trước (tài liệu Linh gửi) đã học 3 đặc điểm: đối xứng (TB=Trung vị=Mode), đỉnh ở giữa với 2 đuôi kéo dài vô hạn, và hình dạng phụ thuộc μ (vị trí) + σ (độ nhọn/trải rộng). Hai đặc điểm "tiếp theo" slide ghi mà Linh hỏi chính là:</p>
+
+<h3>Đặc điểm 4 — Chuyển đổi sang phân phối chuẩn hoá (Z-score)</h3>
+<p>Mọi phân phối chuẩn bất kỳ (dù μ và σ là số gì) đều đổi được về CÙNG MỘT phân phối chuẩn duy nhất gọi là phân phối chuẩn tiêu chuẩn N(0,1) — tức μ=0, σ=1.</p>
+<div class="pd-formula"><div class="pd-formula-label">Công thức điểm Z</div><div class="pd-formula-math">Z = (X − μ) / σ</div></div>
+<ul class="pd-legend"><li><b>X</b><span>giá trị quan sát cụ thể cần chuẩn hoá</span></li>
+<li><b>μ</b><span>trung bình của phân phối gốc</span></li>
+<li><b>σ</b><span>độ lệch chuẩn của phân phối gốc</span></li>
+<li><b>Z</b><span>số ĐỘ LỆCH CHUẨN mà X cách trung bình — không còn đơn vị gốc, so sánh được giữa mọi phân phối</span></li></ul>
+<div class="callout good"><b>Vì sao cần bước này?</b> Vì có VÔ SỐ phân phối chuẩn khác nhau (mỗi μ, σ khác nhau là một đường cong khác) — không thể lập sẵn bảng tra xác suất cho từng cái. Nhưng sau khi đổi về Z, TẤT CẢ đều quy về đúng 1 đường cong N(0,1) duy nhất → chỉ cần 1 bảng tra Z (bảng "正态分布表" trong tài liệu Linh gửi) là áp dụng được cho mọi bài toán.</div>
+
+<table><tr><th>Ngành</th><th>Ví dụ tính Z</th><th>Diễn giải</th></tr>
+<tr><td>Giáo dục</td><td>Điểm thi 85, μ=70, σ=10 → Z=(85−70)/10=1,5</td><td>Cao hơn trung bình 1,5 độ lệch chuẩn</td></tr>
+<tr><td>Y tế (minh hoạ)</td><td>Chiều cao bé 110cm, μ=105cm, σ=5cm → Z=1,0</td><td>Cao hơn trung bình nhóm tuổi đúng 1 độ lệch chuẩn — bác sĩ dùng Z-score này để vẽ biểu đồ tăng trưởng trẻ em thật</td></tr>
+<tr><td>Công nghiệp (minh hoạ)</td><td>Tuổi thọ bóng đèn 900 giờ, μ=1000, σ=50 → Z=−2,0</td><td>Thấp hơn trung bình 2 độ lệch chuẩn — thuộc nhóm bóng đèn kém bền nhất</td></tr></table>
+
+<h3>Đặc điểm 5 — Tổng diện tích dưới đường cong bằng 1</h3>
+<div class="figure"><img src="../../../assets/diagrams/normal_curve.png" alt=""/><figcaption>Đường cong phân phối chuẩn: diện tích dưới toàn bộ đường cong = 1 (100% xác suất).</figcaption></div>
+<p>Tổng diện tích bên dưới đường cong phân phối chuẩn luôn bằng 1 (tương ứng tổng xác suất mọi biến cố = 1). Quan trọng nhất: <b>diện tích giữa 2 điểm hoành độ bất kỳ = xác suất biến ngẫu nhiên rơi vào khoảng đó</b>.</p>
+<table><tr><th>Khoảng (quanh trung bình)</th><th>Xác suất (diện tích)</th></tr>
+<tr><td>−1σ đến +1σ</td><td>68,26%</td></tr>
+<tr><td>−1,96σ đến +1,96σ</td><td>95%</td></tr>
+<tr><td>−2,58σ đến +2,58σ</td><td>99%</td></tr>
+<tr><td>−3σ đến +3σ</td><td>99,73%</td></tr></table>
+<div class="callout warn"><b>Cầu nối quan trọng nhất của cả module:</b> số "1,96" xuất hiện trong công thức khoảng tin cậy 95% (CI95% = x̄ ± 1,96×SE) KHÔNG phải một con số bịa ra — nó CHÍNH LÀ dòng "95%" trong bảng này. Đây là lý do học phân phối chuẩn TRƯỚC khi học khoảng tin cậy — hai bài không tách rời nhau.</div>
+<p class="cap">Ví dụ: lớp 100 học sinh, μ=70, σ=10 → khoảng [60,80] (±1σ) chứa khoảng 68 bạn; khoảng [50,90] (≈±2σ) chứa khoảng 95 bạn.</p>
+
+<h2 id="nhi-thuc">2. Phân phối nhị thức (Bernoulli) & quan hệ với phân phối chuẩn</h2>
+<p>Phân phối nhị thức là phân phối xác suất của biến ngẫu nhiên RỜI RẠC, mô tả thí nghiệm chỉ có HAI kết quả khác nhau về bản chất.</p>
+<table><tr><th>Ngành</th><th>Ví dụ 2 kết quả</th></tr>
+<tr><td>Giáo dục</td><td>Đậu / Rớt một bài thi</td></tr>
+<tr><td>Công nghiệp</td><td>Sản phẩm Đạt tiêu chuẩn / Không đạt</td></tr>
+<tr><td>Y tế (minh hoạ)</td><td>Bệnh nhân Khỏi / Không khỏi sau điều trị</td></tr>
+<tr><td>Xác suất cơ bản</td><td>Tung đồng xu ra Sấp / Ngửa</td></tr></table>
+<div class="callout good"><b>Đặc điểm quan trọng nhất:</b> phân phối GIỚI HẠN của phân phối nhị thức khi số lần thí nghiệm tăng tới VÔ CÙNG chính là phân phối chuẩn. Do đó khi số lần lặp đủ lớn, có thể dùng xấp xỉ phân phối chuẩn để tính xác suất nhị thức, đơn giản hoá rất nhiều phép tính tổ hợp phức tạp.</div>
+<p><b>Kiểm chứng bằng số thật (đã verify bằng Python/scipy):</b> với n=20 lần thử, p=0,5 mỗi lần — tính xác suất có ít nhất 12 lần "thành công":</p>
+<table><tr><th>Cách tính P(X≥12)</th><th>Kết quả</th></tr>
+<tr><td>Nhị thức CHÍNH XÁC (scipy.stats.binom)</td><td>0,2517</td></tr>
+<tr><td>Xấp xỉ chuẩn (μ=np=10, σ=√[np(1−p)]=2,236)</td><td>0,2512</td></tr></table>
+<p class="cap">Hai cách tính lệch nhau chưa tới 0,001 — xấp xỉ xuất sắc. Quy tắc thực hành: xấp xỉ chuẩn đáng tin khi np≥5 VÀ n(1−p)≥5 (ở đây np=10, n(1−p)=10, đều đạt).</p>
+
+<h2 id="uoc-luong">3. Ước lượng tham số: Ước lượng điểm vs Ước lượng khoảng</h2>
+<p>Đây là nội dung tài liệu 基本概念 (Khái niệm cơ bản). Dùng số liệu MẪU để đoán (ước lượng) con số THẬT của TỔNG THỂ — và làm sao biết cách đoán đó có "tốt" hay không.</p>
+<table><tr><th>Kiểu ước lượng</th><th>Kết quả trả về</th><th>Ví dụ</th><th>Nhược điểm</th></tr>
+<tr><td>Ước lượng điểm (point estimation)</td><td>ĐÚNG MỘT con số</td><td>"Chiều cao TB = 165cm"</td><td>Không biết sai lệch bao nhiêu</td></tr>
+<tr><td>Ước lượng khoảng (interval estimation)</td><td>MỘT KHOẢNG + độ tin cậy</td><td>"Tin 95% rằng TB nằm trong [162cm, 168cm]"</td><td>Khoảng có thể khá rộng nếu mẫu nhỏ</td></tr></table>
+<div class="pd-formula"><div class="pd-formula-label">Khoảng tin cậy (Confidence Interval)</div><div class="pd-formula-math">CI = Ước lượng điểm ± (Giá trị tới hạn × Sai số chuẩn)</div></div>
+<ul class="pd-legend"><li><b>Ước lượng điểm</b><span>thường là trung bình mẫu x̄</span></li>
+<li><b>Giá trị tới hạn</b><span>lấy từ bảng Z (Phần 1) — 1,96 cho độ tin cậy 95%</span></li>
+<li><b>Sai số chuẩn (SE)</b><span>đo độ "dao động" của ước lượng giữa các mẫu khác nhau — SE càng nhỏ, CI càng hẹp (chính xác hơn)</span></li></ul>
+<div class="callout"><b>Nguyên tắc tổng quát (theo đúng slide gốc):</b> ước lượng khoảng dựa trên LÝ THUYẾT PHÂN PHỐI MẪU — dùng sai số chuẩn của phân phối mẫu để tính ĐỘ DÀI khoảng, và chính quy luật phân phối mẫu (Z, t...) mới cho phép giải thích XÁC SUẤT tham số tổng thể rơi vào khoảng đó. Hai yếu tố quan trọng nhất: (1) Sai số chuẩn — quyết định chiều rộng; (2) Phân phối mẫu — cung cấp cơ sở tính xác suất.</div>
+<p class="cap">Với cùng cỡ mẫu, ĐỘ DÀI khoảng ước lượng và XÁC SUẤT ước lượng đúng là một cặp ĐÁNH ĐỔI — muốn khoảng hẹp hơn (chính xác hơn) ở CÙNG cỡ mẫu thì phải chấp nhận độ tin cậy thấp hơn, và ngược lại.</p>
+
+<h2 id="y-nghia-uoc-luong">4. Mức ý nghĩa (α) & 4 tiêu chí "ước lượng tốt"</h2>
+<p>Mức ý nghĩa α là xác suất BẠN CÓ THỂ SAI khi nói tham số tổng thể nằm trong khoảng tin cậy đã tính. Độ tin cậy 1−α và mức ý nghĩa α LUÔN đi cùng nhau:</p>
+<table><tr><th>Độ tin cậy (1−α)</th><th>Mức ý nghĩa (α)</th></tr>
+<tr><td>0,95 (95%)</td><td>0,05</td></tr>
+<tr><td>0,99 (99%)</td><td>0,01</td></tr></table>
+<p class="cap">"Khoảng tin cậy với độ tin cậy 0,99" và "khoảng tin cậy với mức ý nghĩa 0,01" là HAI CÁCH NÓI tương đương của CÙNG MỘT khoảng.</p>
+
+<p>Slide gốc liệt kê 4 tiêu chí "良好估计量" (ước lượng tốt) nhưng không giải thích rõ — đây là phần Linh chắc chắn bị rối, nên viết đầy đủ:</p>
+<table><tr><th>Tiêu chí</th><th>Ý nghĩa</th><th>Ví dụ tính tay</th></tr>
+<tr><td><b>Không chệch</b> (unbiased)</td><td>Lấy TB của vô số lần ước lượng lặp lại = giá trị thật</td><td>x̄ không chệch với μ. Nhưng s²=Σ(xᵢ−x̄)²/n lại CHỆCH — phải chia (n−1), không phải n, mới hết chệch (hiệu chỉnh Bessel, đúng công thức Module 03 của khoá SPSS)</td></tr>
+<tr><td><b>Hiệu quả</b> (efficient)</td><td>Trong các ước lượng KHÔNG CHỆCH, chọn cái có phương sai (độ dao động) NHỎ NHẤT</td><td>x̄ thường hiệu quả hơn trung vị/mode để ước lượng giá trị trung tâm — dao động ít hơn giữa các mẫu khác nhau</td></tr>
+<tr><td><b>Nhất quán</b> (consistent)</td><td>Khi n→∞, ước lượng tiến SÁT giá trị thật</td><td>Mẫu 10.000 người luôn đáng tin hơn mẫu 10 người, với CÙNG phương pháp lấy mẫu</td></tr>
+<tr><td><b>Đầy đủ</b> (sufficient)</td><td>Có dùng HẾT thông tin từ mọi quan sát trong mẫu không</td><td>x̄ dùng hết mọi điểm số → đầy đủ. Mode (chỉ nhìn giá trị xuất hiện nhiều nhất) bỏ qua phần lớn thông tin các điểm số khác → kém đầy đủ hơn</td></tr></table>
+<div class="callout warn"><b>Ví dụ ngành khác — minh hoạ cho dễ nhớ 4 tiêu chí:</b> đo cân nặng bằng CÂN đã HIỆU CHỈNH đúng nhiều lần (không chệch), dùng cân ĐIỆN TỬ thay vì cân LÒ XO rẻ tiền (hiệu quả hơn — ít sai số ngẫu nhiên), cân CÀNG NHIỀU lần đo trung bình lại thì số liệu càng đáng tin (nhất quán), và ghi lại TOÀN BỘ số lần cân thay vì chỉ ghi "lần cân cao nhất" (đầy đủ).</div>
+
+<h2 id="thuc-hanh">5. Thực hành nhanh — PSPP tự tính khoảng tin cậy</h2>
+<div class="callout good"><b>🖱️ Không cần tính tay — PSPP/SPSS tự in ra CI95%:</b>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>Analyze</code> → <code>Descriptive Statistics</code> → <code>Explore...</code></li>
+<li>Đưa biến cần ước lượng vào ô <i>Dependent List</i>.</li>
+<li>Bấm <code>Statistics...</code> → tích <i>Descriptives</i> (mặc định đã tích CI 95%, có thể đổi % ở đây) → <code>Continue</code> → <code>OK</code>.</li>
+<li>Đọc bảng "Descriptives": dòng "95% Confidence Interval for Mean" cho luôn cả cận dưới và cận trên.</li>
+</ol></div>
+<pre>EXAMINE VARIABLES=diem_thi /STATISTICS=DESCRIPTIVES /CINTERVAL 95.
+* PSPP hỗ trợ đầy đủ EXAMINE với /CINTERVAL để đổi mức tin cậy.</pre>
+
+<h3>📜 Nguồn tài liệu</h3>
+<p>Nội dung module này tổng hợp từ 2 slide bài giảng Linh gửi: <i>正态分布与二项分布</i> (phần "Ðặc điểm tiếp theo của phân phối chuẩn" — mục 4,5 — và phần phân phối nhị thức) và <i>基本概念</i> (phần ước lượng điểm/khoảng, mức ý nghĩa, 4 tiêu chí ước lượng tốt). Mọi số liệu tính tay/xấp xỉ trong bài đã được verify bằng Python (scipy.stats) trước khi đưa vào — không có số nào đoán hay gõ tay.</p>
+
+<h2 id="quiz">6. Tự kiểm tra</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">
+<div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
+<button class="info-footer-btn" type="button" data-info-open>ℹ️ Thông tin trang & liên hệ góp ý / xin tài liệu</button>
+</div></footer><div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="Đóng">✕</button><h3 id="info-modal-title">ℹ️ Thông tin về trang &amp; liên hệ góp ý</h3><h4>🤖 Nội dung AI hỗ trợ soạn thảo</h4><p>Phần lớn nội dung trên toàn bộ website này — giải thích khái niệm, câu hỏi tự kiểm tra, một số sơ đồ minh hoạ — được soạn với sự hỗ trợ của AI, sau đó người phụ trách kiểm tra lại trong khả năng cho phép (đối chiếu số liệu với dữ liệu thật, đối chiếu khái niệm với giáo trình gốc). Vì khối lượng nội dung lớn và thời gian có hạn, không thể đảm bảo mọi câu chữ đều đã được rà soát kỹ. Nếu phát hiện sai sót ở bất kỳ đâu, rất mong nhận được góp ý theo thông tin liên hệ bên dưới.</p><h4>📩 Liên hệ góp ý / báo lỗi</h4><p><b>Trương Tuấn Nghĩa</b><br/>Gọi / Zalo / Telegram: <a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook: <a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>Email: <a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 Về nguồn giáo trình</h4><p>Nội dung bám theo sách <i>Research Methods in Education</i> (Cohen, Manion &amp; Morrison, ấn bản 8, Routledge 2018). Vì lý do bản quyền, trang này không đính kèm file sách — ai cần bản PDF để tự đọc thêm ngoài bài giảng có thể tìm qua một số kênh không chính thống, ví dụ:<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>Lưu ý: các trang trên hay đổi tên miền hoặc bị chặn — nếu link nào không vào được, xin tự tìm tên miền mới của cùng dịch vụ.</p><h4>🤝 Muốn đóng góp, hoặc xin tài liệu để tự dạy?</h4><p>Rất hoan nghênh! Nếu bạn muốn giúp cải thiện học liệu (sửa lỗi, viết thêm module, dịch thuật...), hoặc muốn xin lại toàn bộ/một phần tài liệu này để tự dạy cho <b>môn học khác của riêng bạn</b> (không giới hạn ở SPSS/Khoa học Xã hội) — cứ thoải mái liên hệ:<ul><li>Gửi email mô tả bạn muốn làm gì / cần gì, kèm link GitHub cá nhân nếu muốn được thêm quyền cộng tác trực tiếp vào project.</li><li>Hoặc tự do fork / clone / pull mã nguồn tại <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a> — không cần xin phép trước, đây là tài liệu mở, phi lợi nhuận.</li></ul>Định hướng lâu dài là phát triển thêm nhiều học liệu tương tự cho các môn khác — nếu có ý tưởng hợp tác, luôn chào đón. Xin cảm ơn!</p></div></div><script src="../../../_shared/theme.js"></script><script src="../../../_shared/glossary.js"></script><script src="../../../_shared/deck.js"></script><script src="../../../_shared/info.js"></script><script src="../../../_shared/sim.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "Điểm: {s}/{n}", "items": [{"q": "Công thức Z = (X − μ) / σ dùng để làm gì?", "opts": ["Tính trung bình cộng của nhiều phân phối chuẩn khác nhau", "Tính độ lệch chuẩn của một mẫu dữ liệu bất kỳ", "Tính hệ số tương quan giữa hai biến ngẫu nhiên", "Chuyển đổi một phân phối chuẩn bất kỳ về phân phối chuẩn tiêu chuẩn N(0,1)"], "correct": 3, "explain": "Z-score chuẩn hoá mọi phân phối chuẩn (bất kể μ, σ) về cùng một phân phối chuẩn tiêu chuẩn N(0,1), cho phép dùng chung một bảng tra xác suất."}, {"q": "Điểm thi X=85, biết μ=70, σ=10. Giá trị Z tính được là bao nhiêu?", "opts": ["Z = 15", "Z = 1,5", "Z = 0,85", "Z = 8,5"], "correct": 1, "explain": "Z=(85−70)/10=15/10=1,5 — bạn này cao hơn trung bình đúng 1,5 độ lệch chuẩn."}, {"q": "Trong phân phối chuẩn, khoảng giữa −1,96σ và +1,96σ quanh trung bình chứa bao nhiêu % xác suất?", "opts": ["99%", "99,73%", "95%", "68,26%"], "correct": 2, "explain": "±1,96σ ứng với đúng 95% diện tích — đây cũng là nguồn gốc con số 1,96 trong công thức khoảng tin cậy 95%."}, {"q": "Số \"1,96\" trong công thức khoảng tin cậy 95% (CI95%=x̄±1,96×SE) lấy từ đâu?", "opts": ["Giá trị z ứng với 95% diện tích giữa của phân phối chuẩn tiêu chuẩn", "Một quy ước toán học không liên quan gì tới phân phối chuẩn", "Trung bình cộng của độ lệch chuẩn mẫu và độ lệch chuẩn tổng thể", "Hệ số được chọn tuỳ ý để công thức tính ra đẹp hơn"], "correct": 0, "explain": "1,96 chính là giá trị z (bảng ±1,96σ=95%) — không phải số bịa ra, mà lấy trực tiếp từ bảng độ-lệch-chuẩn↔xác-suất của phân phối chuẩn."}, {"q": "Phân phối nhị thức (Bernoulli) mô tả loại thí nghiệm nào?", "opts": ["Thí nghiệm luôn có đúng 3 kết quả có thể xảy ra", "Thí nghiệm có đúng 2 kết quả khác nhau về bản chất", "Thí nghiệm không có kết quả nào xác định trước", "Thí nghiệm có vô số kết quả liên tục có thể xảy ra"], "correct": 1, "explain": "Phân phối nhị thức mô tả thí nghiệm CHỈ có 2 kết quả khác nhau về bản chất — ví dụ đậu/rớt, đạt/không đạt."}, {"q": "Phân phối giới hạn của phân phối nhị thức khi số lần thí nghiệm tăng tới vô cùng là phân phối nào?", "opts": ["Phân phối đều (uniform)", "Phân phối chuẩn", "Phân phối nhị thức vẫn giữ nguyên, không đổi dạng", "Phân phối Poisson"], "correct": 1, "explain": "Khi n đủ lớn, phân phối nhị thức xấp xỉ RẤT TỐT bằng phân phối chuẩn — đây là lý do có thể dùng công thức chuẩn để tính gần đúng xác suất nhị thức."}, {"q": "Với n=20, p=0,5: xấp xỉ chuẩn cho P(X≥12) ra 0,2512, trong khi tính nhị thức chính xác ra 0,2517. Điều này cho thấy gì?", "opts": ["Phần mềm tính sai ở một trong hai cách", "Xấp xỉ chuẩn hoàn toàn vô dụng vì luôn sai lệch", "Xấp xỉ chuẩn chỉ đúng khi p=0,5, không đúng với p khác", "Xấp xỉ chuẩn rất tốt, sai lệch chưa tới 0,001"], "correct": 3, "explain": "Hai kết quả gần như trùng khớp (lệch 0,0005) — xác nhận xấp xỉ chuẩn dùng được tốt khi np≥5 và n(1−p)≥5, đúng điều kiện ở ví dụ này (np=10, n(1−p)=10)."}, {"q": "Ước lượng điểm (point estimation) và ước lượng khoảng (interval estimation) khác nhau cơ bản ở điều gì?", "opts": ["Hai phương pháp này hoàn toàn giống nhau, chỉ khác tên gọi", "Ước lượng khoảng không bao giờ dùng được trong thống kê thực tế", "Ước lượng điểm đưa ra 1 con số; ước lượng khoảng đưa ra 1 khoảng kèm độ tin cậy", "Ước lượng điểm chỉ dùng được cho dữ liệu định danh, ước lượng khoảng dùng cho mọi loại dữ liệu"], "correct": 2, "explain": "Ước lượng điểm = đúng 1 con số (vd '165cm'). Ước lượng khoảng = 1 đoạn kèm độ tin cậy (vd '95% tin rằng nằm trong [162,168]')."}, {"q": "Nhược điểm chính của ước lượng điểm (so với ước lượng khoảng) là gì?", "opts": ["Không thể tính được bằng bất kỳ phần mềm thống kê nào", "Luôn luôn cho ra kết quả sai hoàn toàn trong mọi trường hợp", "Không cho biết con số đó có thể sai lệch bao nhiêu so với giá trị thật", "Chỉ tính được khi cỡ mẫu nhỏ hơn 10 quan sát"], "correct": 2, "explain": "Ước lượng điểm chỉ đưa ra 1 con số, không kèm thông tin về độ không chắc chắn — đây là lý do ước lượng khoảng thường được ưu tiên trong thực tế."}, {"q": "Mức ý nghĩa α và độ tin cậy (1−α) liên hệ với nhau như thế nào?", "opts": ["α = xác suất bạn SAI khi khẳng định tham số nằm trong CI; độ tin cậy = 1 trừ α", "α luôn luôn phải bằng đúng 0,5 theo quy ước thống kê", "Độ tin cậy luôn gấp đôi giá trị của mức ý nghĩa", "Hai khái niệm này hoàn toàn không liên quan gì tới nhau"], "correct": 0, "explain": "Độ tin cậy 0,99 ⟺ mức ý nghĩa α=1−0,99=0,01 — hai cách nói về CÙNG một khoảng tin cậy, không phải hai khái niệm độc lập."}, {"q": "Nếu độ tin cậy chọn là 0,99 (99%), mức ý nghĩa α tương ứng là bao nhiêu?", "opts": ["α = 0,10", "α = 0,01", "α = 0,90", "α = 0,99"], "correct": 1, "explain": "α = 1 − độ tin cậy = 1 − 0,99 = 0,01."}, {"q": "Tiêu chí \"không chệch\" (unbiased) của một ước lượng tốt có nghĩa là gì?", "opts": ["Ước lượng luôn luôn cho ra kết quả giống hệt giá trị thật ở mọi lần đo", "Ước lượng không bao giờ cần kiểm tra lại bằng phương pháp khác", "Trung bình của vô số lần ước lượng lặp lại bằng đúng giá trị thật của tham số", "Ước lượng chỉ dùng được khi cỡ mẫu lớn hơn 1.000 quan sát"], "correct": 2, "explain": "Không chệch nghĩa là TRUNG BÌNH của nhiều lần ước lượng lặp lại (không phải từng lần riêng lẻ) bằng đúng giá trị thật — từng lần đo đơn lẻ vẫn có thể lệch."}, {"q": "Vì sao công thức phương sai mẫu phải chia cho (n−1) thay vì chia cho n?", "opts": ["Chia cho (n−1) chỉ là quy ước lịch sử, không có ý nghĩa toán học", "Chia cho n sẽ làm ước lượng phương sai bị CHỆCH (thiên lệch có hệ thống); chia (n−1) sửa lỗi này", "Chia cho (n−1) giúp tính toán nhanh hơn trên máy tính", "Chia cho n sẽ cho ra kết quả âm trong một số trường hợp đặc biệt"], "correct": 1, "explain": "Đây là hiệu chỉnh Bessel: chia cho n cho ra ước lượng phương sai CHỆCH (thường thấp hơn giá trị thật), chia cho (n−1) mới cho ước lượng KHÔNG CHỆCH."}, {"q": "Tiêu chí \"hiệu quả\" (efficient) của một ước lượng tốt dùng để so sánh điều gì?", "opts": ["So sánh thời gian tính toán giữa các phần mềm thống kê khác nhau", "So sánh cỡ mẫu cần thiết giữa các nghiên cứu khác nhau", "So sánh số lượng biến độc lập trong một mô hình hồi quy", "Trong các ước lượng KHÔNG CHỆCH, so sánh ước lượng nào có độ dao động (phương sai) NHỎ hơn"], "correct": 3, "explain": "Hiệu quả so sánh GIỮA các ước lượng không chệch — cái nào dao động ít hơn giữa các mẫu khác nhau thì hiệu quả hơn, đáng tin hơn."}, {"q": "Tiêu chí \"nhất quán\" (consistent) của một ước lượng tốt có nghĩa là gì khi cỡ mẫu n tăng dần?", "opts": ["Ước lượng sẽ dao động ngày càng MẠNH khi mẫu lớn hơn", "Ước lượng sẽ ngày càng XA giá trị thật của tham số tổng thể", "Ước lượng sẽ tiến ngày càng SÁT giá trị thật của tham số tổng thể", "Cỡ mẫu không ảnh hưởng gì tới độ chính xác của ước lượng"], "correct": 2, "explain": "Nhất quán nghĩa là khi n→∞, ước lượng tiến sát giá trị thật — mẫu càng lớn, càng đáng tin, với điều kiện quy trình lấy mẫu không đổi."}, {"q": "Tiêu chí \"đầy đủ\" (sufficient) của một ước lượng tốt đánh giá điều gì?", "opts": ["Ước lượng đó có dùng HẾT thông tin từ mọi quan sát trong mẫu hay không", "Cỡ mẫu đã đủ lớn để chạy kiểm định thống kê hay chưa", "Phần mềm thống kê đã cài đặt đầy đủ các gói cần thiết hay chưa", "Số lượng biến trong mô hình đã đủ để giải thích hiện tượng hay chưa"], "correct": 0, "explain": "Đầy đủ đánh giá ước lượng có tận dụng HẾT thông tin từ toàn bộ quan sát hay bỏ phí bớt — x̄ dùng hết mọi điểm số (đầy đủ), mode chỉ nhìn giá trị phổ biến nhất (kém đầy đủ hơn)."}, {"q": "Hai yếu tố quan trọng nhất quyết định một khoảng tin cậy, theo đúng tài liệu gốc, là gì?", "opts": ["Tên phần mềm thống kê sử dụng và phiên bản của phần mềm đó", "Số lượng biến độc lập và số lượng biến phụ thuộc trong mô hình", "Màu sắc biểu đồ và cách trình bày kết quả trong báo cáo", "Sai số chuẩn của phân phối mẫu, và chính phân phối mẫu (để tính xác suất)"], "correct": 3, "explain": "Sai số chuẩn quyết định CHIỀU RỘNG của khoảng; phân phối mẫu (Z, t...) cung cấp cơ sở để GIẢI THÍCH xác suất tham số rơi vào khoảng đó."}, {"q": "Nếu sai số chuẩn (SE) của một ước lượng TĂNG lên, khoảng tin cậy sẽ thay đổi thế nào?", "opts": ["Khoảng tin cậy sẽ RỘNG hơn, tức kém chính xác hơn", "Khoảng tin cậy sẽ không thay đổi gì cả", "Khoảng tin cậy sẽ HẸP hơn, tức chính xác hơn", "Độ tin cậy sẽ tự động tăng lên 100%"], "correct": 0, "explain": "SE lớn hơn → khoảng tin cậy RỘNG hơn (kém chính xác hơn) — ngược lại SE nhỏ cho khoảng hẹp, chính xác hơn."}, {"q": "Với CÙNG một cỡ mẫu, muốn khoảng tin cậy HẸP hơn (chính xác hơn), bạn phải đánh đổi điều gì?", "opts": ["Phải chấp nhận ĐỘ TIN CẬY thấp hơn", "Phải tăng gấp đôi độ lệch chuẩn của dữ liệu", "Không cần đánh đổi gì, có thể vừa hẹp hơn vừa tin cậy cao hơn cùng lúc", "Phải đổi sang dùng ước lượng điểm thay vì ước lượng khoảng"], "correct": 0, "explain": "Với cỡ mẫu cố định, độ rộng khoảng và độ tin cậy là một cặp đánh đổi — muốn khoảng hẹp hơn ở cùng n, phải chấp nhận độ tin cậy thấp hơn (vd 90% thay vì 95%)."}, {"q": "Một bác sĩ nhi khoa tính Z-score=1,0 cho chiều cao một bé so với nhóm tuổi. Điều này có ý nghĩa gì?", "opts": ["Bé này có chiều cao đúng bằng 1cm so với nhóm tuổi", "Z-score không có ý nghĩa gì trong y tế, chỉ dùng trong giáo dục", "Bé này thấp hơn trung bình nhóm tuổi đúng 1 độ lệch chuẩn", "Bé này cao hơn trung bình nhóm tuổi đúng 1 độ lệch chuẩn"], "correct": 3, "explain": "Z=1,0 (dương) nghĩa là chiều cao bé CAO HƠN trung bình nhóm tuổi đúng 1 độ lệch chuẩn — đây chính là nguyên lý biểu đồ tăng trưởng trẻ em thật dùng trong y tế."}]}</script><script src="../../../_shared/quiz.js"></script></body></html>
