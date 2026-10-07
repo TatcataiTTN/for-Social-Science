@@ -23,24 +23,38 @@
        <h2>Chi-square & bậc tự do</h2>
        <ul class="part-list"><li>Quan sát vs Kỳ vọng</li><li>Dữ liệu thật: Giới tính × Phương pháp</li><li>Cảnh báo: quy tắc 20%</li><li>Bậc tự do là gì</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Quan sát vs Kỳ vọng</h2>
        <p>χ² so sánh tần số QUAN SÁT với tần số KỲ VỌNG trong bảng chéo (dữ liệu định danh).</p>
-       <p class="cap">Kỳ vọng mỗi ô = (Tổng hàng × Tổng cột) / Tổng chung.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Giới tính × Phương pháp: χ²(1)=1,37, p=0,243</h2>
-       <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">Quy tắc 20%: không quá 20% ô có &lt;5 quan sát</h2>
+       <p class="cap">Kỳ vọng mỗi ô = (Tổng hàng × Tổng cột) / Tổng chung.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>χ² = Σ (O − E)² / E</h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>O</td><td>Tần số QUAN SÁT được ở mỗi ô</td></tr>
+       <tr><td>E</td><td>Tần số KỲ VỌNG nếu 2 biến độc lập</td></tr></table>
+       <p class="cap">χ² càng lớn, bảng quan sát càng khác xa giả định "2 biến không liên quan".</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Nam/Nữ × thích Toán: χ²=28,87 &gt; 9,21</h2>
+       <p class="cap">So với giá trị tới hạn 9,21 (mức 0,01) → có ý nghĩa thống kê RẤT cao.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Giới tính × Phương pháp: χ²(1)=1,37, p=0,243</h2>
+       <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">Cỡ hiệu ứng</div><h2>Phi (bảng 2×2) & Cramer's V (bảng lớn hơn)</h2>
+       <p class="cap">Ngưỡng Phi giống Cohen's d: nhỏ=0,10, vừa=0,30, lớn=0,50. SPSS tự động áp Yates's correction cho bảng 2×2.</p></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">Quy tắc 20%: không quá 20% ô có &lt;5 quan sát</h2>
        <p>Vi phạm → kết quả KHÔNG đáng tin, dù máy tính vẫn ra một con số.</p>
        <p class="cap">&gt;25% ô nhỏ → dùng Fisher's Exact Test thay thế.</p></div><div class="mdeck-slide"><div class="kicker">2 · Bậc tự do</div><h2>Số giá trị được TỰ DO trước khi bị ràng buộc</h2>
        <p class="big">df = (số hàng − 1) + (số cột − 1)</p>
-       <p class="cap">Bảng 2×3 → df=3. Mỗi ràng buộc (vd tổng cố định) làm giảm 1 bậc tự do.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
+       <p class="cap">Bảng 2×3 → df=3. Mỗi ràng buộc (vd tổng cố định) làm giảm 1 bậc tự do.</p></div><div class="mdeck-slide"><div class="kicker">Trực giác</div><h2>Chọn 5 số, tổng cố định=25 → df=4</h2>
+       <p class="cap">4 số đầu được TỰ DO chọn, số thứ 5 bị RÀNG BUỘC (phải đúng bằng 25 trừ tổng 4 số kia) → df=N−1=4 (Cohen & Holliday).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
        <div class="part-num">02</div>
        <h2>Thay thế t-test phi tham số</h2>
        <ul class="part-list"><li>Mann-Whitney U — tương đương phi tham số của t-test độc lập</li><li>Dữ liệu thật: đánh giá theo giới tính</li><li>Wilcoxon — tương đương phi tham số của t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Tương đương phi tham số của t-test độc lập</h2>
-       <p>Dựa trên THỨ HẠNG (ranks), không cần phân phối chuẩn — nhưng KHÔNG cho biết khác biệt cụ thể ở đâu.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo giới tính: U=6416, p=0,127</h2>
+       <p>Dựa trên THỨ HẠNG (ranks), không cần phân phối chuẩn — nhưng KHÔNG cho biết khác biệt cụ thể ở đâu.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁</h2>
+       <p class="cap">R₁ = tổng thứ hạng nhóm 1 sau khi gộp cả 2 nhóm rồi xếp hạng chung. U càng lệch xa n₁n₂/2, càng khác biệt.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Đánh giá khoá học theo giới tính: U=2.732,5, p=0,019</h2>
+       <p class="cap">Nam cảm thấy mạnh mẽ hơn nữ về việc khoá học cho phép học theo tốc độ riêng.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo giới tính: U=6416, p=0,127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>Tương đương phi tham số của t-test bắt cặp</h2>
-       <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>So sánh a1 vs a2 (cùng 240 HS): p=0,920</h2>
+       <p class="cap">TB a1=2,908, a2=2,904 — hoàn toàn KHÔNG có khác biệt, 2 mục được cảm nhận rất tương đồng.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
        <div class="part-num">03</div>
        <h2>Thay thế ANOVA phi tham số</h2>
        <ul class="part-list"><li>Kruskal-Wallis & Friedman — tương đương phi tham số của ANOVA</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Tương đương phi tham số của ANOVA</h2>
        <table><tr><th>Tham số</th><th>Phi tham số</th></tr>
        <tr><td>ANOVA một chiều</td><td>Kruskal-Wallis</td></tr>
-       <tr><td>ANOVA đo lường lặp lại</td><td>Friedman</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
+       <tr><td>ANOVA đo lường lặp lại</td><td>Friedman</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>4 nhóm GV theo thâm niên: χ²=11,595, p=0,009</h2>
+       <p class="cap">Có ý nghĩa — nhưng KHÔNG tự chỉ ra nhóm nào khác biệt; nhóm 16-18 năm thâm niên tích cực nhất.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo 3 trường: H=2,844, p=0,241</h2>
+       <p class="cap">Không có ý nghĩa — khác với F=5,87,p=0,003 khi so điểm Toán theo trường (Module 06) — 2 biến khác nhau, 2 câu trả lời khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">Friedman</div><h2>Tương đương phi tham số của ANOVA đo lường lặp lại</h2>
+       <p class="cap">Ví dụ sách: 3 biến khoá học, χ²=0,353, p=0,838 — KHÔNG có ý nghĩa.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>3 mục a1,a2,a3 (n=240): χ²=0,555, p=0,758</h2>
+       <p class="cap">Cùng mẫu hình với sách — Kendall's W đo mức ĐỒNG THUẬN giữa người xếp hạng, không phải cỡ hiệu ứng giữa biến.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
        <div class="part-num">04</div>
        <h2>Tổng kết & tiếp theo</h2>
        <ul class="part-list"><li>Bảng tương ứng đầy đủ 4 cặp tham số ↔ phi tham số</li><li>Điểm chung: chỉ có ý nghĩa, không có cỡ hiệu ứng</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Bảng tương ứng đầy đủ</div><h2>Ghi nhớ 4 cặp tham số ↔ phi tham số</h2>
