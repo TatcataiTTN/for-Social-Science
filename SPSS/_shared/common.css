@@ -112,6 +112,26 @@ code{background:var(--code);padding:.1em .4em;border-radius:5px}
 .btn.exam{background:var(--warn);color:#fff}
 .quiz-score{font-weight:700;color:var(--accent2);display:inline-block;margin:6px 0}
 p.cap{color:var(--muted);font-size:.85rem;margin:6px 0}
+
+/* ---- Thanh tìm kiếm thuật ngữ ở header (mọi trang) + trang Từ điển đầy đủ ---- */
+.sitesearch{position:relative;min-width:150px;flex:1;max-width:260px}
+.sitesearch input[type="search"]{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:999px;padding:6px 12px;font-size:.82rem;font-family:inherit}
+.sitesearch input[type="search"]:focus{outline:none;border-color:var(--accent)}
+.sitesearch input[type="search"]::-webkit-search-cancel-button{cursor:pointer}
+.site-search-results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--panel);border:1px solid var(--border);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:50;max-height:340px;overflow-y:auto;min-width:260px}
+.site-search-results[hidden]{display:none}
+.ssr-item{display:block;padding:9px 13px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--border)}
+.ssr-item:last-of-type{border-bottom:none}
+.ssr-item:hover{background:var(--panel2)}
+.ssr-item b{display:block;color:var(--accent);font-size:.88rem}
+.ssr-item span{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.ssr-empty{padding:10px 13px;color:var(--muted);font-size:.85rem}
+.ssr-viewall{display:block;padding:9px 13px;text-align:center;color:var(--accent);font-weight:700;font-size:.82rem;text-decoration:none;background:var(--panel2);border-radius:0 0 12px 12px}
+@media(max-width:760px){.sitesearch{max-width:none;width:100%;order:10}}
+
+.glossary-card h3{margin-top:0;color:var(--accent)}
+#glossary-search{width:100%;max-width:420px;padding:10px 16px;border-radius:999px;border:1px solid var(--border);background:var(--panel2);color:var(--text);font-size:.95rem;font-family:inherit;margin:14px 0}
+#glossary-search:focus{outline:none;border-color:var(--accent)}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
 .callout{border-left:4px solid var(--accent2);background:var(--panel2);padding:12px 16px;border-radius:8px;margin:16px 0}
 .callout.warn{border-color:var(--warn)}
