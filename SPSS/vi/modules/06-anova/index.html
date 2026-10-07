@@ -25,8 +25,15 @@
        <p>ANOVA mở rộng t-test: so trung bình của 3 nhóm trở lên CÙNG LÚC, cùng 4 điều kiện an toàn.</p>
        <p class="cap">Ví dụ: điểm thi của 4 loại trường (nông thôn/thành thị × tiểu học/trung học).</p></div><div class="mdeck-slide"><div class="kicker">F-ratio</div><h2>Biến thiên GIỮA nhóm so với TRONG nhóm</h2>
        <p class="big">F = Variance giữa nhóm / Variance trong nhóm</p>
-       <p class="cap">F lớn → khác biệt giữa nhóm vượt trội hơn nhiễu ngẫu nhiên trong từng nhóm.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Điểm Toán theo 3 trường: F(2,237)=5,87, p=0,003</h2>
-       <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/></div><div class="mdeck-slide"><div class="kicker">Chìa khoá</div><h2 class="warn">ANOVA nói "CÓ khác biệt" — không nói "Ở ĐÂU"</h2>
+       <p class="cap">F lớn → khác biệt giữa nhóm vượt trội hơn nhiễu ngẫu nhiên trong từng nhóm.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>F = MS<sub>between</sub> / MS<sub>within</sub></h2>
+       <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+       <tr><td>SS<sub>between</sub></td><td>Độ lệch TỪNG trung bình nhóm so với TB chung</td></tr>
+       <tr><td>SS<sub>within</sub></td><td>Độ lệch TỪNG quan sát so với TB nhóm của nó</td></tr>
+       <tr><td>MS = SS/df</td><td>Chuẩn hoá theo bậc tự do để so sánh được</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Cỡ hiệu ứng</div><h2>η² = SS<sub>between</sub> / SS<sub>total</sub></h2>
+       <p class="cap">% biến thiên biến phụ thuộc "giải thích" bởi biến nhóm — xem bảng ngưỡng ở Module 04.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>4 loại trường: F(3,df)=8,976, p&lt;0,001</h2>
+       <p class="cap">Nông thôn tiểu học=59,85%, nông thôn trung học=60,44%, thành thị tiểu học=50,64%, thành thị trung học=51,70%.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Điểm Toán theo 3 trường: F(2,237)=5,87, p=0,003</h2>
+       <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/>
+       <p class="cap">Levene p=0,292 (≥0,05) → phương sai đồng nhất, đủ điều kiện dùng Tukey.</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá</div><h2 class="warn">ANOVA nói "CÓ khác biệt" — không nói "Ở ĐÂU"</h2>
        <p>F có ý nghĩa chỉ cho biết: khác biệt tồn tại ở đâu đó trong các nhóm.</p>
        <p class="warn">Cần hậu kiểm (post hoc) để xác định CHÍNH XÁC cặp nào khác nhau!</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
        <div class="part-num">02</div>
@@ -36,7 +43,9 @@
        <tr><td>Tukey HSD</td><td>Phương sai đồng nhất + cỡ mẫu con ~bằng nhau</td></tr>
        <tr><td>Games-Howell</td><td>Dùng khi KHÔNG đồng nhất phương sai</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Kết quả Tukey thật</div><h2>Trường A tách biệt, B & C cùng nhóm</h2>
        <p>A-B: p=0,046 (có ý nghĩa). A-C: p=0,0031 (có ý nghĩa). B-C: p=0,427 (không có ý nghĩa).</p>
-       <p class="cap">→ 2 nhóm đồng nhất (homogeneous subsets): {A} và {B, C}.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <p class="cap">→ 2 nhóm đồng nhất (homogeneous subsets): {A} và {B, C}.</p></div><div class="mdeck-slide"><div class="kicker">Mẫu hình sách</div><h2>2 trường nông thôn nhóm chung, 2 trường thành thị nhóm chung</h2>
+       <p class="cap">Kết luận: khác biệt do VỊ TRÍ ĐỊA LÝ (nông thôn/thành thị), không phải do cấp học.</p></div><div class="mdeck-slide"><div class="kicker">Viết báo cáo APA</div><h2>Nêu đủ F, df, p của ANOVA VÀ cặp nào khác biệt từ Tukey</h2>
+       <p class="cap">"...có khác biệt có ý nghĩa giữa 3 trường (F(2,237)=5,87, p=0,003). Tukey cho thấy Trường A khác biệt có ý nghĩa với B (p=0,046) và C (p=0,003), trong khi B và C không khác biệt (p=0,427)."</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
        <div class="part-num">03</div>
        <h2>ANOVA hai chiều & MANOVA</h2>
        <ul class="part-list"><li>Hai biến độc lập cùng lúc + hiệu ứng tương tác</li><li>Đọc kết quả: trường có ý nghĩa, giới tính thì không</li><li>MANOVA: nhiều biến phụ thuộc cùng lúc</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · ANOVA hai chiều</div><h2>Hai biến độc lập cùng lúc + hiệu ứng tương tác</h2>
@@ -44,13 +53,25 @@
        <table><tr><th>Hiệu ứng</th><th>F</th><th>p</th></tr>
        <tr><td>Trường</td><td>5,81</td><td class="warn">0,003</td></tr>
        <tr><td>Giới tính</td><td>1,71</td><td>0,192</td></tr>
-       <tr><td>Trường×Giới tính</td><td>1,16</td><td>0,315</td></tr></table></div><div class="mdeck-slide"><div class="kicker">4 · MANOVA</div><h2>Nhiều biến phụ thuộc cùng lúc</h2>
+       <tr><td>Trường×Giới tính</td><td>1,16</td><td>0,315</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Nếu tương tác có ý nghĩa?</div><h2 class="warn">Không thể phát biểu hiệu ứng chính một cách "chung chung" nữa</h2>
+       <p class="cap">Khi đó ảnh hưởng của 1 biến phụ thuộc vào MỨC của biến kia — cần diễn giải thận trọng hơn, không nói "trường luôn ảnh hưởng theo cùng một cách".</p></div><div class="mdeck-slide"><div class="kicker">4 · MANOVA</div><h2>Nhiều biến phụ thuộc cùng lúc</h2>
        <p>ANOVA: 1 biến phụ thuộc. MANOVA: NHIỀU biến phụ thuộc phân tích đồng thời.</p>
        <p class="warn">MANOVA rất nhạy với vi phạm giả định — kiểm tra kỹ trước khi tin kết quả.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
        <div class="part-num">04</div>
        <h2>Thực hành & tiếp theo</h2>
        <ul class="part-list"><li>SPSS Box 41.3 — One-Way ANOVA + Tukey</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · SPSS Box 41.3</div><h2>One-Way ANOVA + Tukey</h2>
-       <p>Analyze → Compare Means → One-Way ANOVA → Factor / Dependent → Post Hoc → Tukey, Games-Howell.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p>Analyze → Compare Means → One-Way ANOVA → Factor / Dependent → Post Hoc → Tukey, Games-Howell.</p>
+       <p class="cap">Options → tích Homogeneity of variance test, Brown-Forsythe, Welch (phòng khi Levene vi phạm).</p></div><div class="mdeck-slide"><div class="kicker">Box 41.4/41.5</div><h2>ANOVA đo lường lặp lại & hai chiều</h2>
+       <p>Lặp lại: Analyze → General Linear Model → Repeated Measures (mở rộng t-test bắt cặp cho 3+ điều kiện).</p>
+       <p class="cap">Hai chiều: Analyze → General Linear Model → Univariate.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>ONEWAY & UNIANOVA</h2>
+       <table><tr><td><code>ONEWAY math BY school /POSTHOC=TUKEY /STATISTICS=DESCRIPTIVES HOMOGENEITY.</code></td></tr>
+       <tr><td><code>UNIANOVA math BY school gender /DESIGN=school gender school*gender.</code></td></tr></table>
+       <p class="cap">PSPP hỗ trợ ONEWAY /POSTHOC=TUKEY, khớp Python/statsmodels và SPSS.</p></div><div class="mdeck-slide"><div class="kicker">Lịch sử</div><h2>Fisher & trạm thí nghiệm Rothamsted (1920s)</h2>
+       <p>Ronald Fisher cần so sánh năng suất NHIỀU lô thí nghiệm cùng lúc — chạy nhiều t-test riêng lẻ sẽ tăng vọt rủi ro Sai lầm loại I.</p>
+       <p class="cap">Chữ "F" đặt theo tên Fisher (Snedecor đề xuất). Tukey HSD ra đời 1953, giải đúng bài toán "so nhiều cặp".</p></div><div class="mdeck-slide"><div class="kicker">Case study</div><h2 class="warn">"Chạy nhiều t-test" — cạm bẫy phổ biến</h2>
+       <p>So 4 nhóm bằng 6 t-test riêng lẻ (mỗi lần α=0,05) → rủi ro mắc ÍT NHẤT 1 Sai lầm loại I cao hơn hẳn 1 ANOVA + Tukey.</p></div><div class="mdeck-slide"><div class="kicker">Case study</div><h2>ANOVA hai chiều trong đánh giá can thiệp giáo dục</h2>
+       <p>Trả lời không chỉ "có hiệu quả không" mà cả "hiệu quả có khác nhau giữa nam/nữ không" (tương tác).</p>
+       <p class="cap">Ví dụ không phát hiện tương tác (p=0,315) — tin tốt: chính sách cải thiện trường học mang lợi ích tương đối đồng đều cho cả 2 giới.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ tóm tắt. Ví dụ tính tay + lịch sử Fisher/Rothamsted + case study nằm bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
