@@ -133,6 +133,11 @@
 <tr><td>Định ngạch (quota)</td><td>Đủ số lượng theo nhóm, không ngẫu nhiên trong nhóm</td><td>Cần đảm bảo tỉ lệ nhóm nhưng không có khung mẫu đầy đủ</td></tr>
 <tr><td>Quả cầu tuyết (snowball)</td><td>Người tham gia giới thiệu người tiếp theo</td><td>Quần thể hiếm, ẩn danh, khó tiếp cận trực tiếp</td></tr></table>
 <div class="callout warn"><b>Lỗi hay gặp:</b> dùng mẫu thuận tiện (vd khảo sát đúng lớp mình đang dạy) rồi vẫn viết kết luận như thể áp dụng được cho "sinh viên nói chung". Luôn phải nêu rõ hạn chế về khả năng khái quát hoá khi dùng chọn mẫu phi xác suất.</div>
+<table><tr><th>Ngành</th><th>Ví dụ xác suất</th><th>Ví dụ phi xác suất</th></tr>
+<tr><td>Y tế (minh hoạ)</td><td>Chọn ngẫu nhiên bệnh nhân từ danh sách đăng ký khám tại 1 bệnh viện để khảo sát mức độ hài lòng</td><td>Phỏng vấn bệnh nhân đang ngồi chờ ở phòng khám sáng hôm đó (thuận tiện)</td></tr>
+<tr><td>Kinh tế (minh hoạ)</td><td>Phân tầng doanh nghiệp theo quy mô (nhỏ/vừa/lớn) rồi chọn ngẫu nhiên trong từng tầng để khảo sát tình hình kinh doanh</td><td>Phỏng vấn các doanh nghiệp quen biết qua mạng lưới cá nhân (quả cầu tuyết)</td></tr>
+<tr><td>Nông nghiệp (minh hoạ)</td><td>Chọn cụm (theo xã) rồi đo tất cả hộ trồng lúa trong xã được chọn, để ước lượng năng suất vùng</td><td>Chỉ khảo sát các hộ đã tới dự buổi tập huấn khuyến nông (có mục đích)</td></tr></table>
+<p class="cap">Cùng một cặp khái niệm "xác suất/phi xác suất" áp dụng giống hệt nhau dù đổi domain — điều thay đổi chỉ là ĐƠN VỊ được chọn mẫu (bệnh nhân, doanh nghiệp, hộ nông dân) và KHUNG MẪU cụ thể của từng ngành.</p>
 
 <h2 id="co-mau">4. Sai số chọn mẫu & tính cỡ mẫu có căn cứ</h2>
 <p><b>Sai số chọn mẫu</b> (sampling error) là khác biệt tự nhiên giữa mẫu và tổng thể do may rủi — tồn tại ngay cả khi chọn mẫu hoàn hảo. Khác với <b>sai lệch chọn mẫu</b> (sampling bias), phản ánh lỗi có hệ thống trong quy trình chọn.</p>
@@ -161,9 +166,11 @@
 <p>Giả định bảo toàn nhất p=0,5, e=0,05, z=1,96 (độ tin cậy 95%).</p>
 <p>Bước 1: z²×p(1−p) = 1,96² × (0,5×0,5) = 3,8416 × 0,25 = 0,9604.</p>
 <p>Bước 2: chia e²: n<sub>0</sub> = 0,9604 / 0,05² = 0,9604 / 0,0025 = 384,16 → làm tròn lên <b>385</b>.</p>
+<details class="slide-zoom"><summary>🔍 Mở rộng: nếu tổng thể HỮU HẠN và đã biết trước, cỡ mẫu còn giảm được nữa</summary><div class="slide-zoom-body">
 <p>Nếu tổng thể HỮU HẠN và đã biết trước (vd N=7.368 học sinh PISA đã dùng ở module này), hiệu chỉnh tổng thể hữu hạn (finite population correction):</p>
 <p class="big">n = n<sub>0</sub> / (1 + (n<sub>0</sub>−1)/N) = 384,16 / (1 + 383,16/7.368) ≈ <b>365</b></p>
-<p class="cap">Cỡ mẫu hiệu chỉnh NHỎ HƠN một chút — vì khi tổng thể không quá lớn so với mẫu cần lấy, không cần lấy nhiều mẫu như trường hợp tổng thể "vô hạn".</p></div>
+<p class="cap">Cỡ mẫu hiệu chỉnh NHỎ HƠN một chút — vì khi tổng thể không quá lớn so với mẫu cần lấy, không cần lấy nhiều mẫu như trường hợp tổng thể "vô hạn". Hiệu chỉnh này gần như không đáng kể khi N rất lớn so với n₀ (vd N=1 triệu), nhưng trở nên quan trọng khi N chỉ lớn hơn n₀ vài lần — đúng trường hợp ở đây (N=7.368 so với n₀=385, tỉ lệ chỉ ~19 lần).</p>
+</div></details></div>
 
 <p class="cap">📖 Ý nghĩa đầy đủ của các biến PISA dùng trong module này (kể cả 7 chỉ số WLE): <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 <h2 id="thuc-hanh">5. Áp dụng dữ liệu thật: trọng số mẫu PISA</h2>

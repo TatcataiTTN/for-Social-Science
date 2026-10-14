@@ -30,6 +30,9 @@
        <tr><td><b>Tỉ lệ</b></td><td>+ Có điểm 0 thật</td><td>Giờ học, điểm thi</td><td>+ Mọi phép tính, kể cả "gấp đôi"</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Ví dụ kinh điển</div><h2>Vì sao 100°F KHÔNG nóng gấp đôi 50°F?</h2>
        <p class="big">0°F ≠ "không có nhiệt"</p>
        <p>Thang khoảng có đơn vị đều nhau nhưng gốc 0 là <b>quy ước</b>. Gấp đôi 50°F thực ra là 68°F: ((50−32)×2)+32.</p>
+       <div class="pd-formula"><div class="pd-formula-label">Đổi thang khoảng °F ↔ °C</div><div class="pd-formula-math">°C = (°F − 32) × 5/9</div></div>
+       <ul class="pd-legend"><li><b>−32</b><span>dịch gốc quy ước của °F (32) về đúng vị trí 0°C thật</span></li><li><b>×5/9</b><span>đổi tỉ lệ đơn vị — mỗi 9 đơn vị °F tương ứng 5 đơn vị °C</span></li></ul>
+       <p class="cap">Lưu ý quan trọng: °C CŨNG là thang khoảng, không phải thang tỉ lệ — gốc 0°C chỉ là điểm đóng băng của nước (quy ước), không phải "không có nhiệt" (0 tuyệt đối là −273,15°C, tức thang Kelvin). Vì vậy 50°F=10°C và 68°F=20°C, nhưng KHÔNG được nói "68°F nóng gấp đôi 50°F" — đổi đơn vị qua lại giữa 2 thang khoảng không làm phép "gấp đôi" trở nên hợp lệ; chỉ thang Kelvin (có 0 thật) mới cho phép nói về tỉ lệ nhiệt độ.</p>
        <p>Tương tự: IQ 150 <b>không</b> "thông minh gấp đôi" IQ 75 — thang IQ thường bắt đầu từ 70, không từ 0.</p></div><div class="mdeck-slide"><div class="kicker">Lưu ý khi khai báo biến</div><h2>Phần mềm chỉ có 3 lựa chọn, không phải 4</h2>
        <p class="big">Nominal · Ordinal · <span class="warn">Scale</span></p>
        <p>SPSS/PSPP gộp <b>Khoảng + Tỉ lệ</b> thành một loại đo lường duy nhất "Scale" — vì phần lớn phép thống kê áp dụng như nhau cho cả hai.</p>
@@ -144,6 +147,9 @@
 <div class="callout">
 <b>Ví dụ kinh điển (Cohen et al., tr.726):</b> không thể nói “100°F nóng gấp đôi 50°F” vì 0°F không có nghĩa là “không có nhiệt” — đó là thang khoảng. Gấp đôi 50°F thực ra là 68°F: ((50−32)×2)+32. Tương tự, điểm IQ 150 KHÔNG “thông minh gấp đôi” điểm IQ 75, vì thang IQ thường bắt đầu từ 70, không từ 0.
 </div>
+<div class="pd-formula"><div class="pd-formula-label">Đổi thang khoảng °F ↔ °C</div><div class="pd-formula-math">°C = (°F − 32) × 5/9</div></div>
+<ul class="pd-legend"><li><b>−32</b><span>dịch gốc quy ước của °F (32) về đúng vị trí 0°C thật</span></li><li><b>×5/9</b><span>đổi tỉ lệ đơn vị — mỗi 9 đơn vị °F tương ứng 5 đơn vị °C</span></li></ul>
+<p class="cap">°C CŨNG là thang khoảng, không phải thang tỉ lệ — gốc 0°C chỉ là điểm đóng băng của nước (quy ước), không phải "không có nhiệt" (0 tuyệt đối là −273,15°C, tức thang Kelvin). Dù đổi đơn vị qua lại được giữa °F và °C, phép "gấp đôi" vẫn KHÔNG hợp lệ ở cả hai — chỉ Kelvin (có 0 thật) mới cho phép nói về tỉ lệ nhiệt độ.</p>
 
 <div class="callout warn">
 <b>Bẫy quan trọng khi dùng SPSS/PSPP:</b> phần mềm gộp <i>Khoảng</i> và <i>Tỉ lệ</i> thành một loại đo lường duy nhất gọi là <b>“Scale”</b> — vì trong thực hành hầu hết phép thống kê áp dụng như nhau cho cả hai (Cohen et al., tr.726). Khi khai báo biến trong <code>Variable View</code>, bạn chỉ chọn 1 trong 3: <i>Nominal / Ordinal / Scale</i>.
@@ -199,14 +205,13 @@
 <h3>📜 Bối cảnh lý thuyết & lịch sử</h3>
 <p>Khung "4 thang đo" mà Cohen et al. dùng không phải do chính họ nghĩ ra — nó bắt nguồn từ một bài báo nổi tiếng của nhà tâm lý học <b>S. S. Stevens</b>, "On the Theory of Scales of Measurement", đăng trên tạp chí <i>Science</i> năm 1946. Trước Stevens, các nhà khoa học tranh cãi liệu tâm lý học có thể "đo lường" được gì hay không (cảm giác, thái độ… vốn không như chiều dài, cân nặng). Stevens giải quyết bằng cách định nghĩa lại "đo lường" là <i>gán số theo một quy tắc</i>, rồi phân loại quy tắc gán số đó thành 4 cấp độ — chính là 4 thang đo bạn vừa học. Khung này sau đó trở thành nền tảng gần như mọi giáo trình thống kê xã hội học/giáo dục, kể cả Cohen et al. 70 năm sau.</p>
 <p>Nhưng bản thân Cohen et al. cũng lưu ý khung này KHÔNG phải chân lý tuyệt đối. Trích dẫn quan điểm của Wright (2003, tr.127) mà sách nêu ra (tr.726): thang đo của một biến <i>không phải lúc nào cũng là đặc tính cố hữu của biến đó</i>, mà là thứ nhà nghiên cứu "gán cho nó dựa trên lý thuyết của mình về biến đó". Ví dụ: 5 mức "rất ít… rất nhiều" có nên coi là thứ bậc hay chỉ là định danh có sắp xếp? Không phải lúc nào ranh giới cũng rõ ràng — nhất là với dữ liệu thứ bậc.</p>
-<div class="callout">
-<b>Dòng thời gian liên quan tới module này</b>
+<details class="slide-zoom"><summary>🔍 Xem thêm: dòng thời gian đầy đủ liên quan tới module này</summary><div class="slide-zoom-body">
 <ul style="margin:.5em 0 0">
 <li><b>1888</b> — Francis Galton nghiên cứu di truyền chiều cao cha-con, đặt nền cho khái niệm "co-relation" (tiền thân của tương quan, Module 08).</li>
 <li><b>1946</b> — S. S. Stevens công bố khung 4 thang đo (định danh/thứ bậc/khoảng/tỉ lệ) trên <i>Science</i>.</li>
 <li><b>Thập niên 1950–nay</b> — Tranh luận về việc có nên coi thang Likert (thứ bậc) là "gần khoảng" để dùng thống kê tham số vẫn tiếp diễn trong tài liệu phương pháp luận — chưa có đồng thuận tuyệt đối, và đây chính là lý do Cohen et al. nhấn mạnh "phải biện minh cho việc phân loại, không mặc định là hiển nhiên" (tr.726).</li>
 </ul>
-</div>
+</div></details>
 
 <h3>🔎 Case study thực tế</h3>
 <div class="card">

@@ -168,6 +168,23 @@
  <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/11_chon_kiem_dinh.ipynb" target="_blank">📓 Notebook: 6 tình huống ôn tập tổng hợp (GitHub)</a>
 </div>
 
+<h3>📜 Bối cảnh lý thuyết &amp; lịch sử</h3>
+<p>Module này không giới thiệu một kỹ thuật thống kê mới do một nhà khoa học cụ thể phát minh — đây là một <b>công cụ sư phạm tổng hợp</b>, hệ thống hoá lại logic chọn phương pháp đã rải rác trong nhiều chương của giáo trình gốc thành một quy trình quyết định tuần tự duy nhất. ⚠️ CHƯA XÁC MINH mốc thời gian chính xác "cây quyết định thống kê" dạng sơ đồ hoá xuất hiện đầu tiên khi nào trong sách giáo khoa phương pháp nghiên cứu — nhưng giá trị sư phạm của cách làm này thì rõ ràng: Cohen, Manion &amp; Morrison dành hẳn chương 44 ("Data analysis: an overview") của <i>Research Methods in Education</i> cho đúng mục đích này, đặt SAU khi người đọc đã học riêng lẻ từng kỹ thuật (t-test, ANOVA, tương quan, hồi quy...) ở các chương trước — logic "học từng mảnh trước, ráp sơ đồ tổng hợp sau" giúp người học không bị choáng ngợp bởi quá nhiều lựa chọn cùng lúc ngay từ đầu.</p>
+<div class="callout info"><b>Vì sao sơ đồ hoá quan trọng hơn tưởng tượng:</b> nghiên cứu về lỗi phân tích thống kê trong khoa học xã hội cho thấy phần lớn lỗi không nằm ở việc TÍNH SAI công thức (phần mềm tính hộ), mà nằm ở việc <b>CHỌN SAI kiểm định</b> ngay từ đầu — đây chính là lý do một module "chỉ tổng hợp lại, không dạy gì mới" vẫn xứng đáng có vị trí riêng trong khoá học.</div>
+
+<h3>🔎 Case study thực tế</h3>
+<div class="card accent-a">
+<h4>Case — Một nghiên cứu y tế công cộng cần tới 5 kiểu kiểm định khác nhau (minh hoạ)</h4>
+<p>Một nghiên cứu đánh giá chương trình tiêm chủng tại 3 tỉnh thường phải trả lời NHIỀU câu hỏi phụ khác nhau trong CÙNG một đề tài, mỗi câu cần một nhánh khác trong cây quyết định của module này: (1) "Tỉ lệ tiêm chủng có khác giữa 3 tỉnh không?" (biến định danh × định danh) → <b>Chi-square</b>; (2) "Tuổi trung bình người tiêm có khác giữa 3 tỉnh không?" (biến tỉ lệ, 3 nhóm độc lập) → <b>ANOVA một chiều</b>; (3) "Mức độ lo lắng tác dụng phụ (thang Likert) có giảm sau 1 buổi tư vấn không?" (cùng người, đo 2 lần, thứ bậc) → <b>Wilcoxon</b>; (4) "Số lần tiếp cận truyền thông có dự đoán được tỉ lệ tiêm chủng không?" (biến liên tục dự đoán biến liên tục) → <b>Hồi quy tuyến tính</b>; (5) "10 câu hỏi khảo sát niềm tin vào vắc-xin có gộp được thành 2-3 nhóm thái độ không?" → <b>EFA</b>. Một đề tài DUY NHẤT, nhưng không có "một kiểm định đúng cho tất cả" — đây chính xác là tình huống cây quyết định của module này được thiết kế để xử lý.</p>
+</div>
+
+<details class="slide-zoom">
+<summary>🔍 Mở rộng: tình huống thứ 7 — khi dữ liệu "lưỡng tính" cả tham số lẫn phi tham số</summary>
+<div class="slide-zoom-body">
+<p><b>Tình huống bổ sung (minh hoạ):</b> một nhà nghiên cứu đo "mức độ hài lòng công việc" bằng thang Likert 7 điểm, nhưng CỘNG tổng 10 câu hỏi loại này lại thành 1 điểm tổng (thang đo "Scale", xem lại bẫy thang đo ở Phần 1). Điểm tổng này đủ điều kiện coi là khoảng/tỉ lệ — NHƯNG khi kiểm tra Shapiro-Wilk (Module 04), phân phối lệch nặng (p&lt;0,001, da số người trả lời dồn về điểm cao). Theo đúng logic cây quyết định: dù BIẾN LÝ THUYẾT là khoảng/tỉ lệ, dữ liệu THẬT vi phạm điều kiện an toàn nặng → vẫn nên cân nhắc chuyển sang nhánh phi tham số tương ứng (Mann-Whitney/Kruskal-Wallis thay vì t-test/ANOVA), đúng nguyên tắc đã nhấn mạnh ở slide "Nếu biến phụ thuộc VI PHẠM giả định phân phối chuẩn". Đây là lý do bước 2 của cây quyết định (thang đo) và bước xác minh ở Module 04 (dữ liệu thật có đạt điều kiện không) PHẢI đi cùng nhau, không thể chỉ dựa một mình thang đo lý thuyết.</p>
+</div>
+</details>
+
 <h2 id="quiz">5. Tự kiểm tra (28 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">

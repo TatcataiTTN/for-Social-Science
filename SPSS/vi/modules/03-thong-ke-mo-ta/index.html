@@ -94,6 +94,7 @@
        <h2>Hình dạng phân phối</h2>
        <ul class="part-list"><li>Skewness (độ lệch) — công thức, cách đọc dấu</li><li>Kurtosis (độ nhọn) — cách đọc dấu</li><li>Ví dụ thật: một ngoại lai làm skew/kurtosis "nổ tung"</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Skewness</div><h2>Độ lệch (skewness) — đuôi dài nằm về phía nào?</h2>
        <p>🗣️ Nói nôm na: tưởng tượng phân phối như một quả chuông bị kéo lệch — đuôi dài hướng về phía nào thì skew mang dấu đó.</p>
+       <div class="pd-formula"><div class="pd-formula-label">Độ lệch (skewness) — công thức cơ bản</div><div class="pd-formula-math">g₁ = [Σ(xᵢ−x̄)³ / n] / s³</div></div>
        <table><tr><th>Dấu skewness</th><th>Hình dạng</th><th>Quan hệ Mean vs Median</th></tr>
        <tr><td>Dương (+)</td><td>Lệch phải, đuôi dài về giá trị LỚN</td><td>Mean &gt; Median</td></tr>
        <tr><td>≈ 0</td><td>Gần đối xứng</td><td>Mean ≈ Median</td></tr>
@@ -140,7 +141,7 @@
 
 <div class="btnrow">
  <a class="tag" href="#missing">Dữ liệu thiếu</a><a class="tag" href="#freq">Tần số & bảng chéo</a>
- <a class="tag" href="#central">Trung tâm & phân tán</a><a class="tag" href="#stock">Taking stock</a>
+ <a class="tag" href="#central">Trung tâm & phân tán</a><a class="tag" href="#shape">Hình dạng phân phối</a><a class="tag" href="#stock">Taking stock</a>
  <a class="tag" href="#thuc-hanh">Thực hành SPSS</a><a class="tag" href="#quiz">Tự kiểm tra</a>
 </div>
 
@@ -175,6 +176,12 @@
 <tr><td>Mean (trung bình)</td><td>Khoảng, tỉ lệ</td><td><b>Không</b> — dễ bị ngoại lai kéo lệch</td></tr>
 </table>
 <p>Ba đo độ phân tán: <b>độ lệch chuẩn (SD)</b> — trung bình khoảng cách mỗi điểm tới trung bình; <b>range</b> — max−min, rất nhạy ngoại lai; <b>IQR</b> — Q3−Q1, bền hơn range.</p>
+<div class="pd-formula"><div class="pd-formula-label">Vị trí Median (trung vị) trong dãy đã sắp xếp</div><div class="pd-formula-math">n lẻ: vị trí (n+1)/2 &nbsp;&nbsp;·&nbsp;&nbsp; n chẵn: TB của 2 vị trí n/2 và n/2+1</div></div>
+<ul class="pd-legend"><li><b>n</b><span>số quan sát, sau khi đã sắp xếp dữ liệu từ nhỏ đến lớn</span></li><li><b>n lẻ</b><span>median = đúng giá trị đứng giữa, vd n=5 → vị trí (5+1)/2=3</span></li><li><b>n chẵn</b><span>không có 1 giá trị giữa duy nhất → lấy trung bình 2 giá trị gần giữa nhất</span></li></ul>
+<p class="cap">Ví dụ tính tay: {6,7,8} (n=3, lẻ) → vị trí (3+1)/2=2 → median=7. {6,7,8,9} (n=4, chẵn) → TB vị trí 2&amp;3 = (7+8)/2=7,5.</p>
+<div class="pd-formula"><div class="pd-formula-label">Khoảng tứ phân vị (IQR)</div><div class="pd-formula-math">IQR = Q3 − Q1</div></div>
+<ul class="pd-legend"><li><b>Q1</b><span>tứ phân vị thứ nhất — giá trị mà 25% dữ liệu nằm dưới nó</span></li><li><b>Q3</b><span>tứ phân vị thứ ba — giá trị mà 75% dữ liệu nằm dưới nó</span></li><li><b>IQR</b><span>chứa đúng 50% dữ liệu ở giữa — bỏ qua 25% cực trị mỗi đầu nên bền với ngoại lai hơn range</span></li></ul>
+<p class="cap">Ví dụ thật — pretest (n=240): Q1=52,18, Q3=68,12 → IQR = 68,12−52,18 = <b>15,94</b>.</p>
 <div class="pd-formula"><div class="pd-formula-label">Trung bình mẫu (sample mean)</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
 <ul class="pd-legend"><li><b>x̄</b><span>trung bình mẫu</span></li>
 <li><b>Σxᵢ</b><span>tổng tất cả giá trị quan sát</span></li>
@@ -187,6 +194,15 @@
 <div class="callout"><b>Tính tay trên ví dụ nhỏ:</b> 3 điểm Toán {6, 7, 8} → x̄ = (6+7+8)/3 = 7. Độ lệch: (6−7)=−1, (7−7)=0, (8−7)=1. Bình phương: 1, 0, 1 → tổng=2. s² = 2/(3−1) = 1 → s = √1 = 1. Diễn giải: điểm số dao động trung bình khoảng ±1 quanh trung bình 7.</div>
 <div class="figure"><img src="../../../assets/diagrams/dispersion_3sets.png" alt=""/><figcaption>Ba tập số CÙNG trung bình = 6 (ví dụ Cohen et al., tr.762–764) nhưng SD khác hẳn nhau — minh hoạ vì sao chỉ báo cáo trung bình là chưa đủ.</figcaption></div>
 <div class="callout warn"><b>Bài học:</b> không bao giờ báo cáo một mình trung bình. Tập (1) có ngoại lai (giá trị 20) đẩy SD lên 7,91 — gấp 11 lần tập (3) dù cùng trung bình = 6. Luôn kèm SD hoặc vẽ biểu đồ.</div>
+
+<h2 id="shape">3bis. Hình dạng phân phối — Skewness &amp; Kurtosis, có công thức</h2>
+<div class="pd-formula"><div class="pd-formula-label">Độ lệch (skewness) — công thức cơ bản</div><div class="pd-formula-math">g₁ = [Σ(xᵢ−x̄)³ / n] / s³</div></div>
+<ul class="pd-legend"><li><b>(xᵢ−x̄)³</b><span>lập phương độ lệch — giữ dấu (+/−), khác bình phương ở công thức SD luôn dương</span></li><li><b>s³</b><span>chuẩn hoá theo độ lệch chuẩn luỹ thừa 3, để g₁ không phụ thuộc đơn vị đo gốc</span></li><li><b>g₁ &gt; 0</b><span>lệch dương/phải (đuôi dài về giá trị lớn)</span></li><li><b>g₁ &lt; 0</b><span>lệch âm/trái (đuôi dài về giá trị nhỏ)</span></li></ul>
+<div class="pd-formula"><div class="pd-formula-label">Độ nhọn (excess kurtosis) — công thức cơ bản</div><div class="pd-formula-math">g₂ = [Σ(xᵢ−x̄)⁴ / n] / s⁴ − 3</div></div>
+<ul class="pd-legend"><li><b>−3</b><span>trừ đi 3 để phân phối chuẩn có g₂=0 làm mốc so sánh ("excess" so với chuẩn)</span></li><li><b>g₂ &gt; 0</b><span>Leptokurtic — đỉnh nhọn hơn, đuôi dày hơn chuẩn</span></li><li><b>g₂ &lt; 0</b><span>Platykurtic — đỉnh bẹt hơn, đuôi mỏng hơn chuẩn</span></li></ul>
+<details class="slide-zoom"><summary>🔍 Vì sao số trên trang đôi lúc không khớp y hệt công thức này khi tính tay?</summary><div class="slide-zoom-body">
+<p>SPSS/PSPP và pandas (<code>.skew()</code>/<code>.kurt()</code>) dùng một biến thể đã HIỆU CHỈNH CHO MẪU NHỎ (ký hiệu G₁, G₂ trong tài liệu thống kê, dựa trên n, n−1, n−2, n−3 thay vì chỉ n) — cho kết quả hơi khác công thức cơ bản ở trên, đặc biệt khi n nhỏ. Với pretest (n=240): công thức cơ bản ở trên cho skew≈−0,0966, kurtosis≈−0,549; công thức hiệu chỉnh mẫu nhỏ (SPSS/pandas) cho đúng số đã công bố trên trang: skew=−0,097, kurtosis=−0,535. Với n lớn như ở đây (240), chênh lệch giữa 2 công thức rất nhỏ — nhưng với mẫu &lt;30, chênh lệch có thể đáng kể, nên luôn ghi rõ công cụ nào đã dùng để tính.</p>
+</div></details>
 
 <h2 id="stock">4. Taking stock — chọn đúng thống kê theo thang đo</h2>
 <p>Quy tắc tổng hợp (tr.765): với <b>cả 4 thang đo</b> đều tính được tần số/%/mode/bảng chéo. <b>Từ thứ bậc trở lên</b> mới tính được trung vị. <b>Chỉ khoảng &amp; tỉ lệ</b> (gộp thành "Scale" trong SPSS) mới tính được trung bình &amp; độ lệch chuẩn. Dữ liệu lệch (skewed) một chiều — đuôi dài về phía dương gọi là lệch dương (positive skew), đuôi dài về phía âm là lệch âm (negative skew).</p>

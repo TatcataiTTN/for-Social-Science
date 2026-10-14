@@ -127,6 +127,9 @@
 <p>Torgerson &amp; Torgerson (2008, tr.135, dẫn theo tr.734): mẫu nhỏ → CI rộng (kém chính xác); mẫu lớn → CI hẹp hơn (chính xác hơn).</p>
 
 <h2 id="phan-phoi">3. Phân phối chuẩn, skewness & kurtosis</h2>
+<div class="pd-formula"><div class="pd-formula-label">Z-score (chuẩn hoá một giá trị về phân phối chuẩn N(0,1))</div><div class="pd-formula-math">z = (x − μ) / σ</div></div>
+<ul class="pd-legend"><li><b>x</b><span>giá trị quan sát cần chuẩn hoá</span></li><li><b>μ</b><span>trung bình tổng thể (hoặc mẫu, nếu không biết tổng thể)</span></li><li><b>σ</b><span>độ lệch chuẩn tổng thể (hoặc mẫu)</span></li><li><b>z</b><span>số độ lệch chuẩn cách trung bình — âm nếu dưới mức TB, dương nếu trên mức TB</span></li></ul>
+<p class="cap">Ví dụ tính tay: điểm Toán x=65, trung bình mẫu=47,91, SD=9,68 → z=(65−47,91)/9,68=1,765 — tức điểm này cao hơn trung bình 1,765 độ lệch chuẩn. Đây chính là cơ chế đứng sau hệ số 1,96 trong công thức CI ở mục 2: 1,96 là giá trị z ứng với 95% diện tích giữa của phân phối chuẩn.</p>
 <div class="figure"><img src="../../../assets/diagrams/normal_curve.png" alt=""/><figcaption>Đường cong phân phối chuẩn: 68,3% dữ liệu trong ±1SD, 95,4% trong ±2SD, 99,7% trong ±3SD quanh trung bình (tr.733–734).</figcaption></div>
 <p>Lệch dương (positive skew): đuôi dài về phía DƯƠNG (bên phải). Lệch âm (negative skew): đuôi dài về phía ÂM (bên trái). Platykurtic: phẳng hơn chuẩn (kurtosis âm). Leptokurtic: nhọn hơn chuẩn (kurtosis dương) (tr.734–735).</p>
 <div class="figure"><img src="../../../assets/diagrams/skew_real.png" alt=""/><figcaption>So sánh 2 biến thật: study_hours lệch dương rõ rệt; pretest gần đối xứng.</figcaption></div>
@@ -139,11 +142,13 @@
 
 <h2 id="phe-phan">5. Phê phán NHST — vì sao nhiều tạp chí không còn nhận bài chỉ dựa vào p-value</h2>
 <p>Một số tạp chí đã ngừng nhận bài chỉ dựa thuần vào kiểm định ý nghĩa giả thuyết không (NHST). Carver (1978, tr.387, dẫn theo tr.742) gọi đây là "phương pháp khoa học đồi bại" (corrupt scientific method). Ba lý do chính:</p>
+<details class="slide-zoom"><summary>🔍 Xem đầy đủ 3 lý do Carver phê phán NHST</summary><div class="slide-zoom-body">
 <ol>
 <li><b>H0 là "người rơm" (straw man):</b> trong thực tế H0 gần như không bao giờ đúng tuyệt đối — nhưng cả quy trình NHST lại xây trên giả định này (Carver, 1978, tr.380–382).</li>
 <li><b>Sai lầm "điều kiện bị đảo ngược" (Ziliak &amp; McCloskey, 2008, tr.41):</b> nhầm P(dữ liệu | H0 đúng) thành P(H0 đúng | dữ liệu). Ví dụ của Carver: xác suất một người CHẾT nếu bị treo cổ rất cao, nhưng xác suất một người bị treo cổ nếu đã CHẾT lại rất thấp — p-value chỉ trả lời vế đầu.</li>
 <li><b>Phụ thuộc mạnh vào cỡ mẫu:</b> mẫu càng lớn, càng dễ đạt ý nghĩa thống kê dù hệ số rất nhỏ (tr.742–743).</li>
 </ol>
+</div></details>
 <div class="callout warn"><b>Ý nghĩa thống kê ≠ ý nghĩa thực tiễn:</b> có thể tìm được tương quan có ý nghĩa thống kê giữa thời gian học Toán và thời gian đi mua sắm — hoàn toàn không quan trọng (tr.743). Ngược lại, p=0,065 (nhỉnh hơn 0,05 một chút) không nên vội kết luận "không có khác biệt" — ngưỡng 0,05 chỉ là quy ước tương đối (tr.743).</div>
 <p>Cohen et al. <b>không</b> yêu cầu bỏ hẳn NHST, nhưng khuyên chuyển hướng sang cỡ hiệu ứng, statistical power, và các cách kiểm chứng khác (lặp lại nghiên cứu, loại trừ giả thuyết thay thế) (tr.744).</p>
 <h3>Sai lầm loại I &amp; loại II</h3>

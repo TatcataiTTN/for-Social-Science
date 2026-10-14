@@ -164,6 +164,27 @@ QUICK CLUSTER EDULEAD NEGSCLIM STAFFSHORT EDUSHORT DIGPREP
 </div>
 <p class="cap">📖 Ý nghĩa đầy đủ của 5 chỉ số WLE dùng trong phân tích cụm: <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 
+<h3>📜 Bối cảnh lý thuyết & lịch sử</h3>
+<p><b>Charles Spearman</b> đặt nền móng cho phân tích nhân tố năm 1904, trong bài báo <i>"General Intelligence, Objectively Determined and Measured"</i> — ông nhận thấy điểm số ở nhiều môn học khác nhau của học sinh có xu hướng tương quan với nhau, và đề xuất một khái niệm ẩn duy nhất ("g", trí thông minh chung) có thể giải thích phần lớn các tương quan đó. Đây chính là ý tưởng cốt lõi của EFA ngày nay: nhiều biến quan sát được tương quan với nhau vì cùng chịu ảnh hưởng của một (hoặc vài) khái niệm ẩn đứng sau. Thuật toán <b>K-means</b> được <b>James MacQueen</b> đặt tên và hình thức hoá năm 1967 (bài báo <i>"Some methods for classification and analysis of multivariate observations"</i>), dù ý tưởng phân cụm bằng cách lặp lại "gán điểm vào tâm cụm gần nhất rồi cập nhật lại tâm cụm" đã được một số nhà nghiên cứu khác đề xuất độc lập trước đó trong cùng thập niên.</p>
+<div class="callout info"><b>Dòng thời gian</b>
+<ul style="margin:.5em 0 0">
+<li><b>1904</b> — Charles Spearman công bố mô hình nhân tố chung "g", khai sinh phân tích nhân tố.</li>
+<li><b>1930s</b> — Louis Thurstone mở rộng sang phân tích ĐA nhân tố (không chỉ 1 nhân tố chung duy nhất).</li>
+<li><b>1958</b> — Henry Kaiser công bố tiêu chí "eigenvalue &gt; 1" vẫn được dùng phổ biến tới nay.</li>
+<li><b>1967</b> — James MacQueen đặt tên và hình thức hoá thuật toán K-means.</li>
+</ul>
+</div>
+
+<h3>🔎 Case study thực tế</h3>
+<div class="card accent-a">
+<h4>Case 1 (minh hoạ) — Marketing: phân khúc khách hàng bằng K-means</h4>
+<p>Một chuỗi bán lẻ muốn chia khách hàng thành các nhóm có hành vi mua sắm tương tự nhau (tần suất mua, giá trị đơn hàng trung bình, số danh mục sản phẩm đã mua) để nhắm chương trình khuyến mãi phù hợp từng nhóm — đây là bài toán phân cụm (nhóm ĐỐI TƯỢNG là khách hàng), giống hệt logic nhóm 195 trường PISA ở trên nhưng khác domain. Cũng cần lưu ý đúng bài học "chạy K-means nhiều lần" đã nêu, vì kết quả phân khúc có thể đổi giữa các lần chạy nếu chỉ chạy 1 lần.</p>
+</div>
+<div class="card accent-a">
+<h4>Case 2 (minh hoạ) — Tâm lý học lâm sàng: EFA cho thang đo triệu chứng</h4>
+<p>Một bộ câu hỏi 20 mục đo "sức khoẻ tinh thần" được gửi cho bệnh nhân — EFA có thể cho thấy 20 câu hỏi này thực chất đo 3 khái niệm ẩn khác nhau (vd lo âu, trầm cảm, stress), mỗi khái niệm có một nhóm câu hỏi riêng tải rõ lên nó. Đây là cách các thang đo lâm sàng chuẩn (như DASS-21) được XÂY DỰNG và XÁC NHẬN — EFA/CFA là bước bắt buộc trước khi một thang đo tâm lý học được công nhận là đo đúng các khái niệm nó tuyên bố đo.</p>
+</div>
+
 <h2 id="quiz">5. Tự kiểm tra (27 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">

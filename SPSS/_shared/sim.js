@@ -55,12 +55,42 @@ function betai(x,a,b){
   else return 1-bt*betacf(1-x,b,a)/b;
 }
 function pTwoTailed(t,df){ return betai(df/(df+t*t), df/2, 0.5) }
+// --- Hàm gamma không đầy đủ (regularized incomplete gamma), dùng cho p-value chi-square và F ---
+// Thuật toán chuẩn Numerical Recipes (gser/gcf) — kiểm chứng khớp scipy.stats.chi2/f tới ~4-5 chữ số thập phân.
+function gammaSer(a,x){
+  var ap=a, sum=1/a, del=sum;
+  for(var n=1;n<=500;n++){ ap+=1; del*=x/ap; sum+=del; if(Math.abs(del)<Math.abs(sum)*3e-16) break }
+  return sum*Math.exp(-x+a*Math.log(x)-logGamma(a));
+}
+function gammaCf(a,x){
+  var FPMIN=1e-300, EPS=3e-16;
+  var b=x+1-a, c=1/FPMIN, d=1/b, h=d;
+  for(var i=1;i<=500;i++){
+    var an=-i*(i-a); b+=2;
+    d=an*d+b; if(Math.abs(d)<FPMIN)d=FPMIN;
+    c=b+an/c; if(Math.abs(c)<FPMIN)c=FPMIN;
+    d=1/d; var del=d*c; h*=del;
+    if(Math.abs(del-1)<EPS) break;
+  }
+  return Math.exp(-x+a*Math.log(x)-logGamma(a))*h;
+}
+function gammaIncP(a,x){ if(x<0||a<=0) return NaN; if(x===0) return 0; return x<a+1 ? gammaSer(a,x) : 1-gammaCf(a,x) }
+function chiSqP(chi2,df){ return 1-gammaIncP(df/2, chi2/2) }
+function fP(F,d1,d2){ if(F<=0) return 1; var x=d1*F/(d1*F+d2); return 1-betai(x,d1/2,d2/2) }
 function pLabel(p){ return p<0.001 ? 'p < 0,001' : ('p = '+fnum(p,3)) }
+function sd(a){ var m=mean(a); return Math.sqrt(a.reduce(function(s,x){return s+(x-m)*(x-m)},0)/(a.length-1)) }
 function effectLabel(r){
   var a=Math.abs(r);
   if(a<0.1) return 'rất nhỏ/không đáng kể';
   if(a<0.3) return 'nhỏ';
   if(a<0.5) return 'vừa';
+  return 'lớn';
+}
+function dLabel(d){ // ngưỡng Cohen's d (Cohen 1988), khác hẳn ngưỡng r ở effectLabel()
+  var a=Math.abs(d);
+  if(a<0.2) return 'rất nhỏ';
+  if(a<0.5) return 'nhỏ';
+  if(a<0.8) return 'vừa';
   return 'lớn';
 }
 function etaRatio(x,y){
@@ -173,6 +203,197 @@ W.curve=function(root){
       '<p class="cap">Khi đỉnh ở giữa khoảng (~5-6): Pearson r gần 0 dù eta vẫn cao — minh hoạ đúng bài học Cohen et al. (tr.769): Pearson r có thể đánh giá THẤP một quan hệ phi tuyến rất thật. Kéo đỉnh về gần 2 hoặc 9 (lệch về một phía) để thấy r tăng lên — khi đó đoạn đường cong quan sát được gần giống một đường thẳng hơn.</p>';
   }
   $(root,'#peak').oninput=run; run();
+};
+W.ttest=function(root){
+  frame(root,'Tự tính t-test độc lập &amp; bắt cặp trên dữ liệu của bạn',
+    '<div class="row"><label><input type="radio" name="ttmode" value="ind" checked/> Độc lập (2 nhóm khác nhau)</label> '+
+    '<label><input type="radio" name="ttmode" value="pair"/> Bắt cặp (cùng đối tượng, đo 2 lần)</label></div>'+
+    '<div class="row"><label>Nhóm/Lần 1<br/><textarea id="a" rows="6" style="width:100%" placeholder="vd: 8.5, 10.2, ..."></textarea></label>'+
+    '<label>Nhóm/Lần 2<br/><textarea id="b" rows="6" style="width:100%" placeholder="vd: 2.1, 3.4, ..."></textarea></label></div>'+
+    '<div class="row"><button class="btn" id="go">Tính</button> '+
+    '<button class="btn alt" id="preset">📊 Dùng dữ liệu thật: mức tăng điểm theo phương pháp (n=240)</button></div>'+
+    '<div class="out"></div>');
+  function run(){
+    var out=$(root,'.out');
+    try{
+      var mode=root.querySelector('input[name=ttmode]:checked').value;
+      var a=nums($(root,'#a').value), b=nums($(root,'#b').value);
+      if(a.length<2||b.length<2) throw new Error('Cần ít nhất 2 quan sát mỗi nhóm.');
+      var html;
+      if(mode==='ind'){
+        var n1=a.length,n2=b.length, m1=mean(a), m2=mean(b), s1=sd(a), s2=sd(b);
+        var sp2=((n1-1)*s1*s1+(n2-1)*s2*s2)/(n1+n2-2), spooled=Math.sqrt(sp2);
+        var se=Math.sqrt(sp2*(1/n1+1/n2));
+        var df=n1+n2-2, t=(m1-m2)/se, p=pTwoTailed(Math.abs(t),df), d=(m1-m2)/spooled;
+        html=tbl(['Nhóm','n','Mean','SD'],[['Nhóm 1',n1,fnum(m1,3),fnum(s1,3)],['Nhóm 2',n2,fnum(m2,3),fnum(s2,3)]])+
+          '<p class="cap">SD gộp = √[((n1−1)s1²+(n2−1)s2²)/(n1+n2−2)] = '+fnum(spooled,4)+'</p>'+
+          '<p class="cap">SE = SD_gộp×√(1/n1+1/n2) = '+fnum(se,4)+'</p>'+
+          tbl(['t','df','p (2 phía)',"Cohen's d"],[[fnum(t,3),df,pLabel(p),fnum(Math.abs(d),3)+' ('+dLabel(d)+')']]);
+      } else {
+        if(a.length!==b.length) throw new Error('T-test bắt cặp cần Lần 1 và Lần 2 có CÙNG số quan sát (hiện '+a.length+' và '+b.length+').');
+        var n=a.length, diffs=a.map(function(v,i){return v-b[i]});
+        var md=mean(diffs), sdd=sd(diffs), se2=sdd/Math.sqrt(n);
+        var df2=n-1, t2=md/se2, p2=pTwoTailed(Math.abs(t2),df2), d2=md/sdd;
+        html=tbl(['','n','Mean','SD'],[['Lần 1',n,fnum(mean(a),3),fnum(sd(a),3)],['Lần 2',n,fnum(mean(b),3),fnum(sd(b),3)],['Hiệu (Lần1−Lần2)',n,fnum(md,3),fnum(sdd,3)]])+
+          '<p class="cap">SE = SD_hiệu/√n = '+fnum(sdd,4)+'/√'+n+' = '+fnum(se2,4)+'</p>'+
+          tbl(['t','df','p (2 phía)',"Cohen's d"],[[fnum(t2,3),df2,pLabel(p2),fnum(Math.abs(d2),3)+' ('+dLabel(d2)+')']]);
+      }
+      html+='<p class="cap">Công thức: t=(chênh lệch trung bình)/SE; p từ phân phối t với df bậc tự do — kiểm chứng khớp scipy.stats.ttest_ind/ttest_rel.</p>';
+      out.innerHTML=html;
+    }catch(e){ out.innerHTML='<p class="no">⚠️ '+esc(e.message)+'</p>' }
+  }
+  $(root,'#go').onclick=run;
+  $(root,'#preset').onclick=function(){
+    var base=root.getAttribute('data-base')||'../../..';
+    fetch(base+'/assets/data_presets_m05.json').then(function(r){return r.json()}).then(function(d){
+      root.querySelector('input[value=ind]').checked=true;
+      $(root,'#a').value=d.group1.join(', ');
+      $(root,'#b').value=d.group2.join(', ');
+      run();
+    }).catch(function(){ $(root,'.out').innerHTML='<p class="no">Không tải được dữ liệu mẫu (kiểm tra kết nối).</p>' });
+  };
+};
+W.anova=function(root){
+  frame(root,'Tự tính ANOVA một chiều (F-test) trên dữ liệu của bạn',
+    '<div class="row"><small>Dán số liệu từng nhóm (tối đa 4 nhóm), để trống ô nào không dùng.</small></div>'+
+    '<div class="row">'+
+      '<label>Nhóm 1<br/><textarea id="g1" rows="5" style="width:100%"></textarea></label>'+
+      '<label>Nhóm 2<br/><textarea id="g2" rows="5" style="width:100%"></textarea></label>'+
+      '<label>Nhóm 3<br/><textarea id="g3" rows="5" style="width:100%"></textarea></label>'+
+      '<label>Nhóm 4 (tuỳ chọn)<br/><textarea id="g4" rows="5" style="width:100%"></textarea></label>'+
+    '</div>'+
+    '<div class="row"><button class="btn" id="go">Tính</button> '+
+    '<button class="btn alt" id="preset">📊 Dùng dữ liệu thật: điểm Toán theo 3 trường (n=240)</button></div>'+
+    '<div class="out"></div>');
+  function run(){
+    var out=$(root,'.out');
+    try{
+      var groups=['g1','g2','g3','g4'].map(function(id){return nums($(root,'#'+id).value)}).filter(function(g){return g.length>=2});
+      if(groups.length<2) throw new Error('Cần ít nhất 2 nhóm, mỗi nhóm ≥2 quan sát.');
+      var all=[].concat.apply([],groups);
+      var gm=mean(all), N=all.length, k=groups.length;
+      var ssb=0, ssw=0;
+      groups.forEach(function(g){
+        var mg=mean(g);
+        ssb+=g.length*(mg-gm)*(mg-gm);
+        g.forEach(function(v){ ssw+=(v-mg)*(v-mg) });
+      });
+      var sst=ssb+ssw, dfb=k-1, dfw=N-k;
+      var msb=ssb/dfb, msw=ssw/dfw, F=msb/msw, p=fP(F,dfb,dfw), eta2=ssb/sst;
+      var rows=groups.map(function(g,i){return ['Nhóm '+(i+1),g.length,fnum(mean(g),3),fnum(sd(g),3)]});
+      var html=tbl(['Nhóm','n','Mean','SD'],rows)+
+        tbl(['Nguồn biến thiên','SS','df','MS','F','p'],[
+          ['Giữa nhóm (Between)',fnum(ssb,3),dfb,fnum(msb,3),fnum(F,3),pLabel(p)],
+          ['Trong nhóm (Within)',fnum(ssw,3),dfw,fnum(msw,3),'—','—'],
+          ['Tổng (Total)',fnum(sst,3),N-1,'—','—','—']
+        ])+
+        '<p class="cap">η² = SSb/SSt = '+fnum(ssb,3)+'/'+fnum(sst,3)+' = '+fnum(eta2,4)+'</p>'+
+        '<p class="cap">Công thức: F=MSb/MSw; p từ phân phối F với (dfb, dfw) bậc tự do — kiểm chứng khớp scipy.stats.f_oneway.</p>';
+      out.innerHTML=html;
+    }catch(e){ out.innerHTML='<p class="no">⚠️ '+esc(e.message)+'</p>' }
+  }
+  $(root,'#go').onclick=run;
+  $(root,'#preset').onclick=function(){
+    var base=root.getAttribute('data-base')||'../../..';
+    fetch(base+'/assets/data_presets_m06.json').then(function(r){return r.json()}).then(function(d){
+      d.groups.forEach(function(g,i){ if(i<4) $(root,'#g'+(i+1)).value=g.join(', ') });
+      run();
+    }).catch(function(){ $(root,'.out').innerHTML='<p class="no">Không tải được dữ liệu mẫu (kiểm tra kết nối).</p>' });
+  };
+};
+W.chisq=function(root){
+  frame(root,'Tự tính Chi-square kiểm định độc lập trên bảng chéo của bạn',
+    '<div class="row"><small>Dán bảng số đếm, mỗi dòng 1 hàng, các cột cách nhau bởi dấu phẩy. VD bảng 2×2:<br/>63,58<br/>52,67</small></div>'+
+    '<div class="row"><textarea id="tbl" rows="5" style="width:100%" placeholder="63,58&#10;52,67"></textarea></div>'+
+    '<div class="row"><button class="btn" id="go">Tính</button> '+
+    '<button class="btn alt" id="preset">📊 Dùng dữ liệu thật: Giới tính × Phương pháp (n=240)</button></div>'+
+    '<div class="out"></div>');
+  function parseTable(s){
+    return s.split('\n').map(function(line){return line.trim()}).filter(Boolean).map(function(line){
+      return line.split(/[,;\t]+/).map(function(x){return parseFloat(x.trim())}).filter(function(x){return !isNaN(x)});
+    });
+  }
+  function run(){
+    var out=$(root,'.out');
+    try{
+      var rows=parseTable($(root,'#tbl').value);
+      if(rows.length<2) throw new Error('Cần ít nhất 2 hàng.');
+      var ncol=rows[0].length;
+      if(ncol<2) throw new Error('Cần ít nhất 2 cột.');
+      rows.forEach(function(r){ if(r.length!==ncol) throw new Error('Mọi hàng phải có cùng số cột.') });
+      var rowSums=rows.map(function(r){return r.reduce(function(s,x){return s+x},0)});
+      var colSums=[]; for(var j=0;j<ncol;j++){ colSums.push(rows.reduce(function(s,r){return s+r[j]},0)) }
+      var N=rowSums.reduce(function(s,x){return s+x},0);
+      var df=(rows.length-1)*(ncol-1);
+      var yates=(df===1); // Yates's continuity correction chỉ áp cho bảng 2×2, đúng quy ước SPSS mặc định
+      var chi2=0, expRows=[];
+      rows.forEach(function(r,i){
+        var erow=[];
+        r.forEach(function(o,j){
+          var e=rowSums[i]*colSums[j]/N;
+          erow.push(e);
+          var diff=Math.abs(o-e);
+          if(yates) diff=Math.max(0,diff-0.5);
+          chi2+=(diff*diff)/e;
+        });
+        expRows.push(erow);
+      });
+      var p=chiSqP(chi2,df);
+      var obsHtml=tbl(['Quan sát (O)'].concat(colSums.map(function(_,j){return 'Cột '+(j+1)})), rows.map(function(r,i){return ['Hàng '+(i+1)].concat(r)}));
+      var expHtml=tbl(['Kỳ vọng (E)'].concat(colSums.map(function(_,j){return 'Cột '+(j+1)})), expRows.map(function(r,i){return ['Hàng '+(i+1)].concat(r.map(function(x){return fnum(x,2)}))}));
+      var phi=Math.sqrt(chi2/N);
+      var html=obsHtml+expHtml+
+        '<p class="cap">χ² = Σ(O−E)²/E'+(yates?' (đã áp Yates\'s correction cho bảng 2×2)':'')+' = '+fnum(chi2,3)+', df = (hàng−1)×(cột−1) = '+df+'</p>'+
+        tbl(['χ²','df','p','Phi/Cramér\'s V (xấp xỉ)'],[[fnum(chi2,3),df,pLabel(p),fnum(phi,3)]])+
+        '<p class="cap">Công thức: E = (Tổng hàng×Tổng cột)/Tổng chung — kiểm chứng khớp scipy.stats.chi2_contingency.</p>';
+      out.innerHTML=html;
+    }catch(e){ out.innerHTML='<p class="no">⚠️ '+esc(e.message)+'</p>' }
+  }
+  $(root,'#go').onclick=run;
+  $(root,'#preset').onclick=function(){
+    var base=root.getAttribute('data-base')||'../../..';
+    fetch(base+'/assets/data_presets_m07.json').then(function(r){return r.json()}).then(function(d){
+      $(root,'#tbl').value=d.table.map(function(r){return r.join(',')}).join('\n');
+      run();
+    }).catch(function(){ $(root,'.out').innerHTML='<p class="no">Không tải được dữ liệu mẫu (kiểm tra kết nối).</p>' });
+  };
+};
+W.regression=function(root){
+  frame(root,'Tự tính hồi quy tuyến tính đơn biến trên dữ liệu của bạn',
+    '<div class="row"><label>Biến độc lập X<br/><textarea id="x" rows="6" style="width:100%"></textarea></label>'+
+    '<label>Biến phụ thuộc Y<br/><textarea id="y" rows="6" style="width:100%"></textarea></label></div>'+
+    '<div class="row"><button class="btn" id="go">Tính</button> '+
+    '<button class="btn alt" id="preset">📊 Dùng dữ liệu thật: giờ tự học → điểm Toán (n=240)</button></div>'+
+    '<div class="out"></div>');
+  function run(){
+    var out=$(root,'.out');
+    try{
+      var x=nums($(root,'#x').value), y=nums($(root,'#y').value);
+      if(x.length<4||y.length!==x.length) throw new Error('X và Y cần ≥4 quan sát, cùng số lượng (X có '+x.length+', Y có '+y.length+').');
+      var n=x.length, mx=mean(x), my=mean(y), sxy=0,sxx=0,syy=0;
+      for(var i=0;i<n;i++){ var dx=x[i]-mx, dy=y[i]-my; sxy+=dx*dy; sxx+=dx*dx; syy+=dy*dy }
+      var b=sxy/sxx, a=my-b*mx, r2=(sxy*sxy)/(sxx*syy);
+      var sse=0; for(i=0;i<n;i++){ var e=y[i]-(a+b*x[i]); sse+=e*e }
+      var dfres=n-2, mse=sse/dfres, seB=Math.sqrt(mse/sxx);
+      var t=b/seB, p=pTwoTailed(Math.abs(t),dfres);
+      var html=scatterSVG(x,y)+
+        '<p class="cap" style="text-align:center">Chấm = từng quan sát · nét đứt = đường hồi quy Ŷ=a+bX tốt nhất</p>'+
+        tbl(['a (hệ số chặn)','b (hệ số góc)','R²','SE(b)','t','p'],
+          [[fnum(a,3),fnum(b,3),fnum(r2,3),fnum(seB,4),fnum(t,3),pLabel(p)]])+
+        '<p class="cap" style="text-align:center">Phương trình: Ŷ = '+fnum(a,3)+' + '+fnum(b,3)+'×X</p>'+
+        '<p class="cap">Công thức: b=Σ(xᵢ−x̄)(yᵢ−ȳ)/Σ(xᵢ−x̄)²; a=ȳ−b×x̄; SE(b)=√(MSE/Σ(xᵢ−x̄)²); t=b/SE(b) — kiểm chứng khớp statsmodels.OLS.</p>';
+      out.innerHTML=html;
+    }catch(e){ out.innerHTML='<p class="no">⚠️ '+esc(e.message)+'</p>' }
+  }
+  $(root,'#go').onclick=run;
+  $(root,'#preset').onclick=function(){
+    var base=root.getAttribute('data-base')||'../../..';
+    fetch(base+'/assets/data_presets_m08.json').then(function(r){return r.json()}).then(function(d){
+      $(root,'#x').value=d.x.join(', ');
+      $(root,'#y').value=d.y.join(', ');
+      run();
+    }).catch(function(){ $(root,'.out').innerHTML='<p class="no">Không tải được dữ liệu mẫu (kiểm tra kết nối).</p>' });
+  };
 };
 document.querySelectorAll('.sim[data-sim]').forEach(function(root){var f=W[root.getAttribute('data-sim')];if(f)f(root)});
 })();
