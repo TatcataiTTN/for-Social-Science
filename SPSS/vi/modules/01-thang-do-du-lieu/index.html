@@ -21,49 +21,100 @@
        <p class="cap">Dùng phím ← → hoặc bấm nút bên dưới để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/5</div>
        <div class="part-num">01</div>
        <h2>Thang đo dữ liệu</h2>
-       <ul class="part-list"><li>Bốn thang đo, mỗi thang kế thừa thang trước</li><li>Vì sao 100°F không nóng gấp đôi 50°F</li><li>SPSS/PSPP chỉ có 3 lựa chọn, không phải 4</li></ul></div><div class="mdeck-slide"><div class="kicker">Bốn thang đo</div><h2>Mỗi thang kế thừa thang trước, thêm 1 đặc điểm mới</h2>
-       <table><tr><th>Thang đo</th><th>Đặc điểm mới</th><th>Ví dụ</th></tr>
-       <tr><td><b>Định danh</b></td><td>Chỉ phân loại</td><td>Giới tính, loại trường</td></tr>
-       <tr><td><b>Thứ bậc</b></td><td>+ Có thứ tự</td><td>Thang Likert, xếp hạng</td></tr>
-       <tr><td><b>Khoảng</b></td><td>+ Đều nhau, KHÔNG có 0 thật</td><td>°C/°F, điểm IQ</td></tr>
-       <tr><td><b>Tỉ lệ</b></td><td>+ Có điểm 0 thật</td><td>Giờ học, điểm thi</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Ví dụ kinh điển</div><h2>Vì sao 100°F KHÔNG nóng gấp đôi 50°F?</h2>
+       <ul class="part-list"><li>Bốn thang đo, mỗi thang kế thừa thang trước</li><li>Vì sao 100°F không nóng gấp đôi 50°F</li><li>SPSS/PSPP chỉ có 3 lựa chọn, không phải 4</li><li>Ví dụ đa ngành + biến rời rạc/liên tục + nguồn gốc lịch sử</li></ul></div><div class="mdeck-slide"><div class="kicker">Bốn thang đo</div><h2>Mỗi thang kế thừa thang trước, thêm 1 đặc điểm mới</h2>
+       <p class="cap">🗣️ Nói nôm na: giống 4 bậc thang leo lên — bậc sau có HẾT mọi thứ bậc trước có, cộng thêm 1 khả năng mới.</p>
+       <table><tr><th>Thang đo</th><th>Đặc điểm mới</th><th>Ví dụ</th><th>Phép tính được phép</th></tr>
+       <tr><td><b>Định danh</b></td><td>Chỉ phân loại</td><td>Giới tính, loại trường</td><td>Đếm tần số, mode</td></tr>
+       <tr><td><b>Thứ bậc</b></td><td>+ Có thứ tự</td><td>Thang Likert, xếp hạng</td><td>+ Trung vị, percentile</td></tr>
+       <tr><td><b>Khoảng</b></td><td>+ Đều nhau, KHÔNG có 0 thật</td><td>°C/°F, điểm IQ</td><td>+ Trung bình, SD (không lấy tỉ số)</td></tr>
+       <tr><td><b>Tỉ lệ</b></td><td>+ Có điểm 0 thật</td><td>Giờ học, điểm thi</td><td>+ Mọi phép tính, kể cả "gấp đôi"</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Ví dụ kinh điển</div><h2>Vì sao 100°F KHÔNG nóng gấp đôi 50°F?</h2>
        <p class="big">0°F ≠ "không có nhiệt"</p>
-       <p>Thang khoảng có đơn vị đều nhau nhưng gốc 0 là <b>quy ước</b>. Gấp đôi 50°F thực ra là 68°F.</p>
+       <p>Thang khoảng có đơn vị đều nhau nhưng gốc 0 là <b>quy ước</b>. Gấp đôi 50°F thực ra là 68°F: ((50−32)×2)+32.</p>
        <p>Tương tự: IQ 150 <b>không</b> "thông minh gấp đôi" IQ 75 — thang IQ thường bắt đầu từ 70, không từ 0.</p></div><div class="mdeck-slide"><div class="kicker">Lưu ý khi khai báo biến</div><h2>Phần mềm chỉ có 3 lựa chọn, không phải 4</h2>
        <p class="big">Nominal · Ordinal · <span class="warn">Scale</span></p>
-       <p>SPSS/PSPP gộp <b>Khoảng + Tỉ lệ</b> thành một loại đo lường duy nhất "Scale" — vì phần lớn phép thống kê áp dụng như nhau cho cả hai.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
+       <p>SPSS/PSPP gộp <b>Khoảng + Tỉ lệ</b> thành một loại đo lường duy nhất "Scale" — vì phần lớn phép thống kê áp dụng như nhau cho cả hai.</p>
+       <p class="cap">Khi khai báo biến trong <code>Variable View</code>, cột <code>Measure</code> chỉ cho chọn 1 trong 3 nhãn này — không có lựa chọn "Interval" hay "Ratio" riêng.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>4 thang đo không chỉ có trong giáo dục</h2>
+       <table><tr><th>Ngành</th><th>Định danh</th><th>Thứ bậc</th><th>Khoảng</th><th>Tỉ lệ</th></tr>
+       <tr><td>Giáo dục</td><td>Loại trường</td><td>Xếp hạng học lực</td><td>Điểm IQ</td><td>Giờ tự học</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Nhóm máu</td><td>Mức độ đau (1-10)</td><td>Nhiệt độ cơ thể °C</td><td>Huyết áp (mmHg)</td></tr>
+       <tr><td>Kinh doanh (minh hoạ)</td><td>Ngành hàng</td><td>Hạng thành viên (Đồng/Bạc/Vàng)</td><td>Năm thành lập công ty</td><td>Doanh thu (triệu đồng)</td></tr></table>
+       <p class="cap">Nhóm máu (A/B/O/AB) chỉ là nhãn — không có thứ tự hơn-kém, giống "loại trường".</p></div><div class="mdeck-slide"><div class="kicker">Một cách phân loại khác</div><h2>Biến rời rạc & biến liên tục</h2>
+       <p>Rời rạc: chỉ nhận một số giá trị cụ thể, đếm được, không có giá trị "ở giữa" 2 mức. Liên tục: có thể nhận bất kỳ giá trị nào trong một khoảng.</p>
+       <table><tr><th>Ngành</th><th>Rời rạc</th><th>Liên tục</th></tr>
+       <tr><td>Giáo dục (dữ liệu thật, n=240)</td><td>Mức hứng thú h1: 1-5, chỉ 5 giá trị nguyên</td><td>Giờ tự học/tuần: 0,8 → 11,3 giờ, mọi số thập phân</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Số con đã sinh (0, 1, 2…)</td><td>Cân nặng sơ sinh (kg, có số thập phân)</td></tr>
+       <tr><td>Nông nghiệp (minh hoạ)</td><td>Số cây/luống (đếm nguyên)</td><td>Năng suất (tấn/ha, số thập phân)</td></tr></table>
+       <p class="cap">Dữ liệu thật: mức hứng thú h1 trong 240 học sinh chỉ nhận 5 giá trị (1→25 em, 2→52 em, 3→97 em, 4→53 em, 5→13 em) — không có "2,5".</p></div><div class="mdeck-slide"><div class="kicker">📜 Nguồn gốc lịch sử</div><h2>Khung 4 thang đo đến từ đâu?</h2>
+       <ul><li><b>1946</b> — nhà tâm lý học S. S. Stevens công bố khung này trên tạp chí <i>Science</i>, bài "On the Theory of Scales of Measurement".</li>
+       <li>Stevens làm việc trong tâm lý vật lý học (đo cảm giác về âm lượng, độ sáng) — cần một ngôn ngữ rõ ràng để nói "phép tính nào được phép dùng với con số này".</li>
+       <li>70 năm sau, khung này vẫn là nền tảng của hầu hết giáo trình thống kê xã hội học/giáo dục, kể cả Cohen et al.</li>
+       <li>Nhưng KHÔNG phải chân lý tuyệt đối — Wright (2003) lưu ý thang đo của một biến đôi khi do nhà nghiên cứu "gán cho nó", không phải đặc tính cố hữu.</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
        <h2>Tham số & phi tham số</h2>
-       <ul class="part-list"><li>Quy tắc thực hành nhanh để chọn đúng nhánh kiểm định</li></ul></div><div class="mdeck-slide"><div class="kicker">Quy tắc thực hành nhanh</div><h2>Thang đo ở Phần 1 quyết định nhánh kiểm định nào</h2>
-       <div class="two-col"><div><p><b>Phi tham số</b></p><ul><li>Định danh, thứ bậc</li><li>Không giả định phân phối tổng thể</li></ul></div>
-       <div><p><b>Tham số</b></p><ul><li>Khoảng, tỉ lệ</li><li>Giả định phân phối chuẩn</li></ul></div></div>
-       <p>Áp kiểm định tham số lên dữ liệu phi tham số thường <b>sai</b>; chiều ngược lại thì được phép, chỉ kém mạnh hơn.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
+       <ul class="part-list"><li>Quy tắc thực hành nhanh để chọn đúng nhánh kiểm định</li><li>Ví dụ đa ngành</li><li>Hậu quả khi áp sai nhánh</li><li>Tranh cãi thang Likert "gần khoảng"</li></ul></div><div class="mdeck-slide"><div class="kicker">Quy tắc thực hành nhanh</div><h2>Thang đo ở Phần 1 quyết định nhánh kiểm định nào</h2>
+       <p class="cap">🗣️ Nói nôm na: tham số giống "cân đồng hồ có vạch chia đều" — biết chắc khoảng cách giữa các mức; phi tham số giống "xếp hạng cuộc thi" — chỉ biết ai hơn ai, không biết hơn bao nhiêu.</p>
+       <div class="two-col"><div><p><b>Phi tham số</b></p><ul><li>Định danh, thứ bậc</li><li>Không giả định phân phối tổng thể</li><li>Kém mạnh hơn nhưng an toàn hơn</li></ul></div>
+       <div><p><b>Tham số</b></p><ul><li>Khoảng, tỉ lệ</li><li>Giả định phân phối chuẩn</li><li>Mạnh hơn khi giả định đúng</li></ul></div></div>
+       <p>Áp kiểm định tham số lên dữ liệu phi tham số thường <b>sai</b>; chiều ngược lại thì được phép, chỉ kém mạnh hơn.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Tham số & phi tham số trong 3 ngành</h2>
+       <table><tr><th>Ngành</th><th>Biến tham số</th><th>Biến phi tham số</th></tr>
+       <tr><td>Giáo dục (thật)</td><td>Điểm Toán (0-100, tỉ lệ)</td><td>Mức hứng thú h1 (Likert 1-5, thứ bậc)</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Huyết áp tâm thu (mmHg, tỉ lệ)</td><td>Mức đau tự báo cáo (thang 1-10, thứ bậc)</td></tr>
+       <tr><td>Kinh doanh (minh hoạ)</td><td>Doanh thu tháng (triệu đồng, tỉ lệ)</td><td>Số sao đánh giá sản phẩm (1-5 sao, thứ bậc)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">⚠️ Hậu quả thực tế</div><h2 class="warn">Áp sai nhánh không chỉ là "lỗi kỹ thuật"</h2>
+       <p>Tính trung bình/SD trực tiếp trên MỘT câu Likert đơn lẻ (vd chỉ riêng câu h1) ngầm giả định khoảng cách "1→2" bằng đúng khoảng cách "4→5" — giả định này KHÔNG được chứng minh.</p>
+       <p class="warn">Hệ quả: kết luận "chênh lệch trung bình có ý nghĩa" có thể chỉ phản ánh cách tính toán, không phản ánh khác biệt thật. Khi nghi ngờ thang đo, chuyển sang kiểm định phi tham số thay thế (Module 07: Mann-Whitney thay t-test, Kruskal-Wallis thay ANOVA).</p></div><div class="mdeck-slide"><div class="kicker">Tranh cãi chưa có hồi kết</div><h2>Thang Likert: thứ bậc hay "gần khoảng"?</h2>
+       <p><b>Phe ủng hộ tham số:</b> khi GỘP nhiều câu Likert thành điểm tổng (vd thang "hứng thú" gồm h1+h2+h3), điểm tổng đủ gần phân phối liên tục để dùng mean/SD an toàn.</p>
+       <p><b>Phe giữ nguyên lập trường Cohen et al.:</b> một câu Likert ĐƠN LẺ vẫn là thứ bậc, nên ưu tiên trung vị/phi tham số.</p>
+       <p class="cap">Không có đáp án đúng-sai tuyệt đối — phải nêu rõ lựa chọn + lý do khi viết phương pháp luận.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>Mô tả & suy luận</h2>
-       <ul class="part-list"><li>Hai mục tiêu rất khác nhau của thống kê</li></ul></div><div class="mdeck-slide"><div class="kicker">Hai mục tiêu khác nhau</div><h2>Mô tả tóm tắt mẫu, suy luận nói về tổng thể</h2>
-       <div class="two-col"><div><p><b>Mô tả</b></p><ul><li>Chỉ tóm tắt dữ liệu đã có</li><li>Mode, mean, median, SD, skewness…</li></ul></div>
-       <div><p><b>Suy luận</b></p><ul><li>Suy ra tổng thể từ mẫu</li><li>t-test, ANOVA, hồi quy, hypothesis testing…</li></ul></div></div></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
+       <ul class="part-list"><li>Hai mục tiêu rất khác nhau của thống kê</li><li>Ví dụ bằng số liệu thật 240 học sinh</li><li>Danh sách đầy đủ kỹ thuật mỗi nhóm</li></ul></div><div class="mdeck-slide"><div class="kicker">Hai mục tiêu khác nhau</div><h2>Mô tả tóm tắt mẫu, suy luận nói về tổng thể</h2>
+       <p class="cap">🗣️ Nói nôm na: mô tả là "tả lại bức ảnh đã chụp"; suy luận là "đoán xem cả cuốn phim sẽ ra sao" chỉ từ vài tấm ảnh.</p>
+       <div class="two-col"><div><p><b>Mô tả</b></p><ul><li>Chỉ tóm tắt dữ liệu đã có</li><li>Mode, mean, median, SD</li><li>Không suy ra điều gì ngoài mẫu</li><li>Luôn đúng 100% với CHÍNH mẫu đó</li></ul></div>
+       <div><p><b>Suy luận</b></p><ul><li>Suy ra tổng thể từ mẫu</li><li>t-test, ANOVA, hồi quy</li><li>Luôn có xác suất sai (p-value)</li><li>Cần điều kiện mẫu đại diện</li></ul></div></div></div><div class="mdeck-slide"><div class="kicker">Ví dụ số liệu thật</div><h2>240 học sinh: mô tả trước, suy luận sau</h2>
+       <p><b>Mô tả (đã verify Python+PSPP):</b> điểm Toán trung bình = 47,91, trung vị = 47,70, SD = 9,68 (n=240, min=25,9, max=71,5).</p>
+       <p><b>Suy luận (câu hỏi mở, trả lời ở Module 05-06):</b> điểm trung bình nhóm "Dự án" (49,47) cao hơn nhóm "Truyền thống" (46,48) — khác biệt này có ý nghĩa thống kê hay chỉ do ngẫu nhiên của mẫu?</p>
+       <p class="cap">Slide này CHỈ mô tả — chưa trả lời được câu hỏi suy luận, vì cần kiểm định t-test (Module 05) mới kết luận được.</p></div><div class="mdeck-slide"><div class="kicker">Bảng tra cứu</div><h2>Danh sách đầy đủ: mô tả vs suy luận</h2>
+       <table><tr><th>Mô tả</th><th>Suy luận</th></tr>
+       <tr><td>Tần số, phần trăm</td><td>Kiểm định giả thuyết</td></tr>
+       <tr><td>Mode, mean, median, range</td><td>Hồi quy (đơn/đa biến)</td></tr>
+       <tr><td>Phương sai, độ lệch chuẩn</td><td>t-test, ANOVA</td></tr>
+       <tr><td>Skewness, kurtosis</td><td>Phân tích nhân tố, SEM</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
        <div class="part-num">04</div>
        <h2>Nhân quả & biến số</h2>
-       <ul class="part-list"><li>Biến độc lập/phụ thuộc là gì</li><li>6 lời giải thích khác cho một tương quan có vẻ nhân quả</li><li>Vì sao tương quan ≠ nhân quả</li></ul></div><div class="mdeck-slide"><div class="kicker">Biến độc lập & phụ thuộc</div><h2>Ai là "nguyên nhân", ai là "kết quả"?</h2>
+       <ul class="part-list"><li>Biến độc lập/phụ thuộc là gì</li><li>Ví dụ đa ngành</li><li>6 lời giải thích khác cho một tương quan có vẻ nhân quả</li><li>Đảo chiều nhân quả đa ngành</li><li>Vì sao tương quan ≠ nhân quả</li></ul></div><div class="mdeck-slide"><div class="kicker">Biến độc lập & phụ thuộc</div><h2>Ai là "nguyên nhân", ai là "kết quả"?</h2>
+       <p class="cap">🗣️ Nói nôm na: biến độc lập là "cái bạn vặn núm điều chỉnh"; biến phụ thuộc là "cái kim đồng hồ nhảy theo".</p>
        <p><b>Độc lập:</b> biến người nghiên cứu điều khiển/thao túng.</p>
        <p><b>Phụ thuộc:</b> biến có giá trị phụ thuộc (một phần) vào biến độc lập.</p>
-       <p class="cap">Ví dụ: giờ bài tập (độc lập) → điểm Toán (phụ thuộc)?</p></div><div class="mdeck-slide"><div class="kicker">Câu hỏi phản biện</div><h2>6 lời giải thích khác cho "bài tập→điểm cao"</h2>
-       <ul><li>Áp lực bài kiểm tra làm tập trung hơn (biến ngoại lai khác)</li>
-       <li>Thích môn học/thích GV → tự giác học (biến gây nhiễu)</li>
-       <li>Ngủ ngon đêm trước → tỉnh táo (biến can thiệp)</li>
-       <li>Điểm kỳ vọng ảnh hưởng ngược lại lượng bài tập (đảo chiều nhân quả)</li></ul></div><div class="mdeck-slide"><div class="kicker">Ghi nhớ quan trọng</div><h2 class="warn">Tương quan có ý nghĩa thống kê ≠ Nhân quả</h2>
-       <p>Hầu hết dữ liệu bạn phân tích bằng SPSS/PSPP là dữ liệu <b>quan sát</b> — không phải thí nghiệm ngẫu nhiên hoá.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <p class="cap">Ví dụ: giờ bài tập (độc lập) → điểm Toán (phụ thuộc)?</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Biến độc lập/phụ thuộc không chỉ có trong giáo dục</h2>
+       <table><tr><th>Ngành</th><th>Biến độc lập</th><th>Biến phụ thuộc</th></tr>
+       <tr><td>Giáo dục (thật)</td><td>Phương pháp dạy (Dự án/Truyền thống)</td><td>Điểm Toán</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Liều thuốc hạ áp (mg)</td><td>Huyết áp tâm thu</td></tr>
+       <tr><td>Nông nghiệp (minh hoạ)</td><td>Lượng phân bón (kg/ha)</td><td>Năng suất lúa (tấn/ha)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Câu hỏi phản biện</div><h2>6 lời giải thích khác cho "bài tập→điểm cao"</h2>
+       <table><tr><th>#</th><th>Cơ chế</th><th>Tên gọi</th></tr>
+       <tr><td>1</td><td>Áp lực bài kiểm tra làm tập trung hơn</td><td>Biến ngoại lai khác</td></tr>
+       <tr><td>2</td><td>Thích môn học/GV → tự giác học</td><td>Biến gây nhiễu</td></tr>
+       <tr><td>3</td><td>Ngủ ngon đêm trước → tỉnh táo</td><td>Biến can thiệp</td></tr>
+       <tr><td>4</td><td>Điểm kỳ vọng ảnh hưởng ngược lại lượng bài tập</td><td>Đảo chiều nhân quả</td></tr>
+       <tr><td>5</td><td>Quan hệ đa hướng, giống mạng lưới</td><td>Quan hệ phi tuyến/mạng</td></tr>
+       <tr><td>6</td><td>Đe doạ bị phạt nếu điểm kém</td><td>Tác động đồng thời</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Đảo chiều nhân quả</div><h2>Ví dụ đa ngành: A→B hay B→A?</h2>
+       <p><b>Giáo dục:</b> "Trường có nhiều máy tính → điểm cao hơn" — hay thực ra trường GIÀU vừa mua được nhiều máy tính, vừa dạy tốt hơn?</p>
+       <p><b>Y tế (minh hoạ, đã dùng ở từ điển thuật ngữ):</b> "Tỷ lệ tiêm vắc-xin cao → tỷ lệ mắc bệnh giảm" — đúng chiều, nhưng dễ đọc nhầm nếu không kiểm soát thời gian (bệnh đã giảm trước khi vắc-xin phổ biến ở một số vùng).</p>
+       <p class="cap">Xem đầy đủ công thức kiểm tra đảo chiều nhân quả tại mục tra cứu thuật ngữ của site.</p></div><div class="mdeck-slide"><div class="kicker">Ghi nhớ quan trọng</div><h2 class="warn">Tương quan có ý nghĩa thống kê ≠ Nhân quả</h2>
+       <p>Hầu hết dữ liệu bạn phân tích bằng SPSS/PSPP là dữ liệu <b>quan sát</b> — không phải thí nghiệm ngẫu nhiên hoá.</p>
+       <p class="cap">p&lt;0,05 hay r cao chỉ cho biết CÓ liên hệ — không tự động chứng minh chiều nhân quả.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
        <div class="part-num">05</div>
        <h2>Áp dụng thực tế</h2>
-       <ul class="part-list"><li>Module này nằm ở đâu trong quy trình nghiên cứu</li><li>Áp dụng 4 thang đo lên dữ liệu PISA thật</li><li>Bước tiếp theo sau slide</li></ul></div><div class="mdeck-slide"><div class="kicker">Bối cảnh chung</div><h2>Pipeline nghiên cứu định lượng</h2>
+       <ul class="part-list"><li>Module này nằm ở đâu trong quy trình nghiên cứu</li><li>Áp dụng 4 thang đo lên dữ liệu PISA thật</li><li>Ráp lại toàn bộ 4 khái niệm trên 1 bộ dữ liệu</li><li>Bước tiếp theo sau slide</li></ul></div><div class="mdeck-slide"><div class="kicker">Bối cảnh chung</div><h2>Pipeline nghiên cứu định lượng</h2>
        <img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/>
        <p class="cap">Module này = bước 1 (xác định biến/giả thuyết), chuẩn bị nền cho bước 4–5.</p></div><div class="mdeck-slide"><div class="kicker">Áp dụng dữ liệu thật</div><h2>195 trường PISA 2025 Việt Nam</h2>
        <table><tr><th>Biến</th><th>Thang đo</th></tr>
        <tr><td>REGION (vùng)</td><td>Định danh</td></tr>
        <tr><td>SCHSIZE_Q (tứ phân vị quốc tế)</td><td>Thứ bậc</td></tr>
        <tr><td>EDULEAD (chỉ số WLE)</td><td>Khoảng</td></tr>
-       <tr><td>W_NRASCHBWT (trọng số)</td><td>Tỉ lệ</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <tr><td>W_NRASCHBWT (trọng số)</td><td>Tỉ lệ</td></tr></table>
+       <p class="cap">Đã verify Python: trọng số dao động 1,0 → 617,2, tức trường cao nhất đại diện gấp ≈617 lần trường thấp nhất — chỉ có ý nghĩa vì đây là thang TỈ LỆ (Module 02 dùng số này để giải thích vì sao phải áp trọng số).</p></div><div class="mdeck-slide"><div class="kicker">Ráp lại toàn bộ</div><h2>4 khái niệm module này trên CÙNG 1 bộ dữ liệu</h2>
+       <p>Dữ liệu lớp học (240 HS): <b>phương pháp dạy</b> = định danh; <b>điểm Toán</b> = tỉ lệ (Phần 1). Trung bình điểm Toán = 47,91, SD = 9,68 — đây là <b>mô tả</b> (Phần 3).</p>
+       <p>Nhóm "Dự án" (n=115) trung bình 49,47 điểm; nhóm "Truyền thống" (n=125) trung bình 46,48 điểm — câu hỏi <b>suy luận</b>: khác biệt có ý nghĩa thống kê không? Và nếu có, phương pháp dạy có thực sự là NGUYÊN NHÂN hay còn biến gây nhiễu nào khác (Phần 4)? Module 05 sẽ trả lời bằng t-test.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
        <p>Slide chỉ là bản tóm tắt. Phần nội dung chi tiết + ví dụ số liệu thật + thực hành SPSS nằm ngay bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>

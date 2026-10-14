@@ -17,48 +17,119 @@
 <p class="lead">Module 3/12 · Nội dung bám theo Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, ấn bản 8 (Routledge, 2018), chương 40 "Descriptive statistics", mục 40.1–40.4 (tr.753–765).</p>
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 03 · COHEN ET AL., CH.40</div>
        <h2>Thống kê mô tả</h2>
-       <p>Dữ liệu thiếu, tần số, bảng chéo, xu hướng trung tâm & phân tán.</p>
-       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div>
+       <p>Dữ liệu thiếu, tần số, bảng chéo, xu hướng trung tâm & phân tán, hình dạng phân phối (skewness/kurtosis).</p>
+       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/5</div>
        <div class="part-num">01</div>
        <h2>Dữ liệu thiếu</h2>
-       <ul class="part-list"><li>Ba kiểu thiếu dữ liệu, không phải kiểu nào cũng vô hại</li><li>Listwise vs Pairwise: hai cách xoá, hai cái giá khác nhau</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Dữ liệu thiếu</div><h2>Ba kiểu thiếu — không phải kiểu nào cũng "vô hại"</h2>
-       <table><tr><th>Kiểu</th><th>Đặc điểm</th></tr>
-       <tr><td><b>MCAR</b></td><td>Hoàn toàn ngẫu nhiên</td></tr>
-       <tr><td><b>MAR</b></td><td>Có khuôn mẫu, không liên quan biến chính</td></tr>
-       <tr><td><b>MNAR</b></td><td>Khuôn mẫu gắn liền chính giá trị thật</td></tr></table>
-       <p class="cap">Dữ liệu lớp học: biến h2 thiếu 3/240 ca (1,25%).</p></div><div class="mdeck-slide"><div class="kicker">Listwise vs Pairwise</div><h2>Hai cách xoá dữ liệu thiếu, hai cái giá khác nhau</h2>
-       <p><b>Listwise:</b> loại cả trường hợp nếu thiếu BẤT KỲ biến nào.</p>
-       <p><b>Pairwise:</b> chỉ loại khi biến ĐANG tính bị thiếu.</p>
-       <p class="warn">Listwise giảm cỡ mẫu mạnh hơn — chỉ 1 ô thiếu là mất cả 1 người.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
+       <ul class="part-list"><li>Ba kiểu thiếu dữ liệu, không phải kiểu nào cũng vô hại</li><li>Listwise vs Pairwise: hai cách xoá, hai cái giá khác nhau</li><li>Lựa chọn thứ ba: ước lượng thay thế (imputation)</li><li>Ví dụ 3 ngành ngoài giáo dục</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Dữ liệu thiếu</div><h2>Ba kiểu thiếu — không phải kiểu nào cũng "vô hại"</h2>
+       <table><tr><th>Kiểu</th><th>Đặc điểm</th><th>Mức độ nguy hiểm</th></tr>
+       <tr><td><b>MCAR</b></td><td>Hoàn toàn ngẫu nhiên, không khuôn mẫu</td><td>Thấp — an toàn nhất</td></tr>
+       <tr><td><b>MAR</b></td><td>Có khuôn mẫu, nhưng không liên quan trực tiếp giá trị đang xét</td><td>Vừa — cần kiểm tra</td></tr>
+       <tr><td><b>MNAR</b></td><td>Khuôn mẫu gắn liền chính giá trị thật</td><td class="warn">Cao — dễ gây sai lệch kết luận</td></tr></table>
+       <p class="cap">🗣️ Nói nôm na: MCAR giống "rớt ngẫu nhiên vài trang trong lúc photo"; MNAR giống "người giấu thu nhập thật vì thu nhập thấp" — chính lý do giấu lại là cái bạn muốn đo.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật</div><h2>Biến h2 thiếu 3/240 ca (1,25%)</h2>
+       <p>Không thấy khuôn mẫu rõ ràng ở 3 ca thiếu này (không tập trung vào 1 trường/1 giới tính cụ thể) → hợp lý xếp vào <b>MCAR</b> hoặc MAR nhẹ, không phải MNAR.</p>
+       <p class="cap">Vì tỉ lệ rất nhỏ (1,25%), ảnh hưởng tới kết quả cuối gần như không đáng kể dù chọn listwise hay pairwise.</p></div><div class="mdeck-slide"><div class="kicker">Listwise vs Pairwise</div><h2>Hai cách xoá dữ liệu thiếu, hai cái giá khác nhau</h2>
+       <p><b>Listwise:</b> loại cả trường hợp (cả dòng) nếu thiếu BẤT KỲ biến nào được đưa vào phân tích — kể cả biến không phải trọng tâm câu hỏi.</p>
+       <p><b>Pairwise:</b> chỉ loại khi biến ĐANG tính bị thiếu — các phép tính khác trên cùng file giữ nguyên N.</p>
+       <p class="warn">Ví dụ: 1 học sinh thiếu riêng biến h2 → listwise loại học sinh đó khỏi MỌI phân tích trong lần chạy, kể cả phân tích không dùng h2.</p></div><div class="mdeck-slide"><div class="kicker">Lựa chọn thứ ba</div><h2>Ước lượng thay thế (imputation) — không chỉ có xoá</h2>
+       <p>Thay vì xoá, điền giá trị hợp lý vào ô thiếu (vd trung bình của biến đó, hoặc dự đoán từ các biến khác).</p>
+       <p class="warn">Cái giá: làm giảm biến thiên THẬT của dữ liệu (SD tính ra nhỏ hơn thực tế) và có thể bóp méo hệ số tương quan giữa biến đã điền với biến khác.</p>
+       <p class="cap">Quy tắc chọn: tỉ lệ thiếu rất nhỏ (như h2, 1,25%) → xoá đơn giản hơn và an toàn hơn; tỉ lệ thiếu lớn (&gt;10%) mới cân nhắc imputation.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Ba kiểu thiếu dữ liệu ở 3 lĩnh vực khác nhau</h2>
+       <table><tr><th>Ngành</th><th>Tình huống</th><th>Kiểu thiếu</th></tr>
+       <tr><td>Giáo dục (thật, site này)</td><td>3/240 học sinh thiếu điểm hứng thú h2, không theo khuôn mẫu rõ</td><td>MCAR</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Bệnh nhân bỏ dở điều trị vì tác dụng phụ NẶNG — chính mức độ nặng là lý do bỏ</td><td>MNAR</td></tr>
+       <tr><td>Kinh tế/khảo sát (minh hoạ)</td><td>Hộ thu nhập thấp có xu hướng từ chối trả lời câu hỏi thu nhập</td><td>MNAR</td></tr></table>
+       <p class="cap">Hai ví dụ y tế/kinh tế đều là MNAR — nguy hiểm nhất vì chính giá trị thật quyết định có bị thiếu hay không, dễ làm kết luận cuối lệch về phía "nhẹ hơn thực tế".</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
-       <h2>Bảng chéo</h2>
-       <ul class="part-list"><li>Bẫy cỡ nhóm lệch khi đọc số đếm thô</li><li>Ví dụ thật: Giới × Phương pháp học</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Bảng chéo</div><h2>Bẫy: cỡ nhóm lệch làm số đếm thô gây hiểu lầm</h2>
+       <h2>Tần số & bảng chéo</h2>
+       <ul class="part-list"><li>Bẫy cỡ nhóm lệch khi đọc số đếm thô</li><li>Hai ví dụ thật: Giới × Phương pháp, Trường × Phương pháp</li><li>Chọn đúng loại biểu đồ theo thang đo</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Bảng chéo</div><h2>Bẫy: cỡ nhóm lệch làm số đếm thô gây hiểu lầm</h2>
        <img src="../../../assets/diagrams/boxplot_math_school.png" alt="boxplot"/>
-       <p class="cap">Luôn so sánh bằng % theo HÀNG khi hai nhóm cỡ khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật</div><h2>Giới × Phương pháp học (240 HS)</h2>
-       <table><tr><th></th><th>Dự án</th><th>Truyền thống</th></tr>
-       <tr><td>Nam (n=121)</td><td>52,1%</td><td>47,9%</td></tr>
-       <tr><td>Nữ (n=119)</td><td>43,7%</td><td>56,3%</td></tr></table>
-       <p class="cap">63&gt;52 (số thô) dễ hiểu nhầm — nhưng % hàng chỉ chênh ~8 điểm.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <p class="cap">Luôn so sánh bằng % theo HÀNG khi hai nhóm cỡ khác nhau — % toàn bảng dễ bị nhóm lớn hơn áp đảo.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật #1</div><h2>Giới × Phương pháp học (240 HS)</h2>
+       <table><tr><th></th><th>Dự án</th><th>Truyền thống</th><th>Tổng</th></tr>
+       <tr><td>Nam (n=121)</td><td>63 (52,1%)</td><td>58 (47,9%)</td><td>121</td></tr>
+       <tr><td>Nữ (n=119)</td><td>52 (43,7%)</td><td>67 (56,3%)</td><td>119</td></tr></table>
+       <p class="cap">Phép tính % hàng Nam: 63/121 = 0,521 → 52,1%. 63&gt;52 (số thô) dễ hiểu nhầm — nhưng % hàng chỉ chênh ~8 điểm.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật #2</div><h2>Trường × Phương pháp — 3 trường, kết quả khác hẳn nhau</h2>
+       <table><tr><th>Trường</th><th>Dự án</th><th>Truyền thống</th><th>% chọn Dự án</th></tr>
+       <tr><td>A (n=80)</td><td>44</td><td>36</td><td><b>55,0%</b></td></tr>
+       <tr><td>B (n=99)</td><td>46</td><td>53</td><td>46,5%</td></tr>
+       <tr><td>C (n=61)</td><td>25</td><td>36</td><td>41,0%</td></tr></table>
+       <p class="warn">Trường A có tỉ lệ chọn Dự án CAO hơn hẳn trường C (55,0% so với 41,0%) dù chênh lệch cỡ mẫu (80 so với 61) — một bảng chéo khác, một câu chuyện khác, không thể gộp chung kết luận.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Bảng chéo ở 2 lĩnh vực khác giáo dục</h2>
+       <table><tr><th>Ngành</th><th>Biến hàng × cột</th><th>Bẫy cần tránh</th></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Giới tính × Có tái khám đúng hẹn</td><td>Nhóm bệnh nhân nữ đông hơn → số đếm thô cao hơn dù TỈ LỆ tái khám có thể thấp hơn nam</td></tr>
+       <tr><td>Kinh tế/vùng miền (minh hoạ)</td><td>Khu vực (thành thị/nông thôn) × Hộ cận nghèo</td><td>Thành thị đông dân hơn → số hộ cận nghèo đếm thô cao hơn dù TỈ LỆ cận nghèo nông thôn mới là cao hơn</td></tr></table>
+       <p class="cap">Cùng một bài học ở cả 3 ngành: số đếm thô phản ánh QUY MÔ nhóm, % hàng mới phản ánh XU HƯỚNG thật bên trong từng nhóm.</p></div><div class="mdeck-slide"><div class="kicker">Chọn đúng biểu đồ</div><h2>Loại biểu đồ phải khớp đúng thang đo của biến</h2>
+       <ul><li><b>Bar chart (biểu đồ cột rời):</b> dữ liệu định danh/thứ bậc (vd trường A/B/C, giới tính) — các cột KHÔNG liền nhau vì không có thứ tự liên tục.</li>
+       <li><b>Histogram:</b> dữ liệu khoảng/tỉ lệ liên tục (vd điểm Toán) — cột liền nhau, thể hiện phân phối tần số.</li>
+       <li><b>Boxplot:</b> cho thấy CẢ trung tâm lẫn phân tán cùng lúc, so sánh được nhiều nhóm song song (vd điểm Toán theo 3 trường).</li>
+       <li><b>Scatterplot:</b> KHÔNG dùng ở module này — dành cho 2 biến liên tục muốn xem quan hệ (Module 08).</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>Xu hướng trung tâm & độ phân tán</h2>
-       <ul class="part-list"><li>Mode · Median · Mean — dùng khi nào</li><li>3 tập số cùng mean nhưng SD khác hẳn</li><li>SD · Range · IQR</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Xu hướng trung tâm</div><h2>Mode · Median · Mean — dùng khi nào?</h2>
+       <ul class="part-list"><li>Mode · Median · Mean — dùng khi nào, công thức, ví dụ tính tay</li><li>3 tập số cùng mean nhưng SD khác hẳn</li><li>SD · Range · IQR — công thức, ví dụ tính tay</li><li>Ví dụ đa ngành</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Xu hướng trung tâm</div><h2>Mode · Median · Mean — dùng khi nào?</h2>
        <table><tr><th>Đo</th><th>Thang đo</th><th>Bền ngoại lai?</th></tr>
-       <tr><td>Mode</td><td>Mọi thang</td><td>Có</td></tr>
+       <tr><td>Mode</td><td>Mọi thang, đặc biệt định danh</td><td>Có</td></tr>
        <tr><td>Median</td><td>Thứ bậc+</td><td>Có</td></tr>
-       <tr><td>Mean</td><td>Khoảng, tỉ lệ</td><td class="warn">Không</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Độ phân tán</div><h2>3 tập số CÙNG mean=6, SD khác hẳn nhau</h2>
+       <tr><td>Mean</td><td>Khoảng, tỉ lệ</td><td class="warn">Không</td></tr></table>
+       <p class="cap">🗣️ Nói nôm na: Mode là "số đông chọn gì", Median là "người đứng chính giữa hàng", Mean là "chia đều cho tất cả" — mean dễ bị 1 người cực đoan kéo lệch, 2 cái kia thì không.</p></div><div class="mdeck-slide"><div class="kicker">Công thức trung bình</div><h2>Trung bình mẫu — tính tay từng bước</h2>
+       <div class="pd-formula"><div class="pd-formula-label">Trung bình mẫu (sample mean)</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
+       <ul class="pd-legend"><li><b>x̄</b><span>trung bình mẫu</span></li><li><b>Σxᵢ</b><span>tổng tất cả giá trị quan sát</span></li><li><b>n</b><span>số quan sát trong mẫu</span></li></ul>
+       <p class="cap">Ví dụ 3 điểm Toán {6, 7, 8}: x̄ = (6+7+8)/3 = 21/3 = <b>7</b>.</p></div><div class="mdeck-slide"><div class="kicker">Công thức phân tán</div><h2>Phương sai & độ lệch chuẩn — tính tay từng bước</h2>
+       <div class="pd-formula"><div class="pd-formula-label">Phương sai & độ lệch chuẩn mẫu</div><div class="pd-formula-math">s² = Σ(xᵢ − x̄)² / (n − 1) &nbsp;&nbsp;·&nbsp;&nbsp; s = √s²</div></div>
+       <ul class="pd-legend"><li><b>(xᵢ − x̄)</b><span>độ lệch từng quan sát so với trung bình</span></li><li><b>n − 1</b><span>bậc tự do — chia n−1 để ước lượng không chệch (hiệu chỉnh Bessel)</span></li><li><b>s</b><span>độ lệch chuẩn — cùng đơn vị với dữ liệu gốc, dễ diễn giải hơn s²</span></li></ul>
+       <p class="cap">Tiếp ví dụ {6,7,8}: độ lệch −1,0,1 → bình phương 1,0,1 → tổng=2 → s²=2/(3−1)=1 → s=√1=<b>1</b>.</p></div><div class="mdeck-slide"><div class="kicker">Độ phân tán — ví dụ thật</div><h2>3 tập số CÙNG mean=6, SD khác hẳn nhau</h2>
        <img src="../../../assets/diagrams/dispersion_3sets.png" alt="dispersion"/>
-       <p class="cap">SD tập có ngoại lai gấp 11 lần SD tập tụ quanh trung bình.</p></div><div class="mdeck-slide"><div class="kicker">Ba đo phân tán</div><h2>SD · Range · IQR</h2>
-       <p><b>SD:</b> khoảng cách trung bình mỗi điểm tới mean.</p>
-       <p><b>Range:</b> max−min — rất nhạy ngoại lai.</p>
-       <p><b>IQR:</b> Q3−Q1 — bền hơn range.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
+       <table><tr><th>Tập</th><th>Giá trị</th><th>SD</th></tr>
+       <tr><td>1 (có ngoại lai)</td><td>1,2,3,4,20</td><td class="warn">7,91</td></tr>
+       <tr><td>2</td><td>4,5,6,6,9</td><td>1,87</td></tr>
+       <tr><td>3 (tập trung)</td><td>5,6,6,6,7</td><td>0,71</td></tr></table>
+       <p class="cap">7,91 / 0,71 ≈ 11,2 lần — SD tập có ngoại lai gấp hơn 11 lần SD tập tụ quanh trung bình, dù CÙNG mean=6.</p></div><div class="mdeck-slide"><div class="kicker">SD · Range · IQR</div><h2>Ba đo phân tán, ba mức độ bền với ngoại lai</h2>
+       <p><b>SD:</b> khoảng cách trung bình mỗi điểm tới mean — dùng MỌI điểm dữ liệu.</p>
+       <p><b>Range:</b> max−min — chỉ dùng 2 điểm cực trị, rất nhạy ngoại lai.</p>
+       <p><b>IQR:</b> Q3−Q1 — chỉ nhìn 50% dữ liệu giữa, bền hơn range hẳn.</p>
+       <p class="cap">Ví dụ thật — pretest (n=240): Q1=52,18, Q3=68,12 → IQR = 68,12−52,18 = <b>15,94</b>.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Diễn giải SD ở 3 lĩnh vực khác nhau</h2>
+       <table><tr><th>Ngành</th><th>Biến đo</th><th>SD lớn nghĩa là gì</th></tr>
+       <tr><td>Giáo dục (thật)</td><td>Điểm Toán (SD=9,68/100)</td><td>Học sinh có năng lực khá đồng đều quanh TB=47,9</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Huyết áp tâm thu một nhóm bệnh nhân</td><td>SD lớn → bệnh nhân rất khác nhau, phác đồ chung khó áp dụng đều</td></tr>
+       <tr><td>Kinh tế (minh hoạ)</td><td>Thu nhập hộ gia đình một khu vực</td><td>SD lớn → chênh lệch giàu-nghèo rõ rệt trong cùng khu vực</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/5</div>
        <div class="part-num">04</div>
+       <h2>Hình dạng phân phối</h2>
+       <ul class="part-list"><li>Skewness (độ lệch) — công thức, cách đọc dấu</li><li>Kurtosis (độ nhọn) — cách đọc dấu</li><li>Ví dụ thật: một ngoại lai làm skew/kurtosis "nổ tung"</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Skewness</div><h2>Độ lệch (skewness) — đuôi dài nằm về phía nào?</h2>
+       <p>🗣️ Nói nôm na: tưởng tượng phân phối như một quả chuông bị kéo lệch — đuôi dài hướng về phía nào thì skew mang dấu đó.</p>
+       <table><tr><th>Dấu skewness</th><th>Hình dạng</th><th>Quan hệ Mean vs Median</th></tr>
+       <tr><td>Dương (+)</td><td>Lệch phải, đuôi dài về giá trị LỚN</td><td>Mean &gt; Median</td></tr>
+       <tr><td>≈ 0</td><td>Gần đối xứng</td><td>Mean ≈ Median</td></tr>
+       <tr><td>Âm (−)</td><td>Lệch trái, đuôi dài về giá trị NHỎ</td><td>Mean &lt; Median</td></tr></table>
+       <p class="cap">Ví dụ thật: pretest có mean=60,35 &lt; median=60,95 → khớp đúng skewness đo được = −0,097 (lệch âm rất nhẹ).</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ thật — ngoại lai</div><h2>study_hours: skewness=7,42 — dấu hiệu lỗi nhập liệu</h2>
+       <img src="../../../assets/diagrams/skew_real.png" alt="skew"/>
+       <p class="warn">Một học sinh có study_hours=48 (48 giờ/ngày — KHÔNG thể có thật, 1 ngày chỉ 24 giờ) kéo skewness từ mức bình thường lên 7,42 — cực đoan so với các biến khác (pretest −0,10, posttest −0,15, math +0,15).</p>
+       <p class="cap">Bài học: skewness quá lớn so với các biến cùng loại là tín hiệu ĐẦU TIÊN để nghi ngờ lỗi nhập liệu, trước khi tin vào bất kỳ phân tích nào dùng biến đó.</p></div><div class="mdeck-slide"><div class="kicker">Kurtosis</div><h2>Độ nhọn (kurtosis) — đỉnh nhọn hay bẹt so với phân phối chuẩn?</h2>
+       <table><tr><th>Dấu kurtosis</th><th>Tên gọi</th><th>Hình dạng</th></tr>
+       <tr><td>≈ 0</td><td>Mesokurtic</td><td>Độ nhọn giống phân phối chuẩn</td></tr>
+       <tr><td>Dương (+)</td><td>Leptokurtic</td><td>Đỉnh nhọn hơn, đuôi dày hơn (nhiều ngoại lai)</td></tr>
+       <tr><td>Âm (−)</td><td>Platykurtic</td><td>Đỉnh bẹt hơn, đuôi mỏng hơn</td></tr></table>
+       <p class="cap">Cùng ví dụ study_hours: kurtosis=86,93 (cực đoan, do chính outlier 48 giờ/ngày ở trên) — so với pretest −0,54, posttest −0,19, math −0,33 đều gần mức bình thường.</p></div><div class="mdeck-slide"><div class="kicker">Bảng tổng hợp</div><h2>Skewness & Kurtosis — 4 biến thật, n=240</h2>
+       <table><tr><th>Biến</th><th>Skewness</th><th>Kurtosis</th><th>Diễn giải</th></tr>
+       <tr><td>pretest</td><td>−0,097</td><td>−0,535</td><td>Gần đối xứng, đỉnh hơi bẹt</td></tr>
+       <tr><td>posttest</td><td>−0,147</td><td>−0,193</td><td>Gần đối xứng</td></tr>
+       <tr><td>math</td><td>+0,148</td><td>−0,333</td><td>Gần đối xứng, lệch phải rất nhẹ</td></tr>
+       <tr><td class="warn">study_hours</td><td class="warn">+7,424</td><td class="warn">86,930</td><td class="warn">Cực đoan — do 1 ca lỗi nhập liệu (48 giờ/ngày)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Ví dụ đa ngành</div><h2>Skewness thường gặp ở 2 lĩnh vực ngoài giáo dục</h2>
+       <table><tr><th>Ngành</th><th>Biến</th><th>Hình dạng điển hình</th></tr>
+       <tr><td>Kinh tế (minh hoạ)</td><td>Thu nhập cá nhân một quốc gia</td><td>Lệch phải RẤT mạnh — đa số thu nhập thấp/vừa, số ít cực giàu kéo đuôi dài</td></tr>
+       <tr><td>Y tế (minh hoạ)</td><td>Thời gian nằm viện sau phẫu thuật</td><td>Lệch phải — đa số hồi phục nhanh, số ít biến chứng nằm viện rất lâu</td></tr></table>
+       <p class="cap">Cả hai ví dụ đều nổi tiếng lệch phải trong thực tế — đây là lý do vì sao báo cáo thu nhập hay dùng "trung vị", không dùng "trung bình" (trung bình dễ bị số ít cực giàu/cực bệnh kéo lệch).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <div class="part-num">05</div>
        <h2>Chọn đúng & áp dụng</h2>
-       <ul class="part-list"><li>Chọn đúng thống kê theo thang đo</li><li>Thực hành trong SPSS</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Taking stock</div><h2>Chọn đúng thống kê theo thang đo</h2>
-       <p>4 thang đo → tần số/%/mode/bảng chéo.</p>
-       <p>Thứ bậc+ → thêm median.</p>
-       <p class="warn">Chỉ Khoảng & Tỉ lệ ("Scale") → thêm mean & SD.</p></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies</h2>
-       <p class="cap">PSPP: <code>FREQUENCIES</code>, <code>EXAMINE</code>, <code>CROSSTABS</code> — đã kiểm chứng chạy được.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
-       <p>Slide chỉ tóm tắt. Ví dụ số liệu đầy đủ + cú pháp SPSS/PSPP nằm bên dưới.</p></div></div>
+       <ul class="part-list"><li>Chọn đúng thống kê theo thang đo</li><li>Quy trình 3 bước trước khi mô tả bất kỳ biến nào</li><li>Thực hành trong SPSS/PSPP</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Taking stock</div><h2>Chọn đúng thống kê theo thang đo</h2>
+       <p>4 thang đo (Module 01) → tần số/%/mode/bảng chéo đều tính được cho mọi thang.</p>
+       <p>Thứ bậc trở lên → thêm được median.</p>
+       <p class="warn">Chỉ Khoảng & Tỉ lệ ("Scale" trong SPSS) → mới thêm được mean, SD, skewness, kurtosis.</p></div><div class="mdeck-slide"><div class="kicker">Quy trình thực hành</div><h2>3 bước trước khi mô tả BẤT KỲ biến nào</h2>
+       <ul><li><b>Bước 1 — Kiểm tra dữ liệu thiếu:</b> MCAR/MAR/MNAR, quyết định xoá hay giữ (Phần 1).</li>
+       <li><b>Bước 2 — Nhìn hình dạng trước khi tin số:</b> vẽ boxplot/histogram, đọc skewness/kurtosis (Phần 4) — bắt được ngoại lai/lỗi nhập liệu TRƯỚC khi tính trung bình.</li>
+       <li><b>Bước 3 — Chọn đúng đo trung tâm/phân tán theo thang đo</b> (Phần 3) rồi mới báo cáo.</li>
+       <li class="cap">Bỏ qua Bước 2 là lỗi phổ biến nhất — nhiều người tính mean/SD ngay mà không nhìn phân phối, dễ bị ngoại lai như study_hours=48 đánh lừa.</li></ul></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies/Explore/Crosstabs</h2>
+       <p><b>Frequencies:</b> mean/median/SD/skewness/kurtosis cho 1 biến liên tục.</p>
+       <p><b>Explore:</b> boxplot so sánh nhiều nhóm + bảng Extreme Values dò ngoại lai.</p>
+       <p class="cap">PSPP: <code>FREQUENCIES</code>, <code>EXAMINE</code>, <code>CROSSTABS</code> — đã kiểm chứng chạy khớp 100% với Python.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p>Slide chỉ tóm tắt. Ví dụ số liệu đầy đủ + cú pháp SPSS/PSPP + lịch sử + case study nằm bên dưới. Module 04 tiếp theo: phân phối chuẩn & kiểm định giả thuyết.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
   <button class="mdeck-next" type="button">Sau ▶</button>
