@@ -21,49 +21,100 @@
        <p class="cap">Use ← → or the buttons below to navigate.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/5</div>
        <div class="part-num">01</div>
        <h2>Scales of measurement</h2>
-       <ul class="part-list"><li>Four scales, each building on the last</li><li>Why 100°F isn't twice as hot as 50°F</li><li>The software only offers 3 choices, not 4</li></ul></div><div class="mdeck-slide"><div class="kicker">Four scales</div><h2>Each scale subsumes the last, adding one new feature</h2>
-       <table><tr><th>Scale</th><th>New feature</th><th>Example</th></tr>
-       <tr><td><b>Nominal</b></td><td>Classification only</td><td>Sex, school type</td></tr>
-       <tr><td><b>Ordinal</b></td><td>+ Rank order</td><td>Likert scale, ranking</td></tr>
-       <tr><td><b>Interval</b></td><td>+ Equal spacing, NO true zero</td><td>°C/°F, IQ score</td></tr>
-       <tr><td><b>Ratio</b></td><td>+ True zero point</td><td>Study hours, test score</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Classic example</div><h2>Why is 100°F NOT twice as hot as 50°F?</h2>
+       <ul class="part-list"><li>Four scales, each subsuming the last</li><li>Why 100°F isn't twice as hot as 50°F</li><li>SPSS/PSPP only offers 3 choices, not 4</li><li>Multi-domain examples + discrete/continuous + historical origin</li></ul></div><div class="mdeck-slide"><div class="kicker">Four scales</div><h2>Each scale subsumes the last, adding one new feature</h2>
+       <p class="cap">🗣️ Plain language: like 4 rungs of a ladder — each rung keeps EVERYTHING the previous rung had, plus one new power.</p>
+       <table><tr><th>Scale</th><th>New feature</th><th>Example</th><th>Operations allowed</th></tr>
+       <tr><td><b>Nominal</b></td><td>Classification only</td><td>Sex, school type</td><td>Frequency counts, mode</td></tr>
+       <tr><td><b>Ordinal</b></td><td>+ Rank order</td><td>Likert scale, ranking</td><td>+ Median, percentiles</td></tr>
+       <tr><td><b>Interval</b></td><td>+ Equal spacing, NO true zero</td><td>°C/°F, IQ score</td><td>+ Mean, SD (no ratios)</td></tr>
+       <tr><td><b>Ratio</b></td><td>+ True zero point</td><td>Study hours, test score</td><td>+ Every operation, including ratios ("twice as much")</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Classic example</div><h2>Why is 100°F NOT twice as hot as 50°F?</h2>
        <p class="big">0°F ≠ "no heat at all"</p>
-       <p>An interval scale has equal units but a <b>conventional</b> zero. Twice 50°F is actually 68°F.</p>
+       <p>An interval scale has equal units but a <b>conventional</b> zero. Twice 50°F is actually 68°F: ((50−32)×2)+32.</p>
        <p>Likewise: an IQ of 150 is <b>not</b> "twice as intelligent" as 75 — IQ scales usually start at 70, not 0.</p></div><div class="mdeck-slide"><div class="kicker">A note on declaring variables</div><h2>The software only offers 3 choices, not 4</h2>
        <p class="big">Nominal · Ordinal · <span class="warn">Scale</span></p>
-       <p>SPSS/PSPP merges <b>Interval + Ratio</b> into one measurement type, "Scale" — because most statistics treat them the same way.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/5</div>
+       <p>SPSS/PSPP merges <b>Interval + Ratio</b> into one measurement type, "Scale" — because most statistics treat them the same way.</p>
+       <p class="cap">When declaring a variable in <code>Variable View</code>, the <code>Measure</code> column only offers one of these 3 labels — there is no separate "Interval" or "Ratio" option.</p></div><div class="mdeck-slide"><div class="kicker">Multi-domain examples</div><h2>The four scales aren't just about education</h2>
+       <table><tr><th>Domain</th><th>Nominal</th><th>Ordinal</th><th>Interval</th><th>Ratio</th></tr>
+       <tr><td>Education</td><td>School type</td><td>Academic rank</td><td>IQ score</td><td>Study hours</td></tr>
+       <tr><td>Health (illustrative)</td><td>Blood type</td><td>Pain level (1-10)</td><td>Body temperature °C</td><td>Blood pressure (mmHg)</td></tr>
+       <tr><td>Business (illustrative)</td><td>Industry sector</td><td>Membership tier (Bronze/Silver/Gold)</td><td>Company founding year</td><td>Revenue (million VND)</td></tr></table>
+       <p class="cap">Blood type (A/B/O/AB) is just a label — no inherent order, just like "school type".</p></div><div class="mdeck-slide"><div class="kicker">Another way to classify</div><h2>Discrete vs. continuous variables</h2>
+       <p>Discrete: only takes on specific, countable values, with nothing "in between" two levels. Continuous: can take any value within a range.</p>
+       <table><tr><th>Domain</th><th>Discrete</th><th>Continuous</th></tr>
+       <tr><td>Education (real data, n=240)</td><td>Interest level h1: 1-5, only 5 integer values</td><td>Study hours/week: 0.8 → 11.3 hours, any decimal</td></tr>
+       <tr><td>Health (illustrative)</td><td>Number of children born (0, 1, 2…)</td><td>Birth weight (kg, with decimals)</td></tr>
+       <tr><td>Agriculture (illustrative)</td><td>Plants per row (whole-number count)</td><td>Yield (tons/ha, decimal)</td></tr></table>
+       <p class="cap">Real data: interest level h1 among 240 students takes only 5 values (1→25 students, 2→52, 3→97, 4→53, 5→13) — never "2.5".</p></div><div class="mdeck-slide"><div class="kicker">📜 Historical origin</div><h2>Where does the four-scale framework come from?</h2>
+       <ul><li><b>1946</b> — psychologist S. S. Stevens published this framework in <i>Science</i>, in the paper "On the Theory of Scales of Measurement".</li>
+       <li>Stevens worked in psychophysics (measuring perceived loudness, brightness) — he needed a clear language for "which operations are legitimate on this number".</li>
+       <li>70 years on, this framework remains the foundation of most social-science/education statistics textbooks, including Cohen et al.</li>
+       <li>But it is NOT absolute truth — Wright (2003) notes a variable's scale is sometimes "bestowed on it" by the researcher, not an inherent property.</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/5</div>
        <div class="part-num">02</div>
        <h2>Parametric & non-parametric</h2>
-       <ul class="part-list"><li>A quick rule of thumb for choosing the right branch of tests</li></ul></div><div class="mdeck-slide"><div class="kicker">A quick rule of thumb</div><h2>The scale from Part 1 decides which branch of tests you use</h2>
-       <div class="two-col"><div><p><b>Non-parametric</b></p><ul><li>Nominal, ordinal</li><li>No assumption about the population distribution</li></ul></div>
-       <div><p><b>Parametric</b></p><ul><li>Interval, ratio</li><li>Assumes a normal distribution</li></ul></div></div>
-       <p>Applying parametric tests to non-parametric data is usually <b>wrong</b>; the reverse is allowed, just less powerful.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/5</div>
+       <ul class="part-list"><li>A quick rule of thumb for choosing the right branch of tests</li><li>Multi-domain examples</li><li>Consequences of using the wrong branch</li><li>The unresolved Likert-scale debate</li></ul></div><div class="mdeck-slide"><div class="kicker">A quick rule of thumb</div><h2>The scale from Part 1 decides which branch of tests you use</h2>
+       <p class="cap">🗣️ Plain language: parametric is like "a scale with evenly spaced marks" — you know exactly how far apart each level is; non-parametric is like "ranking a competition" — you only know who beat whom, not by how much.</p>
+       <div class="two-col"><div><p><b>Non-parametric</b></p><ul><li>Nominal, ordinal</li><li>No assumption about the population distribution</li><li>Less powerful but safer</li></ul></div>
+       <div><p><b>Parametric</b></p><ul><li>Interval, ratio</li><li>Assumes a normal distribution</li><li>More powerful when the assumption holds</li></ul></div></div>
+       <p>Applying parametric tests to non-parametric data is usually <b>wrong</b>; the reverse is allowed, just less powerful.</p></div><div class="mdeck-slide"><div class="kicker">Multi-domain examples</div><h2>Parametric & non-parametric across 3 domains</h2>
+       <table><tr><th>Domain</th><th>Parametric variable</th><th>Non-parametric variable</th></tr>
+       <tr><td>Education (real)</td><td>Maths score (0-100, ratio)</td><td>Interest level h1 (Likert 1-5, ordinal)</td></tr>
+       <tr><td>Health (illustrative)</td><td>Systolic blood pressure (mmHg, ratio)</td><td>Self-reported pain (1-10 scale, ordinal)</td></tr>
+       <tr><td>Business (illustrative)</td><td>Monthly revenue (million VND, ratio)</td><td>Product star rating (1-5 stars, ordinal)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">⚠️ Real consequences</div><h2 class="warn">Using the wrong branch isn't just a "technical slip"</h2>
+       <p>Computing a mean/SD directly on a SINGLE Likert item (e.g. item h1 alone) implicitly assumes the gap "1→2" equals the gap "4→5" — an assumption that is NOT proven.</p>
+       <p class="warn">Consequence: a conclusion of "the mean difference is significant" may only reflect how the computation was done, not a real difference. When in doubt about the scale, switch to the non-parametric alternative (Module 07: Mann-Whitney instead of t-test, Kruskal-Wallis instead of ANOVA).</p></div><div class="mdeck-slide"><div class="kicker">An unresolved debate</div><h2>Likert scales: ordinal, or "near-interval"?</h2>
+       <p><b>Pro-parametric camp:</b> when several Likert items are COMBINED into a sum score (e.g. the "interest" scale = h1+h2+h3), the sum is close enough to continuous to safely use mean/SD.</p>
+       <p><b>Pro-Cohen-et-al. camp:</b> a SINGLE Likert item remains ordinal, so medians/non-parametric methods should be preferred.</p>
+       <p class="cap">There is no absolute right answer — state your choice and reasoning clearly when writing your methodology.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/5</div>
        <div class="part-num">03</div>
        <h2>Descriptive & inferential</h2>
-       <ul class="part-list"><li>Two very different goals of statistics</li></ul></div><div class="mdeck-slide"><div class="kicker">Two very different goals</div><h2>Descriptive summarises the sample, inferential speaks about the population</h2>
-       <div class="two-col"><div><p><b>Descriptive</b></p><ul><li>Just summarises existing data</li><li>Mode, mean, median, SD, skewness…</li></ul></div>
-       <div><p><b>Inferential</b></p><ul><li>Infers about the population from a sample</li><li>t-test, ANOVA, regression, hypothesis testing…</li></ul></div></div></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/5</div>
+       <ul class="part-list"><li>Two very different goals of statistics</li><li>Example with real data from 240 students</li><li>A complete list of techniques for each group</li></ul></div><div class="mdeck-slide"><div class="kicker">Two very different goals</div><h2>Descriptive summarises the sample, inferential speaks about the population</h2>
+       <p class="cap">🗣️ Plain language: descriptive is "describing a photo you already took"; inferential is "guessing how the whole movie will play out" from just a few frames.</p>
+       <div class="two-col"><div><p><b>Descriptive</b></p><ul><li>Just summarises existing data</li><li>Mode, mean, median, SD</li><li>Infers nothing beyond the sample</li><li>Always 100% true for THAT exact sample</li></ul></div>
+       <div><p><b>Inferential</b></p><ul><li>Infers about the population from a sample</li><li>t-test, ANOVA, regression</li><li>Always carries a probability of error (p-value)</li><li>Requires a representative sample</li></ul></div></div></div><div class="mdeck-slide"><div class="kicker">Real-data example</div><h2>240 students: descriptive first, inferential second</h2>
+       <p><b>Descriptive (verified Python+PSPP):</b> mean maths score = 47.91, median = 47.70, SD = 9.68 (n=240, min=25.9, max=71.5).</p>
+       <p><b>Inferential (open question, answered in Module 05-06):</b> the "Project" group's mean (49.47) is higher than the "Traditional" group's (46.48) — is this a statistically significant difference, or just sample noise?</p>
+       <p class="cap">This slide is PURELY descriptive — it cannot yet answer the inferential question, which needs a t-test (Module 05).</p></div><div class="mdeck-slide"><div class="kicker">Quick-reference table</div><h2>The complete list: descriptive vs. inferential</h2>
+       <table><tr><th>Descriptive</th><th>Inferential</th></tr>
+       <tr><td>Frequencies, percentages</td><td>Hypothesis testing</td></tr>
+       <tr><td>Mode, mean, median, range</td><td>Regression (simple/multiple)</td></tr>
+       <tr><td>Variance, standard deviation</td><td>t-test, ANOVA</td></tr>
+       <tr><td>Skewness, kurtosis</td><td>Factor analysis, SEM</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/5</div>
        <div class="part-num">04</div>
        <h2>Causality & variables</h2>
-       <ul class="part-list"><li>What independent/dependent variables are</li><li>6 alternative explanations for a correlation that looks causal</li><li>Why correlation ≠ causation</li></ul></div><div class="mdeck-slide"><div class="kicker">Independent & dependent variables</div><h2>Who is the "cause", who is the "outcome"?</h2>
+       <ul class="part-list"><li>What independent/dependent variables are</li><li>Multi-domain examples</li><li>6 alternative explanations for a correlation that looks causal</li><li>Reversed causality across domains</li><li>Why correlation ≠ causation</li></ul></div><div class="mdeck-slide"><div class="kicker">Independent & dependent variables</div><h2>Who is the "cause", who is the "outcome"?</h2>
+       <p class="cap">🗣️ Plain language: the independent variable is "the knob you turn"; the dependent variable is "the needle that moves in response".</p>
        <p><b>Independent:</b> a variable the researcher controls/manipulates.</p>
        <p><b>Dependent:</b> a variable whose value depends (in part) on the independent variable.</p>
-       <p class="cap">Example: homework hours (independent) → maths score (dependent)?</p></div><div class="mdeck-slide"><div class="kicker">A critical question</div><h2>6 alternative explanations for "homework → higher score"</h2>
-       <ul><li>Exam pressure itself increases focus (another extraneous variable)</li>
-       <li>Liking the subject/teacher → self-motivated study (confound)</li>
-       <li>A good night's sleep → more alert (intervening variable)</li>
-       <li>Expected score drives how much homework is done (reversed causality)</li></ul></div><div class="mdeck-slide"><div class="kicker">Key takeaway</div><h2 class="warn">Statistically significant correlation ≠ Causation</h2>
-       <p>Most data you'll analyse with SPSS/PSPP is <b>observational</b> — not a randomised experiment.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 5/5</div>
+       <p class="cap">Example: homework hours (independent) → maths score (dependent)?</p></div><div class="mdeck-slide"><div class="kicker">Multi-domain examples</div><h2>Independent/dependent variables aren't just about education</h2>
+       <table><tr><th>Domain</th><th>Independent variable</th><th>Dependent variable</th></tr>
+       <tr><td>Education (real)</td><td>Teaching method (Project/Traditional)</td><td>Maths score</td></tr>
+       <tr><td>Health (illustrative)</td><td>Antihypertensive dose (mg)</td><td>Systolic blood pressure</td></tr>
+       <tr><td>Agriculture (illustrative)</td><td>Fertiliser amount (kg/ha)</td><td>Rice yield (tons/ha)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">A critical question</div><h2>6 alternative explanations for "homework → higher score"</h2>
+       <table><tr><th>#</th><th>Mechanism</th><th>Name</th></tr>
+       <tr><td>1</td><td>Exam pressure itself increases focus</td><td>Another extraneous variable</td></tr>
+       <tr><td>2</td><td>Liking the subject/teacher → self-motivated study</td><td>Confound</td></tr>
+       <tr><td>3</td><td>A good night's sleep → more alert</td><td>Intervening variable</td></tr>
+       <tr><td>4</td><td>Expected score drives how much homework is done</td><td>Reversed causality</td></tr>
+       <tr><td>5</td><td>Multi-directional, web-like relationship</td><td>Non-linear/network relationship</td></tr>
+       <tr><td>6</td><td>Threat of punishment for poor performance</td><td>Simultaneous effect</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Reversed causality</div><h2>Multi-domain examples: A→B or B→A?</h2>
+       <p><b>Education:</b> "Schools with more computers → higher scores" — or do wealthier schools simply afford more computers AND teach better at the same time?</p>
+       <p><b>Health (illustrative, also used in the glossary):</b> "Higher vaccination rate → lower disease rate" — correct direction, but easy to misread without controlling for time (disease rates had already fallen before vaccines became widespread in some areas).</p>
+       <p class="cap">See the full reversed-causality checklist formula in the site's glossary.</p></div><div class="mdeck-slide"><div class="kicker">Key takeaway</div><h2 class="warn">Statistically significant correlation ≠ Causation</h2>
+       <p>Most data you'll analyse with SPSS/PSPP is <b>observational</b> — not a randomised experiment.</p>
+       <p class="cap">p&lt;0.05 or a high r only shows there IS a relationship — it does not automatically prove the direction of causation.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 5/5</div>
        <div class="part-num">05</div>
        <h2>Putting it into practice</h2>
-       <ul class="part-list"><li>Where this module sits in the research pipeline</li><li>Applying the 4 scales to real PISA data</li><li>What comes after this slide deck</li></ul></div><div class="mdeck-slide"><div class="kicker">Context</div><h2>The quantitative research pipeline</h2>
+       <ul class="part-list"><li>Where this module sits in the research pipeline</li><li>Applying the 4 scales to real PISA data</li><li>Putting all 4 concepts together on one dataset</li><li>What comes after this slide deck</li></ul></div><div class="mdeck-slide"><div class="kicker">Context</div><h2>The quantitative research pipeline</h2>
        <img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/>
        <p class="cap">This module = step 1 (defining variables/hypotheses), laying the groundwork for steps 4–5.</p></div><div class="mdeck-slide"><div class="kicker">Applying it to real data</div><h2>195 Vietnamese PISA 2025 schools</h2>
        <table><tr><th>Variable</th><th>Scale</th></tr>
        <tr><td>REGION</td><td>Nominal</td></tr>
        <tr><td>SCHSIZE_Q (international quartile)</td><td>Ordinal</td></tr>
        <tr><td>EDULEAD (WLE index)</td><td>Interval</td></tr>
-       <tr><td>W_NRASCHBWT (weight)</td><td>Ratio</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the detail below, then self-test with 30 questions</h2>
+       <tr><td>W_NRASCHBWT (weight)</td><td>Ratio</td></tr></table>
+       <p class="cap">Verified in Python: weights range from 1.0 → 617.2, i.e. the highest-weighted school represents ≈617× as many as the lowest — meaningful only because this is a RATIO scale (Module 02 uses this figure to explain why weighting is required).</p></div><div class="mdeck-slide"><div class="kicker">Putting it all together</div><h2>This module's 4 concepts on the SAME dataset</h2>
+       <p>Classroom data (240 students): <b>teaching method</b> = nominal; <b>maths score</b> = ratio (Part 1). Mean maths score = 47.91, SD = 9.68 — this is <b>descriptive</b> (Part 3).</p>
+       <p>The "Project" group (n=115) averages 49.47 points; the "Traditional" group (n=125) averages 46.48 — the <b>inferential</b> question: is this difference statistically significant? And if so, is teaching method really the CAUSE, or could some other confound be at play (Part 4)? Module 05 will answer this with a t-test.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the detail below, then self-test with 30 questions</h2>
        <p>The slides are just a summary. Full detail, real-data examples, and SPSS practice are right below.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Prev</button>

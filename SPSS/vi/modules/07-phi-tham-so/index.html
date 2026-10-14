@@ -27,7 +27,18 @@
        <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
        <tr><td>O</td><td>Tần số QUAN SÁT được ở mỗi ô</td></tr>
        <tr><td>E</td><td>Tần số KỲ VỌNG nếu 2 biến độc lập</td></tr></table>
-       <p class="cap">χ² càng lớn, bảng quan sát càng khác xa giả định "2 biến không liên quan".</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Nam/Nữ × thích Toán: χ²=28,87 &gt; 9,21</h2>
+       <p class="cap">χ² càng lớn, bảng quan sát càng khác xa giả định "2 biến không liên quan".</p></div><div class="mdeck-slide"><div class="kicker">Phép tính tay</div><h2>Giới tính × Phương pháp: tính χ² từng ô</h2>
+       <table><tr><th></th><th>Dự án (O)</th><th>Truyền thống (O)</th><th>Tổng hàng</th></tr>
+       <tr><td>Nam</td><td>63</td><td>58</td><td>121</td></tr>
+       <tr><td>Nữ</td><td>52</td><td>67</td><td>119</td></tr>
+       <tr><td>Tổng cột</td><td>115</td><td>125</td><td>240</td></tr></table>
+       <p class="cap">E(Nam,Dự án) = (121×115)/240 = 57,98. E(Nam,Truyền thống) = (121×125)/240 = 63,02. Tương tự cho hàng Nữ.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính tay (tiếp)</div><h2>Cộng 4 số hạng (O−E)²/E</h2>
+       <table><tr><th>Ô</th><th>O</th><th>E</th><th>(O−E)²/E</th></tr>
+       <tr><td>Nam, Dự án</td><td>63</td><td>57,98</td><td>0,435</td></tr>
+       <tr><td>Nam, Truyền thống</td><td>58</td><td>63,02</td><td>0,400</td></tr>
+       <tr><td>Nữ, Dự án</td><td>52</td><td>57,02</td><td>0,442</td></tr>
+       <tr><td>Nữ, Truyền thống</td><td>67</td><td>61,98</td><td>0,407</td></tr></table>
+       <p>Tổng 4 số hạng = 1,684 — đây là χ² THÔ (chưa hiệu chỉnh Yates). Áp hiệu chỉnh liên tục (bảng 2×2) → χ²=1,365, df=1, p=0,243 — khớp đúng số đã công bố.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Nam/Nữ × thích Toán: χ²=28,87 &gt; 9,21</h2>
        <p class="cap">So với giá trị tới hạn 9,21 (mức 0,01) → có ý nghĩa thống kê RẤT cao.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Giới tính × Phương pháp: χ²(1)=1,37, p=0,243</h2>
        <img src="../../../assets/diagrams/chi2_crosstab.png" alt="chi2 crosstab"/></div><div class="mdeck-slide"><div class="kicker">Cỡ hiệu ứng</div><h2>Phi (bảng 2×2) & Cramer's V (bảng lớn hơn)</h2>
        <p class="cap">Ngưỡng Phi giống Cohen's d: nhỏ=0,10, vừa=0,30, lớn=0,50. SPSS tự động áp Yates's correction cho bảng 2×2.</p></div><div class="mdeck-slide"><div class="kicker">Cảnh báo</div><h2 class="warn">Quy tắc 20%: không quá 20% ô có &lt;5 quan sát</h2>
@@ -40,7 +51,12 @@
        <h2>Thay thế t-test phi tham số</h2>
        <ul class="part-list"><li>Mann-Whitney U — tương đương phi tham số của t-test độc lập</li><li>Dữ liệu thật: đánh giá theo giới tính</li><li>Wilcoxon — tương đương phi tham số của t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Tương đương phi tham số của t-test độc lập</h2>
        <p>Dựa trên THỨ HẠNG (ranks), không cần phân phối chuẩn — nhưng KHÔNG cho biết khác biệt cụ thể ở đâu.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁</h2>
-       <p class="cap">R₁ = tổng thứ hạng nhóm 1 sau khi gộp cả 2 nhóm rồi xếp hạng chung. U càng lệch xa n₁n₂/2, càng khác biệt.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Đánh giá khoá học theo giới tính: U=2.732,5, p=0,019</h2>
+       <p class="cap">R₁ = tổng thứ hạng nhóm 1 sau khi gộp cả 2 nhóm rồi xếp hạng chung. U càng lệch xa n₁n₂/2, càng khác biệt.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính tay (minh hoạ)</div><h2>Ví dụ nhỏ dễ theo dõi: nhóm A [5,7,9], nhóm B [4,6,8]</h2>
+       <p class="cap">(minh hoạ — số giả định để nhìn rõ cách xếp hạng, không phải trích từ mẫu 240 học sinh thật)</p>
+       <p>Bước 1 — gộp cả 6 giá trị, xếp hạng tăng dần: 4(B)=hạng 1, 5(A)=hạng 2, 6(B)=hạng 3, 7(A)=hạng 4, 8(B)=hạng 5, 9(A)=hạng 6.</p>
+       <p>Bước 2 — cộng hạng của nhóm A: R₁ = 2+4+6 = 12.</p>
+       <p>Bước 3 — thay vào công thức: U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁ = 3×3 + 3×4/2 − 12 = 9+6−12 = <b>3</b>.</p>
+       <p class="cap">Kiểm tra lại: U₁+U₂ = n₁×n₂ luôn đúng → U₂ = 9−3 = 6. U càng nhỏ (xa khỏi n₁n₂/2=4,5) thì càng nhiều bằng chứng khác biệt — ở đây U=3 khá gần 4,5 nên 2 nhóm nhỏ này không khác biệt rõ rệt.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>Đánh giá khoá học theo giới tính: U=2.732,5, p=0,019</h2>
        <p class="cap">Nam cảm thấy mạnh mẽ hơn nữ về việc khoá học cho phép học theo tốc độ riêng.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo giới tính: U=6416, p=0,127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>Tương đương phi tham số của t-test bắt cặp</h2>
        <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>So sánh a1 vs a2 (cùng 240 HS): p=0,920</h2>
@@ -99,6 +115,18 @@
 <li>Giới tính × Trường (bảng 2×3): χ²(2)=0,14, p=0,932, 0% ô vi phạm quy tắc 20% (kết quả đáng tin) → <b>không có ý nghĩa</b>, Cramer's V≈0,024 (gần như 0).</li>
 </ul>
 Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví dụ book có ý nghĩa rất cao, cho thấy chi-square không phải lúc nào cũng cho kết quả có ý nghĩa với dữ liệu thật.</div>
+<div class="callout good"><b>Phép tính tay từng bước — Giới tính × Phương pháp (n=240):</b>
+<table><tr><th></th><th>Dự án</th><th>Truyền thống</th><th>Tổng hàng</th></tr>
+<tr><td>Nam (O)</td><td>63</td><td>58</td><td>121</td></tr>
+<tr><td>Nữ (O)</td><td>52</td><td>67</td><td>119</td></tr>
+<tr><td>Tổng cột</td><td>115</td><td>125</td><td>240</td></tr></table>
+<p>Kỳ vọng từng ô = (tổng hàng × tổng cột)/tổng chung: E(Nam,Dự án)=121×115/240=57,98; E(Nam,Truyền thống)=121×125/240=63,02; E(Nữ,Dự án)=119×115/240=57,02; E(Nữ,Truyền thống)=119×125/240=61,98.</p>
+<table><tr><th>Ô</th><th>O</th><th>E</th><th>(O−E)²/E</th></tr>
+<tr><td>Nam, Dự án</td><td>63</td><td>57,98</td><td>(63−57,98)²/57,98=0,435</td></tr>
+<tr><td>Nam, Truyền thống</td><td>58</td><td>63,02</td><td>(58−63,02)²/63,02=0,400</td></tr>
+<tr><td>Nữ, Dự án</td><td>52</td><td>57,02</td><td>(52−57,02)²/57,02=0,442</td></tr>
+<tr><td>Nữ, Truyền thống</td><td>67</td><td>61,98</td><td>(67−61,98)²/61,98=0,407</td></tr></table>
+<p class="cap">Cộng 4 số hạng: 0,435+0,400+0,442+0,407=1,684=χ² THÔ (chưa hiệu chỉnh). Áp hiệu chỉnh liên tục Yates cho bảng 2×2 (bù phần phóng đại do xấp xỉ phân phối rời rạc bằng phân phối liên tục) → χ²=1,365, df=(2−1)(2−1)=1, p=0,243 — khớp đúng số đã công bố ở trên, verify bằng <code>scipy.stats.chi2_contingency</code>.</p></div>
 
 <h2 id="df">2. Bậc tự do (Degrees of Freedom)</h2>
 <p>Trực giác (theo Cohen &amp; Holliday, trích tr.792–793): chọn 5 số với tổng cố định=25 → 4 số đầu được TỰ DO chọn, số thứ 5 bị RÀNG BUỘC → df=4=N−1. Mỗi điều kiện ràng buộc thêm làm giảm 1 bậc tự do.</p>
@@ -113,6 +141,12 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p>Ví dụ sách (tr.793–794): đánh giá khoá học theo giới tính (thang 5 điểm), U=2.732,500, p=0,019 → có ý nghĩa, nam cảm thấy mạnh mẽ hơn nữ về việc khoá học cho phép học theo tốc độ riêng.</p>
 <div class="figure"><img src="../../../assets/diagrams/nonparam_ranks.png" alt=""/><figcaption>Dữ liệu lớp học thật: đánh giá h1 theo giới tính. Mann-Whitney U=6416, p=0,127 — không có ý nghĩa.</figcaption></div>
 <div class="callout warn"><b>Hạn chế quan trọng:</b> không như t-test (đọc trực tiếp trung bình) hay Tukey (bảng nhóm đồng nhất), Mann-Whitney chỉ cho biết CÓ hay KHÔNG khác biệt — muốn biết khác biệt cụ thể ở đâu phải quay lại bảng chéo tần số (tr.794).</div>
+<div class="callout good"><b>Phép tính tay từng bước (minh hoạ — số giả định để nhìn rõ cơ chế xếp hạng, không phải trích từ mẫu 240 học sinh thật):</b>
+<p>Nhóm A (n₁=3): điểm 5, 7, 9. Nhóm B (n₂=3): điểm 4, 6, 8.</p>
+<p>Bước 1 — gộp 6 giá trị, xếp hạng tăng dần: 4(B)→hạng 1, 5(A)→hạng 2, 6(B)→hạng 3, 7(A)→hạng 4, 8(B)→hạng 5, 9(A)→hạng 6.</p>
+<p>Bước 2 — cộng hạng nhóm A: R₁ = 2+4+6 = 12.</p>
+<p>Bước 3 — thay vào công thức: U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁ = (3×3) + (3×4/2) − 12 = 9+6−12 = <b>3</b>.</p>
+<p class="cap">Kiểm tra bằng đẳng thức U₁+U₂=n₁n₂: U₂=9−3=6, 3+6=9 ✓. U=3 khá gần giá trị kỳ vọng khi không có khác biệt (n₁n₂/2=4,5) → với mẫu nhỏ này, 2 nhóm không khác biệt rõ rệt.</p></div>
 
 <h2 id="wilcoxon">4. Wilcoxon test</h2>
 <p>Tương đương phi tham số của <b>t-test bắt cặp</b> — dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số (tr.795–796).</p>

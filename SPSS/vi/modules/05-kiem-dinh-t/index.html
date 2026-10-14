@@ -38,10 +38,21 @@
        <tr><td>x̄₁−x̄₂</td><td>Chênh lệch 2 trung bình nhóm</td></tr>
        <tr><td>SE<sub>diff</sub></td><td>Sai số chuẩn của độ chênh lệch (từ SD gộp)</td></tr>
        <tr><td>df</td><td>Tổng cỡ 2 nhóm trừ 2</td></tr></table>
-       <p class="cap">|t| càng lớn, càng khó giải thích chênh lệch chỉ do may rủi lấy mẫu.</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá đọc bảng kết quả</div><h2 class="warn">Kiểm định Levene quyết định đọc dòng nào</h2>
+       <p class="cap">|t| càng lớn, càng khó giải thích chênh lệch chỉ do may rủi lấy mẫu.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính từng bước — dữ liệu thật</div><h2>Từ 2 nhóm 115/125 học sinh ra t=7,589</h2>
+       <table><tr><th>Bước</th><th>Công thức</th><th>Thay số</th></tr>
+       <tr><td>1. Phương sai gộp</td><td>s²<sub>p</sub>=[(n₁−1)s₁²+(n₂−1)s₂²]/(n₁+n₂−2)</td><td>[(114)(5,774²)+(124)(5,996²)]/238=34,70</td></tr>
+       <tr><td>2. Sai số chuẩn</td><td>SE=√[s²<sub>p</sub>(1/n₁+1/n₂)]</td><td>√[34,70×(1/115+1/125)]=√0,5794=0,761</td></tr>
+       <tr><td>3. Thống kê t</td><td>t=(x̄₁−x̄₂)/SE</td><td>(8,662−2,886)/0,761=7,589</td></tr></table>
+       <p class="cap">Mỗi bước dùng ĐÚNG số liệu đã nêu ở slide trước (n₁=115, n₂=125, M₁=8,66, M₂=2,89, SD₁=5,77, SD₂=6,00) — không có bước nào "nhảy cóc".</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá đọc bảng kết quả</div><h2 class="warn">Kiểm định Levene quyết định đọc dòng nào</h2>
        <p>Levene <b>p&lt;0,05</b> → phương sai KHÔNG bằng nhau → đọc dòng "not assumed".</p>
        <p>Levene <b>p≥0,05</b> → phương sai bằng nhau → đọc dòng "assumed".</p>
-       <p class="warn">Đọc sai dòng có thể đảo ngược cả kết luận nghiên cứu!</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách — "thắng-thắng"</div><h2>Levene p=0,004 → Sig.=0,044 (ĐÚNG), KHÔNG phải 0,055</h2>
+       <p class="warn">Đọc sai dòng có thể đảo ngược cả kết luận nghiên cứu!</p></div><div class="mdeck-slide"><div class="kicker">Bảng tổng hợp Levene — 3 ví dụ</div><h2>So sánh F, p và dòng cần đọc</h2>
+       <table><tr><th>Ví dụ</th><th>Levene F</th><th>Levene p</th><th>Dòng đọc</th></tr>
+       <tr><td>Sách: lãnh đạo vs GV</td><td>—</td><td>0,004</td><td class="warn">not assumed</td></tr>
+       <tr><td>Sách: quan tâm dạy-học</td><td>—</td><td>0,728</td><td>assumed</td></tr>
+       <tr><td>Thật: Dự án vs Truyền thống</td><td>0,403</td><td>0,526</td><td>assumed</td></tr>
+       <tr><td>Thật: Nam vs Nữ (Toán)</td><td>2,940</td><td>0,088</td><td>assumed (sát ngưỡng)</td></tr></table>
+       <p class="cap">Levene tính theo quy ước SPSS (tâm = trung bình mỗi nhóm) — nếu tính bằng công cụ khác (tâm = trung vị), số F/p có thể lệch nhẹ dù kết luận thường không đổi.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách — "thắng-thắng"</div><h2>Levene p=0,004 → Sig.=0,044 (ĐÚNG), KHÔNG phải 0,055</h2>
        <p>Nhận thức lãnh đạo/GV về "sự tận tâm": Levene p=0,004 (&lt;0,05) → đọc dòng "not assumed" → có ý nghĩa.</p>
        <p class="warn">Nếu NHẦM đọc dòng "assumed": Sig.=0,055 → kết luận SAI "không có ý nghĩa"!</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ đối chiếu</div><h2>Levene p=0,728 → đọc "assumed" → Sig.=0,610</h2>
        <p class="cap">Ví dụ 2 (tr.779): "sự quan tâm dạy-học" — không có ý nghĩa, nhưng Cohen et al. gọi đây là kết quả "thắng-thắng": nhận thức chung (dù tiêu cực) cũng là phát hiện có giá trị.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Dự án vs Truyền thống: t=7,59, p&lt;0,001</h2>
@@ -60,7 +71,13 @@
        <tr><td>d̄</td><td>TB các độ chênh lệch CÁ NHÂN (posttest−pretest)</td></tr>
        <tr><td>s<sub>d</sub></td><td>SD của các độ chênh lệch đó (không phải SD riêng lẻ)</td></tr>
        <tr><td>n</td><td>Số CẶP quan sát (số người)</td></tr></table>
-       <p class="cap">Chỉ dùng MỘT cột số liệu (độ chênh lệch) — đã "gộp" 2 lần đo thành 1 con số trước khi tính.</p></div><div class="mdeck-slide"><div class="kicker">Vì sao bắt cặp mạnh hơn</div><h2>Loại bỏ biến thiên cá nhân</h2>
+       <p class="cap">Chỉ dùng MỘT cột số liệu (độ chênh lệch) — đã "gộp" 2 lần đo thành 1 con số trước khi tính.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính từng bước — dữ liệu thật</div><h2>Từ 240 cặp pretest/posttest ra t=13,37</h2>
+       <table><tr><th>Bước</th><th>Công thức</th><th>Thay số</th></tr>
+       <tr><td>1. Độ chênh lệch TB</td><td>d̄ = TB(posttest−pretest)</td><td>66,00−60,35=5,65</td></tr>
+       <tr><td>2. SD của độ chênh lệch</td><td>s<sub>d</sub> (SD của 240 giá trị d, KHÔNG phải SD riêng pretest/posttest)</td><td>s<sub>d</sub>=6,551</td></tr>
+       <tr><td>3. Sai số chuẩn</td><td>SE=s<sub>d</sub>/√n</td><td>6,551/√240=6,551/15,49=0,423</td></tr>
+       <tr><td>4. Thống kê t</td><td>t=d̄/SE</td><td>5,653/0,423=13,37</td></tr></table>
+       <p class="cap">df=n−1=239 (chỉ trừ 1, không trừ 2 như t độc lập — vì đây chỉ có MỘT cột số liệu, không phải 2 nhóm riêng).</p></div><div class="mdeck-slide"><div class="kicker">Vì sao bắt cặp mạnh hơn</div><h2>Loại bỏ biến thiên cá nhân</h2>
        <p>Pretest & posttest của CÙNG học sinh tương quan r=0,857 (Module 04).</p>
        <p class="cap">Bắt cặp tận dụng tương quan này → kiểm định mạnh hơn nhiều so với độc lập.</p></div><div class="mdeck-slide"><div class="kicker">Nhầm lẫn thường gặp</div><h2 class="warn">Dữ liệu CÙNG người mà chạy t-test ĐỘC LẬP</h2>
        <p>Bỏ qua tương quan giữa 2 lần đo → kiểm định kém mạnh hơn hẳn.</p>

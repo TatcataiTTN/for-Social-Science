@@ -21,26 +21,76 @@
        <p class="cap">← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第1/5部分</div>
        <div class="part-num">01</div>
        <h2>信度（Reliability）</h2>
-       <ul class="part-list"><li>Cronbach's alpha测量什么</li><li>解读阈值</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 核心思想</div><h2>多次测量结果是否一致？</h2>
-       <p>信度不问"是否测量了正确的东西"（那是效度）——只问是否测量得"一致"。</p></div><div class="mdeck-slide"><div class="kicker">真实数据</div><h2>α=0.713（学习兴趣），α=0.759（焦虑）</h2>
-       <p class="cap">两个量表按常用阈值都处于"可接受"水平（0.70-0.80）。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第2/5部分</div>
+       <ul class="part-list"><li>Cronbach's alpha测量什么，完整公式</li><li>题项-总分相关与删除后alpha</li><li>解读阈值与alpha过高的警示</li><li>教育以外的例子：医疗、市场营销</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · 核心思想</div><h2>多次测量结果是否一致？</h2>
+       <p>信度不问"是否测量了正确的东西"（那是效度，见第2部分）——只问是否测量得"一致"。一把随温度伸缩的卷尺，只要每次在相同条件下伸缩程度完全一样，仍然可以说是"可靠"的——但量出来的数字可能与真实长度有偏差。</p>
+       <p class="cap">常用的3种检验方式：重测信度（test-retest，隔一段时间重新测量）、分半信度（split-half，把量表分成两半比较）、以及Cronbach's alpha（同时衡量全部题项之间的"步调一致性"——本单元最常用的方式）。</p></div><div class="mdeck-slide"><div class="kicker">公式</div><h2>α = (k / (k−1)) × (1 − Σσᵢ² / σ²ₜ)</h2>
+       <ul><li><b>k</b> = 量表中的题项（问题）数量</li><li><b>Σσᵢ²</b> = 每个题项各自方差之和</li><li><b>σ²ₜ</b> = 总分（所有题项相加）在全样本上的方差</li><li><b>α</b> 取值范围0到1——越高说明各题项"步调一致"，一致地测量同一概念</li></ul></div><div class="mdeck-slide"><div class="kicker">真实数据 — n=237-240</div><h2>α=0.713（学习兴趣），α=0.759（焦虑）</h2>
+       <table><tr><th>量表</th><th>题项数</th><th>α</th><th>解读水平</th></tr>
+       <tr><td>学习兴趣（h1-h3）</td><td>3</td><td>0.713</td><td>可接受</td></tr>
+       <tr><td>焦虑（a1-a3）</td><td>3</td><td>0.759</td><td>可接受，接近"良好"</td></tr></table>
+       <p class="cap">常用阈值：&lt;0.60差 · 0.60-0.70勉强 · 0.70-0.80可接受 · 0.80-0.90良好 · &gt;0.90优秀（但也可能是题项冗余的信号，见下一张幻灯片）。</p></div><div class="mdeck-slide"><div class="kicker">题项-总分相关</div><h2>删除h2会使alpha升到0.672——但仍低于0.713</h2>
+       <table><tr><th>题项</th><th>题项-总分相关</th><th>删除后的alpha</th></tr>
+       <tr><td>h1</td><td>0.570</td><td>0.575</td></tr>
+       <tr><td>h2</td><td>0.492</td><td>0.672</td></tr>
+       <tr><td>h3</td><td>0.535</td><td>0.620</td></tr></table>
+       <p class="cap">0.672 &lt; 0.713（目前3个题项的alpha）→ 正确决定是保留全部3个题项，不删除h2。</p></div><div class="mdeck-slide"><div class="kicker">提醒</div><h2 class="warn">alpha非常高（&gt;0.95）未必是好消息</h2>
+       <p>可能是题项用不同措辞几乎在问"同一个问题"的信号（冗余）——量表"多余"的题项并没有带来新信息。</p>
+       <p class="cap">好的量表需要在"一致性"（alpha足够高）与"充分覆盖"概念（而不是反复问同一个意思）之间取得平衡。</p></div><div class="mdeck-slide"><div class="kicker">教育以外的例子</div><h2>Cronbach's alpha适用于任何有多题项量表的领域</h2>
+       <ul><li><b>医疗（示例）：</b>术前焦虑量表共5题——alpha低意味着患者回答不一致，量表需要在用于临床决策前重新审视</li><li><b>市场营销（示例）：</b>顾客满意度量表共4题（价格、质量、服务、是否会再次光顾）——alpha高确认4题共同测量"整体满意度"这一概念</li><li><b>教育（真实数据）：</b>如前一张幻灯片，α=0.713/0.759——学习兴趣与学习焦虑</li><li>公式与解读方式在各领域完全相同——只是研究对象与题目内容不同</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">第2/5部分</div>
        <div class="part-num">02</div>
        <h2>效度（Validity）</h2>
-       <ul class="part-list"><li>4种主要效度类型</li><li>与第10单元EFA的联系</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · 没有唯一的"效度"</div><h2>4个不同的问题，不能合并为1个</h2>
-       <p>内容效度、结构效度、效标效度、表面效度——每一种都回答"是否测量了正确的东西"这一问题的不同侧面。</p></div><div class="mdeck-slide"><div class="kicker">与第10单元的联系</div><h2>EFA是结构效度的一项证据</h2>
-       <p class="cap">EFA"重新发现"了原设计中的2个潜在概念 → 支持量表结构效度的证据。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第3/5部分</div>
+       <ul class="part-list"><li>4种效度类型，每种回答不同的问题</li><li>每种类型各自的例子，≥2个领域</li><li>与第10单元EFA的联系</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · 总览</div><h2>4个不同的问题，不能合并为1个</h2>
+       <table><tr><th>效度类型</th><th>回答的问题</th></tr>
+       <tr><td>内容（content）</td><td>题项是否充分覆盖了概念，是否遗漏了重要方面？</td></tr>
+       <tr><td>结构（construct）</td><td>量表是否测到了其背后的理论概念？</td></tr>
+       <tr><td>效标（criterion）</td><td>分数是否与某个可信的外部标准相关？</td></tr>
+       <tr><td>表面（face）</td><td>粗看上去，题项是否"像"在测量正确的东西？（最弱）</td></tr></table></div><div class="mdeck-slide"><div class="kicker">内容效度</div><h2>题项是否遗漏了重要方面？</h2>
+       <ul><li><b>教育（真实数据）：</b>h1-h3这3题是否充分覆盖"学习兴趣"这一概念，还是只测到了一个狭窄的侧面（例如只问课堂学习时间，遗漏了在家自学的兴趣）？</li><li><b>医疗（示例）：</b>"生活质量"量表只问身体疼痛，遗漏了心理／社会层面——即使alpha很高，仍可能缺乏内容效度</li><li><b>招聘（示例）：</b>"团队合作能力"测验只有处理冲突的情境题，遗漏了沟通／倾听方面</li><li>常见检验方式：专家小组逐题对照理论定义进行审查</li></ul></div><div class="mdeck-slide"><div class="kicker">结构效度</div><h2>EFA（第10单元）是结构效度的一项证据</h2>
+       <p>EFA"重新发现"了恰好2个潜在概念（学习兴趣、焦虑），与最初的理论设计相符——这是支持结构效度的证据。</p>
+       <p class="cap warn">如果EFA得到的结构与预期完全不同（例如6题合并为1个因子），这将是警示信号，而非好消息。</p></div><div class="mdeck-slide"><div class="kicker">效标效度</div><h2>分数是否与一个可信的外部标准相关？</h2>
+       <ul><li><b>教育（真实数据，第9单元）：</b>"学习兴趣"分数与真实数学成绩相关——β=0.229，具有统计显著性</li><li><b>招聘（示例）：</b>招聘测验分数是否与1年后的实际工作表现评估相关——如果不相关，即使题目"看起来合理"，测验仍缺乏效标效度</li><li><b>医疗（示例）：</b>抑郁自评量表是否与精神科医生的临床诊断（"金标准"）相关</li><li>与结构效度不同：效标使用1个具体的外部测量，而非仅与抽象理论对照</li></ul></div><div class="mdeck-slide"><div class="kicker">表面效度</div><h2 class="warn">最弱——仅基于最初的主观印象</h2>
+       <p>"你喜欢这堂课吗？"（教育）看起来适合测量学习兴趣——但"看起来合理"并不是实证证据。</p>
+       <p class="cap">市场营销（示例）："你满意吗？"这个问题看起来像在测量满意度——但如果没有相关性／结构分析佐证，不能单独作为证据。只能用作初步筛选，不能作为唯一依据。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第3/5部分</div>
        <div class="part-num">03</div>
        <h2>信度 ≠ 效度</h2>
-       <ul class="part-list"><li>为什么这两个概念相互独立</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · 本单元最重要的陷阱</div><h2 class="warn">高信度并不能保证高效度</h2>
-       <p>一台每次都多读出2公斤的秤仍然可以非常"可靠"（总是给出一致的错误读数），但没有效度（没有测出真实体重）。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第4/5部分</div>
+       <ul class="part-list"><li>为什么这两个概念相互独立</li><li>信度×效度四象限矩阵</li><li>应用到班级数据</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · 本单元最重要的陷阱</div><h2 class="warn">高信度不能保证高效度</h2>
+       <table><tr><th>测量次数</th><th>秤A（系统性误差）</th><th>秤B（随机误差）</th><th>真实体重</th></tr>
+       <tr><td>第1次</td><td>62.0 kg</td><td>58.5 kg</td><td>60.0 kg</td></tr>
+       <tr><td>第2次</td><td>62.1 kg</td><td>61.8 kg</td><td>60.0 kg</td></tr>
+       <tr><td>第3次</td><td>61.9 kg</td><td>59.7 kg</td><td>60.0 kg</td></tr></table>
+       <p class="cap">秤A：始终偏差约2kg（信度高，效度低）。秤B：忽高忽低（信度低，效度也低，因为不稳定）。</p></div><div class="mdeck-slide"><div class="kicker">四象限矩阵</div><h2>信度是效度的必要但非充分条件</h2>
+       <table><tr><th></th><th>效度低</th><th>效度高</th></tr>
+       <tr><td><b>信度高</b></td><td>秤A：总是偏向同一方向</td><td>理想的量表（信度＋效度兼备）</td></tr>
+       <tr><td><b>信度低</b></td><td>秤B：既不稳定又不准确</td><td class="warn">不可能出现——不稳定就不可能总是准确</td></tr></table></div><div class="mdeck-slide"><div class="kicker">应用到真实数据</div><h2>α=0.713不能自动证明测到了"学习兴趣"</h2>
+       <p>α=0.713说明h1-h3这3题彼此测量得一致——但不能自动证明它们真正测到了理论上的"学习兴趣"概念（也可能无意中测到了一个相近的概念，如"希望取悦老师"）。</p>
+       <p class="cap">需要更多效度证据（内容、通过EFA的结构、与数学成绩相关的效标）才能确认这一点——见第2部分。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第4/5部分</div>
        <div class="part-num">04</div>
        <h2>研究伦理</h2>
-       <ul class="part-list"><li>知情同意</li><li>保密与匿名</li><li>避免伤害</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · 三大核心原则</div><h2>同意 · 保密 · 不伤害</h2>
-       <p class="cap">在研究未成年人（如全程使用的PISA数据——15岁学生）时尤为重要。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第5/5部分</div>
+       <ul class="part-list"><li>知情同意</li><li>保密与匿名——两个不同层级</li><li>避免伤害，包括间接伤害</li><li>为什么统计技术无法"修正"伦理问题</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · 三大核心原则</div><h2>同意 · 保密 · 不伤害</h2>
+       <p class="cap">在研究未成年人（如全程使用的PISA数据——15岁学生）或其他弱势群体时尤为重要。</p></div><div class="mdeck-slide"><div class="kicker">知情同意</div><h2>在参与之前清楚理解目的、流程、拒绝的权利</h2>
+       <ul><li><b>教育（真实数据）：</b>PISA需要在收集数据前同时获得学校以及家长／学生（未成年人）的同意</li><li><b>医疗（示例）：</b>新药临床试验需要患者在参与前签署同意书，清楚理解风险／收益，并有权随时退出</li><li><b>历史警示：</b>塔斯基吉梅毒试验（美国，1932-1972）在没有充分知情同意、也未提供已有治疗方案的情况下追踪观察梅毒病情进展——这是《贝尔蒙特报告》（1979年）出台的部分原因，奠定了现代研究伦理的基础</li><li>教训：同意必须事先获得，而不是事后才告知</li></ul></div><div class="mdeck-slide"><div class="kicker">保密与匿名</div><h2>两种不同层级的保护，容易混淆</h2>
+       <table><tr><th>概念</th><th>含义</th><th>例子</th></tr>
+       <tr><td>匿名（anonymity）</td><td>连研究者本人也不知道参与者的身份</td><td>不收集姓名／邮箱的在线问卷</td></tr>
+       <tr><td>保密（confidentiality）</td><td>研究者知道身份，但承诺不对外泄露</td><td>病历（医疗，示例）——医生知道患者姓名但不得外泄</td></tr>
+       <tr><td>PISA的实际应用（真实数据）</td><td>用代码<code>CNTSTUID</code>／<code>CNTSCHID</code>代替真实姓名</td><td>接近匿名——数据分析者不知道具体身份</td></tr></table></div><div class="mdeck-slide"><div class="kicker">避免伤害</div><h2>不仅是身体伤害——也包括间接的心理／社会伤害</h2>
+       <ul><li><b>教育（真实数据）：</b>网站公开的PISA数据不公布具体学校名称——避免学校被识别并遭到公开比较／污名化</li><li><b>医疗（示例）：</b>按地区公布过于详细的疫情研究结果，即使不提及个人姓名，也可能导致某个具体社区遭到污名化</li><li><b>心理学（示例）：</b>调查负面经历（家庭暴力、抑郁）的问卷需要为参与者提供回答后的心理支持方案，避免唤起创伤却无后续支持</li><li>总原则：考虑所有可能的后果，而不只是最容易看到的直接后果</li></ul></div><div class="mdeck-slide"><div class="kicker">与整个课程的联系</div><h2 class="warn">没有任何统计技术能够"修正"伦理问题</h2>
+       <p>已学过的每一种技术（第01-11单元）都假定输入数据是以符合伦理的方式收集的——一个在技术上完美无缺的回归模型（第9单元），如果数据收集没有有效同意，仍然完全没有价值。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第5/5部分</div>
        <div class="part-num">05</div>
        <h2>应用与实践</h2>
-       <ul class="part-list"><li>SPSS/PSPP实操</li><li>回顾整个课程</li></ul></div><div class="mdeck-slide"><div class="kicker">实操</div><h2>SPSS：Analyze → Scale → Reliability Analysis</h2>
-       <p class="cap">PSPP：RELIABILITY命令——已验证运行结果与手工计算完全一致。</p></div><div class="mdeck-slide"><div class="kicker">接下来</div><h2>阅读下方详细内容，然后自测30道题</h2>
+       <ul class="part-list"><li>SPSS/PSPP逐步实操</li><li>回顾整个课程——12个单元总结表</li></ul></div><div class="mdeck-slide"><div class="kicker">SPSS实操</div><h2>Analyze → Scale → Reliability Analysis</h2>
+       <ul><li>将h1、h2、h3移入<i>Items</i>框</li><li>点击<code>Statistics...</code> → 勾选<i>Scale if item deleted</i></li><li>查看"Reliability Statistics"表（Cronbach's Alpha）</li><li>查看"Item-Total Statistics"表（题项-总分相关、删除后alpha）</li></ul></div><div class="mdeck-slide"><div class="kicker">PSPP语法</div><h2>RELIABILITY /VARIABLES=h1 h2 h3 /MODEL=ALPHA</h2>
+       <p class="cap">已验证与Python／手工计算100%一致：Cronbach's Alpha=0.71——见<code>pspp/12_do_tin_cay_zh.sps</code>。</p></div><div class="mdeck-slide"><div class="kicker">🎓 回顾整个课程</div><h2>12个单元——从"度量尺度"到"研究伦理"</h2>
+       <table><tr><th>单元</th><th>主题</th></tr>
+       <tr><td>01</td><td>度量尺度与数据的本质</td></tr>
+       <tr><td>02</td><td>抽样与样本量</td></tr>
+       <tr><td>03</td><td>描述统计</td></tr>
+       <tr><td>04</td><td>分布与统计显著性</td></tr>
+       <tr><td>05-06</td><td>t检验、ANOVA（参数检验）</td></tr>
+       <tr><td>07</td><td>卡方与非参数检验</td></tr>
+       <tr><td>08-09</td><td>相关、回归</td></tr>
+       <tr><td>10</td><td>EFA、聚类分析</td></tr>
+       <tr><td>11</td><td>选择正确的方法</td></tr>
+       <tr><td>12</td><td>信度、效度与伦理</td></tr></table></div><div class="mdeck-slide"><div class="kicker">接下来</div><h2>阅读下方详细内容，然后自测30道题</h2>
        <p>幻灯片只是摘要。完整公式、真实数据与研究伦理内容都在下方。这是本12单元课程的最后一个单元。</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ 上一页</button>
@@ -75,6 +125,7 @@
 <tr><td>h3</td><td>0.535</td><td>0.620</td></tr></table>
 解读：若从量表中删除h2，alpha会上升到0.672——但仍然低于目前3个题项一起时的alpha（0.713）。结论：保留全部3个题项是最佳选择，不应删减。</div>
 <div class="callout warn"><b>alpha非常高（&gt;0.95）并不总是好消息：</b>这可能是题项用不同措辞几乎在问"同一个问题"的信号（冗余）——量表存在"多余"的题项，没有带来任何新信息。一个好的量表需要在"一致性"（alpha足够高）与"充分覆盖"待测概念（而不是反复问同一个意思）之间取得平衡。</div>
+<div class="callout"><b>教育以外的例子——Cronbach's alpha适用于任何有多题项量表的领域：</b>医疗（示例）：术前焦虑量表共5题——alpha低意味着患者回答不一致，量表需要在用于临床决策前重新审视。市场营销（示例）：顾客满意度量表共4题（价格、质量、服务、是否会再次光顾）——alpha高确认4题共同测量"整体满意度"这一概念。教育（真实数据）：如上，α=0.713/0.759。公式与解读方式在各领域完全相同——只是研究对象与题目内容不同。</div>
 
 <h2 id="validity">2. 效度（Validity）——测量工具是否测到了正确的东西？</h2>
 <p>不存在唯一的"效度"——它是一系列不同类型证据的集合，每一种回答一个各自独立的问题：</p>
@@ -84,11 +135,18 @@
 <tr><td>效标效度（criterion validity）</td><td>分数是否与另一个可信的外部标准相关？</td><td>"学习兴趣"分数是否与真实的数学成绩相关（已在第9单元看到：β=0.229，显著）</td></tr>
 <tr><td>表面效度（face validity）</td><td>粗略看上去，题项是否"像"在测量正确的概念？（主观判断，最弱的一种）</td><td>问题"你喜欢这堂课吗？"看起来适合用来测量学习兴趣</td></tr>
 </table>
+<div class="callout"><b>内容效度的例子：</b>教育（真实数据）——h1-h3这3题是否充分覆盖"学习兴趣"概念，还是只测到了一个狭窄侧面（例如只问课堂学习时间，遗漏在家自学的兴趣）？医疗（示例）——"生活质量"量表只问身体疼痛，遗漏心理／社会层面，即使alpha高仍可能缺乏内容效度。招聘（示例）——"团队合作能力"测验只有处理冲突的情境题，遗漏沟通／倾听方面。常见检验方式：专家小组逐题对照理论定义进行审查。</div>
 <div class="callout"><b>EFA（第10单元）作为结构效度的证据：</b>EFA"重新发现"了恰好2个因子（学习兴趣、焦虑），与最初的理论设计相符，这是支持结构效度的一种证据——如果EFA得出与预期完全不同的结构（例如6个问题全部合并为1个因子，或分散成4个零散因子），那将是关于该量表结构效度的警示信号。</div>
+<div class="callout"><b>效标效度的例子：</b>教育（真实数据，第9单元）——"学习兴趣"分数与真实数学成绩相关，β=0.229，具有统计显著性。招聘（示例）——招聘测验分数是否与1年后的实际工作表现评估相关，如果不相关，即使题目"看起来合理"，测验仍缺乏效标效度。医疗（示例）——抑郁自评量表是否与精神科医生的临床诊断（"金标准"）相关。与结构效度不同：效标使用1个具体的外部测量，而不只是与抽象理论对照。</div>
+<div class="callout warn"><b>表面效度——最弱的一种：</b>"你喜欢这堂课吗？"看起来适合测量学习兴趣——但"看起来合理"并不是实证证据。市场营销（示例）："你满意吗？"这个问题看起来像在测量满意度——但没有相关性／结构分析佐证。只能用作初步筛选，不能作为唯一依据。</div>
 
 <h2 id="reliability-vs-validity">3. 信度不能保证效度——反之亦然</h2>
 <div class="callout warn"><b>经典例子：</b>一台有故障的秤，每次总是比真实体重多读出2公斤。这台秤的信度非常高（反复测量总是给出一致的结果，每次都恰好偏差2公斤）——但效度非常低（没有测出真实体重）。<b>信度是效度的必要条件，但不是充分条件</b>——一个不可靠的量表（测量结果在各次之间杂乱无章）肯定不可能有高效度，但高信度并不会自动保证高效度。</div>
-<p>应用到班级数据集：α=0.713（学习兴趣）说明3个问题h1-h3彼此测量得一致——但这并不能自动证明这3个问题真正测到了理论意义上的"学习兴趣"概念（它们也可能无意中测到了一个相近但不同的概念，例如"服从性"或"希望取悦老师"）。需要更多效度证据（内容、结构、效标）才能确认这一点。</p>
+<div class="callout"><b>信度×效度四象限：</b>
+<table><tr><th></th><th>效度低</th><th>效度高</th></tr>
+<tr><td><b>信度高</b></td><td>秤A：总是偏向同一方向</td><td>理想的量表（信度＋效度兼备）</td></tr>
+<tr><td><b>信度低</b></td><td>秤B：既不稳定又不准确</td><td>不可能出现——不稳定就不可能总是准确</td></tr></table></div>
+<p>应用到班级数据集：α=0.713（学习兴趣）说明3个问题h1-h3彼此测量得一致——但这并不能自动证明这3个问题真正测到了理论意义上的"学习兴趣"概念（可能它们无意中测到了一个相近但不同的概念，例如"服从性"或"希望取悦老师"）。需要更多效度证据（内容、结构、效标）才能确认这一点。</p>
 
 <h2 id="ethics">4. 研究伦理</h2>
 <p>在任何从人类身上收集数据的研究中都必须考虑的三条核心伦理原则，对全程使用的PISA数据（15岁学生——未成年人）而言尤为重要：</p>
@@ -97,6 +155,8 @@
 <tr><td>保密与匿名（confidentiality/anonymity）</td><td>个人数据受到保护，无法反向追溯出具体参与者的身份</td><td>学生代码（<code>CNTSTUID</code>）与学校代码（<code>CNTSCHID</code>）是匿名代码，不含真实姓名</td></tr>
 <tr><td>避免伤害（avoidance of harm）</td><td>研究不得对参与者造成心理／社会层面的伤害，即使是间接的（例如公布数据导致学校／学生被识别并遭受污名化）</td><td>公开数据集不公布具体学校名称，仅使用代码</td></tr>
 </table>
+<div class="callout warn"><b>历史警示——知情同意为何如此重要：</b>塔斯基吉梅毒试验（美国，1932-1972）在没有充分知情同意、也未提供已有治疗方案的情况下追踪观察梅毒病情进展——这是《贝尔蒙特报告》（1979年）出台的部分原因，奠定了现代研究伦理的基础。教训：同意必须事先获得，而不是事后才告知。</div>
+<div class="callout"><b>避免伤害——不仅是身体伤害：</b>教育（真实数据）——网站公开的PISA数据不公布具体学校名称，避免学校被识别并遭到公开比较／污名化。医疗（示例）——按地区公布过于详细的疫情研究结果，即使不提及个人姓名，也可能导致某个具体社区遭到污名化。心理学（示例）——调查负面经历（家庭暴力、抑郁）的问卷需要为参与者提供回答后的心理支持方案，避免唤起创伤却无后续支持。总原则：考虑所有可能的后果，而不只是最容易看到的直接后果。</div>
 <div class="callout warn"><b>与整个课程的联系：</b>此前所学的每一种统计技术（第01-11单元）都假定输入数据是以符合伦理的方式收集的——没有任何统计方法能够"修正"数据收集环节存在的伦理问题。一个在技术上完美无缺的回归模型（第9单元），如果其输入数据是在没有有效同意的情况下收集的，仍然完全没有价值。</div>
 
 <h2 id="practice">5. SPSS/PSPP实操</h2>
@@ -128,7 +188,7 @@ RELIABILITY
 <h3>🎓 回顾整个课程</h3>
 <div class="callout">第12单元为这段12步旅程画上句号：从理解数据的度量尺度（01），到正确的抽样方法（02）、描述统计（03）与理解统计显著性（04），用参数检验（05-06）与非参数检验（07）比较组别，测量关联（08）与预测（09），寻找潜在结构（10），学会选择正确的方法（11），最后——学会追问整个过程是否值得信赖、是否符合伦理（12）。统计学不是一堆彼此孤立的公式——而是一种系统性地思考证据的方式，始终伴随着"我的解读是否正确，这些数据从一开始是否值得信赖"这一追问。</div>
 
-<h2 id="quiz">6. 自测（30题）</h2>
+<h2 id="quiz">6. 自测（26题）</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">
 <div>免费、非营利的自学资料。网站源代码：<a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>

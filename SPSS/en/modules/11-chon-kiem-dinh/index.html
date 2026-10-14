@@ -17,27 +17,86 @@
 <p class="lead">Module 11/12 · Content follows Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, 8th edition (Routledge, 2018), Chapter 44 "Data analysis: an overview". This module does NOT introduce new techniques — it consolidates the entire method-selection logic learned in Modules 03-10 into a single decision process.</p>
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 11 · COHEN ET AL., CH.44</div>
        <h2>Choosing the Right Statistical Test</h2>
-       <p>Consolidating the entire method-selection logic — 4 questions that determine the correct path.</p>
-       <p class="cap">← → to change slides.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/4</div>
+       <p>Consolidating the entire method-selection logic learned in Modules 03-10 — 4 decision questions that lead to the right path, illustrated with the exact real data already published in each module, plus cross-domain examples for practising generalisation.</p>
+       <p class="cap">5 parts · ← → to change slides.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/5</div>
        <div class="part-num">01</div>
        <h2>The 4 decision questions</h2>
-       <ul class="part-list"><li>Goal: describe, compare, associate, or predict?</li><li>The scale of measurement decides the branch</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · First question</div><h2>Are you DESCRIBING, COMPARING, ASSOCIATING, or PREDICTING?</h2>
-       <p>Describe → Module 03. Compare groups → Modules 05-07. Associate 2 variables → Module 08. Predict / several latent variables → Modules 09-10.</p></div><div class="mdeck-slide"><div class="kicker">Second question</div><h2>What is the scale of measurement of the DEPENDENT variable?</h2>
-       <p class="cap">Nominal/ordinal → non-parametric. Interval/ratio + meets assumptions → parametric (see Module 01).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/4</div>
+       <ul class="part-list"><li>Goal: describe, compare, associate, or predict?</li><li>The scale of measurement decides the branch</li><li>How many groups, independent or related?</li><li>The most common scale-of-measurement trap</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · First question</div><h2>Are you DESCRIBING, COMPARING, ASSOCIATING, or PREDICTING?</h2>
+       <table><tr><th>Goal</th><th>Example question</th><th>Module</th></tr>
+       <tr><td>Describe 1 variable</td><td>Education: what is the average Math score of the class?</td><td>03</td></tr>
+       <tr><td>Compare GROUPS</td><td>Healthcare (illustrative): does mean blood pressure differ across 3 treatment protocols?</td><td>05-07</td></tr>
+       <tr><td>Measure ASSOCIATION between 2 variables</td><td>Economics (illustrative): are advertising spend and revenue associated?</td><td>08</td></tr>
+       <tr><td>DIRECTIONAL PREDICTION</td><td>Education: predict Math score from study hours + interest + anxiety</td><td>09</td></tr>
+       <tr><td>Find a latent structure</td><td>Agriculture (illustrative): can 10 soil indicators be grouped into 2-3 property clusters?</td><td>10</td></tr></table>
+       <p class="cap">Pin down the RIGHT goal first — questions 2-4 below only make sense AFTER the goal is clear.</p></div><div class="mdeck-slide"><div class="kicker">Second question</div><h2>What is the scale of measurement of the DEPENDENT variable?</h2>
+       <p>This question decides whether you take the PARAMETRIC or NON-PARAMETRIC branch — recalling the foundation from Module 01.</p>
+       <ul><li><b>Nominal</b> (gender, school type) → always non-parametric (chi-square).</li>
+       <li><b>Ordinal</b> (a single Likert item, a ranking) → non-parametric (Mann-Whitney, Kruskal-Wallis, Spearman…).</li>
+       <li><b>Interval/ratio</b> (test score, height, income) + meets parametric assumptions (Module 04: normal distribution, homogeneity of variance) → parametric.</li>
+       <li><b>Interval/ratio but VIOLATING parametric assumptions</b> → consider switching to the corresponding non-parametric branch, even though the variable is originally interval/ratio.</li></ul></div><div class="mdeck-slide"><div class="kicker">Third question</div><h2>If comparing groups: how many groups, independent or related?</h2>
+       <ul><li><b>2 groups, INDEPENDENT</b> (e.g. male/female, 2 different schools) — each person belongs to only 1 group.</li>
+       <li><b>2 groups, RELATED</b> (e.g. the same person measured at pretest then posttest) — paired by subject.</li>
+       <li><b>3+ groups, INDEPENDENT</b> (e.g. 3 schools A/B/C) — needs a post-hoc test if significant, since ANOVA/Kruskal-Wallis only says "there's a difference somewhere".</li>
+       <li><b>3+ measurements, RELATED</b> (e.g. 3 survey items on the same people) — repeated-measures ANOVA or Friedman.</li></ul>
+       <p class="cap">Part 2 right after this looks up each case in detail with real data.</p></div><div class="mdeck-slide"><div class="kicker">Fourth question</div><h2>If measuring association: SYMMETRIC or DIRECTIONAL?</h2>
+       <p>Only measuring the strength of association, no distinction of which variable is dependent → <b>Correlation</b> (Module 08). Want to build an equation predicting Y from X, clearly directional → <b>Regression</b> (Module 09).</p>
+       <p class="cap">Several observed variables at once, looking for latent structure: grouping VARIABLES → EFA; grouping OBJECTS → Cluster (Module 10) — details in Part 3.</p></div><div class="mdeck-slide"><div class="kicker">The MOST common trap</div><h2>Confusing ORDINAL with INTERVAL/RATIO scales</h2>
+       <table><tr><th>Data</th><th>True scale</th><th>Often mistaken for</th></tr>
+       <tr><td>A single Likert item (e.g. "level of interest: 1-5")</td><td>Ordinal</td><td class="warn">Interval (wrong)</td></tr>
+       <tr><td>A summed score across several Likert items (e.g. a 6-item scale)</td><td>Interval (treated as Scale)</td><td>—</td></tr>
+       <tr><td>Test score / height / income</td><td>Ratio</td><td>—</td></tr></table>
+       <p class="warn">ALWAYS go back to Module 01 to determine the correct scale of measurement BEFORE choosing a test — don't choose the test first and then "force" the data to fit.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/5</div>
        <div class="part-num">02</div>
        <h2>Comparing groups: how many groups, independent or related?</h2>
-       <ul class="part-list"><li>2 independent groups, 2 related groups, 3+ groups</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Quick lookup</div><h2>2 independent groups</h2>
-       <p class="big">Parametric: independent t-test (Module 05) · Non-parametric: Mann-Whitney (Module 07)</p></div><div class="mdeck-slide"><div class="kicker">Quick lookup</div><h2>3+ independent groups</h2>
-       <p class="big">Parametric: one-way ANOVA (Module 06) · Non-parametric: Kruskal-Wallis (Module 07)</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/4</div>
+       <ul class="part-list"><li>2 independent groups, 2 related groups</li><li>3+ independent groups, 3+ related measurements</li><li>Association between 2 nominal variables (crosstabs)</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · 2 INDEPENDENT groups</div><h2>Parametric: independent t-test · Non-parametric: Mann-Whitney</h2>
+       <p class="big">Real data (Module 05): comparing Math scores between 2 teaching methods (Project-based vs Traditional) — <b>t(238)=7.59, p&lt;0.001</b>, very strongly significant.</p>
+       <p class="cap">If the dependent variable is ordinal (e.g. the single Likert item h1 by gender) instead of interval/ratio → Mann-Whitney U (Module 07); the real data gives U=6416, p=0.127 (NOT significant).</p></div><div class="mdeck-slide"><div class="kicker">2 RELATED groups</div><h2>Parametric: paired t-test · Non-parametric: Wilcoxon</h2>
+       <p>The SAME group of subjects, measured TWICE (before/after an intervention) — quite different from 2 independent groups, in that each observation has its own "pair", not comparing 2 different sets of people.</p>
+       <p class="cap">Healthcare (illustrative): blood pressure of the same group of patients measured before and after 4 weeks of medication → paired t-test if parametric assumptions are met, Wilcoxon if not (e.g. a subjective pain scale that is ordinal).</p></div><div class="mdeck-slide"><div class="kicker">3 · 3+ INDEPENDENT groups</div><h2>Parametric: one-way ANOVA (+post-hoc) · Non-parametric: Kruskal-Wallis</h2>
+       <p class="big">Real data (Module 06): Math score across 3 schools A/B/C — <b>F(2,237)=5.87, p=0.003</b>, but eta²=0.047 is only a SMALL effect (recalling the Module 04 lesson: statistical significance ≠ a large effect size).</p>
+       <p class="cap">A Tukey post-hoc test shows EXACTLY which pair differs: A-B p=0.046, A-C p=0.0031 (significant), B-C p=0.427 (not) — ANOVA alone only says "there's a difference somewhere", not where.</p></div><div class="mdeck-slide"><div class="kicker">3+ RELATED measurements</div><h2>Parametric: repeated-measures ANOVA · Non-parametric: Friedman</h2>
+       <p>An extension of the paired t-test when there are 3 or more conditions/measurements on the SAME group of subjects.</p>
+       <p class="cap">Real data (Module 07): comparing 3 anxiety rating items a1, a2, a3 on the same 240 students — Friedman χ²=0.555, p=0.758 (no difference at all, the 3 means are very close).</p></div><div class="mdeck-slide"><div class="kicker">Association between 2 NOMINAL variables</div><h2>Crosstabs → Chi-square</h2>
+       <p class="big">Real data (Module 07): gender × teaching method — <b>χ²(1)=1.37, p=0.243</b>, NOT significant (unlike the textbook example χ²=28.87 which was very strongly significant).</p>
+       <p class="cap">This is NOT "comparing groups" in the sense of means — both variables are nominal, so t-test/ANOVA can't be used, even though the question sounds similar.</p></div><div class="mdeck-slide"><div class="kicker">Part 2 summary table</div><h2>8 group-comparison scenarios, one quick-lookup table</h2>
+       <table><tr><th>Groups/measurements</th><th>Independent/related</th><th>Parametric</th><th>Non-parametric</th></tr>
+       <tr><td>2</td><td>Independent</td><td>Independent t-test</td><td>Mann-Whitney U</td></tr>
+       <tr><td>2</td><td>Related</td><td>Paired t-test</td><td>Wilcoxon</td></tr>
+       <tr><td>3+</td><td>Independent</td><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
+       <tr><td>3+</td><td>Related</td><td>Repeated-measures ANOVA</td><td>Friedman</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/5</div>
        <div class="part-num">03</div>
        <h2>Association & prediction</h2>
-       <ul class="part-list"><li>2 continuous variables → correlation or regression?</li><li>Multiple observed variables → EFA or Cluster?</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Association vs Prediction</div><h2>Just MEASURING association, or PREDICTING with a direction?</h2>
-       <p>Just measuring strength, symmetric → Correlation (Module 08). Predicting Y from X, directional → Regression (Module 09).</p></div><div class="mdeck-slide"><div class="kicker">Multiple observed variables</div><h2>Grouping VARIABLES or grouping OBJECTS?</h2>
-       <p class="cap">Grouping variables (finding a latent concept) → EFA. Grouping objects (finding similar profiles) → Cluster (Module 10).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/4</div>
+       <ul class="part-list"><li>2 continuous variables → correlation or regression?</li><li>Simple vs multiple regression, partial correlation</li><li>Multiple observed variables → EFA or Cluster?</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Association vs Prediction</div><h2>Just MEASURING association, or PREDICTING with a direction?</h2>
+       <p class="big">Real data (Module 08): study hours and Math score — <b>r=0.582, r²=0.338</b> — a strong, symmetric association, with no distinction of which variable "causes" the other.</p>
+       <p class="cap">Want to predict Y from X with a clear direction → switch to regression (next slide) — same underlying maths (r²=R² for one variable) but a different purpose: MEASURING association vs BUILDING a prediction equation.</p></div><div class="mdeck-slide"><div class="kicker">Simple vs multiple regression</div><h2>One predictor, or several at once?</h2>
+       <p>Real data (Module 09): simple regression (study hours alone) gives R²=0.338 — identical to the Pearson r². Adding 2 more variables (interest h1, anxiety a1) → multiple regression: <b>R²=0.495</b> (adjusted R²=0.488), <b>F(3,236)=77.05, p&lt;0.001</b>.</p>
+       <p class="cap">Economics (illustrative): predicting house price not just from floor area (simple) but also from location + house age (multiple) — the same "controlling for each other" logic (ceteris paribus).</p></div><div class="mdeck-slide"><div class="kicker">Partial correlation</div><h2>Association between 2 variables AFTER removing a 3rd variable's effect</h2>
+       <div class="pd-formula"><div class="pd-formula-label">First-order partial correlation</div><div class="pd-formula-math">r<sub>XY·Z</sub> = (r<sub>XY</sub> − r<sub>XZ</sub>r<sub>YZ</sub>) / √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</div></div>
+       <p class="cap">Healthcare (illustrative): an association between "coffee intake" and "blood pressure" may disappear once "smoking" (a confounding variable) is controlled for — see the partial correlation section in Module 08.</p></div><div class="mdeck-slide"><div class="kicker">Multiple observed variables</div><h2>Grouping VARIABLES or grouping OBJECTS?</h2>
+       <p>Grouping variables (finding the latent concept behind several questions) → <b>EFA</b>. Grouping objects (finding similar profiles across several schools/people) → <b>Cluster</b> (Module 10) — two questions that sound alike but point in completely different directions.</p>
+       <p class="cap">Real data: EFA on 6 survey items → KMO=0.688, Bartlett χ²=313.28, p&lt;0.001 (suitable for reduction into 2 latent factors: interest, anxiety).</p></div><div class="mdeck-slide"><div class="kicker">Cluster — a real example</div><h2>K-means on 195 PISA schools, k=2 statistically optimal</h2>
+       <p class="big">Silhouette k=2=0.252 (highest among k=2,3,4 tested) — but k=3 tells a clearer interpretive story ("compounding difficulty" vs "stable" vs "neutral" clusters).</p>
+       <p class="cap">Agriculture (illustrative): grouping 500 plots of land by 5 soil indicators (pH, moisture, N-P-K...) into 3 clusters "good/average/needs improvement" soil — the same Cluster logic, a completely different domain.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/5</div>
        <div class="part-num">04</div>
+       <h2>Integrated case studies</h2>
+       <ul class="part-list"><li>6 real research scenarios, answer them yourself before checking</li><li>Each scenario cites the exact figures already published in its source module</li></ul></div><div class="mdeck-slide"><div class="kicker">Scenario 1</div><h2>"Do Math scores differ across Schools A, B, and C?"</h2>
+       <p>The dependent variable (Math score) is a ratio scale, approximately normally distributed (Module 04), 3 INDEPENDENT groups.</p>
+       <p class="cap">→ <b>One-way ANOVA</b> (Module 06) — real result: F(2,237)=5.87, p=0.003, Tukey identifies School A as different from B and C.</p></div><div class="mdeck-slide"><div class="kicker">Scenario 2</div><h2>"For the same 240 students, does the score increase from pretest to posttest?"</h2>
+       <p>The SAME subjects, measured TWICE (before/after) — not two different sets of people.</p>
+       <p class="cap">→ <b>Paired t-test</b> (Module 05), if the score meets parametric assumptions.</p></div><div class="mdeck-slide"><div class="kicker">Scenario 3</div><h2>"Does the h1 rating (Likert) differ across 3 schools?"</h2>
+       <p>The dependent variable is a single Likert item → ORDINAL scale, not interval/ratio. 3 independent groups.</p>
+       <p class="cap">→ <b>Kruskal-Wallis</b> (Module 07) — real data: H=2.844, p=0.241, NOT significant.</p></div><div class="mdeck-slide"><div class="kicker">Scenario 4</div><h2>"How are study hours and Math score associated, and how is that used to predict?"</h2>
+       <p>Needs BOTH measuring the association AND directional prediction — two complementary steps, not substitutes.</p>
+       <p class="cap">→ <b>Pearson r</b> (Module 08, r=0.582) to measure the association, then <b>linear regression</b> (Module 09, R²=0.338) to build a prediction equation.</p></div><div class="mdeck-slide"><div class="kicker">Scenario 5</div><h2>"Do the 6 survey items really measure 2 different psychological concepts?"</h2>
+       <p>A question about the latent STRUCTURE behind several observed VARIABLES, not about comparing groups.</p>
+       <p class="cap">→ <b>EFA</b> (Module 10) — KMO=0.688, Bartlett p&lt;0.001, 2 factors "rediscover" the exact 2 concepts the items were designed around.</p></div><div class="mdeck-slide"><div class="kicker">Scenario 6</div><h2>"Can the 195 PISA schools be grouped into different profile types?"</h2>
+       <p>A question about grouping OBJECTS (schools), not grouping variables.</p>
+       <p class="cap">→ <b>K-means cluster analysis</b> (Module 10) — Silhouette k=2=0.252 is statistically optimal, k=3 is easier to interpret.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 5/5</div>
+       <div class="part-num">05</div>
        <h2>Applying it in practice</h2>
-       <ul class="part-list"><li>The complete decision tree</li><li>Practice with 6 real scenarios</li></ul></div><div class="mdeck-slide"><div class="kicker">Practice</div><h2>6 real research questions, choosing the right method</h2>
-       <p class="cap">Uses the exact data used throughout Modules 03-10 to practise selecting the correct test.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the full material below, then test yourself with 28 questions</h2>
+       <ul class="part-list"><li>The complete decision tree</li><li>SPSS/PSPP practice</li><li>The p-hacking trap to avoid</li></ul></div><div class="mdeck-slide"><div class="kicker">Practice</div><h2>6 real research questions, choosing the right method</h2>
+       <p class="cap">Uses the exact data used throughout Modules 03-10 to practise selecting the correct test — revisit Part 4 if needed, then practise in SPSS/PSPP in the section below.</p></div><div class="mdeck-slide"><div class="kicker">Warning</div><h2>Don't choose a test AFTER you've already seen the result</h2>
+       <p class="warn">"Running several tests and picking whichever gives p&lt;0.05" is a form of p-hacking — the test must be chosen BASED ON the research question and the scale of measurement, decided BEFORE looking at the result.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the full material below, then test yourself with 28 questions</h2>
        <p>These slides are only a summary. The full decision tree and the 6 practice scenarios are right below.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Prev</button>

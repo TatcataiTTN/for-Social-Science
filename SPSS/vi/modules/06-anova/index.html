@@ -33,7 +33,12 @@
        <p class="cap">% biến thiên biến phụ thuộc "giải thích" bởi biến nhóm — xem bảng ngưỡng ở Module 04.</p></div><div class="mdeck-slide"><div class="kicker">Ví dụ sách</div><h2>4 loại trường: F(3,df)=8,976, p&lt;0,001</h2>
        <p class="cap">Nông thôn tiểu học=59,85%, nông thôn trung học=60,44%, thành thị tiểu học=50,64%, thành thị trung học=51,70%.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Điểm Toán theo 3 trường: F(2,237)=5,87, p=0,003</h2>
        <img src="../../../assets/diagrams/anova_school_box.png" alt="anova boxplot"/>
-       <p class="cap">Levene p=0,292 (≥0,05) → phương sai đồng nhất, đủ điều kiện dùng Tukey.</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá</div><h2 class="warn">ANOVA nói "CÓ khác biệt" — không nói "Ở ĐÂU"</h2>
+       <p class="cap">Levene p=0,292 (≥0,05) → phương sai đồng nhất, đủ điều kiện dùng Tukey.</p></div><div class="mdeck-slide"><div class="kicker">Bảng ANOVA tính tay</div><h2>SS, df, MS, F đầy đủ (điểm Toán × 3 trường)</h2>
+       <table><tr><th>Nguồn</th><th>SS</th><th>df</th><th>MS=SS/df</th><th>F</th></tr>
+       <tr><td>Giữa nhóm</td><td>1056,82</td><td>2</td><td>528,41</td><td rowspan="2">5,87</td></tr>
+       <tr><td>Trong nhóm</td><td>21317,19</td><td>237</td><td>89,95</td></tr>
+       <tr><td>Tổng</td><td>22374,01</td><td>239</td><td>—</td><td>p=0,003</td></tr></table>
+       <p class="cap">η² = SS<sub>giữa</sub>/SS<sub>tổng</sub> = 1056,82/22374,01 = <b>0,047</b> (mức nhỏ — xem Module 04)</p></div><div class="mdeck-slide"><div class="kicker">Chìa khoá</div><h2 class="warn">ANOVA nói "CÓ khác biệt" — không nói "Ở ĐÂU"</h2>
        <p>F có ý nghĩa chỉ cho biết: khác biệt tồn tại ở đâu đó trong các nhóm.</p>
        <p class="warn">Cần hậu kiểm (post hoc) để xác định CHÍNH XÁC cặp nào khác nhau!</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
        <div class="part-num">02</div>
@@ -106,7 +111,12 @@
 
 <h2 id="mot-chieu">2. ANOVA một chiều (One-way ANOVA)</h2>
 <p>Ví dụ của Cohen et al. (tr.781–782): điểm thi Toán chuẩn hoá của 4 loại trường (nông thôn tiểu học=59,85%; nông thôn trung học=60,44%; thành thị tiểu học=50,64%; thành thị trung học=51,70%). H0: "không có khác biệt có ý nghĩa giữa 4 trung bình". Kết quả SPSS: F(3, df)=8,976, p=0,000 → <b>bác bỏ H0</b>, có khác biệt có ý nghĩa ở đâu đó trong 4 nhóm.</p>
-<div class="callout"><b>Dữ liệu lớp học thật (3 trường A/B/C, điểm Toán):</b> Trường A (n=80) TB=50,67; Trường B (n=99) TB=47,26; Trường C (n=61) TB=45,34. ANOVA một chiều: <b>F(2,237)=5,87, p=0,003</b> → có khác biệt có ý nghĩa. Levene test cho phương sai 3 trường: p=0,292 (≥0,05) → phương sai đồng nhất, đủ điều kiện dùng Tukey.</div>
+<div class="callout"><b>Dữ liệu lớp học thật (3 trường A/B/C, điểm Toán):</b> Trường A (n=80) TB=50,67; Trường B (n=99) TB=47,26; Trường C (n=61) TB=45,34. ANOVA một chiều: <b>F(2,237)=5,87, p=0,003</b> → có khác biệt có ý nghĩa. Levene test cho phương sai 3 trường: p=0,292 (≥0,05) → phương sai đồng nhất, đủ điều kiện dùng Tukey.
+<table><tr><th>Nguồn biến thiên</th><th>SS</th><th>df</th><th>MS = SS/df</th><th>F</th><th>p</th></tr>
+<tr><td>Giữa nhóm (between)</td><td>1.056,82</td><td>2</td><td>528,41</td><td rowspan="2">5,87</td><td rowspan="2">0,003</td></tr>
+<tr><td>Trong nhóm (within)</td><td>21.317,19</td><td>237</td><td>89,95</td></tr>
+<tr><td>Tổng (total)</td><td>22.374,01</td><td>239</td><td>—</td><td>—</td><td>—</td></tr></table>
+Tính tay: F = MS<sub>between</sub>/MS<sub>within</sub> = 528,41/89,95 = <b>5,874</b> (khớp phần mềm, làm tròn 5,87). η² = SS<sub>between</sub>/SS<sub>total</sub> = 1.056,82/22.374,01 = <b>0,047</b> — mức nhỏ theo ngưỡng Module 04, dù F có ý nghĩa thống kê (bài học "ý nghĩa thống kê ≠ cỡ hiệu ứng lớn" đã gặp ở Module 04).</div>
 <div class="figure"><img src="../../../assets/diagrams/anova_school_box.png" alt=""/><figcaption>Phân phối điểm Toán theo 3 trường thật. Trường A cao nhất, Trường C thấp nhất — nhưng ANOVA chỉ cho biết CÓ khác biệt, chưa biết CHÍNH XÁC cặp nào.</figcaption></div>
 <div class="callout warn"><b>Điều F-test KHÔNG cho biết:</b> một F có ý nghĩa chỉ nói "có khác biệt ở đâu đó trong các nhóm" — KHÔNG nói mọi cặp đều khác nhau, cũng không chỉ ra cặp nào (tr.782). Cần bước tiếp theo: hậu kiểm (post hoc).</div>
 
@@ -131,6 +141,13 @@
 <tr><td>Trường × Giới tính (tương tác)</td><td>1,16</td><td>2, 234</td><td>0,315</td><td>Không có ý nghĩa</td></tr></table>
 Diễn giải: trường tạo ra khác biệt điểm Toán thật, nhưng ảnh hưởng này KHÔNG khác nhau đáng kể giữa nam và nữ (không có tương tác) — có thể phát biểu hiệu ứng của trường một cách khá tổng quát cho cả 2 giới.</div>
 <div class="callout warn"><b>Nếu tương tác có ý nghĩa thì sao?</b> Khi đó việc phát biểu hiệu ứng chính một cách "chung chung" (vd "trường luôn ảnh hưởng theo cùng một cách") sẽ gây hiểu lầm — cần diễn giải thận trọng hơn, vì ảnh hưởng của một biến phụ thuộc vào mức của biến kia.</div>
+
+<div class="callout"><b>Ví dụ đa ngành ngoài giáo dục (minh hoạ):</b>
+<table><tr><th>Ngành</th><th>Biến nhóm (3+ nhóm)</th><th>Biến phụ thuộc</th></tr>
+<tr><td>Y tế (minh hoạ)</td><td>3 loại thuốc hạ sốt</td><td>Thời gian hạ sốt (giờ)</td></tr>
+<tr><td>Nông nghiệp (minh hoạ)</td><td>4 loại phân bón</td><td>Năng suất lúa (tạ/ha)</td></tr>
+</table>
+Logic giống hệt ví dụ 3 trường ở trên: ANOVA trả lời "3+ nhóm có khác nhau không", hậu kiểm Tukey trả lời "cặp nào khác nhau" — áp dụng được cho bất kỳ biến nhóm 3+ mức nào, không riêng gì giáo dục.</div>
 
 <h2 id="manova">5. MANOVA — khi có nhiều biến phụ thuộc</h2>
 <p>MANOVA (Multiple Analysis of Variance) mở rộng ANOVA sang trường hợp có NHIỀU biến phụ thuộc liên tục được phân tích đồng thời (vd nhiều môn thi cùng lúc), thay vì chỉ một biến phụ thuộc (tr.785–786).</p>

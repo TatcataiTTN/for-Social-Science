@@ -57,7 +57,7 @@
        <ul class="part-list"><li>Thực hành SPSS/PSPP</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Thực hành</div><h2>SPSS: Analyze → Dimension Reduction → Factor</h2>
        <p class="cap">PSPP: lệnh FACTOR và QUICK CLUSTER — đã kiểm chứng chạy được.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>FACTOR & QUICK CLUSTER</h2>
        <table><tr><td><code>FACTOR /VARIABLES=h1 h2 h3 a1 a2 a3 /ROTATION VARIMAX.</code></td></tr>
-       <tr><td><code>QUICK CLUSTER var1 var2 var3 /NUMBER=3.</code></td></tr></table></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <tr><td><code>QUICK CLUSTER var1 var2 var3 /NUMBER=3.</code></td></tr></table></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 27 câu</h2>
        <p>Slide chỉ tóm tắt. Toàn bộ số liệu thật + thực hành SPSS nằm ngay bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
@@ -89,6 +89,7 @@
 <tr><td>a1 (lo âu)</td><td><b>0,725</b></td><td>−0,092</td></tr>
 <tr><td>a2 (lo âu)</td><td><b>0,722</b></td><td>−0,083</td></tr>
 <tr><td>a3 (lo âu)</td><td><b>0,695</b></td><td>−0,016</td></tr></table>
+Phép tính tay Communality (h²) cho 2 biến — <b>h²ᵢ = λᵢ₁² + λᵢ₂²</b> (bình phương hệ số tải trên TỪNG nhân tố rồi cộng lại): với h1 → h²=(−0,043)²+(0,747)² = 0,0018+0,5580 = <b>0,560</b> (56,0% biến thiên của h1 được 2 nhân tố giải thích); với a1 → h²=(0,725)²+(−0,092)² = 0,5256+0,0085 = <b>0,534</b> (53,4%). Hai biến này có communality tương đương nhau, đều ở mức "khá" (thường ngưỡng chấp nhận được là h²≥0,40-0,50).
 Eigenvalue: NT1=2,21, NT2=1,73 (cả hai đều &gt;1, theo tiêu chí Kaiser). Tổng phương sai giải thích ≈65,7%. <b>EFA "phát hiện lại" chính xác cấu trúc 2 khái niệm ẩn (hứng thú/interest, lo âu/anxiety) đã được dùng để TẠO RA bộ dữ liệu này</b> — xác nhận phương pháp hoạt động đúng: các câu hỏi h1-h3 tải rõ lên một nhân tố, a1-a3 tải rõ lên nhân tố còn lại, không lẫn lộn.</div>
 <div class="callout warn"><b>PCA (Principal Component Analysis) và EFA (Factor Analysis) KHÔNG phải cùng một kỹ thuật</b>, dù thường bị nhầm lẫn. PCA (SPSS/PSPP mặc định gọi là <code>EXTRACTION=PC</code>) tìm tổ hợp tuyến tính giải thích TỐI ĐA phương sai QUAN SÁT được — không phân biệt phương sai "chung" (common) và phương sai "riêng" (unique/error) của từng biến. EFA "đúng nghĩa" (principal axis, maximum likelihood...) chỉ mô hình hoá phần phương sai CHUNG, giả định có sai số đo lường riêng cho từng biến — gần với ý tưởng "khái niệm ẩn" hơn. Với dữ liệu có cấu trúc rõ như ở đây, cả hai cho kết quả gần giống nhau; với dữ liệu ít rõ ràng hơn, chọn nhầm kỹ thuật có thể dẫn tới kết luận khác nhau.</div>
 
@@ -110,6 +111,10 @@ Xét thuần theo chỉ số Silhouette (đo mức độ tách biệt giữa cá
 <ul class="pd-legend"><li><b>a(i)</b><span>khoảng cách trung bình từ điểm i tới các điểm KHÁC trong CÙNG cụm với nó</span></li>
 <li><b>b(i)</b><span>khoảng cách trung bình từ điểm i tới các điểm trong cụm GẦN NHẤT khác</span></li>
 <li><b>s(i)</b><span>chạy từ −1 tới 1; gần 1 = phân cụm tốt (điểm gần cụm mình, xa cụm khác); gần 0 = ranh giới mờ; âm = có thể bị gán nhầm cụm</span></li></ul>
+<div class="callout"><b>Phép tính tay (ví dụ đơn giản hoá 1 chiều để minh hoạ cách tính — dữ liệu thật 5 chiều ở bảng trên không tính tay được, xem kết quả thật ở notebook):</b> giả sử 3 trường có 1 chỉ số duy nhất, giá trị 1, 2, 8 — 2 trường đầu (1 và 2) thuộc cụm A, trường còn lại (8) thuộc cụm B một mình. Tính Silhouette cho điểm có giá trị 2 (thuộc cụm A):
+<p style="margin:.4em 0">a(i) = khoảng cách TB tới điểm còn lại CÙNG cụm A = |2−1| = <b>1</b></p>
+<p style="margin:.2em 0">b(i) = khoảng cách TB tới cụm GẦN NHẤT khác (cụm B) = |2−8| = <b>6</b></p>
+<p style="margin:.2em 0 0">s(i) = (b−a)/max(a,b) = (6−1)/max(1,6) = 5/6 = <b>0,833</b> — rất gần 1, nghĩa là điểm này nằm rất chắc chắn trong cụm A, cách xa cụm B.</p></div>
 <div class="callout warn"><b>Kiểm chứng thật: PSPP (QUICK CLUSTER) và Python (scikit-learn KMeans) cho cỡ cụm KHÁC NHAU trên CÙNG một dữ liệu, cùng k=3!</b> PSPP: 37/128/30. Python: 64/49/82. Đây KHÔNG phải lỗi — K-means rất NHẠY với điểm khởi tạo (initial centroids) ban đầu, và 2 phần mềm dùng chiến lược khởi tạo khác nhau. Đây chính là lý do thực hành tốt là chạy K-means NHIỀU LẦN với các điểm khởi tạo ngẫu nhiên khác nhau (Python mặc định `n_init=10` — chạy 10 lần, lấy kết quả tốt nhất) trước khi tin vào kết quả cuối cùng, thay vì chỉ chạy 1 lần và coi đó là "sự thật".</div>
 
 <h2 id="sem-dacap">3. Giới thiệu SEM và mô hình đa cấp (Multilevel Modeling)</h2>
@@ -159,7 +164,7 @@ QUICK CLUSTER EDULEAD NEGSCLIM STAFFSHORT EDUSHORT DIGPREP
 </div>
 <p class="cap">📖 Ý nghĩa đầy đủ của 5 chỉ số WLE dùng trong phân tích cụm: <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 
-<h2 id="quiz">5. Tự kiểm tra (30 câu)</h2>
+<h2 id="quiz">5. Tự kiểm tra (27 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">
 <div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>

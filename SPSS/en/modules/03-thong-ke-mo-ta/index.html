@@ -5,7 +5,7 @@
 <script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
 <title>03 · Descriptive Statistics</title>
-<meta name="description" content="Missing data, frequencies, crosstabulations, central tendency, dispersal — Cohen et al. 2018 ch.40"/>
+<meta name="description" content="Missing data, frequencies, crosstabulations, central tendency, dispersal, distribution shape — Cohen et al. 2018 ch.40"/>
 <link rel="stylesheet" href="../../../_shared/common.css"/>
 <link rel="stylesheet" href="../../../_shared/deck.css"/>
 </head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="Page info & feedback">i</button><header class="site"><div class="wrap bar">
@@ -17,48 +17,119 @@
 <p class="lead">Module 3/12 · Content follows Cohen, Manion &amp; Morrison, <i>Research Methods in Education</i>, 8th edition (Routledge, 2018), Chapter 40 "Descriptive statistics", sections 40.1–40.4 (pp.753–765).</p>
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 03 · COHEN ET AL., CH.40</div>
        <h2>Descriptive Statistics</h2>
-       <p>Missing data, frequencies, crosstabs, central tendency & dispersal.</p>
-       <p class="cap">Use ← → to navigate.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/4</div>
+       <p>Missing data, frequencies, crosstabs, central tendency & dispersal, distribution shape (skewness/kurtosis).</p>
+       <p class="cap">Use ← → to navigate.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 1/5</div>
        <div class="part-num">01</div>
        <h2>Missing data</h2>
-       <ul class="part-list"><li>Three types of missing data, not all equally harmless</li><li>Listwise vs Pairwise: two deletion methods, two different costs</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Missing data</div><h2>Three types — not all equally "harmless"</h2>
-       <table><tr><th>Type</th><th>Feature</th></tr>
-       <tr><td><b>MCAR</b></td><td>Completely random</td></tr>
-       <tr><td><b>MAR</b></td><td>Patterned, unrelated to the main variable</td></tr>
-       <tr><td><b>MNAR</b></td><td>Pattern tied to the true value itself</td></tr></table>
-       <p class="cap">Classroom data: variable h2 is missing 3/240 cases (1.25%).</p></div><div class="mdeck-slide"><div class="kicker">Listwise vs Pairwise</div><h2>Two ways to delete missing data, two different costs</h2>
-       <p><b>Listwise:</b> drops the whole case if ANY variable is missing.</p>
-       <p><b>Pairwise:</b> only drops it for the variable BEING calculated.</p>
-       <p class="warn">Listwise shrinks the sample more — one missing cell loses a whole person.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/4</div>
+       <ul class="part-list"><li>Three types of missing data, not all equally harmless</li><li>Listwise vs Pairwise: two deletion methods, two different costs</li><li>A third option: imputation</li><li>Examples from three fields outside education</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Missing data</div><h2>Three types — not all equally "harmless"</h2>
+       <table><tr><th>Type</th><th>Feature</th><th>Risk level</th></tr>
+       <tr><td><b>MCAR</b></td><td>Completely random, no pattern</td><td>Low — safest</td></tr>
+       <tr><td><b>MAR</b></td><td>Patterned, but not tied directly to the value being examined</td><td>Moderate — needs checking</td></tr>
+       <tr><td><b>MNAR</b></td><td>Pattern tied to the true value itself</td><td class="warn">High — can bias conclusions</td></tr></table>
+       <p class="cap">🗣️ In plain terms: MCAR is like "a few pages randomly dropped while photocopying"; MNAR is like "someone hiding their real income because it's low" — the very reason for hiding is the thing you want to measure.</p></div><div class="mdeck-slide"><div class="kicker">Real example</div><h2>Variable h2 is missing 3/240 cases (1.25%)</h2>
+       <p>No clear pattern among these 3 missing cases (not concentrated in one school or one gender) → reasonable to treat as <b>MCAR</b> or mild MAR, not MNAR.</p>
+       <p class="cap">Because the proportion is so tiny (1.25%), the effect on the final result is negligible whether listwise or pairwise deletion is used.</p></div><div class="mdeck-slide"><div class="kicker">Listwise vs Pairwise</div><h2>Two ways to delete missing data, two different costs</h2>
+       <p><b>Listwise:</b> drops the whole case if ANY variable entered into the analysis is missing — even a variable unrelated to the question at hand.</p>
+       <p><b>Pairwise:</b> only drops a case for the variable CURRENTLY being calculated — other calculations on the same file keep their own N.</p>
+       <p class="warn">Example: one student missing only variable h2 → listwise drops that student from EVERY analysis in that run, even ones that don't use h2 at all.</p></div><div class="mdeck-slide"><div class="kicker">A third option</div><h2>Imputation — deletion isn't the only choice</h2>
+       <p>Instead of deleting, fill the missing cell with a plausible value (e.g. that variable's mean, or a value predicted from other variables).</p>
+       <p class="warn">The cost: it shrinks the data's TRUE variability (the computed SD becomes smaller than reality) and can distort the correlation between the imputed variable and others.</p>
+       <p class="cap">Rule of thumb: a very small missing rate (like h2's 1.25%) → simple deletion is simpler and safer; a large missing rate (&gt;10%) is when imputation becomes worth considering.</p></div><div class="mdeck-slide"><div class="kicker">Cross-field examples</div><h2>Three types of missing data across three fields</h2>
+       <table><tr><th>Field</th><th>Situation</th><th>Type</th></tr>
+       <tr><td>Education (real, this site)</td><td>3/240 students missing the h2 interest score, no clear pattern</td><td>MCAR</td></tr>
+       <tr><td>Healthcare (illustrative)</td><td>Patients drop out of treatment because of SEVERE side effects — the severity itself is the reason for dropping out</td><td>MNAR</td></tr>
+       <tr><td>Economics/surveys (illustrative)</td><td>Low-income households tend to refuse to answer the income question</td><td>MNAR</td></tr></table>
+       <p class="cap">Both the healthcare and economics examples are MNAR — the most dangerous kind, because the true value itself determines whether it's missing, which tends to bias the final conclusion toward looking "better than reality".</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 2/5</div>
        <div class="part-num">02</div>
-       <h2>Crosstabs</h2>
-       <ul class="part-list"><li>The trap of uneven group sizes in raw counts</li><li>Real example: gender × study method</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Crosstabs</div><h2>Trap: uneven group sizes make raw counts misleading</h2>
+       <h2>Frequencies & crosstabs</h2>
+       <ul class="part-list"><li>The trap of uneven group sizes in raw counts</li><li>Two real examples: gender × method, school × method</li><li>Matching chart type to scale</li></ul></div><div class="mdeck-slide"><div class="kicker">2 · Crosstabs</div><h2>Trap: uneven group sizes make raw counts misleading</h2>
        <img src="../../../assets/diagrams/boxplot_math_school.png" alt="boxplot"/>
-       <p class="cap">Always compare with ROW percentages when group sizes differ.</p></div><div class="mdeck-slide"><div class="kicker">Real example</div><h2>Gender × study method (240 students)</h2>
-       <table><tr><th></th><th>Project</th><th>Traditional</th></tr>
-       <tr><td>Male (n=121)</td><td>52.1%</td><td>47.9%</td></tr>
-       <tr><td>Female (n=119)</td><td>43.7%</td><td>56.3%</td></tr></table>
-       <p class="cap">63&gt;52 (raw counts) is easy to misread — but row % differ by only ~8 points.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/4</div>
+       <p class="cap">Always compare with ROW percentages when group sizes differ — overall-table percentages are easily dominated by the larger group.</p></div><div class="mdeck-slide"><div class="kicker">Real example #1</div><h2>Gender × study method (240 students)</h2>
+       <table><tr><th></th><th>Project</th><th>Traditional</th><th>Total</th></tr>
+       <tr><td>Male (n=121)</td><td>63 (52.1%)</td><td>58 (47.9%)</td><td>121</td></tr>
+       <tr><td>Female (n=119)</td><td>52 (43.7%)</td><td>67 (56.3%)</td><td>119</td></tr></table>
+       <p class="cap">Row % for males: 63/121 = 0.521 → 52.1%. 63&gt;52 (raw counts) is easy to misread — but row % differ by only ~8 points.</p></div><div class="mdeck-slide"><div class="kicker">Real example #2</div><h2>School × method — 3 schools, three different stories</h2>
+       <table><tr><th>School</th><th>Project</th><th>Traditional</th><th>% choosing Project</th></tr>
+       <tr><td>A (n=80)</td><td>44</td><td>36</td><td><b>55.0%</b></td></tr>
+       <tr><td>B (n=99)</td><td>46</td><td>53</td><td>46.5%</td></tr>
+       <tr><td>C (n=61)</td><td>25</td><td>36</td><td>41.0%</td></tr></table>
+       <p class="warn">School A has a much HIGHER Project-method rate than School C (55.0% vs 41.0%) despite a smaller sample (80 vs 61) — a different crosstab tells a different story; the conclusions cannot be pooled.</p></div><div class="mdeck-slide"><div class="kicker">Cross-field examples</div><h2>Crosstabs in two fields outside education</h2>
+       <table><tr><th>Field</th><th>Row × column variable</th><th>Trap to avoid</th></tr>
+       <tr><td>Healthcare (illustrative)</td><td>Gender × on-time follow-up visit</td><td>The female patient group is larger → higher raw count of follow-ups even if the follow-up RATE could be lower than males</td></tr>
+       <tr><td>Economics/region (illustrative)</td><td>Region (urban/rural) × near-poor household</td><td>Urban areas are more populous → higher raw count of near-poor households even though the rural near-poor RATE is actually higher</td></tr></table>
+       <p class="cap">The same lesson in all 3 fields: raw counts reflect group SIZE, while row % reflect the true TREND inside each group.</p></div><div class="mdeck-slide"><div class="kicker">Choosing the right chart</div><h2>Chart type must match the variable's scale</h2>
+       <ul><li><b>Bar chart (separated bars):</b> for nominal/ordinal data (e.g. school A/B/C, gender) — bars are NOT adjacent because there is no continuous order.</li>
+       <li><b>Histogram:</b> for continuous interval/ratio data (e.g. maths score) — bars are adjacent, showing a frequency distribution.</li>
+       <li><b>Boxplot:</b> shows BOTH central tendency and dispersal at once, and compares several groups side by side (e.g. maths score across 3 schools).</li>
+       <li><b>Scatterplot:</b> NOT used in this module — reserved for examining the relationship between two continuous variables (Module 08).</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">PART 3/5</div>
        <div class="part-num">03</div>
        <h2>Central tendency & dispersal</h2>
-       <ul class="part-list"><li>Mode · Median · Mean — when to use which</li><li>Three sets with the same mean but very different SDs</li><li>SD · Range · IQR</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Central tendency</div><h2>Mode · Median · Mean — when to use which?</h2>
+       <ul class="part-list"><li>Mode · Median · Mean — when to use which, formula, worked example</li><li>Three sets with the same mean but very different SDs</li><li>SD · Range · IQR — formula, worked example</li><li>Cross-field examples</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Central tendency</div><h2>Mode · Median · Mean — when to use which?</h2>
        <table><tr><th>Measure</th><th>Scale</th><th>Robust to outliers?</th></tr>
-       <tr><td>Mode</td><td>Any</td><td>Yes</td></tr>
+       <tr><td>Mode</td><td>Any scale, especially nominal</td><td>Yes</td></tr>
        <tr><td>Median</td><td>Ordinal+</td><td>Yes</td></tr>
-       <tr><td>Mean</td><td>Interval, ratio</td><td class="warn">No</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Dispersal</div><h2>Three sets with the SAME mean=6, very different SDs</h2>
+       <tr><td>Mean</td><td>Interval, ratio</td><td class="warn">No</td></tr></table>
+       <p class="cap">🗣️ In plain terms: the Mode is "what most people pick", the Median is "the person standing right in the middle of the line", the Mean is "split evenly among everyone" — the mean is easily pulled by one extreme case, the other two are not.</p></div><div class="mdeck-slide"><div class="kicker">Mean formula</div><h2>Sample mean — worked step by step</h2>
+       <div class="pd-formula"><div class="pd-formula-label">Sample mean</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
+       <ul class="pd-legend"><li><b>x̄</b><span>sample mean</span></li><li><b>Σxᵢ</b><span>sum of all observed values</span></li><li><b>n</b><span>number of observations in the sample</span></li></ul>
+       <p class="cap">Example, 3 maths scores {6, 7, 8}: x̄ = (6+7+8)/3 = 21/3 = <b>7</b>.</p></div><div class="mdeck-slide"><div class="kicker">Dispersal formula</div><h2>Variance & standard deviation — worked step by step</h2>
+       <div class="pd-formula"><div class="pd-formula-label">Sample variance & standard deviation</div><div class="pd-formula-math">s² = Σ(xᵢ − x̄)² / (n − 1) &nbsp;&nbsp;·&nbsp;&nbsp; s = √s²</div></div>
+       <ul class="pd-legend"><li><b>(xᵢ − x̄)</b><span>each observation's deviation from the mean</span></li><li><b>n − 1</b><span>degrees of freedom — dividing by n−1 gives an unbiased estimate (Bessel's correction)</span></li><li><b>s</b><span>standard deviation — same unit as the raw data, easier to interpret than s²</span></li></ul>
+       <p class="cap">Continuing {6,7,8}: deviations −1,0,1 → squared 1,0,1 → sum=2 → s²=2/(3−1)=1 → s=√1=<b>1</b>.</p></div><div class="mdeck-slide"><div class="kicker">Dispersal — real example</div><h2>Three sets with the SAME mean=6, very different SDs</h2>
        <img src="../../../assets/diagrams/dispersion_3sets.png" alt="dispersion"/>
-       <p class="cap">The outlier set's SD is 11× the tightly-clustered set's SD.</p></div><div class="mdeck-slide"><div class="kicker">Three dispersal measures</div><h2>SD · Range · IQR</h2>
-       <p><b>SD:</b> average distance of each point from the mean.</p>
-       <p><b>Range:</b> max−min — very sensitive to outliers.</p>
-       <p><b>IQR:</b> Q3−Q1 — more robust than range.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/4</div>
+       <table><tr><th>Set</th><th>Values</th><th>SD</th></tr>
+       <tr><td>1 (has an outlier)</td><td>1,2,3,4,20</td><td class="warn">7.91</td></tr>
+       <tr><td>2</td><td>4,5,6,6,9</td><td>1.87</td></tr>
+       <tr><td>3 (tightly clustered)</td><td>5,6,6,6,7</td><td>0.71</td></tr></table>
+       <p class="cap">7.91 / 0.71 ≈ 11.2× — the outlier set's SD is more than 11 times the tightly-clustered set's, despite the SAME mean=6.</p></div><div class="mdeck-slide"><div class="kicker">SD · Range · IQR</div><h2>Three dispersal measures, three levels of outlier robustness</h2>
+       <p><b>SD:</b> the average distance of each point from the mean — uses EVERY data point.</p>
+       <p><b>Range:</b> max−min — uses only 2 extreme points, very sensitive to outliers.</p>
+       <p><b>IQR:</b> Q3−Q1 — only looks at the middle 50% of the data, far more robust than the range.</p>
+       <p class="cap">Real example — pretest (n=240): Q1=52.18, Q3=68.12 → IQR = 68.12−52.18 = <b>15.94</b>.</p></div><div class="mdeck-slide"><div class="kicker">Cross-field examples</div><h2>Interpreting SD across three fields</h2>
+       <table><tr><th>Field</th><th>Variable measured</th><th>What a large SD means</th></tr>
+       <tr><td>Education (real)</td><td>Maths score (SD=9.68/100)</td><td>Students have fairly even ability around the mean of 47.9</td></tr>
+       <tr><td>Healthcare (illustrative)</td><td>Systolic blood pressure in one patient group</td><td>A large SD → patients differ a great deal, making a single shared treatment protocol harder to apply evenly</td></tr>
+       <tr><td>Economics (illustrative)</td><td>Household income in one region</td><td>A large SD → a clear rich-poor gap within the same region</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PART 4/5</div>
        <div class="part-num">04</div>
+       <h2>Distribution shape</h2>
+       <ul class="part-list"><li>Skewness — formula, how to read the sign</li><li>Kurtosis — how to read the sign</li><li>Real example: one outlier makes skew/kurtosis "explode"</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Skewness</div><h2>Skewness — which side does the long tail point to?</h2>
+       <p>🗣️ In plain terms: picture a bell curve pulled sideways — whichever direction the long tail stretches toward, that's the sign of the skew.</p>
+       <table><tr><th>Skewness sign</th><th>Shape</th><th>Mean vs Median</th></tr>
+       <tr><td>Positive (+)</td><td>Right-skewed, long tail toward LARGE values</td><td>Mean &gt; Median</td></tr>
+       <tr><td>≈ 0</td><td>Roughly symmetric</td><td>Mean ≈ Median</td></tr>
+       <tr><td>Negative (−)</td><td>Left-skewed, long tail toward SMALL values</td><td>Mean &lt; Median</td></tr></table>
+       <p class="cap">Real example: pretest has mean=60.35 &lt; median=60.95 → matching a measured skewness of −0.097 (a very slight negative skew).</p></div><div class="mdeck-slide"><div class="kicker">Real example — an outlier</div><h2>study_hours: skewness=7.42 — a sign of a data-entry error</h2>
+       <img src="../../../assets/diagrams/skew_real.png" alt="skew"/>
+       <p class="warn">One student has study_hours=48 (48 hours a day — impossible, a day only has 24 hours) pulling the skewness from a normal range up to 7.42 — extreme compared to the other variables (pretest −0.10, posttest −0.15, math +0.15).</p>
+       <p class="cap">Lesson: a skewness value far larger than that of comparable variables is the FIRST signal to suspect a data-entry error, before trusting any analysis that uses that variable.</p></div><div class="mdeck-slide"><div class="kicker">Kurtosis</div><h2>Kurtosis — is the peak sharper or flatter than normal?</h2>
+       <table><tr><th>Kurtosis sign</th><th>Name</th><th>Shape</th></tr>
+       <tr><td>≈ 0</td><td>Mesokurtic</td><td>Peak similar to a normal distribution</td></tr>
+       <tr><td>Positive (+)</td><td>Leptokurtic</td><td>Sharper peak, heavier tails (more outliers)</td></tr>
+       <tr><td>Negative (−)</td><td>Platykurtic</td><td>Flatter peak, thinner tails</td></tr></table>
+       <p class="cap">Same study_hours example: kurtosis=86.93 (extreme, caused by the same 48-hour-a-day outlier above) — compare to pretest −0.54, posttest −0.19, math −0.33, all close to normal.</p></div><div class="mdeck-slide"><div class="kicker">Summary table</div><h2>Skewness & Kurtosis — 4 real variables, n=240</h2>
+       <table><tr><th>Variable</th><th>Skewness</th><th>Kurtosis</th><th>Interpretation</th></tr>
+       <tr><td>pretest</td><td>−0.097</td><td>−0.535</td><td>Roughly symmetric, slightly flat-topped</td></tr>
+       <tr><td>posttest</td><td>−0.147</td><td>−0.193</td><td>Roughly symmetric</td></tr>
+       <tr><td>math</td><td>+0.148</td><td>−0.333</td><td>Roughly symmetric, very slight right skew</td></tr>
+       <tr><td class="warn">study_hours</td><td class="warn">+7.424</td><td class="warn">86.930</td><td class="warn">Extreme — caused by one data-entry error (48 hours/day)</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Cross-field examples</div><h2>Skewness commonly seen in two fields outside education</h2>
+       <table><tr><th>Field</th><th>Variable</th><th>Typical shape</th></tr>
+       <tr><td>Economics (illustrative)</td><td>Personal income in a country</td><td>Very strongly right-skewed — most incomes are low/moderate, a small number of very wealthy individuals stretch a long tail</td></tr>
+       <tr><td>Healthcare (illustrative)</td><td>Length of hospital stay after surgery</td><td>Right-skewed — most patients recover quickly, a few complications lead to very long stays</td></tr></table>
+       <p class="cap">Both examples are famously right-skewed in real life — exactly why income reports use the "median", not the "mean" (the mean is easily pulled by a handful of very rich/very sick cases).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PART 5/5</div>
+       <div class="part-num">05</div>
        <h2>Matching statistics & practice</h2>
-       <ul class="part-list"><li>Matching statistics to the scale of data</li><li>Practice in SPSS</li><li>What's next</li></ul></div><div class="mdeck-slide"><div class="kicker">4 · Taking stock</div><h2>Matching statistics to the scale of data</h2>
-       <p>All 4 scales → frequencies/%/mode/crosstabs.</p>
-       <p>Ordinal+ → add median.</p>
-       <p class="warn">Only Interval & Ratio ("Scale") → add mean & SD.</p></div><div class="mdeck-slide"><div class="kicker">Practice</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies</h2>
-       <p class="cap">PSPP: <code>FREQUENCIES</code>, <code>EXAMINE</code>, <code>CROSSTABS</code> — tested and confirmed to run.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the detail below, then self-test with 30 questions</h2>
-       <p>The slides are just a summary. Full data examples and SPSS/PSPP syntax are below.</p></div></div>
+       <ul class="part-list"><li>Matching statistics to the scale of data</li><li>A 3-step workflow before describing any variable</li><li>Practice in SPSS/PSPP</li><li>What's next</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Taking stock</div><h2>Matching statistics to the scale of data</h2>
+       <p>All 4 scales (Module 01) → frequencies/%/mode/crosstabs can all be computed.</p>
+       <p>Ordinal and above → the median can also be added.</p>
+       <p class="warn">Only Interval & Ratio ("Scale" in SPSS) → only then can mean, SD, skewness, kurtosis be added.</p></div><div class="mdeck-slide"><div class="kicker">Practical workflow</div><h2>3 steps before describing ANY variable</h2>
+       <ul><li><b>Step 1 — Check for missing data:</b> MCAR/MAR/MNAR, decide whether to delete or keep (Part 1).</li>
+       <li><b>Step 2 — Look at the shape before trusting the numbers:</b> plot a boxplot/histogram, read the skewness/kurtosis (Part 4) — catching outliers/data-entry errors BEFORE computing a mean.</li>
+       <li><b>Step 3 — Choose the right central tendency/dispersal measure for the scale of data</b> (Part 3), then report.</li>
+       <li class="cap">Skipping Step 2 is the most common mistake — many people compute the mean/SD right away without looking at the distribution, easily fooled by an outlier like study_hours=48.</li></ul></div><div class="mdeck-slide"><div class="kicker">Practice</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies/Explore/Crosstabs</h2>
+       <p><b>Frequencies:</b> mean/median/SD/skewness/kurtosis for one continuous variable.</p>
+       <p><b>Explore:</b> boxplots comparing multiple groups + an Extreme Values table for spotting outliers.</p>
+       <p class="cap">PSPP: <code>FREQUENCIES</code>, <code>EXAMINE</code>, <code>CROSSTABS</code> — tested and confirmed to match Python exactly.</p></div><div class="mdeck-slide"><div class="kicker">Next</div><h2>Read the detail below, then self-test with 30 questions</h2>
+       <p>The slides are just a summary. Full data examples, SPSS/PSPP syntax, history, and case studies are below. Module 04 next: normal distribution & hypothesis testing.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Prev</button>
   <button class="mdeck-next" type="button">Next ▶</button>
@@ -95,6 +166,7 @@
 <tr><td>Female (n=119)</td><td>52 (43.7%)</td><td>67 (56.3%)</td><td>119</td></tr>
 </table>
 <p>Looking at raw counts, 63 &gt; 52 suggests "males clearly chose the project method more than females". But row percentages show <b>52.1% of males vs 43.7% of females</b> — a real but smaller gap than it first appears. This is exactly the trap Cohen et al. warn about with their public-library example (Tables 40.3–40.4, p.758): always report both counts and percentages, and prefer row percentages when group sizes are uneven.</p>
+<div class="callout"><b>A second real example — School × method (3 schools):</b> School A chooses the project method 55.0% of the time (44/80), School B 46.5% (46/99), School C only 41.0% (25/61). School A and School C differ by 14 percentage points despite both being real subsets of the same 240-student sample — a reminder that a single overall figure can hide very different stories at the school level.</div>
 
 <h2 id="central">3. Central tendency & dispersal</h2>
 <table>
@@ -104,11 +176,39 @@
 <tr><td>Mean</td><td>Interval, ratio</td><td><b>No</b> — easily pulled by outliers</td></tr>
 </table>
 <p>Three measures of dispersal: <b>standard deviation (SD)</b> — average distance of each score from the mean; <b>range</b> — max−min, very sensitive to outliers; <b>IQR</b> — Q3−Q1, more robust than the range.</p>
+<div class="pd-formula"><div class="pd-formula-label">Sample mean</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
+<ul class="pd-legend"><li><b>x̄</b><span>sample mean</span></li>
+<li><b>Σxᵢ</b><span>sum of all observed values</span></li>
+<li><b>n</b><span>number of observations in the sample</span></li></ul>
+<div class="pd-formula"><div class="pd-formula-label">Sample variance & standard deviation</div><div class="pd-formula-math">s² = Σ(xᵢ − x̄)² / (n − 1) &nbsp;&nbsp;·&nbsp;&nbsp; s = √s²</div></div>
+<ul class="pd-legend"><li><b>s²</b><span>sample variance — the average squared deviation from x̄</span></li>
+<li><b>(xᵢ − x̄)</b><span>each observation's deviation from the mean</span></li>
+<li><b>n − 1</b><span>degrees of freedom — dividing by n−1 (not n) gives an unbiased estimate of the population variance (Bessel's correction)</span></li>
+<li><b>s</b><span>sample standard deviation — the square root of the variance, same unit as the raw data so easier to interpret than s²</span></li></ul>
+<div class="callout"><b>Worked by hand on a small example:</b> 3 maths scores {6, 7, 8} → x̄ = (6+7+8)/3 = 7. Deviations: (6−7)=−1, (7−7)=0, (8−7)=1. Squared: 1, 0, 1 → sum=2. s² = 2/(3−1) = 1 → s = √1 = 1. Interpretation: scores vary on average by about ±1 around the mean of 7.</div>
 <div class="figure"><img src="../../../assets/diagrams/dispersion_3sets.png" alt=""/><figcaption>Three sets with the SAME mean = 6 (Cohen et al.'s example, pp.762–764) but very different SDs — illustrating why the mean alone is never enough.</figcaption></div>
 <div class="callout warn"><b>Lesson:</b> never report the mean alone. Set (1), with an outlier (the value 20), has an SD of 7.91 — 11 times set (3)'s, despite an identical mean of 6. Always report the SD or plot the distribution.</div>
 
+<h2 id="shape">3bis. Distribution shape — skewness & kurtosis</h2>
+<p>Beyond central tendency and dispersal, a third dimension describes a distribution: its SHAPE. Skewness describes which side the long tail leans toward; kurtosis describes whether the peak is sharper or flatter than a normal distribution.</p>
+<table>
+<tr><th>Skewness sign</th><th>Shape</th><th>Mean vs Median</th></tr>
+<tr><td>Positive (+)</td><td>Right-skewed, long tail toward large values</td><td>Mean &gt; Median</td></tr>
+<tr><td>≈ 0</td><td>Roughly symmetric</td><td>Mean ≈ Median</td></tr>
+<tr><td>Negative (−)</td><td>Left-skewed, long tail toward small values</td><td>Mean &lt; Median</td></tr>
+</table>
+<table>
+<tr><th>Kurtosis sign</th><th>Name</th><th>Shape</th></tr>
+<tr><td>≈ 0</td><td>Mesokurtic</td><td>Peak similar to a normal distribution</td></tr>
+<tr><td>Positive (+)</td><td>Leptokurtic</td><td>Sharper peak, heavier tails (more outliers)</td></tr>
+<tr><td>Negative (−)</td><td>Platykurtic</td><td>Flatter peak, thinner tails</td></tr>
+</table>
+<div class="callout warn"><b>Real example — an outlier makes skewness/kurtosis explode:</b> the variable <code>study_hours</code> has skewness=7.424 and kurtosis=86.930 — wildly extreme compared to <code>pretest</code> (−0.097, −0.535), <code>posttest</code> (−0.147, −0.193) and <code>math</code> (+0.148, −0.333). The cause: a single student recorded 48 study hours in one day, which is physically impossible (a day only has 24 hours). A skewness/kurtosis value far outside the range of comparable variables is the first signal to suspect a data-entry error, before trusting any analysis built on that variable.</div>
+<p class="cap">Income (a country's personal income distribution) and hospital length-of-stay after surgery are both famously right-skewed in real life (illustrative examples, not this site's dataset) — exactly why income reports prefer the "median" over the "mean".</p>
+
 <h2 id="stock">4. Taking stock — matching statistics to the scale of data</h2>
-<p>Summary rule (p.765): <b>all four scales</b> support frequencies/percentages/mode/crosstabs. <b>Ordinal and above</b> supports the median. <b>Only interval and ratio</b> data (merged as "Scale" in SPSS) support the mean and standard deviation. One-sided skew: a long tail toward the positive end is a positive skew, a long tail toward the negative end is a negative skew.</p>
+<p>Summary rule (p.765): <b>all four scales</b> support frequencies/percentages/mode/crosstabs. <b>Ordinal and above</b> supports the median. <b>Only interval and ratio</b> data (merged as "Scale" in SPSS) support the mean, standard deviation, skewness and kurtosis.</p>
+<div class="callout good"><b>A 3-step workflow before describing any variable:</b> (1) check for missing data — MCAR/MAR/MNAR, decide whether to delete or keep; (2) look at the shape before trusting the numbers — plot a boxplot/histogram, read skewness/kurtosis, catching outliers or data-entry errors before computing a mean; (3) choose the right central tendency/dispersal measure for the variable's scale, then report. Skipping step 2 is the most common mistake — many people jump straight to the mean/SD without looking at the distribution shape, and get fooled by an outlier like study_hours=48.</div>
 
 <h2 id="thuc-hanh">5. SPSS/PSPP practice</h2>
 <div class="callout good"><b>🖱️ Step-by-step mouse clicks in SPSS (follow this exact order):</b>
@@ -156,12 +256,12 @@ CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
 <h3>📜 Theoretical & Historical Background</h3>
 <p>Descriptive statistics isn't a single invention but a convergence of several historical threads. Before the 19th century, "statistics" was nearly synonymous with counting a population for the state (the word "statistics" itself comes from "state"). The major turning point came when social reformers began using numbers to PERSUADE, not just to count.</p>
 <p>A classic example: <b>Florence Nightingale</b> (1820–1910) — the founder of modern nursing — during the Crimean War collected mortality data on soldiers and discovered that most deaths came from infectious disease caused by poor sanitation, not combat. She devised a fan-shaped chart (the "coxcomb"/"rose diagram") to present this data to the British Parliament — one of the earliest and most famous examples of DESCRIPTIVE STATISTICS genuinely changing public policy.</p>
-<p>Technically, many tools you learn in this module (boxplots, "whiskers", exploratory data analysis) come from statistician <b>John Tukey</b>, who published <i>Exploratory Data Analysis</i> in 1977. Before Tukey, statistics focused mainly on hypothesis testing (Modules 05–07); Tukey emphasised LOOKING at data first — exactly the "plot first, trust numbers second" spirit running through this module.</p>
+<p>Technically, many tools you learn in this module (boxplots, "whiskers", exploratory data analysis) come from statistician <b>John Tukey</b>, who published <i>Exploratory Data Analysis</i> in 1977. Before Tukey, statistics focused mainly on hypothesis testing (Modules 05–07); Tukey emphasised LOOKING at data first — exactly the "plot first, trust numbers second" spirit running through this module. The concepts of skewness and kurtosis themselves trace back to <b>Karl Pearson</b>'s work in the 1890s, part of the same programme that gave statistics the modern "standard deviation".</p>
 <div class="callout info">
 <b>Timeline relevant to this module</b>
 <ul style="margin:.5em 0 0">
 <li><b>Mid-19th century</b> — Florence Nightingale uses fan-shaped charts to present military mortality data, persuading the British government to reform hospital sanitation.</li>
-<li><b>1893</b> — Karl Pearson introduces the term "standard deviation" in its modern sense.</li>
+<li><b>1893</b> — Karl Pearson introduces the term "standard deviation" in its modern sense, and formalises skewness and kurtosis as measures of distribution shape.</li>
 <li><b>1977</b> — John Tukey publishes <i>Exploratory Data Analysis</i>, popularising the boxplot and the mindset of "exploring data visually before testing it".</li>
 </ul>
 </div>
@@ -173,7 +273,7 @@ CROSSTABS /TABLES=gender BY method /CELLS=COUNT ROW.</pre>
 </div>
 <div class="card accent-c">
 <h4>Case 2 — Tukey and "look before you trust"</h4>
-<p>Before the 1970s, many researchers ran hypothesis tests (t-tests, ANOVA) directly without examining the data's distribution. Tukey showed that a dataset can "pass" a test while still containing data-entry errors, outliers, or an odd distribution that only a boxplot/histogram would reveal. The three same-mean sets in the slide above are a miniature version of Tukey's lesson: NEVER trust a single summary number without looking at the shape of the data.</p>
+<p>Before the 1970s, many researchers ran hypothesis tests (t-tests, ANOVA) directly without examining the data's distribution. Tukey showed that a dataset can "pass" a test while still containing data-entry errors, outliers, or an odd distribution that only a boxplot/histogram would reveal. The three same-mean sets in the slide above are a miniature version of Tukey's lesson: NEVER trust a single summary number without looking at the shape of the data. This module's own study_hours=48 outlier is a live demonstration of exactly this lesson.</p>
 </div>
 
 <h2 id="quiz">6. Self-check (30 questions)</h2>

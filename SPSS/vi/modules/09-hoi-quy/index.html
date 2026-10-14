@@ -61,7 +61,7 @@
        <p class="cap">Nhớ làm sạch outlier study_hours TRƯỚC (giống Module 04/05/08): Transform → Compute, chia 10 nếu &gt;20.</p></div><div class="mdeck-slide"><div class="kicker">Cú pháp PSPP</div><h2>REGRESSION /DEPENDENT /METHOD=ENTER</h2>
        <table><tr><td><code>REGRESSION /DEPENDENT math /METHOD=ENTER study_hours h1 a1.</code></td></tr></table>
        <p class="cap">Đã kiểm chứng B=2,49/2,15/−2,68 khớp tuyệt đối với Python.</p></div><div class="mdeck-slide"><div class="kicker">Lịch sử</div><h2>Francis Galton & "hồi quy về mức trung bình"</h2>
-       <p class="cap">Galton nghiên cứu chiều cao cha-con cuối TK19 ("regression toward mediocrity"). Karl Pearson hình thức hoá bằng toán học — cùng nền tảng với r đã học.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
+       <p class="cap">Galton nghiên cứu chiều cao cha-con cuối TK19 ("regression toward mediocrity"). Karl Pearson hình thức hoá bằng toán học — cùng nền tảng với r đã học.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 31 câu</h2>
        <p>Slide chỉ tóm tắt. Công thức đầy đủ + kiểm định giả định + thực hành SPSS nằm ngay bên dưới.</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ Trước</button>
@@ -99,14 +99,33 @@
 <tr><td>a1 (lo âu, thang 1-5)</td><td>−2,68</td><td>0,42</td><td>−6,36</td><td>&lt;0,001</td></tr></table>
 R²=0,495 (R² hiệu chỉnh=0,488), F(3,236)=77,05, p&lt;0,001 — mô hình có ý nghĩa thống kê tổng thể, và CẢ 3 biến độc lập đều có đóng góp riêng có ý nghĩa. ✅ Đã kiểm chứng khớp 100% giữa Python (statsmodels) và PSPP (lệnh <code>REGRESSION</code>).</div>
 <div class="callout warn"><b>So sánh với hồi quy đơn biến ở mục 1:</b> hệ số của study_hours giảm nhẹ từ 2,51 (đơn biến) xuống 2,49 (đa biến) — gần như không đổi, vì study_hours ít tương quan với h1/a1 (xem VIF ở mục 4). Nếu 2 biến độc lập tương quan mạnh với nhau, hệ số B có thể thay đổi NHIỀU khi thêm/bớt biến khỏi mô hình — luôn kiểm tra VIF trước khi tin vào B.</div>
-<div class="callout"><b>R² hiệu chỉnh (Adjusted R²) khác R² thường ở đâu?</b> R² thường LUÔN tăng (không bao giờ giảm) khi thêm biến vào mô hình, dù biến đó vô nghĩa — R² hiệu chỉnh có "phạt" cho việc thêm biến, chỉ tăng nếu biến mới thực sự cải thiện mô hình đủ nhiều. Ở đây R²=0,495 và R² hiệu chỉnh=0,488 khá gần nhau — dấu hiệu tốt, không có biến "thừa" trong mô hình.</div>
+<div class="pd-formula"><div class="pd-formula-label">R² hiệu chỉnh (Adjusted R²)</div><div class="pd-formula-math">R²_hc = 1 − (1 − R²) × (n − 1) / (n − k − 1)</div></div>
+<ul class="pd-legend"><li><b>n</b><span>cỡ mẫu (n=240 trong ví dụ này)</span></li>
+<li><b>k</b><span>số biến độc lập trong mô hình (k=3: study_hours, h1, a1)</span></li>
+<li><b>R²</b><span>hệ số xác định thường, chưa hiệu chỉnh (R²=0,495)</span></li></ul>
+<div class="callout"><b>Phép tính tay (đã verify khớp tuyệt đối với statsmodels):</b>
+<p style="margin:.4em 0">R²_hc = 1 − (1 − 0,495) × (240 − 1) / (240 − 3 − 1)</p>
+<p style="margin:.2em 0">= 1 − 0,505 × 239 / 236</p>
+<p style="margin:.2em 0">= 1 − 0,505 × 1,0127</p>
+<p style="margin:.2em 0 0">= 1 − 0,5114 = <b>0,4886 ≈ 0,488</b> — khớp đúng con số đã công bố.</p></div>
+<div class="callout"><b>R² hiệu chỉnh khác R² thường ở đâu?</b> R² thường LUÔN tăng (không bao giờ giảm) khi thêm biến vào mô hình, dù biến đó vô nghĩa — R² hiệu chỉnh có "phạt" cho việc thêm biến (qua tỉ số (n−1)/(n−k−1), luôn ≥1 và tăng theo k), chỉ tăng nếu biến mới thực sự cải thiện mô hình đủ nhiều để bù lại khoản phạt đó. Ở đây R²=0,495 và R² hiệu chỉnh=0,488 khá gần nhau — dấu hiệu tốt, không có biến "thừa" trong mô hình.</div>
 
 <h2 id="beta">3. Hệ số hồi quy chuẩn hoá (Beta) — so sánh biến nào "quan trọng" hơn</h2>
 <p>Hệ số B thô KHÔNG so sánh được trực tiếp giữa các biến có đơn vị đo khác nhau — B(study_hours)=2,49 nghĩa là "2,49 điểm Toán mỗi GIỜ tự học", còn B(h1)=2,15 nghĩa là "2,15 điểm Toán mỗi ĐIỂM thang Likert 1-5" — hai đơn vị hoàn toàn khác nhau, không thể nói B nào "lớn hơn" là quan trọng hơn.</p>
 <div class="pd-formula"><div class="pd-formula-label">Hệ số Beta chuẩn hoá</div><div class="pd-formula-math">β = b × (SD của X / SD của Y)</div></div>
 <ul class="pd-legend"><li><b>β</b><span>hệ số hồi quy sau khi cả X và Y được chuẩn hoá về cùng thang đo "số độ lệch chuẩn" (z-score) — không còn đơn vị đo gốc, so sánh được giữa các biến</span></li></ul>
-<div class="callout"><b>Dữ liệu thật:</b> β(study_hours)=0,577; β(h1)=0,229; β(a1)=−0,297. Dù B(study_hours)=2,49 chỉ hơn nhẹ B(h1)=2,15 về mặt số thô, nhưng β cho thấy study_hours mạnh hơn HẲN (0,577 so với 0,229 và −0,297) — vì study_hours có độ phân tán (SD) khác hẳn thang Likert 1-5. <b>Kết luận đúng: giờ tự học là yếu tố dự đoán MẠNH NHẤT trong 3 biến, xét theo đơn vị chuẩn hoá.</b></div>
+<div class="callout"><b>Phép tính tay từng bước (n=240, đã verify bằng Python statsmodels):</b>
+<p style="margin:.4em 0">Độ lệch chuẩn thật của từng biến: SD(study_hours)=2,239 · SD(h1)=1,033 · SD(a1)=1,071 · SD(math)=9,675.</p>
+<table><tr><th>Biến</th><th>B thô</th><th>× (SD biến / SD math)</th><th>= β</th></tr>
+<tr><td>study_hours</td><td>2,4919</td><td>× (2,239 / 9,675)</td><td>= <b>0,577</b></td></tr>
+<tr><td>h1 (hứng thú)</td><td>2,1499</td><td>× (1,033 / 9,675)</td><td>= <b>0,229</b></td></tr>
+<tr><td>a1 (lo âu)</td><td>−2,6797</td><td>× (1,071 / 9,675)</td><td>= <b>−0,297</b></td></tr></table>
+<p style="margin:.4em 0 0">Dù B(study_hours)=2,49 chỉ hơn nhẹ B(h1)=2,15 về mặt số thô, nhưng β cho thấy study_hours mạnh hơn HẲN (0,577 so với 0,229 và −0,297) — vì study_hours có độ phân tán (SD) khác hẳn thang Likert 1-5. <b>Kết luận đúng: giờ tự học là yếu tố dự đoán MẠNH NHẤT trong 3 biến, xét theo đơn vị chuẩn hoá.</b></p></div>
 <div class="callout warn"><b>Bẫy hay gặp:</b> so sánh trực tiếp các hệ số B thô để kết luận "biến nào quan trọng hơn" khi các biến độc lập đo bằng đơn vị khác nhau — đây là lỗi diễn giải phổ biến. Luôn dùng Beta chuẩn hoá cho mục đích SO SÁNH độ quan trọng tương đối; dùng B thô cho mục đích DỰ ĐOÁN giá trị thực tế (vì B thô giữ đúng đơn vị gốc, dễ diễn giải theo ngữ cảnh).</div>
+<table><tr><th>Ngành</th><th>Biến đơn vị khác nhau trong cùng mô hình</th><th>Vì sao cần Beta</th></tr>
+<tr><td>Y tế (minh hoạ)</td><td>Huyết áp (mmHg) và số điếu thuốc/ngày cùng dự đoán nguy cơ tim mạch</td><td>mmHg và "điếu/ngày" không cùng thang — so trực tiếp B dễ kết luận sai yếu tố nào nguy hiểm hơn</td></tr>
+<tr><td>Kinh tế (minh hoạ)</td><td>Thu nhập (triệu đồng) và số năm đi học cùng dự đoán chi tiêu hộ gia đình</td><td>"triệu đồng" và "năm" khác đơn vị hoàn toàn — chỉ Beta mới so sánh được mức độ ảnh hưởng tương đối</td></tr>
+<tr><td>Bất động sản (minh hoạ)</td><td>Diện tích (m²) và khoảng cách tới trung tâm (km) cùng dự đoán giá nhà</td><td>Hệ số B(diện tích) tính theo đồng/m², B(khoảng cách) tính theo đồng/km — Beta mới trả lời đúng "yếu tố nào quyết định giá hơn"</td></tr></table>
 
 <h2 id="gia-dinh">4. Kiểm tra giả định hồi quy</h2>
 <p>Kết quả hồi quy chỉ đáng tin khi 4 giả định chính được thoả — vi phạm nặng có thể làm hệ số B và p-value SAI LỆCH, không chỉ kém chính xác.</p>
@@ -157,7 +176,7 @@ REGRESSION
 <h3>📜 Bối cảnh lý thuyết</h3>
 <p>Hồi quy tuyến tính bắt nguồn từ công trình của <b>Francis Galton</b> cuối thế kỷ 19 khi nghiên cứu chiều cao cha-con (ông gọi là "regression toward mediocrity" — con của cha rất cao có xu hướng thấp hơn cha, "hồi quy" về mức trung bình). <b>Karl Pearson</b> sau đó hình thức hoá bằng toán học chặt chẽ, cùng nền tảng với hệ số tương quan r đã học ở Module 08 — đây là lý do R² của hồi quy đơn biến LUÔN bằng r² của tương quan Pearson giữa đúng 2 biến đó.</p>
 
-<h2 id="quiz">6. Tự kiểm tra (30 câu)</h2>
+<h2 id="quiz">6. Tự kiểm tra (31 câu)</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">
 <div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>

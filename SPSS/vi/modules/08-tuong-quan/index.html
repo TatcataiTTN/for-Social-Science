@@ -59,7 +59,16 @@
        <p class="cap">Dịch chuyển đỉnh parabol căng thẳng~hiệu suất, xem Pearson r và eta cập nhật trực tiếp — tự mắt thấy r "bỏ sót" quan hệ cong.</p></div><div class="mdeck-slide"><div class="kicker">4 · Tương quan riêng phần</div><h2>Loại bỏ ảnh hưởng của biến thứ ba</h2>
        <p>Ví dụ sách: kinh nghiệm bóng rổ ~ thành tích, bị nhiễu bởi CHIỀU CAO.</p>
        <p>Tương quan riêng phần cho thấy quan hệ "thật" sau khi kiểm soát chiều cao.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>r<sub>XY·Z</sub> = (r<sub>XY</sub> − r<sub>XZ</sub>r<sub>YZ</sub>) / √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</h2>
-       <p class="cap">Nếu Z không tương quan với cả X lẫn Y, công thức tự động cho r_XY·Z ≈ r_XY — không đổi.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/3</div>
+       <p class="cap">Nếu Z không tương quan với cả X lẫn Y, công thức tự động cho r_XY·Z ≈ r_XY — không đổi.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính từng bước — PISA thật</div><h2>195 trường: r<sub>XY·Z</sub>=−0,051</h2>
+       <table><tr><th>Bước</th><th>Giá trị</th></tr>
+       <tr><td>r<sub>XY</sub> (gốc)</td><td>−0,039</td></tr>
+       <tr><td>r<sub>XZ</sub>, r<sub>YZ</sub></td><td>0,6145 ; 0,0022</td></tr>
+       <tr><td>Tử số = r<sub>XY</sub>−r<sub>XZ</sub>r<sub>YZ</sub></td><td>−0,0404</td></tr>
+       <tr><td>Mẫu số = √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</td><td>0,7889</td></tr>
+       <tr><td>r<sub>XY·Z</sub></td><td><b>−0,0512</b></td></tr></table>
+       <p class="cap">Khớp 100% với kết quả công bố khi tính lại độc lập bằng Python.</p></div><div class="mdeck-slide"><div class="kicker">Bảng ngưỡng |r|</div><h2>Không đáng kể → Rất lớn (Cohen et al.)</h2>
+       <table><tr><th>|r|</th><th>Mức</th></tr><tr><td>&lt;0,10</td><td>Không đáng kể</td></tr><tr><td>0,10–0,29</td><td>Nhỏ</td></tr><tr><td>0,30–0,49</td><td>Vừa</td></tr><tr><td>0,50–0,69</td><td>Lớn</td></tr><tr><td>≥0,70</td><td>Rất lớn</td></tr></table>
+       <p class="cap">Chỉ là quy ước tham khảo — mức "quan trọng" còn tuỳ bối cảnh/chi phí quyết định của từng ngành.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/3</div>
        <div class="part-num">03</div>
        <h2>Áp dụng & thực hành</h2>
        <ul class="part-list"><li>Thử trên dữ liệu PISA thật</li><li>Thực hành trong SPSS</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Thử trên dữ liệu thật</div><h2>195 trường PISA VN</h2>
@@ -146,6 +155,22 @@
 <li><b>r<sub>XZ</sub>, r<sub>YZ</sub></b><span>tương quan của biến kiểm soát Z với từng biến chính X và Y</span></li>
 <li><b>r<sub>XY·Z</sub></b><span>tương quan "thật" giữa X và Y sau khi trừ đi phần chung cả hai đều chia sẻ với Z</span></li></ul>
 <p class="cap">Nếu Z không tương quan với cả X lẫn Y (r<sub>XZ</sub>≈0 và r<sub>YZ</sub>≈0), công thức tự động cho r<sub>XY·Z</sub>≈r<sub>XY</sub> — đúng như ví dụ PISA bên dưới, nơi thiếu nhân sự gần như không liên quan điểm Khoa học.</p>
+<table><tr><th>|r|</th><th>Diễn giải (Cohen et al.)</th><th>Ví dụ domain</th></tr>
+<tr><td>&lt;0,10</td><td>Không đáng kể</td><td>Giáo dục: thiếu nhân sự × điểm Khoa học (r≈0,002, mục dưới)</td></tr>
+<tr><td>0,10–0,29</td><td>Nhỏ</td><td>Y tế (minh hoạ): số giờ ngủ × điểm tập trung buổi sáng</td></tr>
+<tr><td>0,30–0,49</td><td>Vừa</td><td>Giáo dục: tự tin nghề nghiệp × hài lòng công việc GV (r=0,244, mục 4bis — xấp xỉ biên dưới)</td></tr>
+<tr><td>0,50–0,69</td><td>Lớn</td><td>Giáo dục: giờ tự học × điểm Toán (r=0,582, mục trên)</td></tr>
+<tr><td>≥0,70</td><td>Rất lớn</td><td>Kinh tế (minh hoạ): thu nhập hộ gia đình × chi tiêu hộ gia đình cùng kỳ</td></tr></table>
+<p class="cap">Ngưỡng này chỉ là quy ước tham khảo (không phải luật toán học) — một r=0,20 trong y học lâm sàng có thể quan trọng hơn hẳn một r=0,50 trong khảo sát ý kiến, tuỳ chi phí/rủi ro của quyết định dựa trên nó.</p>
+<h3>Phép tính từng bước — tương quan riêng phần trên dữ liệu PISA thật</h3>
+<table><tr><th>Bước</th><th>Đại lượng</th><th>Giá trị</th></tr>
+<tr><td>1</td><td>r<sub>XY</sub> (EDUSHORT × điểm KH)</td><td>−0,039</td></tr>
+<tr><td>2</td><td>r<sub>XZ</sub> (EDUSHORT × STAFFSHORT)</td><td>0,6145</td></tr>
+<tr><td>3</td><td>r<sub>YZ</sub> (điểm KH × STAFFSHORT)</td><td>0,0022</td></tr>
+<tr><td>4</td><td>Tử số: r<sub>XY</sub> − r<sub>XZ</sub>r<sub>YZ</sub></td><td>−0,039 − (0,6145×0,0022) = −0,0404</td></tr>
+<tr><td>5</td><td>Mẫu số: √[(1−r<sub>XZ</sub>²)(1−r<sub>YZ</sub>²)]</td><td>√[(1−0,3776)(1−0,000005)] = √0,6224 = 0,7889</td></tr>
+<tr><td>6</td><td>r<sub>XY·Z</sub> = tử số/mẫu số</td><td>−0,0404/0,7889 = <b>−0,0512</b></td></tr></table>
+<p class="cap">n=195 trường (sau khi loại hàng thiếu dữ liệu ở 1 trong 3 biến) — khớp đúng 100% với kết quả đã công bố (r=−0,051) khi tính lại độc lập bằng Python trên file <code>vnm_truong_195_tong_hop.csv</code>.</p>
 <h3>Thử trên dữ liệu PISA Việt Nam thật (195 trường)</h3>
 <p class="cap">📖 Ý nghĩa của EDUSHORT, STAFFSHORT và các biến PISA khác: <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 <p>Tương quan gốc giữa <i>thiếu học liệu</i> (EDUSHORT) và <i>điểm Khoa học TB trường</i>: r = <b>−0,039</b> (rất yếu). Biến nghi ngờ gây nhiễu: <i>thiếu nhân sự</i> (STAFFSHORT), có tương quan khá cao với thiếu học liệu (r=0,61) — giống tình huống "chiều cao" trong ví dụ bóng rổ. Sau khi kiểm soát thiếu nhân sự, tương quan riêng phần: r = <b>−0,051</b> — <b>gần như không đổi</b>.</p>

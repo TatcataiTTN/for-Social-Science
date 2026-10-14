@@ -70,7 +70,17 @@
        <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
        <tr><td>z<sub>α/2</sub></td><td>Giá trị tới hạn ứng với α — α=0,05 → z=1,96</td></tr>
        <tr><td>z<sub>β</sub></td><td>Giá trị tới hạn ứng với β — power=0,80 → z=0,84</td></tr>
-       <tr><td>d</td><td>Cỡ hiệu ứng kỳ vọng — từ tổng quan tài liệu hoặc pilot</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <tr><td>d</td><td>Cỡ hiệu ứng kỳ vọng — từ tổng quan tài liệu hoặc pilot</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Phép tính tay</div><h2>Ví dụ: d=0,5 (hiệu ứng vừa) ra cỡ mẫu bao nhiêu?</h2>
+       <p>Bước 1 — tra bảng z chuẩn: z<sub>α/2</sub>=1,96 (α=0,05), z<sub>β</sub>=0,84 (power=0,80).</p>
+       <p>Bước 2 — cộng 2 giá trị z, bình phương: (1,96+0,84)² = 2,8² = 7,84.</p>
+       <p>Bước 3 — nhân 2, chia d²: 7,84 × 2 / 0,5² = 15,68 / 0,25 = <b>62,79</b> → làm tròn lên <b>63 người/nhóm</b>.</p>
+       <p class="cap">Lưu ý: statsmodels (phần mềm, tính chính xác bằng phân phối t không tâm) ra <b>64</b> — chênh 1 người so với công thức xấp xỉ bằng tay. Đây KHÔNG phải lỗi: công thức z là xấp xỉ chuẩn, phần mềm dùng phân phối t chính xác hơn — luôn ưu tiên số phần mềm khi báo cáo chính thức, công thức tay chỉ để HIỂU cơ chế.</p></div><div class="mdeck-slide"><div class="kicker">Công thức khác</div><h2>Cochran (1963): cỡ mẫu cho ước lượng TỈ LỆ</h2>
+       <p class="big">n<sub>0</sub> = z² × p(1−p) / e²</p>
+       <p class="cap">Dùng khi muốn ước lượng 1 tỉ lệ (vd % học sinh đạt chuẩn) với sai số biên e cho trước — khác với công thức trên (so sánh 2 nhóm).</p></div><div class="mdeck-slide"><div class="kicker">Phép tính tay</div><h2>Ví dụ: ước lượng tỉ lệ, sai số biên ±5%</h2>
+       <p>Giả định p=0,5 (trường hợp bảo toàn nhất — phương sai p(1−p) lớn nhất khi p=0,5), sai số biên e=0,05, z=1,96 (độ tin cậy 95%).</p>
+       <p>Bước 1: z²×p(1−p) = 1,96² × 0,5×0,5 = 3,8416 × 0,25 = 0,9604.</p>
+       <p>Bước 2: chia e² = 0,9604 / 0,05² = 0,9604 / 0,0025 = <b>384,16</b> → làm tròn lên <b>385</b>.</p>
+       <p class="cap">Đây là n<sub>0</sub> khi tổng thể coi như vô hạn. Nếu tổng thể hữu hạn và đã biết (vd N=7.368 học sinh PISA), hiệu chỉnh: n = n<sub>0</sub>/(1+(n<sub>0</sub>−1)/N) = 384,16/(1+383,16/7.368) ≈ <b>365</b> — nhỏ hơn một chút vì tổng thể không quá lớn so với mẫu.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
        <div class="part-num">05</div>
        <h2>Áp dụng thực tế</h2>
        <ul class="part-list"><li>Thiết kế mẫu thật của PISA 2025</li><li>Thực hành: đánh giá một thiết kế mẫu</li><li>Tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Áp dụng dữ liệu thật</div><h2>PISA 2025 VN: phân tầng + cụm + nhiều giai đoạn</h2>
@@ -136,6 +146,24 @@
 <table><tr><th>Cỡ hiệu ứng d</th><th>Mức</th><th>Cỡ mẫu/nhóm</th></tr>
 <tr><td>0,2</td><td>Nhỏ</td><td>≈394</td></tr><tr><td>0,5</td><td>Vừa</td><td>≈64</td></tr><tr><td>0,8</td><td>Lớn</td><td>≈26</td></tr></table>
 <p class="cap">Tính bằng <code>statsmodels.stats.power.TTestIndPower</code>, α=0,05, power=0,80 — bảng đầy đủ (kể cả ANOVA, tương quan) nằm ở phần "Tính cỡ mẫu chính thức" trong bảng pipeline 14 bước cuối trang chủ.</p>
+<div class="callout good"><b>Phép tính tay từng bước — ví dụ d=0,5 (hiệu ứng vừa):</b>
+<p>Bước 1 — tra bảng z chuẩn: z<sub>α/2</sub>=1,96 (ứng với α=0,05, kiểm định 2 phía), z<sub>β</sub>=0,84 (ứng với power=0,80).</p>
+<p>Bước 2 — cộng rồi bình phương: (z<sub>α/2</sub>+z<sub>β</sub>)² = (1,96+0,84)² = 2,8² = 7,84.</p>
+<p>Bước 3 — nhân 2 (vì so sánh 2 nhóm độc lập), chia d²: n = 7,84 × 2 / 0,5² = 15,68 / 0,25 = 62,79 → làm tròn LÊN thành <b>63 người/nhóm</b> (luôn làm tròn lên trong tính cỡ mẫu, không làm tròn xuống).</p>
+<p class="cap">Statsmodels (tính chính xác bằng phân phối t không tâm, không xấp xỉ bằng z) ra <b>64</b> — lệch 1 so với công thức tay. Không phải lỗi: công thức z ở trên là XẤP XỈ, statsmodels dùng phân phối chính xác hơn. Khi báo cáo chính thức, luôn dùng số phần mềm; công thức tay chỉ giúp HIỂU cơ chế từng thành phần ảnh hưởng tới cỡ mẫu ra sao.</p></div>
+<p><b>Công thức khác — Cochran (1963), cỡ mẫu khi muốn ước lượng một TỈ LỆ</b> (khác với công thức trên vốn dùng để SO SÁNH 2 nhóm):</p>
+<div class="pd-formula"><div class="pd-formula-label">Cỡ mẫu ước lượng tỉ lệ (tổng thể coi như vô hạn)</div><div class="pd-formula-math">n<sub>0</sub> = z² × p(1−p) / e²</div></div>
+<ul class="pd-legend"><li><b>n<sub>0</sub></b><span>cỡ mẫu cần thiết khi tổng thể rất lớn/không giới hạn</span></li>
+<li><b>z</b><span>giá trị tới hạn ứng với độ tin cậy mong muốn — 95% → z=1,96</span></li>
+<li><b>p</b><span>tỉ lệ kỳ vọng trong tổng thể — nếu chưa biết, dùng p=0,5 (bảo toàn nhất, vì p(1−p) đạt giá trị lớn nhất tại p=0,5)</span></li>
+<li><b>e</b><span>sai số biên (margin of error) chấp nhận được — vd ±5% → e=0,05</span></li></ul>
+<div class="callout good"><b>Phép tính tay — ước lượng tỉ lệ với sai số biên ±5%:</b>
+<p>Giả định bảo toàn nhất p=0,5, e=0,05, z=1,96 (độ tin cậy 95%).</p>
+<p>Bước 1: z²×p(1−p) = 1,96² × (0,5×0,5) = 3,8416 × 0,25 = 0,9604.</p>
+<p>Bước 2: chia e²: n<sub>0</sub> = 0,9604 / 0,05² = 0,9604 / 0,0025 = 384,16 → làm tròn lên <b>385</b>.</p>
+<p>Nếu tổng thể HỮU HẠN và đã biết trước (vd N=7.368 học sinh PISA đã dùng ở module này), hiệu chỉnh tổng thể hữu hạn (finite population correction):</p>
+<p class="big">n = n<sub>0</sub> / (1 + (n<sub>0</sub>−1)/N) = 384,16 / (1 + 383,16/7.368) ≈ <b>365</b></p>
+<p class="cap">Cỡ mẫu hiệu chỉnh NHỎ HƠN một chút — vì khi tổng thể không quá lớn so với mẫu cần lấy, không cần lấy nhiều mẫu như trường hợp tổng thể "vô hạn".</p></div>
 
 <p class="cap">📖 Ý nghĩa đầy đủ của các biến PISA dùng trong module này (kể cả 7 chỉ số WLE): <a href="../../data/index.html#tu-dien-truong">Từ điển biến — bộ dữ liệu cấp trường</a>.</p>
 <h2 id="thuc-hanh">5. Áp dụng dữ liệu thật: trọng số mẫu PISA</h2>

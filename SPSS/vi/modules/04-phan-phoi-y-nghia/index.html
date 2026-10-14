@@ -72,7 +72,11 @@
        <ul class="part-list"><li>p-value không nói to hay nhỏ — effect size mới nói</li><li>d lớn nhưng eta² nhỏ, có thể cùng lúc</li><li>Statistical power và đánh đổi với α</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>"Effect size" là tên gọi không hoàn toàn chính xác</h2>
        <p>Chữ "effect" ngụ ý nhân quả — nhưng cỡ hiệu ứng KHÔNG hề chứng minh nhân quả, chỉ đo độ lớn liên hệ/khác biệt quan sát được.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>Cohen's d = (x̄₁ − x̄₂) / s<sub>pooled</sub></h2>
        <p>d = số SD chênh lệch giữa 2 trung bình — không phụ thuộc đơn vị đo gốc.</p>
-       <p class="cap">So sánh được GIỮA các nghiên cứu khác nhau, khác hẳn p-value.</p></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>p-value không nói "to hay nhỏ" — effect size mới nói</h2>
+       <p class="cap">So sánh được GIỮA các nghiên cứu khác nhau, khác hẳn p-value.</p></div><div class="mdeck-slide"><div class="kicker">Phép tính từng bước</div><h2>Tính tay Cohen's d: Dự án vs Truyền thống (n=240)</h2>
+       <table><tr><th>Nhóm</th><th>n</th><th>Mean gain</th><th>SD</th></tr>
+       <tr><td>Dự án</td><td>115</td><td>8,66</td><td>5,77</td></tr>
+       <tr><td>Truyền thống</td><td>125</td><td>2,89</td><td>6,00</td></tr></table>
+       <p class="cap">s<sub>pooled</sub> = √[((115−1)×5,77² + (125−1)×6,00²)/(115+125−2)] = <b>5,89</b> → d = (8,66−2,89)/5,89 = <b>0,981</b></p></div><div class="mdeck-slide"><div class="kicker">6 · Cỡ hiệu ứng</div><h2>p-value không nói "to hay nhỏ" — effect size mới nói</h2>
        <table><tr><th>Thống kê</th><th>Nhỏ</th><th>Vừa</th><th>Lớn</th></tr>
        <tr><td>Cohen's d</td><td>0,20</td><td>0,50</td><td>0,80</td></tr>
        <tr><td>Pearson r</td><td>0,10</td><td>0,30</td><td>0,50</td></tr>
@@ -83,6 +87,7 @@
        <p>3 trường → điểm Toán: eta² = <b>0,047</b> (nhỏ), dù F có ý nghĩa (p=0,003).</p>
        <p class="cap">Cùng dữ liệu lớp học, hai câu hỏi khác nhau cho hai cỡ hiệu ứng rất khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">7 · Statistical power</div><h2>α càng lớn → power càng cao, nhưng dễ Sai lầm I hơn</h2>
        <img src="../../../assets/diagrams/alpha_power.png" alt="alpha power"/>
+       <p class="cap">Công thức ước lượng cỡ mẫu (t-test 2 nhóm): n ≈ 2×((z<sub>α/2</sub>+z<sub>β</sub>)/d)² mỗi nhóm.</p>
        <p class="cap">Cohen (1988): quy ước α=0,05, β=0,20 → power=0,80 (tỉ lệ coi trọng 4:1).</p></div><div class="mdeck-slide"><div class="kicker">4 tham số của power</div><h2>Cỡ hiệu ứng, cỡ mẫu, α, β — cần đủ cả 4</h2>
        <p>Ước tính thô (α=0,05, power=0,80): tìm d=0,5 (2 đuôi) cần ~<b>130 người</b>; tìm r=0,5 (2 đuôi) chỉ cần ~<b>30 người</b>.</p>
        <p class="cap">Hiệu ứng nhỏ cần mẫu lớn hơn hẳn để có đủ power phát hiện ra nó.</p></div><div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới, rồi tự kiểm tra 30 câu</h2>
@@ -165,11 +170,22 @@
 <li>3 trường → điểm Toán: eta² = SSB/SST = 1056,82/22374,01 = <b>0,047</b> → mức <b>nhỏ</b>, dù kiểm định F có ý nghĩa thống kê (p=0,003)!</li>
 </ul>
 Đây chính là minh chứng sống: <b>ý nghĩa thống kê và cỡ hiệu ứng là hai câu hỏi khác nhau, có thể cho câu trả lời trái ngược cảm giác.</b></div>
+<div class="callout"><b>Ví dụ đa ngành ngoài giáo dục (minh hoạ):</b>
+<table><tr><th>Ngành</th><th>So sánh</th><th>Cohen's d</th><th>Mức</th></tr>
+<tr><td>Y tế (minh hoạ)</td><td>Thuốc hạ huyết áp mới vs giả dược</td><td>0,35</td><td>Nhỏ-vừa — có tác dụng nhưng khiêm tốn</td></tr>
+<tr><td>Kinh tế (minh hoạ)</td><td>Thu nhập nhóm có bằng ĐH vs không có</td><td>0,65</td><td>Vừa-lớn — chênh lệch rõ rệt</td></tr>
+</table>
+Cùng một thang đo d cho phép so sánh độ lớn hiệu ứng GIỮA các ngành hoàn toàn khác nhau — đây chính là lý do Cohen's d phổ biến hơn hẳn việc chỉ báo cáo đơn vị đo gốc (mmHg, VNĐ...).</div>
 
 <h2 id="power">7. Statistical power</h2>
 <p>Power = xác suất phát hiện ĐÚNG một hiệu ứng thật (1−β). Power=0,80 (chuẩn phổ biến) nghĩa là 80% cơ hội tìm ra hiệu ứng thật, 20% rủi ro bỏ sót (Type II). Cohen (1988, tr.750) đề xuất coi Type I nghiêm trọng gấp 4 lần Type II ở mức α=0,05, β=0,20.</p>
 <div class="figure"><img src="../../../assets/diagrams/alpha_power.png" alt=""/><figcaption>Mô phỏng: khi α tăng, power tăng theo nhưng đổi lại rủi ro Type I cao hơn (n=30/nhóm, d=0,5, t-test 2 đuôi).</figcaption></div>
 <p>Bốn tham số quyết định power: (1) cỡ hiệu ứng, (2) cỡ mẫu, (3) mức α, (4) mức β mong muốn (tr.751). Ước tính thô của sách (α=0,05, power=0,80): kiểm định khác biệt 2 đuôi tìm d=0,5 cần ~130 người; kiểm định tương quan 2 đuôi tìm r=0,5 chỉ cần ~30 người.</p>
+<div class="pd-formula"><div class="pd-formula-label">Công thức ước lượng cỡ mẫu mỗi nhóm (t-test 2 nhóm độc lập)</div><div class="pd-formula-math">n ≈ 2 × [(z<sub>α/2</sub> + z<sub>β</sub>) / d]²</div></div>
+<ul class="pd-legend"><li><b>z<sub>α/2</sub></b><span>giá trị tới hạn z ứng với mức ý nghĩa 2 đuôi — với α=0,05 thì z<sub>α/2</sub>=1,96</span></li>
+<li><b>z<sub>β</sub></b><span>giá trị z ứng với power mong muốn — với power=0,80 (β=0,20) thì z<sub>β</sub>=0,84</span></li>
+<li><b>d</b><span>cỡ hiệu ứng Cohen's d kỳ vọng tìm ra</span></li></ul>
+<div class="callout">Verify bằng Python (`statsmodels.stats.power.TTestIndPower`), đối chiếu công thức tính tay: với d=0,5 → n ≈ 2×[(1,96+0,84)/0,5]² = 2×31,36 = <b>62,7 ≈ 63 người/nhóm</b> — khớp sát với bảng chính xác của statsmodels (64/nhóm, lệch nhỏ do công thức tay là xấp xỉ bậc nhất, statsmodels tính chính xác hơn qua phân phối t không trung tâm). Bảng đầy đủ 3 mức: d=0,2→≈394/nhóm, d=0,5→≈64/nhóm, d=0,8→≈26/nhóm (α=0,05, power=0,80, statsmodels).</div>
 
 <h2 id="thuc-hanh">8. Thực hành SPSS/PSPP</h2>
 <div class="callout good"><b>🖱️ Từng bước bấm chuột trong SPSS:</b>

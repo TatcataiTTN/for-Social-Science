@@ -14,56 +14,107 @@
 <div class="headerctl"><details class="themesw"><summary>🎨 主题</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>浅色（默认）</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>深色</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>粉色</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>蓝色</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>绿色</button></div></details><details class="fontsw"><summary>🔤 字体</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman（默认）</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="sitesearch"><input type="search" id="site-search" data-glossary-href="../glossary/index.html" autocomplete="off" placeholder="🔍 搜索词典..."/><div id="site-search-results" class="site-search-results" hidden></div></div><div class="langsw"><a href="../../../../SPSS/vi/modules/01-thang-do-du-lieu/index.html" class="">VI</a><a href="../../../../SPSS/en/modules/01-thang-do-du-lieu/index.html" class="">EN</a><a href="../../../../SPSS/zh/modules/01-thang-do-du-lieu/index.html" class="active">中文</a></div></div>
 </div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>请注意：本页大部分内容由 AI 自动生成.</b> 由于时间和精力有限，网站维护者无法独自撰写完整且高质量的课程资料，因此使用 AI 生成内容，并在可能范围内核对数据与原始教材。如发现错误，欢迎指正。</div></div></div><div class="banner mt"><div class="wrap"><span>🌐</span><div><b>机器翻译提示：</b>本页为独立的中文版本，内容由 AI 自动翻译自越南语原文，未经人工校对，可能存在用词不准确或表达生硬之处，仅供参考。</div></div></div><main><div class="wrap">
 <h1>01·数据量表与定量数据的本质</h1>
-<p class="lead">第1／12单元・在运行任何 SPSS/PSPP 命令之前必须掌握的基础知识。内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第38章“定量数据分析方法”第38.2–38.5节（第725–728页）。</p>
+<p class="lead">第1／12单元・在运行任何 SPSS/PSPP 命令之前必须掌握的基础知识。内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第38章"定量数据分析方法"第38.2–38.5节（第725–728页）。</p>
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第1单元 · COHEN ET AL. 第38章</div>
        <h2>数据量表与定量数据的本质</h2>
        <p>在运行任何 SPSS/PSPP 命令之前必须掌握的基础知识。</p>
        <p class="cap">使用 ← → 键或下方按钮切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/5 部分</div>
        <div class="part-num">01</div>
        <h2>数据量表</h2>
-       <ul class="part-list"><li>四种量表，逐级叠加新特征</li><li>为什么100°F不是50°F的两倍热</li><li>软件只有3个选项，不是4个</li></ul></div><div class="mdeck-slide"><div class="kicker">四种量表</div><h2>每种量表都在前一种基础上叠加一个新特征</h2>
-       <table><tr><th>量表</th><th>新增特征</th><th>示例</th></tr>
-       <tr><td><b>定类</b></td><td>仅分类</td><td>性别、学校类型</td></tr>
-       <tr><td><b>定序</b></td><td>+ 有顺序</td><td>李克特量表、排名</td></tr>
-       <tr><td><b>定距</b></td><td>+ 等距，无真正零点</td><td>摄氏/华氏度、智商</td></tr>
-       <tr><td><b>定比</b></td><td>+ 有真正零点</td><td>学习时长、考试分数</td></tr></table></div><div class="mdeck-slide"><div class="kicker">经典例子</div><h2>为什么100°F不是50°F的两倍热？</h2>
+       <ul class="part-list"><li>四种量表，逐级叠加新特征</li><li>为什么100°F不是50°F的两倍热</li><li>软件只有3个选项，不是4个</li><li>跨行业示例＋离散/连续变量＋历史渊源</li></ul></div><div class="mdeck-slide"><div class="kicker">四种量表</div><h2>每种量表都在前一种基础上叠加一个新特征</h2>
+       <p class="cap">🗣️ 通俗说法：好比4级台阶——后一级拥有前一级的全部特征，再加一个新能力。</p>
+       <table><tr><th>量表</th><th>新增特征</th><th>示例</th><th>允许的运算</th></tr>
+       <tr><td><b>定类</b></td><td>仅分类</td><td>性别、学校类型</td><td>频数统计、众数</td></tr>
+       <tr><td><b>定序</b></td><td>+ 有顺序</td><td>李克特量表、排名</td><td>+ 中位数、百分位数</td></tr>
+       <tr><td><b>定距</b></td><td>+ 等距，无真正零点</td><td>摄氏/华氏度、智商</td><td>+ 平均数、标准差（不能取比值）</td></tr>
+       <tr><td><b>定比</b></td><td>+ 有真正零点</td><td>学习时长、考试分数</td><td>+ 所有运算，包括"两倍"</td></tr></table></div><div class="mdeck-slide"><div class="kicker">经典例子</div><h2>为什么100°F不是50°F的两倍热？</h2>
        <p class="big">0°F ≠ "完全没有热量"</p>
-       <p>定距量表单位相等，但零点是<b>约定</b>的。50°F的两倍其实是68°F。</p>
+       <p>定距量表单位相等，但零点是<b>约定</b>的。50°F的两倍其实是68°F：((50−32)×2)+32。</p>
        <p>同理：智商150并<b>不是</b>智商75的"两倍聪明"——智商量表通常从70分起算，而非0分。</p></div><div class="mdeck-slide"><div class="kicker">变量声明提示</div><h2>软件只有3个选项，不是4个</h2>
        <p class="big">Nominal · Ordinal · <span class="warn">Scale</span></p>
-       <p>SPSS/PSPP 将<b>定距+定比</b>合并为一种度量类型"Scale"——因为大多数统计方法对两者处理方式相同。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/5 部分</div>
+       <p>SPSS/PSPP 将<b>定距+定比</b>合并为一种度量类型"Scale"——因为大多数统计方法对两者处理方式相同。</p>
+       <p class="cap">在<code>Variable View</code>中声明变量时，<code>Measure</code>列只能三选一——没有单独的"Interval"或"Ratio"选项。</p></div><div class="mdeck-slide"><div class="kicker">跨行业示例</div><h2>四种量表不止用于教育领域</h2>
+       <table><tr><th>行业</th><th>定类</th><th>定序</th><th>定距</th><th>定比</th></tr>
+       <tr><td>教育</td><td>学校类型</td><td>学业等级排名</td><td>智商分数</td><td>自学时长</td></tr>
+       <tr><td>医疗（示例）</td><td>血型</td><td>疼痛程度（1-10）</td><td>体温（°C）</td><td>血压（mmHg）</td></tr>
+       <tr><td>商业（示例）</td><td>商品类别</td><td>会员等级（铜/银/金）</td><td>公司成立年份</td><td>营业额（百万元）</td></tr></table>
+       <p class="cap">血型（A/B/O/AB）只是标签——没有"更高/更低"的顺序，与"学校类型"相同。</p></div><div class="mdeck-slide"><div class="kicker">另一种分类方式</div><h2>离散变量与连续变量</h2>
+       <p>离散：只能取有限的若干具体值，可数，两个相邻值之间没有"中间值"。连续：可以在某区间内取任意数值。</p>
+       <table><tr><th>行业</th><th>离散</th><th>连续</th></tr>
+       <tr><td>教育（真实数据，n=240）</td><td>兴趣程度h1：1-5，只有5个整数值</td><td>每周自学时长：0.8→11.3小时，可取任意小数</td></tr>
+       <tr><td>医疗（示例）</td><td>已生育子女数（0、1、2…）</td><td>新生儿体重（kg，含小数）</td></tr>
+       <tr><td>农业（示例）</td><td>每垄植株数（整数计数）</td><td>产量（吨/公顷，含小数）</td></tr></table>
+       <p class="cap">真实数据：240名学生中兴趣程度h1只取5个值（1→25人，2→52人，3→97人，4→53人，5→13人）——没有"2.5"这种中间值。</p></div><div class="mdeck-slide"><div class="kicker">📜 历史渊源</div><h2>四种量表框架从何而来？</h2>
+       <ul><li><b>1946年</b>——心理学家S. S. Stevens在《Science》杂志发表论文《On the Theory of Scales of Measurement》，提出此框架。</li>
+       <li>Stevens从事心理物理学研究（测量响度、亮度等感知）——需要一种清晰语言来说明"这个数字允许用哪些运算"。</li>
+       <li>70年后，该框架仍是大多数社会科学/教育统计教材的基础，包括Cohen等人的著作。</li>
+       <li>但并非绝对真理——Wright（2003）指出，一个变量的量表有时是研究者"赋予"它的，并非固有属性。</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/5 部分</div>
        <div class="part-num">02</div>
        <h2>参数与非参数</h2>
-       <ul class="part-list"><li>快速经验法则，用于选择正确的检验分支</li></ul></div><div class="mdeck-slide"><div class="kicker">快速经验法则</div><h2>第1部分的量表类型决定该用哪条检验分支</h2>
-       <div class="two-col"><div><p><b>非参数</b></p><ul><li>定类、定序</li><li>不假设总体分布</li></ul></div>
-       <div><p><b>参数</b></p><ul><li>定距、定比</li><li>假设正态分布</li></ul></div></div>
-       <p>对非参数数据使用参数检验通常<b>错误</b>；反之则允许，只是检验力较弱。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/5 部分</div>
+       <ul class="part-list"><li>快速经验法则，用于选择正确的检验分支</li><li>跨行业示例</li><li>选错分支的后果</li><li>李克特量表"近似定距"之争</li></ul></div><div class="mdeck-slide"><div class="kicker">快速经验法则</div><h2>第1部分的量表类型决定该用哪条检验分支</h2>
+       <p class="cap">🗣️ 通俗说法：参数检验像"刻度均匀的指针秤"——确切知道各刻度间距；非参数检验像"比赛名次"——只知道谁排前面，不知道领先多少。</p>
+       <div class="two-col"><div><p><b>非参数</b></p><ul><li>定类、定序</li><li>不假设总体分布</li><li>检验力较弱但更安全</li></ul></div>
+       <div><p><b>参数</b></p><ul><li>定距、定比</li><li>假设正态分布</li><li>假设成立时更有效</li></ul></div></div>
+       <p>对非参数数据使用参数检验通常<b>错误</b>；反之则允许，只是检验力较弱。</p></div><div class="mdeck-slide"><div class="kicker">跨行业示例</div><h2>三个行业中的参数与非参数变量</h2>
+       <table><tr><th>行业</th><th>参数变量</th><th>非参数变量</th></tr>
+       <tr><td>教育（真实）</td><td>数学成绩（0-100，定比）</td><td>兴趣程度h1（李克特1-5，定序）</td></tr>
+       <tr><td>医疗（示例）</td><td>收缩压（mmHg，定比）</td><td>自评疼痛程度（1-10量表，定序）</td></tr>
+       <tr><td>商业（示例）</td><td>月营业额（百万元，定比）</td><td>产品评分星级（1-5星，定序）</td></tr></table></div><div class="mdeck-slide"><div class="kicker">⚠️ 实际后果</div><h2 class="warn">选错分支不只是"技术小错误"</h2>
+       <p>直接对单个李克特题项（如仅h1一题）计算平均数/标准差，暗含"1→2"的间距等于"4→5"间距的假设——而这一假设从未被证明。</p>
+       <p class="warn">后果：得出的"平均数差异具有显著性"结论可能只反映计算方式，而非真实差异。有疑虑时，改用非参数检验替代（第7单元：曼-惠特尼U检验代替t检验，克鲁斯卡尔-沃利斯检验代替方差分析）。</p></div><div class="mdeck-slide"><div class="kicker">尚无定论的争论</div><h2>李克特量表：定序，还是"近似定距"？</h2>
+       <p><b>支持参数统计一方：</b>当多个李克特题项<b>合并</b>为总分（如"兴趣"量表由h1+h2+h3组成）时，总分已足够接近连续分布，可安全使用平均数/标准差。</p>
+       <p><b>坚持Cohen等人立场一方：</b>单个李克特题项仍属定序，应优先使用中位数/非参数方法。</p>
+       <p class="cap">没有绝对对错的答案——撰写方法论时必须说明你的选择及理由。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/5 部分</div>
        <div class="part-num">03</div>
        <h2>描述统计与推论统计</h2>
-       <ul class="part-list"><li>统计学两个截然不同的目标</li></ul></div><div class="mdeck-slide"><div class="kicker">两个截然不同的目标</div><h2>描述统计总结样本，推论统计推断总体</h2>
-       <div class="two-col"><div><p><b>描述统计</b></p><ul><li>只总结已有数据</li><li>众数、平均数、中位数、标准差、偏度…</li></ul></div>
-       <div><p><b>推论统计</b></p><ul><li>从样本推断总体</li><li>t检验、方差分析、回归、假设检验…</li></ul></div></div></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/5 部分</div>
+       <ul class="part-list"><li>统计学两个截然不同的目标</li><li>240名学生真实数据示例</li><li>两类技术完整清单</li></ul></div><div class="mdeck-slide"><div class="kicker">两个截然不同的目标</div><h2>描述统计总结样本，推论统计推断总体</h2>
+       <p class="cap">🗣️ 通俗说法：描述统计是"描述已拍好的照片"；推论统计是"只凭几张照片推测整部影片的情节"。</p>
+       <div class="two-col"><div><p><b>描述统计</b></p><ul><li>只总结已有数据</li><li>众数、平均数、中位数、标准差</li><li>不对样本之外做任何推断</li><li>对该样本本身永远100%正确</li></ul></div>
+       <div><p><b>推论统计</b></p><ul><li>从样本推断总体</li><li>t检验、方差分析、回归</li><li>总是带有出错概率（p值）</li><li>需要样本具有代表性</li></ul></div></div></div><div class="mdeck-slide"><div class="kicker">真实数据示例</div><h2>240名学生：先描述，后推论</h2>
+       <p><b>描述（已用Python+PSPP验证）：</b>数学平均分=47.91，中位数=47.70，标准差=9.68（n=240，最小值=25.9，最大值=71.5）。</p>
+       <p><b>推论（开放问题，第5-6单元解答）：</b>"项目式"组平均分（49.47）高于"传统"组（46.48）——这一差异具有统计显著性，还是仅仅源于样本的随机性？</p>
+       <p class="cap">本页仅做描述——尚无法回答推论问题，需要t检验（第5单元）才能下结论。</p></div><div class="mdeck-slide"><div class="kicker">速查表</div><h2>完整清单：描述统计 vs 推论统计</h2>
+       <table><tr><th>描述统计</th><th>推论统计</th></tr>
+       <tr><td>频数、百分比</td><td>假设检验</td></tr>
+       <tr><td>众数、平均数、中位数、全距</td><td>回归（单变量/多变量）</td></tr>
+       <tr><td>方差、标准差</td><td>t检验、方差分析</td></tr>
+       <tr><td>偏度、峰度</td><td>因子分析、结构方程模型</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/5 部分</div>
        <div class="part-num">04</div>
        <h2>因果关系与变量</h2>
-       <ul class="part-list"><li>自变量／因变量是什么</li><li>对看似因果的相关关系的6种替代解释</li><li>为什么相关不等于因果</li></ul></div><div class="mdeck-slide"><div class="kicker">自变量与因变量</div><h2>谁是"原因"，谁是"结果"？</h2>
+       <ul class="part-list"><li>自变量／因变量是什么</li><li>跨行业示例</li><li>对看似因果的相关关系的6种替代解释</li><li>跨行业的因果方向颠倒</li><li>为什么相关不等于因果</li></ul></div><div class="mdeck-slide"><div class="kicker">自变量与因变量</div><h2>谁是"原因"，谁是"结果"？</h2>
+       <p class="cap">🗣️ 通俗说法：自变量是"你转动的旋钮"；因变量是"随之摆动的指针"。</p>
        <p><b>自变量：</b>研究者控制／操纵的变量。</p>
        <p><b>因变量：</b>其取值（部分）取决于自变量的变量。</p>
-       <p class="cap">例如：作业时长（自变量）→数学成绩（因变量）？</p></div><div class="mdeck-slide"><div class="kicker">批判性提问</div><h2>"作业→高分"的6种替代解释</h2>
-       <ul><li>考试压力本身提高了专注度（另一外部变量）</li>
-       <li>喜欢学科／老师→自主学习（混淆变量）</li>
-       <li>前一晚睡得好→更清醒（中介变量）</li>
-       <li>预期成绩驱动了作业量（因果方向颠倒）</li></ul></div><div class="mdeck-slide"><div class="kicker">重要提醒</div><h2 class="warn">具有统计显著性的相关 ≠ 因果关系</h2>
-       <p>你在 SPSS/PSPP 中分析的大多数数据都是<b>观察性数据</b>——并非随机化实验。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 5/5 部分</div>
+       <p class="cap">例如：作业时长（自变量）→数学成绩（因变量）？</p></div><div class="mdeck-slide"><div class="kicker">跨行业示例</div><h2>自变量/因变量不止存在于教育领域</h2>
+       <table><tr><th>行业</th><th>自变量</th><th>因变量</th></tr>
+       <tr><td>教育（真实）</td><td>教学方法（项目式/传统）</td><td>数学成绩</td></tr>
+       <tr><td>医疗（示例）</td><td>降压药剂量（mg）</td><td>收缩压</td></tr>
+       <tr><td>农业（示例）</td><td>施肥量（kg/公顷）</td><td>水稻产量（吨/公顷）</td></tr></table></div><div class="mdeck-slide"><div class="kicker">批判性提问</div><h2>"作业→高分"的6种替代解释</h2>
+       <table><tr><th>#</th><th>机制</th><th>名称</th></tr>
+       <tr><td>1</td><td>考试压力本身提高了专注度</td><td>另一外部变量</td></tr>
+       <tr><td>2</td><td>喜欢学科/老师→自主学习</td><td>混淆变量</td></tr>
+       <tr><td>3</td><td>前一晚睡得好→更清醒</td><td>中介变量</td></tr>
+       <tr><td>4</td><td>预期成绩反过来影响作业量</td><td>因果方向颠倒</td></tr>
+       <tr><td>5</td><td>多方向关系，更像网络</td><td>非线性/网络关系</td></tr>
+       <tr><td>6</td><td>"成绩差会受罚"的威胁同时起作用</td><td>同时效应</td></tr></table></div><div class="mdeck-slide"><div class="kicker">因果方向颠倒</div><h2>跨行业示例：A→B 还是 B→A？</h2>
+       <p><b>教育：</b>"电脑数量多的学校成绩更高"——还是资源丰富的学校既能买更多电脑，又教得更好？</p>
+       <p><b>医疗（示例，词典中已用过）：</b>"疫苗接种率高→发病率下降"——方向正确，但若不控制时间因素容易被误读（某些地区发病率在疫苗普及前已开始下降）。</p>
+       <p class="cap">完整的因果方向颠倒检验公式见本站词典页面。</p></div><div class="mdeck-slide"><div class="kicker">重要提醒</div><h2 class="warn">具有统计显著性的相关 ≠ 因果关系</h2>
+       <p>你在 SPSS/PSPP 中分析的大多数数据都是<b>观察性数据</b>——并非随机化实验。</p>
+       <p class="cap">p&lt;0.05或较高的r值只能说明存在关联——并不能自动证明因果方向。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 5/5 部分</div>
        <div class="part-num">05</div>
        <h2>应用于实际</h2>
-       <ul class="part-list"><li>本单元在研究流程中的位置</li><li>把4种量表应用到真实PISA数据</li><li>幻灯片之后该做什么</li></ul></div><div class="mdeck-slide"><div class="kicker">背景说明</div><h2>定量研究流程</h2>
+       <ul class="part-list"><li>本单元在研究流程中的位置</li><li>把4种量表应用到真实PISA数据</li><li>在同一份数据上串联本单元4个概念</li><li>幻灯片之后该做什么</li></ul></div><div class="mdeck-slide"><div class="kicker">背景说明</div><h2>定量研究流程</h2>
        <img src="../../../assets/diagrams/pipeline_tong_the.svg" alt="pipeline"/>
        <p class="cap">本单元＝第1步（确定变量／假设），为第4–5步打下基础。</p></div><div class="mdeck-slide"><div class="kicker">应用于真实数据</div><h2>越南195所PISA 2025学校</h2>
        <table><tr><th>变量</th><th>量表</th></tr>
        <tr><td>REGION（区域）</td><td>定类</td></tr>
        <tr><td>SCHSIZE_Q（国际四分位数）</td><td>定序</td></tr>
        <tr><td>EDULEAD（WLE指数）</td><td>定距</td></tr>
-       <tr><td>W_NRASCHBWT（权重）</td><td>定比</td></tr></table></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
+       <tr><td>W_NRASCHBWT（权重）</td><td>定比</td></tr></table>
+       <p class="cap">已用Python验证：权重分布在1.0→617.2之间，即权重最高的学校代表性约为最低学校的617倍——这一说法之所以成立，正因为这是<b>定比</b>量表（第2单元用该数字解释为何必须加权）。</p></div><div class="mdeck-slide"><div class="kicker">串联全部</div><h2>本单元4个概念在同一份数据上的体现</h2>
+       <p>班级数据（240名学生）：<b>教学方法</b>=定类；<b>数学成绩</b>=定比（第1部分）。数学平均分=47.91，标准差=9.68——这是<b>描述统计</b>（第3部分）。</p>
+       <p>"项目式"组（n=115）平均49.47分；"传统"组（n=125）平均46.48分——<b>推论</b>问题：这一差异是否具有统计显著性？若有，教学方法是否真的是<b>原因</b>，还是存在其他混淆变量（第4部分）？第5单元将用t检验回答。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
        <p>幻灯片只是摘要。完整内容、真实数据示例和SPSS实践就在下方。</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ 上一页</button>
@@ -87,15 +138,15 @@
 <tr><td><b>定类</b>（nominal）</td><td>仅分类</td><td>性别、学校类型、省市代码</td><td>频数统计、众数</td></tr>
 <tr><td><b>定序</b>（ordinal）</td><td>+ 有大小顺序</td><td>李克特量表、学业等级</td><td>+ 中位数、百分位数</td></tr>
 <tr><td><b>定距</b>（interval）</td><td>+ 等距，但无真正的零点</td><td>摄氏/华氏温度、智商分数</td><td>+ 平均数、标准差（不能取比值）</td></tr>
-<tr><td><b>定比</b>（ratio）</td><td>+ 有真正的零点</td><td>自学时长、考试分数（0–10）、银行存款</td><td>+ 所有运算，包括比值（“两倍”）</td></tr>
+<tr><td><b>定比</b>（ratio）</td><td>+ 有真正的零点</td><td>自学时长、考试分数（0–10）、银行存款</td><td>+ 所有运算，包括比值（"两倍"）</td></tr>
 </table>
 
 <div class="callout">
-<b>经典例子（Cohen et al.，第726页）：</b>不能说“100°F比50°F热两倍”，因为0°F并不代表“完全没有热量”——这是定距量表。50°F的两倍其实是68°F：((50−32)×2)+32。同样，智商150并<b>不是</b>智商75的“两倍聪明”，因为智商量表通常从70分起算，而不是从0分起算。
+<b>经典例子（Cohen et al.，第726页）：</b>不能说"100°F比50°F热两倍"，因为0°F并不代表"完全没有热量"——这是定距量表。50°F的两倍其实是68°F：((50−32)×2)+32。同样，智商150并<b>不是</b>智商75的"两倍聪明"，因为智商量表通常从70分起算，而不是从0分起算。
 </div>
 
 <div class="callout warn">
-<b>使用 SPSS/PSPP 时的重要陷阱：</b>软件将<i>定距</i>和<i>定比</i>合并为一种度量类型，称为<b>“Scale”</b>——因为在实践中，大多数统计方法对两者的处理方式相同（Cohen et al.，第726页）。在<code>Variable View</code>中，你只能三选一：<i>Nominal / Ordinal / Scale</i>。
+<b>使用 SPSS/PSPP 时的重要陷阱：</b>软件将<i>定距</i>和<i>定比</i>合并为一种度量类型，称为<b>"Scale"</b>——因为在实践中，大多数统计方法对两者的处理方式相同（Cohen et al.，第726页）。在<code>Variable View</code>中，你只能三选一：<i>Nominal / Ordinal / Scale</i>。
 </div>
 
 <h2 id="param">2. 参数与非参数数据</h2>
@@ -110,16 +161,16 @@
 <p>包括：假设检验、回归分析、差异检验（t检验、方差分析）、因子分析、结构方程模型。</p></div>
 </div>
 
-<h2 id="vars">4. 自变量与因变量——为什么“相关”容易被误读为“因果”</h2>
-<p><b>自变量</b>：研究者可以控制／操纵的变量，被视为潜在的“原因”。<b>因变量</b>：其取值（部分）依赖于自变量的变量，被视为“结果”。</p>
-<p>Cohen等人（第727–728页）举了一个例子：增加家庭作业时长（自变量）→数学成绩提高（因变量）。但作者列出了至少<b>6种替代解释</b>，说明“作业导致成绩提高”这一结论是可疑的：</p>
+<h2 id="vars">4. 自变量与因变量——为什么"相关"容易被误读为"因果"</h2>
+<p><b>自变量</b>：研究者可以控制／操纵的变量，被视为潜在的"原因"。<b>因变量</b>：其取值（部分）依赖于自变量的变量，被视为"结果"。</p>
+<p>Cohen等人（第727–728页）举了一个例子：增加家庭作业时长（自变量）→数学成绩提高（因变量）。但作者列出了至少<b>6种替代解释</b>，说明"作业导致成绩提高"这一结论是可疑的：</p>
 <ol>
 <li>考试本身的压力提高了课堂专注度（另一个外部变量在起作用）。</li>
 <li>学生喜欢数学／喜欢老师，因而更自觉地学习——正是这种喜欢同时提高了作业量和成绩。</li>
 <li>考试前一晚睡眠良好→更加清醒（一个未被测量的中介变量）。</li>
 <li>预期成绩反过来影响了学生自愿完成的作业量（因果方向被颠倒）。</li>
 <li>这种关系是多方向的，更像一张网而非一条因果直线。</li>
-<li>“成绩差会受罚”的威胁同时也在起作用。</li>
+<li>"成绩差会受罚"的威胁同时也在起作用。</li>
 </ol>
 <div class="callout warn"><b>贯穿全课程的教训：</b>你在 SPSS/PSPP 中分析的大多数数据都是<i>观察性数据</i>（并非随机化实验）——具有统计显著性的 r 或 β 并<b>不能</b>自动证明因果关系。</div>
 
@@ -132,8 +183,8 @@
 <tr><th>变量</th><th>含义</th><th>量表</th><th>原因</th></tr>
 <tr><td><code>REGION</code></td><td>抽样区域（5个区域）</td><td>定类</td><td>只是区域标签，本身没有顺序</td></tr>
 <tr><td><code>SCHSIZE_Q</code></td><td>学校规模</td><td>定序</td><td>是<b>国际四分位数</b>（1–4），并非实际学生人数</td></tr>
-<tr><td><code>EDULEAD</code></td><td>教育领导力指数（WLE）</td><td>定距</td><td>单位相等，但“0”只是约定的基准点，并非“完全没有领导力”</td></tr>
-<tr><td><code>W_NRASCHBWT</code></td><td>学校权重</td><td>定比</td><td>有真正的零点，可以取比值（“这所学校的权重是那所的3倍”）</td></tr>
+<tr><td><code>EDULEAD</code></td><td>教育领导力指数（WLE）</td><td>定距</td><td>单位相等，但"0"只是约定的基准点，并非"完全没有领导力"</td></tr>
+<tr><td><code>W_NRASCHBWT</code></td><td>学校权重</td><td>定比</td><td>有真正的零点，可以取比值（"这所学校的权重是那所的3倍"）</td></tr>
 </table>
 <div class="btnrow">
  <a class="btn" href="../../../data/sav/vnm_truong_195_tong_hop.sav">⬇ 下载 .sav 文件（SPSS/PSPP）</a>
@@ -142,7 +193,7 @@
  <a class="btn ghost" href="https://github.com/TatcataiTTN/for-Social-Science/blob/main/SPSS/data/notebooks/modules/01_thang_do_zh.ipynb" target="_blank">📓 在 GitHub 上查看</a>
 </div>
 <p class="cap">📖 想了解该文件全部34个变量的含义（包括EDULEAD等WLE指数）？请见<a href="../../data/index.html#bianliang-cidian">变量词典 — 学校层级数据集</a>。</p>
-<p class="lead" style="font-size:.85rem">该 notebook 已内嵌195所学校＋7,368名学生的数据——点击“在 Colab 中打开”后选择 Runtime ▸ Run all 即可运行，无需单独下载文件。另有5个 notebook（t检验、方差分析、回归、基于84国数据的Python分析、批判性思维）见<a href="../../data/index.html">数据集页面</a>。
+<p class="lead" style="font-size:.85rem">该 notebook 已内嵌195所学校＋7,368名学生的数据——点击"在 Colab 中打开"后选择 Runtime ▸ Run all 即可运行，无需单独下载文件。另有5个 notebook（t检验、方差分析、回归、基于84国数据的Python分析、批判性思维）见<a href="../../data/index.html">数据集页面</a>。</p>
 
 
 <h3>📜 理论与历史背景</h3>

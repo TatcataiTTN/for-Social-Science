@@ -17,48 +17,119 @@
 <p class="lead">第3／12单元・内容依据 Cohen, Manion &amp; Morrison 所著《Research Methods in Education》第8版（Routledge, 2018）第40章"描述统计"第40.1–40.4节（第753–765页）。</p>
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">第3单元 · COHEN ET AL. 第40章</div>
        <h2>描述统计</h2>
-       <p>缺失数据、频数、交叉表、集中趋势与离散程度。</p>
-       <p class="cap">使用 ← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/4 部分</div>
+       <p>缺失数据、频数、交叉表、集中趋势与离散程度、分布形态（偏度/峰度）。</p>
+       <p class="cap">使用 ← → 切换幻灯片。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 1/5 部分</div>
        <div class="part-num">01</div>
        <h2>缺失数据</h2>
-       <ul class="part-list"><li>三种缺失数据类型，并非都同样无害</li><li>按列表删除 vs 成对删除：两种方式，两种代价</li></ul></div><div class="mdeck-slide"><div class="kicker">1·缺失数据</div><h2>三种类型——并非都同样"无害"</h2>
-       <table><tr><th>类型</th><th>特征</th></tr>
-       <tr><td><b>MCAR</b></td><td>完全随机</td></tr>
-       <tr><td><b>MAR</b></td><td>有规律，但与主变量无关</td></tr>
-       <tr><td><b>MNAR</b></td><td>规律与真实值本身相关</td></tr></table>
-       <p class="cap">班级数据：变量h2有3/240个案缺失（1.25%）。</p></div><div class="mdeck-slide"><div class="kicker">按列表删除 vs 成对删除</div><h2>两种删除方式，两种不同代价</h2>
-       <p><b>按列表删除：</b>任一变量缺失即剔除整个个案。</p>
-       <p><b>成对删除：</b>只在计算所需变量缺失时才剔除。</p>
-       <p class="warn">按列表删除会更大幅减少样本量——一个缺失格就损失一个人。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/4 部分</div>
+       <ul class="part-list"><li>三种缺失数据类型，并非都同样无害</li><li>按列表删除 vs 成对删除：两种方式，两种代价</li><li>第三种选择：插补（imputation）</li><li>教育领域之外的三个行业例子</li></ul></div><div class="mdeck-slide"><div class="kicker">1·缺失数据</div><h2>三种类型——并非都同样"无害"</h2>
+       <table><tr><th>类型</th><th>特征</th><th>危险程度</th></tr>
+       <tr><td><b>MCAR</b></td><td>完全随机，没有规律</td><td>低——最安全</td></tr>
+       <tr><td><b>MAR</b></td><td>有规律，但与当前考察的值本身无直接关系</td><td>中——需要核查</td></tr>
+       <tr><td><b>MNAR</b></td><td>规律与真实值本身密切相关</td><td class="warn">高——容易导致结论偏差</td></tr></table>
+       <p class="cap">🗣️ 大白话：MCAR就像"复印时随机掉了几页"；MNAR就像"收入低的人故意隐瞒收入"——隐瞒的原因本身就是你想测量的东西。</p></div><div class="mdeck-slide"><div class="kicker">真实例子</div><h2>变量h2缺失3/240个案（1.25%）</h2>
+       <p>这3个缺失个案看不出明显规律（没有集中在某一所学校或某一性别）→ 合理归类为<b>MCAR</b>或轻度MAR，而非MNAR。</p>
+       <p class="cap">由于比例极小（1.25%），无论选择按列表删除还是成对删除，对最终结果的影响都几乎可以忽略。</p></div><div class="mdeck-slide"><div class="kicker">按列表删除 vs 成对删除</div><h2>两种删除方式，两种不同代价</h2>
+       <p><b>按列表删除：</b>只要纳入分析的任一变量缺失，就剔除整个个案——即使该变量并非问题重点。</p>
+       <p><b>成对删除：</b>只有在正在计算的变量本身缺失时才剔除——文件中其他计算仍保留原有N。</p>
+       <p class="warn">例如：一名学生只缺失h2这一项→按列表删除会把这名学生从本次运行的所有分析中剔除，即使某些分析根本不用到h2。</p></div><div class="mdeck-slide"><div class="kicker">第三种选择</div><h2>插补（imputation）——不只有删除这一条路</h2>
+       <p>不删除，而是给缺失格填入合理的估计值（如该变量的平均数，或根据其他变量预测得出）。</p>
+       <p class="warn">代价：会降低数据的真实变异性（算出来的SD比实际偏小），并可能扭曲已填补变量与其他变量之间的相关系数。</p>
+       <p class="cap">选择原则：缺失比例很小（如h2，1.25%）→ 直接删除更简单也更安全；缺失比例较大（&gt;10%）才需要考虑插补。</p></div><div class="mdeck-slide"><div class="kicker">多行业例子</div><h2>三种缺失类型在三个不同领域的体现</h2>
+       <table><tr><th>行业</th><th>情形</th><th>缺失类型</th></tr>
+       <tr><td>教育（真实，本网站）</td><td>240名学生中3人缺失兴趣度h2，没有明显规律</td><td>MCAR</td></tr>
+       <tr><td>医疗（示例）</td><td>患者因副作用严重而中途放弃治疗——严重程度本身就是放弃的原因</td><td>MNAR</td></tr>
+       <tr><td>经济/调查（示例）</td><td>低收入家庭更倾向于拒绝回答收入问题</td><td>MNAR</td></tr></table>
+       <p class="cap">医疗和经济两个例子都是MNAR——最危险的一类，因为真实值本身决定了是否会缺失，容易让最终结论"看起来比实际情况更轻"。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 2/5 部分</div>
        <div class="part-num">02</div>
-       <h2>交叉表</h2>
-       <ul class="part-list"><li>分组人数不均在原始计数中的陷阱</li><li>真实例子：性别×学习方法</li></ul></div><div class="mdeck-slide"><div class="kicker">2·交叉表</div><h2>陷阱：分组人数不均使原始计数产生误导</h2>
+       <h2>频数与交叉表</h2>
+       <ul class="part-list"><li>分组人数不均在原始计数中的陷阱</li><li>两个真实例子：性别×学习方法、学校×学习方法</li><li>根据量表选择合适的图表类型</li></ul></div><div class="mdeck-slide"><div class="kicker">2·交叉表</div><h2>陷阱：分组人数不均使原始计数产生误导</h2>
        <img src="../../../assets/diagrams/boxplot_math_school.png" alt="boxplot"/>
-       <p class="cap">分组人数不同时，务必用行百分比比较。</p></div><div class="mdeck-slide"><div class="kicker">真实例子</div><h2>性别×学习方法（240名学生）</h2>
-       <table><tr><th></th><th>项目式</th><th>传统</th></tr>
-       <tr><td>男生（n=121）</td><td>52.1%</td><td>47.9%</td></tr>
-       <tr><td>女生（n=119）</td><td>43.7%</td><td>56.3%</td></tr></table>
-       <p class="cap">63&gt;52（原始计数）容易被误读——但行百分比只相差约8个百分点。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/4 部分</div>
+       <p class="cap">分组人数不同时，务必用行百分比比较——整表百分比容易被较大的组主导。</p></div><div class="mdeck-slide"><div class="kicker">真实例子#1</div><h2>性别×学习方法（240名学生）</h2>
+       <table><tr><th></th><th>项目式</th><th>传统</th><th>合计</th></tr>
+       <tr><td>男生（n=121）</td><td>63（52.1%）</td><td>58（47.9%）</td><td>121</td></tr>
+       <tr><td>女生（n=119）</td><td>52（43.7%）</td><td>67（56.3%）</td><td>119</td></tr></table>
+       <p class="cap">男生行百分比计算：63/121=0.521→52.1%。63&gt;52（原始计数）容易被误读——但行百分比只相差约8个百分点。</p></div><div class="mdeck-slide"><div class="kicker">真实例子#2</div><h2>学校×学习方法——三所学校，结果大不相同</h2>
+       <table><tr><th>学校</th><th>项目式</th><th>传统</th><th>选择项目式%</th></tr>
+       <tr><td>A（n=80）</td><td>44</td><td>36</td><td><b>55.0%</b></td></tr>
+       <tr><td>B（n=99）</td><td>46</td><td>53</td><td>46.5%</td></tr>
+       <tr><td>C（n=61）</td><td>25</td><td>36</td><td>41.0%</td></tr></table>
+       <p class="warn">A校选择项目式学习的比例明显高于C校（55.0% 对比 41.0%），即使两校样本量不同（80 对比 61）——同样是交叉表，结论却完全不同，不能一概而论。</p></div><div class="mdeck-slide"><div class="kicker">多行业例子</div><h2>教育以外两个领域的交叉表</h2>
+       <table><tr><th>行业</th><th>行×列变量</th><th>应避免的陷阱</th></tr>
+       <tr><td>医疗（示例）</td><td>性别 × 是否按时复诊</td><td>女性患者人数更多→原始计数更高，但复诊率未必比男性高</td></tr>
+       <tr><td>经济/地区（示例）</td><td>地区（城市/农村）× 近贫困户</td><td>城市人口更密集→近贫困户原始计数更高，但农村的近贫困率可能才是真正更高的</td></tr></table>
+       <p class="cap">三个行业的共同道理：原始计数反映的是组的规模，行百分比才反映组内部的真实趋势。</p></div><div class="mdeck-slide"><div class="kicker">选择合适图表</div><h2>图表类型必须匹配变量的量表类型</h2>
+       <ul><li><b>条形图（Bar chart）：</b>定类/定序数据（如学校A/B/C、性别）——柱子彼此不相连，因为没有连续顺序。</li>
+       <li><b>直方图（Histogram）：</b>定距/定比连续数据（如数学成绩）——柱子相连，展示频数分布。</li>
+       <li><b>箱线图（Boxplot）：</b>同时展示集中趋势和离散程度，可并排比较多组（如按3所学校比较数学成绩）。</li>
+       <li><b>散点图（Scatterplot）：</b>本单元不使用——用于两个连续变量之间关系的展示（Module 08）。</li></ul></div><div class="mdeck-slide part-divider"><div class="kicker">第 3/5 部分</div>
        <div class="part-num">03</div>
        <h2>集中趋势与离散程度</h2>
-       <ul class="part-list"><li>众数·中位数·平均数——何时使用</li><li>三组数据平均数相同但标准差大不相同</li><li>标准差·全距·四分位距</li></ul></div><div class="mdeck-slide"><div class="kicker">3·集中趋势</div><h2>众数·中位数·平均数——何时使用？</h2>
+       <ul class="part-list"><li>众数·中位数·平均数——何时使用、公式、手算例子</li><li>三组数据平均数相同但标准差大不相同</li><li>标准差·全距·四分位距——公式、手算例子</li><li>多行业例子</li></ul></div><div class="mdeck-slide"><div class="kicker">3·集中趋势</div><h2>众数·中位数·平均数——何时使用？</h2>
        <table><tr><th>统计量</th><th>量表</th><th>对异常值稳健？</th></tr>
-       <tr><td>众数</td><td>任意</td><td>是</td></tr>
+       <tr><td>众数</td><td>任意量表，尤其定类</td><td>是</td></tr>
        <tr><td>中位数</td><td>定序及以上</td><td>是</td></tr>
-       <tr><td>平均数</td><td>定距、定比</td><td class="warn">否</td></tr></table></div><div class="mdeck-slide"><div class="kicker">离散程度</div><h2>三组数据平均数同为6，标准差却大不相同</h2>
+       <tr><td>平均数</td><td>定距、定比</td><td class="warn">否</td></tr></table>
+       <p class="cap">🗣️ 大白话：众数是"大多数人选什么"，中位数是"排在正中间的那个人"，平均数是"平均分给所有人"——平均数容易被一个极端值拉偏，另外两个则不会。</p></div><div class="mdeck-slide"><div class="kicker">平均数公式</div><h2>样本平均数——逐步手算</h2>
+       <div class="pd-formula"><div class="pd-formula-label">样本平均数（sample mean）</div><div class="pd-formula-math">x̄ = Σxᵢ / n</div></div>
+       <ul class="pd-legend"><li><b>x̄</b><span>样本平均数</span></li><li><b>Σxᵢ</b><span>全部观测值之和</span></li><li><b>n</b><span>样本观测数</span></li></ul>
+       <p class="cap">例如3个数学分数{6, 7, 8}：x̄ = (6+7+8)/3 = 21/3 = <b>7</b>。</p></div><div class="mdeck-slide"><div class="kicker">离散公式</div><h2>方差与标准差——逐步手算</h2>
+       <div class="pd-formula"><div class="pd-formula-label">样本方差与标准差</div><div class="pd-formula-math">s² = Σ(xᵢ − x̄)² / (n − 1) &nbsp;&nbsp;·&nbsp;&nbsp; s = √s²</div></div>
+       <ul class="pd-legend"><li><b>(xᵢ − x̄)</b><span>每个观测值与平均数的离差</span></li><li><b>n − 1</b><span>自由度——除以n−1得到无偏估计（贝塞尔校正）</span></li><li><b>s</b><span>标准差——与原始数据单位相同，比s²更易解读</span></li></ul>
+       <p class="cap">续上例{6,7,8}：离差 −1,0,1 → 平方 1,0,1 → 之和=2 → s²=2/(3−1)=1 → s=√1=<b>1</b>。</p></div><div class="mdeck-slide"><div class="kicker">离散程度——真实例子</div><h2>三组数据平均数同为6，标准差却大不相同</h2>
        <img src="../../../assets/diagrams/dispersion_3sets.png" alt="dispersion"/>
-       <p class="cap">含异常值那组的标准差是紧密聚集那组的11倍。</p></div><div class="mdeck-slide"><div class="kicker">三种离散度量</div><h2>标准差·全距·四分位距</h2>
-       <p><b>标准差：</b>每个点到平均数的平均距离。</p>
-       <p><b>全距：</b>最大值−最小值——对异常值非常敏感。</p>
-       <p><b>四分位距：</b>Q3−Q1——比全距更稳健。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/4 部分</div>
+       <table><tr><th>组</th><th>数值</th><th>SD</th></tr>
+       <tr><td>1（含异常值）</td><td>1,2,3,4,20</td><td class="warn">7.91</td></tr>
+       <tr><td>2</td><td>4,5,6,6,9</td><td>1.87</td></tr>
+       <tr><td>3（集中）</td><td>5,6,6,6,7</td><td>0.71</td></tr></table>
+       <p class="cap">7.91 / 0.71 ≈ 11.2倍——含异常值组的标准差是集中组的11倍以上，尽管平均数同为6。</p></div><div class="mdeck-slide"><div class="kicker">SD·全距·IQR</div><h2>三种离散度量，三种对异常值的稳健程度</h2>
+       <p><b>SD：</b>每个点到平均数的平均距离——使用全部数据点。</p>
+       <p><b>全距：</b>最大值−最小值——只用两个极端值，对异常值非常敏感。</p>
+       <p><b>IQR：</b>Q3−Q1——只看中间50%的数据，比全距稳健得多。</p>
+       <p class="cap">真实例子——课前测验（n=240）：Q1=52.18, Q3=68.12 → IQR = 68.12−52.18 = <b>15.94</b>。</p></div><div class="mdeck-slide"><div class="kicker">多行业例子</div><h2>SD在三个不同领域的含义</h2>
+       <table><tr><th>行业</th><th>测量变量</th><th>SD大意味着什么</th></tr>
+       <tr><td>教育（真实）</td><td>数学成绩（SD=9.68/100）</td><td>学生能力相对均衡，围绕平均值47.9分布</td></tr>
+       <tr><td>医疗（示例）</td><td>某组患者的收缩压</td><td>SD大→患者之间差异很大，统一治疗方案难以适用</td></tr>
+       <tr><td>经济（示例）</td><td>某地区家庭收入</td><td>SD大→同一地区内贫富差距明显</td></tr></table></div><div class="mdeck-slide part-divider"><div class="kicker">第 4/5 部分</div>
        <div class="part-num">04</div>
+       <h2>分布形态</h2>
+       <ul class="part-list"><li>偏度（skewness）——公式、如何解读符号</li><li>峰度（kurtosis）——如何解读符号</li><li>真实例子：一个异常值让偏度/峰度"爆表"</li></ul></div><div class="mdeck-slide"><div class="kicker">4·偏度</div><h2>偏度（skewness）——长尾偏向哪一边？</h2>
+       <p>🗣️ 大白话：想象分布像一个被拉歪的钟形——长尾朝哪个方向，偏度就是哪个符号。</p>
+       <table><tr><th>偏度符号</th><th>形状</th><th>平均数与中位数关系</th></tr>
+       <tr><td>正（+）</td><td>右偏，长尾指向较大的值</td><td>平均数 &gt; 中位数</td></tr>
+       <tr><td>≈ 0</td><td>接近对称</td><td>平均数 ≈ 中位数</td></tr>
+       <tr><td>负（−）</td><td>左偏，长尾指向较小的值</td><td>平均数 &lt; 中位数</td></tr></table>
+       <p class="cap">真实例子：课前测验平均数=60.35 &lt; 中位数=60.95 → 正好对应测得的偏度=−0.097（轻微负偏）。</p></div><div class="mdeck-slide"><div class="kicker">真实例子——异常值</div><h2>study_hours：偏度=7.42——数据录入错误的信号</h2>
+       <img src="../../../assets/diagrams/skew_real.png" alt="skew"/>
+       <p class="warn">一名学生的study_hours=48（每天48小时——不可能，一天只有24小时）把偏度从正常水平拉高到7.42——相比其他变量（课前测验−0.10，课后测验−0.15，数学+0.15）极端得多。</p>
+       <p class="cap">教训：某个变量的偏度相对同类变量明显过大，是怀疑数据录入错误的第一个信号，之后才谈得上信任任何使用该变量的分析。</p></div><div class="mdeck-slide"><div class="kicker">峰度</div><h2>峰度（kurtosis）——峰形比正态分布更尖还是更扁？</h2>
+       <table><tr><th>峰度符号</th><th>名称</th><th>形状</th></tr>
+       <tr><td>≈ 0</td><td>正态峰（mesokurtic）</td><td>尖峭程度与正态分布相似</td></tr>
+       <tr><td>正（+）</td><td>尖峭峰（leptokurtic）</td><td>峰更尖，尾部更厚（异常值更多）</td></tr>
+       <tr><td>负（−）</td><td>低峰态（platykurtic）</td><td>峰更扁平，尾部更薄</td></tr></table>
+       <p class="cap">同样以study_hours为例：峰度=86.93（极端，正是上面那个每天48小时的异常值造成的）——相比之下课前测验−0.54，课后测验−0.19，数学−0.33都接近正常水平。</p></div><div class="mdeck-slide"><div class="kicker">汇总表</div><h2>偏度与峰度——4个真实变量，n=240</h2>
+       <table><tr><th>变量</th><th>偏度</th><th>峰度</th><th>解读</th></tr>
+       <tr><td>pretest</td><td>−0.097</td><td>−0.535</td><td>接近对称，峰形略扁</td></tr>
+       <tr><td>posttest</td><td>−0.147</td><td>−0.193</td><td>接近对称</td></tr>
+       <tr><td>math</td><td>+0.148</td><td>−0.333</td><td>接近对称，轻微右偏</td></tr>
+       <tr><td class="warn">study_hours</td><td class="warn">+7.424</td><td class="warn">86.930</td><td class="warn">极端——由1个数据录入错误案例（每天48小时）造成</td></tr></table></div><div class="mdeck-slide"><div class="kicker">多行业例子</div><h2>教育以外两个领域常见的偏度现象</h2>
+       <table><tr><th>行业</th><th>变量</th><th>典型形状</th></tr>
+       <tr><td>经济（示例）</td><td>一个国家的个人收入</td><td>右偏非常严重——大多数人收入低/中，少数极富人群拉出长尾</td></tr>
+       <tr><td>医疗（示例）</td><td>术后住院天数</td><td>右偏——大多数人恢复较快，少数并发症患者住院时间很长</td></tr></table>
+       <p class="cap">这两个例子在现实中都以右偏著称——这正是收入报告常用"中位数"而非"平均数"的原因（平均数容易被少数极富/极重病例拉偏）。</p></div><div class="mdeck-slide part-divider"><div class="kicker">第 5/5 部分</div>
+       <div class="part-num">05</div>
        <h2>匹配统计量与应用</h2>
-       <ul class="part-list"><li>根据量表匹配合适的统计量</li><li>SPSS实践</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">4·Taking stock</div><h2>根据量表匹配合适的统计量</h2>
-       <p>全部4种量表→频数／百分比／众数／交叉表。</p>
-       <p>定序及以上→增加中位数。</p>
-       <p class="warn">只有定距和定比（"Scale"）→增加平均数与标准差。</p></div><div class="mdeck-slide"><div class="kicker">实践</div><h2>SPSS：Analyze → Descriptive Statistics → Frequencies</h2>
-       <p class="cap">PSPP：<code>FREQUENCIES</code>、<code>EXAMINE</code>、<code>CROSSTABS</code>——已测试可运行。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
-       <p>幻灯片只是摘要。完整数据示例和SPSS/PSPP语法见下方。</p></div></div>
+       <ul class="part-list"><li>根据量表匹配合适的统计量</li><li>描述任何变量前的三步流程</li><li>SPSS/PSPP实践</li><li>下一步</li></ul></div><div class="mdeck-slide"><div class="kicker">5·Taking stock</div><h2>根据量表匹配合适的统计量</h2>
+       <p>四种量表（Module 01）→频数/百分比/众数/交叉表对任何量表都能计算。</p>
+       <p>定序及以上→可以增加中位数。</p>
+       <p class="warn">只有定距和定比（SPSS中的"Scale"）→才能增加平均数、标准差、偏度、峰度。</p></div><div class="mdeck-slide"><div class="kicker">实践流程</div><h2>描述任何变量前的三个步骤</h2>
+       <ul><li><b>步骤1——检查缺失数据：</b>MCAR/MAR/MNAR，决定删除还是保留（第1部分）。</li>
+       <li><b>步骤2——先看形状，再相信数字：</b>画箱线图/直方图，读偏度/峰度（第4部分）——在计算平均数之前先发现异常值/录入错误。</li>
+       <li><b>步骤3——根据量表选择合适的集中趋势/离散程度指标</b>（第3部分），然后才报告结果。</li>
+       <li class="cap">跳过步骤2是最常见的错误——很多人直接计算平均数/SD而不先看分布，容易被像study_hours=48这样的异常值误导。</li></ul></div><div class="mdeck-slide"><div class="kicker">实践</div><h2>SPSS: Analyze → Descriptive Statistics → Frequencies/Explore/Crosstabs</h2>
+       <p><b>Frequencies：</b>单个连续变量的平均数/中位数/标准差/偏度/峰度。</p>
+       <p><b>Explore：</b>多组箱线图比较+Extreme Values表格用于查找异常值。</p>
+       <p class="cap">PSPP: <code>FREQUENCIES</code>, <code>EXAMINE</code>, <code>CROSSTABS</code> ——已验证与Python运行结果100%一致。</p></div><div class="mdeck-slide"><div class="kicker">下一步</div><h2>阅读下方详细内容，然后完成30道自测题</h2>
+       <p>幻灯片只是摘要。完整数据示例、SPSS/PSPP语法、历史背景和案例研究见下方。下一单元Module 04：正态分布与假设检验。</p></div></div>
 <div class="mdeck-bar">
   <button class="mdeck-prev" type="button">◀ 上一页</button>
   <button class="mdeck-next" type="button">下一页 ▶</button>
