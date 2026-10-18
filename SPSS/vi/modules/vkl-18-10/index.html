@@ -1,0 +1,210 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
+<title>Module VKL 18-10 · Đề tài cá nhân — So sánh TALIS 2018 &amp; 2024</title>
+<meta name="description" content="Phân tích thật dữ liệu TALIS 2018/2024 Việt Nam: tự hiệu quả giảng dạy & hài lòng nghề giáo viên THCS, trả lời 3 câu hỏi của Khánh Linh về đề tài tiểu luận."/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="Thông tin trang & liên hệ góp ý">i</button><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
+<nav class="crumbs"><a href="../../index.html">Bài giảng</a> / Module VKL 18-10 (phụ lục riêng)</nav>
+<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><details class="fontsw"><summary>🔤 Phông chữ</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman (mặc định)</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="sitesearch"><input type="search" id="site-search" data-glossary-href="../glossary/index.html" autocomplete="off" placeholder="🔍 Tra cứu thuật ngữ..."/><div id="site-search-results" class="site-search-results" hidden></div></div><div class="langsw"><a href="index.html" class="active">VI</a></div></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Người phụ trách đã tự tải dữ liệu TALIS 2018/2024 thật, chạy phân tích bằng 2 công cụ độc lập (Python + PSPP) và đối chiếu khớp nhau trước khi đưa số liệu lên đây — nhưng đây vẫn là bài tập minh hoạ cho một đề tài tiểu luận cá nhân, không phải công bố khoa học chính thức. Nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap"><div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE VKL 18-10 · PHỤ LỤC RIÊNG CHO KHÁNH LINH</div>
+<h2>Đề tài tiểu luận: So sánh TALIS 2018 &amp; 2024</h2>
+<p>Linh gửi 2 đề cương đề tài và nghiêng về đề tài so sánh. Module này tải THẬT dữ liệu TALIS 2018+2024, chạy lại đúng quy trình trong đề cương, rồi trả lời 3 câu hỏi Linh đặt ra khi tự chạy SPSS.</p>
+<p class="cap">← → để chuyển slide.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div><div class="part-num">01</div>
+<h2>Bối cảnh & câu hỏi nghiên cứu</h2>
+<ul class="part-list"><li>2 đề tài Linh soạn — vì sao đề tài so sánh khả thi hơn</li><li>Câu hỏi nghiên cứu & 3 giả thuyết</li><li>Vì sao dùng "mối liên hệ", không dùng "ảnh hưởng"</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">1 · 2 đề cương Linh gửi</div><h2>Đề tài A (so sánh) vs Đề tài B (TALIS 2018 riêng)</h2>
+<p>Đề tài A: so sánh mối liên hệ tự hiệu quả giảng dạy↔hài lòng nghề giữa TALIS 2018 và 2024. Đề tài B: mối liên hệ giữa tham gia phát triển chuyên môn, tự hiệu quả và rào cản tham gia, chỉ trong TALIS 2018. Linh nhắn "đang nghiêng về đề tài so sánh hơn" — module này tập trung chạy thật đề tài A.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">2 · Câu hỏi & giả thuyết</div><h2>2 câu hỏi nghiên cứu, 3 giả thuyết</h2>
+<p class="cap">CH1: Tự hiệu quả giảng dạy có liên hệ với hài lòng nghề trong TỪNG chu kỳ không? CH2: Độ mạnh liên hệ có khác nhau giữa 2018 và 2024 không? H1a/H1b: r&gt;0 ở từng năm. H2: r2018 ≠ r2024 (hai phía, không định trước chiều tăng/giảm).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">3 · Ngôn ngữ đúng</div><h2 class="warn">"Mối liên hệ" — KHÔNG phải "ảnh hưởng/tác động"</h2>
+<p>TALIS 2018 và 2024 là 2 khảo sát cắt ngang, lấy mẫu giáo viên ĐỘC LẬP ở 2 thời điểm — không theo dõi cùng một người theo thời gian. Vì vậy không có trình tự nhân-quả rõ ràng và không thể viết "tự hiệu quả làm tăng hài lòng".</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div><div class="part-num">02</div>
+<h2>Dữ liệu thật đã tải & biến số</h2>
+<ul class="part-list"><li>2 tệp PUF chính thức OECD, 251MB + 209MB</li><li>Biến tương ứng 2 chu kỳ</li><li>Lọc Việt Nam — N khớp đúng bảng kỹ thuật OECD</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">4 · Tệp đã tải thật</div><h2>BTGINTT3.sav (2018) & tệp giáo viên VNM ISCED2 (2024)</h2>
+<p class="cap">TALIS 2018: tải <code>SPSS_2018_international.zip</code> (192.079.684 byte, khớp Content-Length OECD) từ webfs.oecd.org, giải nén lấy <code>BTGINTT3.sav</code> — chữ B = tệp giáo viên ISCED2 quốc tế (đã tách riêng theo cấp học ngay từ tên file, KHÔNG cần tự lọc cấp học như với tệp "quốc tế gộp"). TALIS 2024: dùng tệp Việt Nam ISCED2 đã có sẵn từ <code>TALIS2024_teachers_NoESE_SPSS.zip</code>.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">5 · Biến tương ứng</div><h2>T3SEINS↔T4SEINS, T3JSPRO↔T4JSPROT</h2>
+<table><tr><th>Khái niệm</th><th>2018</th><th>2024</th></tr>
+<tr><td>Tự hiệu quả giảng dạy</td><td>T3SEINS</td><td>T4SEINS</td></tr>
+<tr><td>Hài lòng với nghề giáo</td><td>T3JSPRO</td><td>T4JSPROT</td></tr>
+<tr><td>Trọng số giáo viên</td><td>TCHWGT</td><td>TCHWGT</td></tr></table></div>
+
+<div class="mdeck-slide"><div class="kicker">6 · Lọc Việt Nam</div><h2 class="warn">N=3.825 (2018) & N=4.348 (2024) — khớp đúng OECD</h2>
+<p class="cap">CNTRY="VNM" trên BTGINTT3.sav cho đúng 3.825 giáo viên. Tệp 2024 đã lọc sẵn Việt Nam, cho đúng 4.348 — khớp CHÍNH XÁC con số "4.348 giáo viên ISCED 2" ghi trong bảng kỹ thuật OECD mà đề cương Linh trích dẫn.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div><div class="part-num">03</div>
+<h2>Kết quả phân tích thật</h2>
+<ul class="part-list"><li>Thống kê mô tả 2 chu kỳ</li><li>Tương quan Pearson r2018 & r2024</li><li>So sánh Fisher r-to-z + kiểm tra độ nhạy có trọng số</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">7 · Mô tả 2018</div><h2>T3SEINS TB=12,55 (SD 1,92) · T3JSPRO TB=11,47 (SD 1,24)</h2>
+<p class="cap">n=3.818/3.818 hợp lệ trên 3.825 hồ sơ — chỉ 7 ca thiếu 1 trong 2 biến. Đã verify khớp tuyệt đối giữa Python (pandas) và PSPP.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">8 · Mô tả 2024</div><h2>T4SEINS TB=13,06 (SD 1,76) · T4JSPROT TB=12,34 (SD 1,54)</h2>
+<p class="cap">n=4.347/4.348 hợp lệ trên 4.348 hồ sơ. Cả 2 trung bình năm 2024 đều CAO hơn 2018 — nhưng đây là 2 mẫu khác nhau, không phải "giáo viên tiến bộ hơn".</p></div>
+
+<div class="mdeck-slide"><div class="kicker">9 · Tương quan</div><h2 class="warn">r2018=0,138 · r2024=0,206 — cả hai dương, có ý nghĩa</h2>
+<p class="cap">r2018=0,138 (n=3.812, p&lt;0,001); r2024=0,206 (n=4.347, p&lt;0,001). H1a và H1b ĐƯỢC ủng hộ ở cả hai chu kỳ — tự hiệu quả cao hơn đi cùng hài lòng nghề cao hơn, mối liên hệ ở mức YẾU theo cả hai năm.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">10 · So sánh Δr</div><h2>Δr=0,068 — khác biệt có ý nghĩa (kiểm tra sơ bộ)</h2>
+<p class="big">z=3,16; p=0,0016</p>
+<p class="cap">Phép biến đổi Fisher r-to-z cho 2 mẫu độc lập: mối liên hệ NĂM 2024 mạnh hơn năm 2018 một cách có ý nghĩa — NHƯNG đây chỉ là kiểm tra sơ bộ bằng sai số chuẩn đơn giản, chưa dùng trọng số lặp BRR (xem cảnh báo Phần 4).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">11 · Kiểm tra độ nhạy</div><h2>Có trọng số TCHWGT: r2018=0,159 · r2024=0,207 — kết luận không đổi</h2>
+<p class="cap">Dùng trọng số cuối giáo viên để ước lượng điểm đại diện tổng thể hơn: r2018 nhích lên 0,159, r2024 gần như không đổi (0,207) — hướng kết luận (2024 mạnh hơn 2018) giữ nguyên, tăng độ tin tưởng vào kết quả.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div><div class="part-num">04</div>
+<h2>Trả lời 3 câu hỏi của Linh</h2>
+<ul class="part-list"><li>Quy mô đề tài có nhỏ quá không</li><li>Kiểm chứng SPSS đã chạy đúng chưa</li><li>Thuật ngữ cần dùng khi viết bài</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">Câu hỏi 1</div><h2 class="warn">Quy mô KHÔNG nhỏ — thậm chí vừa đủ cho 1.000 chữ</h2>
+<p class="cap">Chỉ 2 biến × 2 chu kỳ nghe "ít", nhưng N thật lên tới 3.825 và 4.348 — lớn hơn rất nhiều đề tài sinh viên khác. Giữ gọn 2 biến là lựa chọn ĐÚNG cho bài 1.000 chữ, không phải thiếu sót.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Câu hỏi 2</div><h2>Đối chiếu kết quả của Linh với số liệu đã verify ở đây</h2>
+<p class="cap">N 2018 phải ra 3.825 (lọc CNTRY) hoặc 3.812 (cặp đủ cả 2 biến); N 2024 phải ra 4.348/4.347. Nếu N của Linh lệch nhiều — thường là do lọc nhầm biến quốc gia hoặc dùng tệp quốc tế gộp chưa lọc ISCED2.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Câu hỏi 3</div><h2 class="warn">4 cụm từ phải dùng đúng khi viết bài</h2>
+<p class="cap">"Mối liên hệ/tương quan" (không "ảnh hưởng"); "hai mẫu cắt ngang độc lập" (không "thay đổi của cùng giáo viên"); "hệ số tương quan Pearson r" + cỡ mẫu n đi kèm; "giới hạn: chưa xử lý trọng số lặp BRR" khi báo cáo p-value.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Tiếp theo</div><h2>Đọc sâu bên dưới để có bảng đầy đủ + syntax PSPP</h2>
+<p>Slide chỉ tóm tắt. Toàn bộ bảng số liệu, công thức Fisher r-to-z, syntax PSPP đã chạy thật, và câu trả lời đầy đủ cho 3 câu hỏi của Linh nằm bên dưới.</p></div>
+</div>
+<div class="mdeck-bar">
+  <button class="mdeck-prev" type="button">◀ Trước</button>
+  <button class="mdeck-next" type="button">Sau ▶</button>
+  <span class="mdeck-count"></span>
+  <div class="mdeck-dots"></div>
+  <button class="mdeck-fs" type="button">⛶ Toàn màn hình</button>
+</div></div>
+<h1>Module VKL 18-10 · Đề tài tiểu luận cá nhân — So sánh TALIS 2018 &amp; 2024</h1>
+<p class="lead">Module phụ lục, soạn RIÊNG cho Vũ Khánh Linh sau khi Linh gửi 2 đề cương đề tài (<i>De_xuat_de_tai_so_sanh_TALIS_2018_2024.docx</i> và <i>De_cuong_TALIS2018_Phat_trien_chuyen_mon...docx</i>) và 3 câu hỏi đặt ra trong lúc tự chạy SPSS. Toàn bộ số liệu dưới đây lấy từ dữ liệu TALIS 2018 &amp; 2024 THẬT đã tải trực tiếp từ OECD, chạy bằng Python (pandas/scipy) và đối chiếu khớp hoàn toàn bằng PSPP — không có số nào bịa ra hay lấy từ báo cáo OECD thay cho kết quả tự chạy. Không nằm trong 12 module chính của khoá SPSS.</p>
+
+<div class="btnrow">
+ <a class="tag" href="#boi-canh">Bối cảnh & giả thuyết</a><a class="tag" href="#du-lieu">Dữ liệu & biến số</a>
+ <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
+ <a class="tag" href="#syntax">Syntax đã chạy</a><a class="tag" href="#quiz">Tự kiểm tra</a>
+</div>
+
+<h2 id="boi-canh">1. Bối cảnh, câu hỏi nghiên cứu & giả thuyết</h2>
+<p>Linh gửi 2 đề cương cùng lúc. Đề tài A ("So sánh mối liên hệ giữa tự hiệu quả trong giảng dạy và sự hài lòng với nghề giáo của giáo viên THCS Việt Nam: phân tích TALIS 2018 và 2024") so sánh ĐỘ MẠNH của một mối liên hệ giữa hai thời điểm. Đề tài B ("Mối liên hệ giữa tham gia phát triển chuyên môn, tự hiệu quả giảng dạy và rào cản tham gia ở giáo viên THCS Việt Nam: phân tích TALIS 2018") chỉ dùng một chu kỳ nhưng có 3 biến (CPD_COUNT, T3SELF, T3PDBAR). Linh nhắn rõ "đang nghiêng về đề tài so sánh hơn" — module này chạy thật đề tài A; đề tài B vẫn khả thi với cùng mức độ nếu Linh muốn đổi ý sau, báo lại để chạy tiếp.</p>
+
+<table><tr><th>Mã</th><th>Giả thuyết</th><th>Cách kiểm tra</th><th>Kết quả thật (xem Phần 3)</th></tr>
+<tr><td>H1a</td><td>Năm 2018, tự hiệu quả giảng dạy tương quan thuận với hài lòng nghề</td><td>r2018 &gt; 0</td><td>r=0,138, p&lt;0,001 — ĐƯỢC ủng hộ</td></tr>
+<tr><td>H1b</td><td>Năm 2024, tự hiệu quả giảng dạy tương quan thuận với hài lòng nghề</td><td>r2024 &gt; 0</td><td>r=0,206, p&lt;0,001 — ĐƯỢC ủng hộ</td></tr>
+<tr><td>H2</td><td>Độ mạnh 2 mối tương quan khác nhau giữa 2018 và 2024 (hai phía)</td><td>So sánh r2018 với r2024</td><td>Δr=0,068, z=3,16, p=0,0016 — khác biệt có ý nghĩa (kiểm tra sơ bộ)</td></tr>
+</table>
+
+<div class="callout warn"><b>Vì sao dùng "mối liên hệ/tương quan", không dùng "ảnh hưởng/tác động":</b> TALIS 2018 và TALIS 2024 là hai khảo sát CẮT NGANG ở hai thời điểm khác nhau, lấy mẫu giáo viên ĐỘC LẬP (không theo dõi cùng người). Không có trình tự thời gian rõ ràng giữa 2 biến, không kiểm soát biến gây nhiễu — đúng tinh thần Module 01 (nhân quả & biến số) của khoá SPSS: tương quan không tự động chứng minh nhân quả.</div>
+
+<h2 id="du-lieu">2. Dữ liệu thật đã tải & biến số</h2>
+<p>Hai tệp Public Use File (PUF) chính thức tải trực tiếp từ OECD trong phiên làm việc này, không dùng số liệu giả định:</p>
+<table><tr><th>Tệp</th><th>Nguồn</th><th>Kích thước đã xác nhận</th><th>Ghi chú</th></tr>
+<tr><td>TALIS 2018 — giáo viên ISCED2 quốc tế</td><td><code>webfs.oecd.org/talis/SPSS_2018_international.zip</code> → <code>BTGINTT3.sav</code></td><td>192.079.684 byte (ZIP) → 251.214.493 byte (.sav), khớp đúng Content-Length server trả về</td><td>Chữ "B" trong tên file = ISCED2 (B=THCS, A=tiểu học, C=THPT) — OECD đã TÁCH SẴN theo cấp học trong tệp quốc tế, không cần tự lọc cấp học</td></tr>
+<tr><td>TALIS 2024 — giáo viên Việt Nam ISCED2</td><td><code>TALIS2024_teachers_NoESE_SPSS.zip</code> → <code>btgvnmt4_giaovien_ISCED2.sav</code></td><td>21.438.556 byte, 611 biến</td><td>Đã lọc sẵn Việt Nam từ tệp quốc gia OECD cấp riêng</td></tr>
+</table>
+
+<table><tr><th>Khái niệm</th><th>Biến 2018</th><th>Biến 2024</th><th>Vai trò</th></tr>
+<tr><td>Tự hiệu quả trong giảng dạy</td><td>T3SEINS</td><td>T4SEINS</td><td>Thang năng lực bản thân do OECD xây dựng sẵn — dùng trực tiếp, không tự cộng lại mục con</td></tr>
+<tr><td>Hài lòng với nghề giáo</td><td>T3JSPRO</td><td>T4JSPROT</td><td>Thang hài lòng với nghề dạy học — khác thang hài lòng môi trường làm việc</td></tr>
+<tr><td>Trọng số giáo viên</td><td>TCHWGT</td><td>TCHWGT</td><td>Trọng số cuối cấp giáo viên, dùng cho ước lượng điểm đại diện tổng thể (xem Phần 3, kiểm tra độ nhạy)</td></tr>
+</table>
+
+<div class="callout good"><b>Lọc Việt Nam — kết quả khớp đúng tài liệu kỹ thuật OECD:</b> lọc <code>CNTRY="VNM"</code> trên tệp 2018 cho đúng <b>3.825</b> giáo viên. Tệp 2024 đã lọc sẵn Việt Nam, cho đúng <b>4.348</b> — khớp CHÍNH XÁC con số "4.348 giáo viên ISCED 2" mà chính đề cương của Linh đã trích dẫn từ bảng kỹ thuật OECD. Đây là bằng chứng mạnh nhất cho thấy quy trình lọc mẫu ở đây đúng.</div>
+
+<h2 id="ket-qua">3. Kết quả phân tích thật (đã verify bằng Python + PSPP)</h2>
+<table><tr><th>Chu kỳ</th><th>N sau lọc VNM</th><th>N hợp lệ T·SEINS</th><th>N hợp lệ T·JSPRO</th><th>Mean T·SEINS (SD)</th><th>Mean T·JSPRO (SD)</th></tr>
+<tr><td>TALIS 2018</td><td>3.825</td><td>3.818</td><td>3.818</td><td>12,55 (1,92)</td><td>11,47 (1,24)</td></tr>
+<tr><td>TALIS 2024</td><td>4.348</td><td>4.347</td><td>4.348</td><td>13,06 (1,76)</td><td>12,34 (1,54)</td></tr>
+</table>
+<p class="cap">Cả hai trung bình năm 2024 đều cao hơn 2018 (thang đo WLE/IRT của OECD có thể đã chuẩn hoá lại một phần giữa 2 chu kỳ) — KHÔNG diễn giải đây là "giáo viên tiến bộ hơn qua thời gian", vì là 2 mẫu độc lập khác nhau.</p>
+
+<table><tr><th>Chu kỳ</th><th>N hợp lệ (cặp)</th><th>r (tự hiệu quả–hài lòng)</th><th>p</th><th>Diễn giải</th></tr>
+<tr><td>2018</td><td>3.812</td><td>0,138</td><td>&lt;0,001 (1,23×10⁻¹⁷)</td><td>Thuận, YẾU</td></tr>
+<tr><td>2024</td><td>4.347</td><td>0,206</td><td>&lt;0,001 (8,15×10⁻⁴³)</td><td>Thuận, YẾU–gần VỪA</td></tr>
+<tr><td>So sánh</td><td>Hai mẫu độc lập</td><td>Δr=0,206−0,138=0,068</td><td>z=3,16; p=0,0016 (Fisher r-to-z, sơ bộ)</td><td>Khác biệt có ý nghĩa ở mức kiểm tra sơ bộ</td></tr>
+</table>
+
+<div class="pd-formula"><div class="pd-formula-label">Phép biến đổi Fisher r-to-z (so sánh 2 hệ số tương quan độc lập)</div><div class="pd-formula-math">z = [z<sub>r1</sub> − z<sub>r2</sub>] / √[1/(n₁−3) + 1/(n₂−3)], &nbsp; z<sub>r</sub> = 0,5·ln[(1+r)/(1−r)]</div></div>
+<ul class="pd-legend"><li><b>z<sub>r</sub></b><span>biến đổi Fisher của hệ số tương quan r, giúp phân phối gần chuẩn hơn để so sánh</span></li>
+<li><b>n₁, n₂</b><span>cỡ mẫu hợp lệ của từng chu kỳ (3.812 và 4.347)</span></li>
+<li><b>z</b><span>thống kê kiểm định — |z|&gt;1,96 thì khác biệt có ý nghĩa ở α=0,05</span></li></ul>
+<p class="cap">Tính tay: z<sub>r2018</sub>=0,1387, z<sub>r2024</sub>=0,2088, SE=√(1/3809+1/4344)=0,0222 → z=(0,2088−0,1387)/0,0222=3,16 → p=0,0016. Đã verify khớp giữa Python (scipy.stats.norm) và tính tay trực tiếp.</p>
+
+<div class="callout warn"><b>Giới hạn quan trọng nhất cần ghi vào bài:</b> phép kiểm định z=3,16 ở trên dùng sai số chuẩn ĐƠN GIẢN (1/(n−3)), coi mỗi giáo viên là một quan sát độc lập hoàn toàn. TALIS thực tế dùng thiết kế mẫu phân tầng theo cụm (chọn trường trước, rồi giáo viên trong trường) — sai số chuẩn ĐÚNG theo thiết kế mẫu (dùng 100 trọng số lặp BRR: TRWGT1–TRWGT100) thường LỚN HƠN cách tính đơn giản này, vì giáo viên cùng trường không hoàn toàn độc lập (design effect). Kết quả z=3,16 ở đây chỉ nên trình bày là <b>kiểm tra sơ bộ</b>, không phải kết luận suy luận chính thức ra toàn bộ tổng thể giáo viên Việt Nam.</div>
+
+<div class="callout good"><b>Kiểm tra độ nhạy bằng trọng số TCHWGT (ước lượng điểm, chưa phải BRR đầy đủ):</b> r2018 có trọng số = 0,159 (so với 0,138 không trọng số); r2024 có trọng số = 0,207 (so với 0,206). Cả hai dịch chuyển rất ít, hướng kết luận "2024 mạnh hơn 2018" giữ nguyên — tăng độ tin tưởng rằng kết quả không chỉ do cách lấy mẫu không trọng số gây lệch.</div>
+
+<h2 id="tra-loi">4. Trả lời đầy đủ 3 câu hỏi Linh đặt ra khi tự chạy SPSS</h2>
+
+<h3>Câu hỏi 1 — "Quy mô của đề tài so sánh này có nhỏ quá không?"</h3>
+<div class="callout good"><b>Trả lời: KHÔNG nhỏ — quy mô này phù hợp, thậm chí vừa đủ cho bài 1.000 chữ.</b> Ba lý do cụ thể: (1) cỡ mẫu THẬT rất lớn — 3.825 và 4.348 giáo viên, lớn hơn tuyệt đại đa số đề tài tiểu luận cá nhân dùng dữ liệu tự thu thập; (2) chỉ giữ 2 biến chính (tự hiệu quả, hài lòng nghề) là lựa chọn ĐÚNG cho giới hạn 1.000 chữ — thêm biến kiểm soát hay mô hình hồi quy đa biến sẽ vượt quá khuôn khổ và khó diễn giải trong không gian cho phép; (3) câu hỏi nghiên cứu có đủ 2 lớp (kiểm tra r ở từng năm + so sánh 2 năm) nên không "mỏng" về mặt logic, dù chỉ dùng 1 phép tương quan. Nếu muốn "lớn" hơn mà vẫn gọn, có thể thêm tối đa 1 biến kiểm soát (vd giới tính hoặc thâm niên) — nhưng không bắt buộc.</div>
+
+<h3>Câu hỏi 2 — "Cần kiểm chứng tôi đã chạy đúng dữ liệu chưa, kết quả ra đúng chưa?"</h3>
+<div class="callout warn"><b>Trả lời: dùng đúng bảng số liệu đã verify kép ở Phần 3 làm "đáp số tham chiếu" để tự đối chiếu.</b> Linh chưa gửi file SPSS/output cụ thể cho đề tài này (chỉ gửi 2 file đề cương), nên không thể chấm trực tiếp bài Linh đã chạy — nhưng có thể tự đối chiếu theo checklist:
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Sau khi lọc <code>CNTRY="VNM"</code> trên tệp 2018 (<code>BTGINTT3.sav</code>), N phải ra đúng <b>3.825</b>. Nếu ra số khác xa, kiểm tra lại đã dùng đúng biến <code>CNTRY</code> (chuỗi "VNM") chứ không phải <code>IDCNTRY</code> (mã số).</li>
+<li>Với tệp 2024, nếu Linh dùng tệp quốc tế gộp (không phải tệp Việt Nam riêng), N sau khi lọc quốc gia + ISCED2 phải ra đúng <b>4.348</b> — số này đã được chính OECD xác nhận trong bảng kỹ thuật, không phải số tự suy ra.</li>
+<li>r2018 phải quanh <b>0,138</b> (±0,01 nếu Linh xử lý missing khác một chút); r2024 phải quanh <b>0,206</b>. Nếu r ra âm hoặc lệch quá xa (ví dụ trên 0,4), rất có thể đã nhập sai thứ tự biến hoặc dùng nhầm biến khác có tên gần giống (TALIS có nhiều biến tên gần nhau, vd T3JSPRO khác T3JSENV — môi trường làm việc, không phải nghề giáo).</li>
+<li>Luôn kiểm tra N báo trong bảng Correlations của SPSS — nếu N quá thấp so với N sau lọc quốc gia, có nghĩa 1 trong 2 biến có nhiều missing hơn dự kiến, cần xem lại Frequencies trước khi tin con số r.</li>
+</ol></div>
+
+<h3>Câu hỏi 3 — "Bước tiếp theo... cần dùng đúng thuật ngữ để viết vào bài"</h3>
+<div class="callout"><b>4 cụm từ quan trọng nhất cần dùng ĐÚNG khi viết bài tiểu luận:</b>
+<table><tr><th>Viết ĐÚNG</th><th>Tránh viết</th><th>Vì sao</th></tr>
+<tr><td>"có mối liên hệ/tương quan thuận"</td><td>"tự hiệu quả làm tăng/ảnh hưởng tới hài lòng"</td><td>Dữ liệu tương quan cắt ngang không xác lập được chiều nhân quả</td></tr>
+<tr><td>"hai mẫu giáo viên cắt ngang độc lập ở hai thời điểm"</td><td>"giáo viên đã thay đổi/tiến bộ qua thời gian"</td><td>TALIS không theo dõi lại cùng giáo viên — mỗi chu kỳ là một mẫu khác nhau</td></tr>
+<tr><td>"hệ số tương quan Pearson r=... (n=...)"</td><td>chỉ nói "có liên hệ" mà không kèm số</td><td>Luôn báo kèm r, p, và N hợp lệ — thiếu N là thiếu thông tin quan trọng để người đọc đánh giá độ tin cậy</td></tr>
+<tr><td>"kiểm tra sơ bộ bằng SPSS cơ bản, chưa xử lý trọng số lặp BRR theo thiết kế mẫu"</td><td>khẳng định p-value đại diện chính xác cho toàn bộ tổng thể giáo viên Việt Nam</td><td>WEIGHT BY TCHWGT đơn giản không thay thế được quy trình trọng số lặp (replicate weights) mà TALIS/IEA yêu cầu cho suy luận chính thức</td></tr>
+</table>
+<p class="cap">Câu kết luận mẫu có thể viết: "Trong mẫu giáo viên THCS Việt Nam của TALIS, tự hiệu quả trong giảng dạy có mối liên hệ thuận, mức độ yếu, với sự hài lòng nghề nghiệp ở cả hai chu kỳ (r2018=0,138; r2024=0,206; p&lt;0,001). Mức độ liên hệ năm 2024 mạnh hơn năm 2018 ở kiểm tra sơ bộ (Δr=0,068; p=0,0016), nhưng do hai chu kỳ khảo sát hai mẫu độc lập và kết quả chưa xử lý đầy đủ trọng số lặp theo thiết kế mẫu, kết luận được trình bày là so sánh thăm dò, không phải bằng chứng nhân quả hay suy luận chính thức ra toàn bộ tổng thể."</p></div>
+
+<h2 id="syntax">5. Syntax đã chạy thật (PSPP, đối chiếu khớp Python)</h2>
+<pre>* ===== TALIS 2018 — Việt Nam =====
+GET FILE='BTGINTT3.sav'.
+SELECT IF (CNTRY = "VNM").
+EXECUTE.
+DESCRIPTIVES VARIABLES=T3SEINS T3JSPRO /STATISTICS=MEAN STDDEV MIN MAX.
+CORRELATIONS /VARIABLES=T3SEINS T3JSPRO /PRINT=TWOTAIL /MISSING=PAIRWISE.
+* Kết quả: N=3818/3818, r=.138, Sig.=.000, N(pairwise)=3812.
+
+* ===== TALIS 2024 — Việt Nam (tệp đã lọc sẵn) =====
+GET FILE='btgvnmt4_giaovien_ISCED2.sav'.
+DESCRIPTIVES VARIABLES=T4SEINS T4JSPROT /STATISTICS=MEAN STDDEV MIN MAX.
+CORRELATIONS /VARIABLES=T4SEINS T4JSPROT /PRINT=TWOTAIL /MISSING=PAIRWISE.
+* Kết quả: N=4347/4348, r=.206, Sig.=.000, N(pairwise)=4347.</pre>
+<p class="cap">Đã chạy bằng PSPP 2.1.1 (GNU PSPP) thật trên 2 tệp .sav gốc, kết quả khớp tuyệt đối với Python (pandas.corr + scipy.stats.pearsonr) tới 3 chữ số thập phân — không có số nào chỉ tính bằng một công cụ duy nhất.</p>
+
+<h3>📜 Nguồn dữ liệu & tài liệu</h3>
+<p>TALIS 2018 International Public Use File (OECD, webfs.oecd.org/talis/SPSS_2018_international.zip, tải ngày phân tích) và TALIS 2024 Teacher PUF Việt Nam (OECD, TALIS2024_teachers_NoESE_SPSS.zip). Biến và ngưỡng mã thiếu đối chiếu theo đúng 2 đề cương Linh gửi. Công thức Fisher r-to-z theo chuẩn thống kê ứng dụng cho so sánh 2 hệ số tương quan độc lập (không riêng của TALIS).</p>
+
+<h2 id="quiz">6. Tự kiểm tra</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">
+<div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
+<button class="info-footer-btn" type="button" data-info-open>ℹ️ Thông tin trang & liên hệ góp ý / xin tài liệu</button>
+</div></footer><div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="Đóng">✕</button><h3 id="info-modal-title">ℹ️ Thông tin về trang &amp; liên hệ góp ý</h3><h4>🤖 Nội dung AI hỗ trợ soạn thảo</h4><p>Phần lớn nội dung trên toàn bộ website này — giải thích khái niệm, câu hỏi tự kiểm tra, một số sơ đồ minh hoạ — được soạn với sự hỗ trợ của AI, sau đó người phụ trách kiểm tra lại trong khả năng cho phép (đối chiếu số liệu với dữ liệu thật, đối chiếu khái niệm với giáo trình gốc). Vì khối lượng nội dung lớn và thời gian có hạn, không thể đảm bảo mọi câu chữ đều đã được rà soát kỹ. Nếu phát hiện sai sót ở bất kỳ đâu, rất mong nhận được góp ý theo thông tin liên hệ bên dưới.</p><h4>📩 Liên hệ góp ý / báo lỗi</h4><p><b>Trương Tuấn Nghĩa</b><br/>Gọi / Zalo / Telegram: <a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook: <a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>Email: <a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 Về nguồn giáo trình</h4><p>Nội dung bám theo sách <i>Research Methods in Education</i> (Cohen, Manion &amp; Morrison, ấn bản 8, Routledge 2018). Vì lý do bản quyền, trang này không đính kèm file sách — ai cần bản PDF để tự đọc thêm ngoài bài giảng có thể tìm qua một số kênh không chính thống, ví dụ:<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>Lưu ý: các trang trên hay đổi tên miền hoặc bị chặn — nếu link nào không vào được, xin tự tìm tên miền mới của cùng dịch vụ.</p><h4>🤝 Muốn đóng góp, hoặc xin tài liệu để tự dạy?</h4><p>Rất hoan nghênh! Nếu bạn muốn giúp cải thiện học liệu (sửa lỗi, viết thêm module, dịch thuật...), hoặc muốn xin lại toàn bộ/một phần tài liệu này để tự dạy cho <b>môn học khác của riêng bạn</b> (không giới hạn ở SPSS/Khoa học Xã hội) — cứ thoải mái liên hệ:<ul><li>Gửi email mô tả bạn muốn làm gì / cần gì, kèm link GitHub cá nhân nếu muốn được thêm quyền cộng tác trực tiếp vào project.</li><li>Hoặc tự do fork / clone / pull mã nguồn tại <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a> — không cần xin phép trước, đây là tài liệu mở, phi lợi nhuận.</li></ul>Định hướng lâu dài là phát triển thêm nhiều học liệu tương tự cho các môn khác — nếu có ý tưởng hợp tác, luôn chào đón. Xin cảm ơn!</p></div></div><script src="../../../_shared/theme.js"></script><script src="../../../_shared/glossary.js"></script><script src="../../../_shared/deck.js"></script><script src="../../../_shared/info.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "Điểm: {s}/{n}", "items": [
+{"q": "Vì sao không thể viết trong bài tiểu luận rằng \"tự hiệu quả giảng dạy làm TĂNG sự hài lòng nghề\" dựa trên kết quả tương quan này?", "opts": ["Vì hệ số tương quan quá nhỏ để có ý nghĩa thống kê", "Vì phần mềm SPSS không tính được quan hệ nhân quả trong bất kỳ trường hợp nào", "Vì TALIS là 2 khảo sát cắt ngang, lấy mẫu độc lập, không xác lập được trình tự thời gian hay loại trừ biến gây nhiễu", "Vì chỉ có dữ liệu của Việt Nam, không áp dụng được cho quốc gia khác"], "correct": 2, "explain": "Dữ liệu tương quan cắt ngang chỉ cho biết 2 biến đi cùng nhau, không chứng minh biến nào gây ra biến nào — đặc biệt khi 2 mẫu lấy ở 2 thời điểm khác nhau, hoàn toàn độc lập."},
+{"q": "Sau khi lọc CNTRY=\"VNM\" trên tệp TALIS 2018 quốc tế (BTGINTT3.sav), số giáo viên THCS Việt Nam hợp lệ là bao nhiêu?", "opts": ["4.348", "7.368", "195", "3.825"], "correct": 3, "explain": "Đã verify bằng cả Python và PSPP: lọc CNTRY=\"VNM\" cho đúng 3.825 hồ sơ giáo viên."},
+{"q": "Hệ số tương quan Pearson r giữa tự hiệu quả giảng dạy và hài lòng nghề năm 2024 (r2024) là bao nhiêu?", "opts": ["0,654", "0,206", "0,890", "0,003"], "correct": 1, "explain": "r2024=0,206 (n=4.347, p<0,001) — mối liên hệ thuận, ở mức yếu tới gần vừa."},
+{"q": "Vì sao chữ \"B\" trong tên tệp BTGINTT3.sav lại quan trọng khi lọc dữ liệu?", "opts": ["B là viết tắt của \"Backup\", chỉ là tệp dự phòng không cần dùng", "B chỉ cấp học ISCED2 (THCS) — tệp giáo viên quốc tế đã được OECD tách sẵn theo cấp học, không cần tự lọc thêm biến cấp học", "B là mã quốc gia của Việt Nam trong hệ thống OECD", "B nghĩa là tệp này chỉ chứa dữ liệu hiệu trưởng, không chứa dữ liệu giáo viên"], "correct": 1, "explain": "OECD tách riêng tệp theo cấp học ngay trong tên file quốc tế (A=ISCED1, B=ISCED2, C=ISCED3), nên BTGINTT3.sav đã là đúng nhóm giáo viên THCS, chỉ cần lọc thêm quốc gia."},
+{"q": "Khi so sánh Δr=r2024−r2018 bằng phép biến đổi Fisher r-to-z, kết quả z=3,16 (p=0,0016) nên được trình bày trong bài với mức độ chắc chắn nào?", "opts": ["Là bằng chứng nhân quả chắc chắn rằng bối cảnh nghề nghiệp đã thay đổi tốt hơn", "Là kiểm tra sơ bộ, vì chưa xử lý trọng số lặp BRR theo đúng thiết kế mẫu phức tạp của TALIS", "Không nên trình bày kết quả này vì z không có ý nghĩa thống kê", "Là kết quả suy luận chính thức, đại diện chính xác cho toàn bộ giáo viên Việt Nam"], "correct": 1, "explain": "Sai số chuẩn dùng trong phép tính z ở đây là công thức đơn giản (coi mỗi giáo viên độc lập), chưa dùng 100 trọng số lặp BRR mà thiết kế mẫu phân tầng theo cụm của TALIS yêu cầu cho suy luận chính thức."},
+{"q": "Hai biến T3JSPRO (2018) và T4JSPROT (2024) đo khái niệm gì?", "opts": ["Tự hiệu quả trong việc quản lý lớp học", "Hài lòng với nghề dạy học (job satisfaction with the teaching profession)", "Số năm kinh nghiệm giảng dạy của giáo viên", "Mức lương hàng tháng của giáo viên"], "correct": 1, "explain": "Cả hai biến đo thang hài lòng với NGHỀ dạy học — khác với thang hài lòng môi trường làm việc (vd T3JSENV), cần phân biệt rõ khi tra codebook."},
+{"q": "Biến TCHWGT trong cả hai tệp TALIS dùng để làm gì?", "opts": ["Mã định danh duy nhất của từng giáo viên trong khảo sát", "Trọng số giáo viên — dùng cho ước lượng điểm đại diện tổng thể, không tự động cho sai số chuẩn đúng thiết kế mẫu", "Thang đo tự hiệu quả giảng dạy chính thức của OECD", "Biến chỉ số quốc gia, dùng để lọc đúng Việt Nam"], "correct": 1, "explain": "TCHWGT là trọng số cuối cấp giáo viên. WEIGHT BY TCHWGT giúp ước lượng điểm đại diện hơn, nhưng KHÔNG tự tính đúng sai số chuẩn theo thiết kế mẫu phức tạp (cần trọng số lặp BRR cho việc đó)."},
+{"q": "Khi kiểm tra độ nhạy bằng trọng số TCHWGT, r2018 thay đổi từ 0,138 lên 0,159 còn r2024 gần như không đổi (0,206→0,207). Điều này cho thấy gì?", "opts": ["Kết quả không đáng tin vì có sự thay đổi dù nhỏ khi thêm trọng số", "Hướng kết luận chính (2024 mạnh hơn 2018) vẫn giữ nguyên dù có hay không trọng số — tăng độ tin tưởng vào kết quả", "Phải loại bỏ hoàn toàn kết quả không trọng số vì đã có kết quả có trọng số", "Trọng số TCHWGT chỉ áp dụng được cho dữ liệu năm 2018, không áp dụng được cho năm 2024"], "correct": 1, "explain": "Cả 2 cách tính (có và không trọng số) đều cho r2024 > r2018 — sự nhất quán này là một bằng chứng bổ sung, không phải điểm yếu, cho kết luận chính của bài."},
+{"q": "Theo đề cương đề tài A của Linh, vì sao nên ưu tiên so sánh HỆ SỐ TƯƠNG QUAN giữa 2 chu kỳ, thay vì so sánh trực tiếp TRUNG BÌNH thang đo giữa 2018 và 2024?", "opts": ["Vì trung bình thang đo không thể tính được trong SPSS", "Vì thang đo và cách xây dựng chỉ số có thể đã thay đổi giữa 2 chu kỳ, nên so sánh trực tiếp trung bình thô dễ gây hiểu nhầm nếu thiếu bằng chứng tương đương đo lường", "Vì hệ số tương quan luôn chính xác hơn trung bình trong mọi tình huống nghiên cứu", "Vì TALIS 2024 không công bố trung bình thang đo cho người dùng ngoài OECD"], "correct": 1, "explain": "Đề cương lưu ý: điểm thang đo được chuẩn hoá/ước lượng riêng theo từng chu kỳ, nên so sánh tương quan (đo mối liên hệ GIỮA 2 biến, ít nhạy hơn với việc đổi gốc/đơn vị thang đo) an toàn hơn so sánh trực tiếp trung bình."},
+{"q": "Nếu khi tự chạy SPSS, một sinh viên lọc được N=3.825 cho năm 2018 nhưng r ra một số ÂM khác xa 0,138 (ví dụ r=−0,45), khả năng cao nhất là lỗi gì?", "opts": ["Đây chắc chắn là kết quả đúng, chỉ là khác với bài mẫu do dùng phiên bản SPSS khác", "Có thể đã nhập nhầm sang một biến khác có tên gần giống T3JSPRO (ví dụ biến đo môi trường làm việc) hoặc đảo ngược mã hoá biến", "Lỗi này chắc chắn do phần mềm SPSS bị lỗi hệ thống, cần cài lại phần mềm", "N=3.825 đã sai nên không cần kiểm tra thêm gì khác"], "correct": 1, "explain": "N đúng (3.825) cho thấy bước lọc quốc gia ổn — vấn đề nhiều khả năng nằm ở BIẾN đưa vào Correlations, không phải ở bước lọc mẫu."},
+{"q": "Đề tài B (chưa được chọn) của Linh dùng biến CPD_COUNT — biến này đo điều gì?", "opts": ["Mức lương trung bình hàng năm của giáo viên", "Số loại hoạt động phát triển chuyên môn mà giáo viên đã tham gia trong 12 tháng trước khảo sát (đếm 0-10 loại hình, không phải số buổi)", "Điểm trung bình học sinh trong lớp giáo viên đó phụ trách", "Số năm kinh nghiệm công tác của giáo viên tại trường hiện tại"], "correct": 1, "explain": "CPD_COUNT là biến đếm độ RỘNG loại hình tham gia (tối đa 10 loại từ TT3G22A-J), không đo số lần tham dự hay chất lượng — cần ghi rõ giới hạn này khi diễn giải."}
+]}</script><script src="../../../_shared/quiz.js"></script></body></html>
