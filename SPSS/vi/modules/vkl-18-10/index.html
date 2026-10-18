@@ -102,7 +102,7 @@
 
 <div class="btnrow">
  <a class="tag" href="#boi-canh">Bối cảnh & giả thuyết</a><a class="tag" href="#du-lieu">Dữ liệu & biến số</a>
- <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
+ <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#de-tai-b">Đề tài B (đối chiếu)</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
  <a class="tag" href="#syntax">Syntax đã chạy</a><a class="tag" href="#thao-luan">Thảo luận & hướng phát triển</a><a class="tag" href="#quiz">Tự kiểm tra</a>
 </div>
 
@@ -162,6 +162,28 @@
 <div class="callout warn"><b>Giới hạn quan trọng nhất cần ghi vào bài:</b> phép kiểm định z=3,16 ở trên dùng sai số chuẩn ĐƠN GIẢN (1/(n−3)), coi mỗi giáo viên là một quan sát độc lập hoàn toàn. TALIS thực tế dùng thiết kế mẫu phân tầng theo cụm (chọn trường trước, rồi giáo viên trong trường) — sai số chuẩn ĐÚNG theo thiết kế mẫu (dùng 100 trọng số lặp BRR: TRWGT1–TRWGT100) thường LỚN HƠN cách tính đơn giản này, vì giáo viên cùng trường không hoàn toàn độc lập (design effect). Kết quả z=3,16 ở đây chỉ nên trình bày là <b>kiểm tra sơ bộ</b>, không phải kết luận suy luận chính thức ra toàn bộ tổng thể giáo viên Việt Nam.</div>
 
 <div class="callout good"><b>Kiểm tra độ nhạy bằng trọng số TCHWGT (ước lượng điểm, chưa phải BRR đầy đủ):</b> r2018 có trọng số = 0,159 (so với 0,138 không trọng số); r2024 có trọng số = 0,207 (so với 0,206). Cả hai dịch chuyển rất ít, hướng kết luận "2024 mạnh hơn 2018" giữ nguyên — tăng độ tin tưởng rằng kết quả không chỉ do cách lấy mẫu không trọng số gây lệch.</div>
+
+<div class="callout good"><b>Kiểm tra độ nhạy thứ hai — Spearman (đúng như đề cương yêu cầu khi phân phối lệch/có hiệu ứng trần, xem Hình 2):</b> 2018: Pearson r=0,138 vs Spearman ρ=0,136; 2024: Pearson r=0,206 vs Spearman ρ=0,195. Hai cách tính chênh nhau rất ít (≤0,015) — kết luận không đổi dù dữ liệu có hiệu ứng trần.</div>
+
+<h2 id="de-tai-b">3bis. Đề tài B — đã chạy thử để đối chiếu (chưa phải lựa chọn chính của Linh)</h2>
+<p>Linh nghiêng về đề tài A nên module này tập trung vào đề tài A, nhưng đề tài B cũng đã được chạy thật trên cùng tệp TALIS 2018 để Linh có số liệu tham khảo nếu đổi ý hoặc muốn dùng cho báo cáo khác. <b>Lưu ý quan trọng:</b> đề tài B dùng biến <code>T3SELF</code> ("Teacher self-efficacy, overall" — thang tự hiệu quả TỔNG QUÁT), KHÁC với <code>T3SEINS</code> ("self-efficacy in instruction" — chỉ riêng khía cạnh giảng dạy) dùng ở đề tài A. Hai biến này không thay thế cho nhau.</p>
+
+<table><tr><th>Biến</th><th>N hợp lệ</th><th>Mean</th><th>SD</th></tr>
+<tr><td>CPD_COUNT (0-10 loại hình)</td><td>3.629</td><td>5,39</td><td>2,41</td></tr>
+<tr><td>T3SELF (tự hiệu quả tổng quát)</td><td>3.818</td><td>12,65</td><td>1,60</td></tr>
+<tr><td>T3PDBAR (rào cản tham gia)</td><td>3.817</td><td>9,23</td><td>2,13</td></tr>
+</table>
+
+<table><tr><th>Giả thuyết</th><th>Pearson r</th><th>Spearman ρ</th><th>p</th><th>Kết luận</th></tr>
+<tr><td>H1: CPD_COUNT ↔ T3SELF</td><td>0,163</td><td>0,170</td><td>&lt;0,001</td><td>Thuận, YẾU — ĐƯỢC ủng hộ</td></tr>
+<tr><td>H2: T3PDBAR ↔ CPD_COUNT</td><td>−0,091</td><td>−0,108</td><td>&lt;0,001</td><td>Nghịch, RẤT YẾU — ĐƯỢC ủng hộ (yếu)</td></tr>
+<tr><td>H3 (thăm dò): T3PDBAR ↔ T3SELF</td><td>−0,145</td><td>−0,155</td><td>&lt;0,001</td><td>Nghịch, YẾU</td></tr>
+</table>
+<p class="cap">Cả 3 kết quả đã verify khớp giữa Python và PSPP (dùng đúng syntax DO REPEAT/RECODE trong đề cương gốc).</p>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_cpd_participation.png" alt="10 loại hình phát triển chuyên môn TALIS 2018 Việt Nam"/><figcaption>Hình 5. "Chương trình bằng cấp chính quy" (93,8%) và "quan sát đồng nghiệp trong trường" (76,1%) phổ biến nhất; "đọc tài liệu nghề nghiệp" (18,5%) ít phổ biến nhất.</figcaption></div>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_pd_barriers.png" alt="5 rào cản tham gia phát triển chuyên môn TALIS 2018 Việt Nam"/><figcaption>Hình 6. Rào cản được đồng ý nhiều nhất: "thiếu hỗ trợ của chủ sử dụng lao động" (41,4%) — trả lời đúng câu hỏi mô tả trong đề cương B ("rào cản cụ thể nào được báo cáo nhiều nhất").</figcaption></div>
 
 <h2 id="tra-loi">4. Trả lời đầy đủ 3 câu hỏi Linh đặt ra khi tự chạy SPSS</h2>
 
