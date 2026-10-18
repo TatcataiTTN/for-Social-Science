@@ -59,9 +59,17 @@
 <div class="mdeck-slide"><div class="kicker">9 · Tương quan</div><h2 class="warn">r2018=0,138 · r2024=0,206 — cả hai dương, có ý nghĩa</h2>
 <p class="cap">r2018=0,138 (n=3.812, p&lt;0,001); r2024=0,206 (n=4.347, p&lt;0,001). H1a và H1b ĐƯỢC ủng hộ ở cả hai chu kỳ — tự hiệu quả cao hơn đi cùng hài lòng nghề cao hơn, mối liên hệ ở mức YẾU theo cả hai năm.</p></div>
 
+<div class="mdeck-slide"><div class="kicker">Biểu đồ thật</div><h2>Scatter plot — 2 chu kỳ, kèm đường hồi quy</h2>
+<img src="../../../assets/diagrams/talis_scatter_2cycles.png" alt="scatter tự hiệu quả vs hài lòng nghề 2018 và 2024"/>
+<p class="cap">Mỗi chấm = 1 giáo viên (độ mờ thấp vì n lớn, nhiều điểm trùng toạ độ do thang IRT rời rạc). Đường cam = hồi quy tuyến tính — dốc hơn rõ rệt ở 2024.</p></div>
+
 <div class="mdeck-slide"><div class="kicker">10 · So sánh Δr</div><h2>Δr=0,068 — khác biệt có ý nghĩa (kiểm tra sơ bộ)</h2>
 <p class="big">z=3,16; p=0,0016</p>
 <p class="cap">Phép biến đổi Fisher r-to-z cho 2 mẫu độc lập: mối liên hệ NĂM 2024 mạnh hơn năm 2018 một cách có ý nghĩa — NHƯNG đây chỉ là kiểm tra sơ bộ bằng sai số chuẩn đơn giản, chưa dùng trọng số lặp BRR (xem cảnh báo Phần 4).</p></div>
+
+<div class="mdeck-slide"><div class="kicker">Biểu đồ thật</div><h2>Forest plot — CI 95% không chồng lấn</h2>
+<img src="../../../assets/diagrams/talis_forest_compare.png" alt="forest plot so sánh r 2018 và 2024 kèm khoảng tin cậy 95%"/>
+<p class="cap">Khoảng tin cậy 95% của r2018 [0,107; 0,169] và r2024 [0,177; 0,234] KHÔNG chồng lấn nhau — minh hoạ trực quan cho kết quả z=3,16 có ý nghĩa.</p></div>
 
 <div class="mdeck-slide"><div class="kicker">11 · Kiểm tra độ nhạy</div><h2>Có trọng số TCHWGT: r2018=0,159 · r2024=0,207 — kết luận không đổi</h2>
 <p class="cap">Dùng trọng số cuối giáo viên để ước lượng điểm đại diện tổng thể hơn: r2018 nhích lên 0,159, r2024 gần như không đổi (0,207) — hướng kết luận (2024 mạnh hơn 2018) giữ nguyên, tăng độ tin tưởng vào kết quả.</p></div>
@@ -95,7 +103,7 @@
 <div class="btnrow">
  <a class="tag" href="#boi-canh">Bối cảnh & giả thuyết</a><a class="tag" href="#du-lieu">Dữ liệu & biến số</a>
  <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
- <a class="tag" href="#syntax">Syntax đã chạy</a><a class="tag" href="#quiz">Tự kiểm tra</a>
+ <a class="tag" href="#syntax">Syntax đã chạy</a><a class="tag" href="#thao-luan">Thảo luận & hướng phát triển</a><a class="tag" href="#quiz">Tự kiểm tra</a>
 </div>
 
 <h2 id="boi-canh">1. Bối cảnh, câu hỏi nghiên cứu & giả thuyết</h2>
@@ -136,6 +144,14 @@
 <tr><td>2024</td><td>4.347</td><td>0,206</td><td>&lt;0,001 (8,15×10⁻⁴³)</td><td>Thuận, YẾU–gần VỪA</td></tr>
 <tr><td>So sánh</td><td>Hai mẫu độc lập</td><td>Δr=0,206−0,138=0,068</td><td>z=3,16; p=0,0016 (Fisher r-to-z, sơ bộ)</td><td>Khác biệt có ý nghĩa ở mức kiểm tra sơ bộ</td></tr>
 </table>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_scatter_2cycles.png" alt="scatter plot tự hiệu quả và hài lòng nghề, 2 chu kỳ TALIS"/><figcaption>Hình 1. Scatter plot tự hiệu quả giảng dạy (trục ngang) và hài lòng với nghề giáo (trục dọc), từng giáo viên, 2 chu kỳ TALIS. Đường cam là đường hồi quy tuyến tính đơn giản (không phải đường kiểm định chính thức, chỉ minh hoạ xu hướng). Vệt dọc dày đặc là do thang điểm IRT (WLE) chỉ nhận một số giá trị rời rạc, nhiều giáo viên trùng điểm số.</figcaption></div>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_distributions.png" alt="phân phối tự hiệu quả và hài lòng nghề, 2 chu kỳ TALIS"/><figcaption>Hình 2. Phân phối tần số của 2 biến, 2 chu kỳ. Đường đứt cam = trung bình. Cả 4 phân phối đều lệch trái (đa số giáo viên tự chấm điểm cao) và có một cột tần số RẤT CAO ở giá trị tối đa — hiệu ứng trần (ceiling effect), bàn kỹ hơn ở mục Thảo luận bên dưới.</figcaption></div>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_forest_compare.png" alt="forest plot so sánh hệ số tương quan 2018 và 2024 kèm khoảng tin cậy 95%"/><figcaption>Hình 3. So sánh trực quan kiểu "forest plot": khoảng tin cậy 95% của r2018 và r2024 KHÔNG chồng lấn nhau, phù hợp với kết quả kiểm định Fisher r-to-z có ý nghĩa (z=3,16; p=0,0016).</figcaption></div>
+
+<div class="figure"><img src="../../../assets/diagrams/talis_weight_sensitivity.png" alt="so sánh r có và không trọng số TCHWGT"/><figcaption>Hình 4. Kiểm tra độ nhạy: hệ số tương quan hầu như không đổi khi thêm trọng số giáo viên TCHWGT — củng cố độ tin cậy của kết luận chính, dù chưa thay thế được quy trình trọng số lặp BRR đầy đủ.</figcaption></div>
 
 <div class="pd-formula"><div class="pd-formula-label">Phép biến đổi Fisher r-to-z (so sánh 2 hệ số tương quan độc lập)</div><div class="pd-formula-math">z = [z<sub>r1</sub> − z<sub>r2</sub>] / √[1/(n₁−3) + 1/(n₂−3)], &nbsp; z<sub>r</sub> = 0,5·ln[(1+r)/(1−r)]</div></div>
 <ul class="pd-legend"><li><b>z<sub>r</sub></b><span>biến đổi Fisher của hệ số tương quan r, giúp phân phối gần chuẩn hơn để so sánh</span></li>
@@ -190,7 +206,28 @@ CORRELATIONS /VARIABLES=T4SEINS T4JSPROT /PRINT=TWOTAIL /MISSING=PAIRWISE.
 <h3>📜 Nguồn dữ liệu & tài liệu</h3>
 <p>TALIS 2018 International Public Use File (OECD, webfs.oecd.org/talis/SPSS_2018_international.zip, tải ngày phân tích) và TALIS 2024 Teacher PUF Việt Nam (OECD, TALIS2024_teachers_NoESE_SPSS.zip). Biến và ngưỡng mã thiếu đối chiếu theo đúng 2 đề cương Linh gửi. Công thức Fisher r-to-z theo chuẩn thống kê ứng dụng cho so sánh 2 hệ số tương quan độc lập (không riêng của TALIS).</p>
 
-<h2 id="quiz">6. Tự kiểm tra</h2>
+<h2 id="thao-luan">6. Thảo luận thêm & hướng phát triển đề tài (brainstorm nghiêm túc)</h2>
+
+<h3>6.1. Một phát hiện phụ đáng bàn: hiệu ứng trần (ceiling effect)</h3>
+<p>Nhìn kỹ Hình 2 (phân phối tần số): cả 4 phân phối đều có một CỘT tần số rất cao ngay tại giá trị TỐI ĐA của thang đo — tức rất nhiều giáo viên tự chấm điểm cao nhất có thể ở cả tự hiệu quả lẫn hài lòng nghề. Đây gọi là <b>hiệu ứng trần (ceiling effect)</b>: khi phần lớn người trả lời dồn về đầu thang đo, biến mất khả năng phân biệt giữa "cao" và "rất cao" — có thể là một phần lý do vì sao r chỉ ở mức YẾU dù khái niệm lý thuyết có vẻ liên quan chặt. Đây KHÔNG phải lỗi khi lọc dữ liệu (đã verify kép, số liệu đúng) — là một đặc điểm THẬT của dữ liệu tự báo cáo (self-report), và là điểm đáng đưa vào phần giới hạn/thảo luận của bài.</p>
+
+<div class="callout"><b>Gợi ý viết vào bài:</b> "Phân phối của cả hai biến có xu hướng lệch về giá trị cao với hiệu ứng trần rõ rệt, đặc trưng của dữ liệu tự báo cáo trong khảo sát giáo viên — điều này có thể làm GIẢM độ lớn quan sát được của hệ số tương quan so với mối liên hệ 'thật' trong tổng thể."</div>
+
+<h3>6.2. Hướng phát triển nếu Linh muốn mở rộng đề tài (sau bài 1.000 chữ, hoặc cho khoá luận/báo cáo dài hơn)</h3>
+<p>Liệt kê theo đúng tinh thần "brainstorm nghiêm túc" — mỗi hướng đều khả thi về mặt dữ liệu (đã có file thật trong tay), xếp từ dễ tới khó:</p>
+
+<table><tr><th>Hướng mở rộng</th><th>Cần thêm gì</th><th>Độ khó</th></tr>
+<tr><td><b>Thêm biến kiểm soát đơn giản</b> (giới tính, thâm niên công tác)</td><td>Tra đúng tên biến trong codebook TALIS (không đoán tên) rồi chạy tương quan riêng phần (Module 08 của khoá SPSS) kiểm soát biến đó</td><td>Thấp</td></tr>
+<tr><td><b>Ghép với Đề tài B</b> — đưa thêm CPD_COUNT (số loại hình phát triển chuyên môn) và T3PDBAR (rào cản) vào năm 2018, kiểm tra 3 biến có "giải thích" được phần nào độ mạnh liên hệ không</td><td>Dữ liệu đã có sẵn trong cùng tệp 2018 (TT3G22A-J, T3PDBAR) — không cần tải thêm</td><td>Trung bình</td></tr>
+<tr><td><b>Hồi quy đa biến thay vì chỉ tương quan</b> — dự đoán hài lòng nghề từ tự hiệu quả + biến kiểm soát, so sánh hệ số chuẩn hoá Beta giữa 2 năm (Module 09 của khoá SPSS)</td><td>Kỹ thuật đã học ở Module 09, chỉ cần áp dụng lại trên dữ liệu TALIS</td><td>Trung bình</td></tr>
+<tr><td><b>Suy luận đúng thiết kế mẫu</b> — dùng IDB Analyzer (IEA) hoặc thủ tục Complex Samples với 100 trọng số lặp TRWGT1-TRWGT100 để tính lại p-value/CI chính xác, thay vì kiểm tra sơ bộ ở Phần 3</td><td>Phần mềm IDB Analyzer (miễn phí, IEA cung cấp) hoặc SPSS Complex Samples module</td><td>Cao</td></tr>
+<tr><td><b>So sánh quốc tế</b> — tính lại r cho 3-5 nước ASEAN/OECD khác có trong cùng 2 tệp PUF quốc tế đã tải, xem mức tăng 0,138→0,206 của Việt Nam có đặc biệt hay là xu hướng chung</td><td>Không cần tải thêm — tệp quốc tế BTGINTT3.sav đã có đủ mọi quốc gia, chỉ đổi điều kiện lọc CNTRY</td><td>Trung bình</td></tr>
+<tr><td><b>Theo dõi định tính</b> — phỏng vấn/khảo sát bổ sung một nhóm nhỏ giáo viên để tìm hiểu VÌ SAO mối liên hệ có vẻ chặt hơn ở 2024 (không gán nguyên nhân cho COVID-19 hay chương trình GDPT 2018 nếu không có bằng chứng trực tiếp — đúng cảnh báo trong đề cương gốc)</td><td>Thiết kế nghiên cứu hỗn hợp (mixed-methods), vượt phạm vi môn Cơ sở thống kê giáo dục</td><td>Cao — phù hợp cho khoá luận/luận văn sau này hơn là bài 1.000 chữ</td></tr>
+</table>
+
+<div class="callout good"><b>Khuyến nghị cụ thể cho bài 1.000 chữ hiện tại:</b> KHÔNG cần làm thêm gì trong danh sách trên — giữ đúng phạm vi đề tài A như đã chạy (2 biến, 2 chu kỳ, tương quan + so sánh) là lựa chọn an toàn và đã đủ chiều sâu. Danh sách này chỉ để Linh tham khảo nếu sau này làm báo cáo dài hơn, khoá luận, hoặc muốn tiếp tục đề tài B.</div>
+
+<h2 id="quiz">7. Tự kiểm tra</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">
 <div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
