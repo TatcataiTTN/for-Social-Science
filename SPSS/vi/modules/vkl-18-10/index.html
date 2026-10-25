@@ -118,7 +118,7 @@
 
 <div class="btnrow">
  <a class="tag" href="#boi-canh">Bối cảnh & giả thuyết</a><a class="tag" href="#du-lieu">Dữ liệu & biến số</a>
- <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#de-tai-b">Đề tài B — đề tài chính (cập nhật 21/10)</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
+ <a class="tag" href="#ket-qua">Kết quả phân tích thật</a><a class="tag" href="#de-tai-b">Đề tài B — đề tài chính (cập nhật 21/10)</a><a class="tag" href="#spv-review">Nhận xét file .spv Linh gửi</a><a class="tag" href="#tra-loi">Trả lời 3 câu hỏi</a>
  <a class="tag" href="#syntax">Syntax đã chạy</a><a class="tag" href="#thao-luan">Thảo luận & hướng phát triển</a><a class="tag" href="#quiz">Tự kiểm tra</a>
 </div>
 
@@ -200,6 +200,25 @@
 <div class="figure"><img src="../../../assets/diagrams/talis_cpd_participation.png" alt="10 loại hình phát triển chuyên môn TALIS 2018 Việt Nam"/><figcaption>Hình 5. "Chương trình bằng cấp chính quy" (93,8%) và "quan sát đồng nghiệp trong trường" (76,1%) phổ biến nhất; "đọc tài liệu nghề nghiệp" (18,5%) ít phổ biến nhất.</figcaption></div>
 
 <div class="figure"><img src="../../../assets/diagrams/talis_pd_barriers.png" alt="5 rào cản tham gia phát triển chuyên môn TALIS 2018 Việt Nam"/><figcaption>Hình 6. Rào cản được đồng ý nhiều nhất: "thiếu hỗ trợ của chủ sử dụng lao động" (41,4%) — trả lời đúng câu hỏi mô tả trong đề cương B ("rào cản cụ thể nào được báo cáo nhiều nhất").</figcaption></div>
+
+<h2 id="spv-review">3ter. Nhận xét file SPSS Linh tự gửi (21/10) — <code>Output1 check du lieu.spv</code></h2>
+<p>File <code>.spv</code> thực chất là file ZIP (mở được bằng <code>unzip</code>, không cần SPSS) chứa log lệnh dạng XML + bảng kết quả dạng nhị phân. Đọc trực tiếp log lệnh bên trong cho biết chính xác Linh đã làm gì, theo đúng thứ tự:</p>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li><code>GET FILE='...SPSS_2018_national\BTGVNMT3.sav'</code> — Linh dùng tệp TALIS 2018 Việt Nam đã lọc sẵn cấp quốc gia (khác tệp quốc tế 47 nước nhóm mình tải), đặt tên <code>DataSet2</code>.</li>
+<li><code>DESCRIPTIVES VARIABLES=T3SELF T3PDBAR TCHWGT</code> — mô tả đúng 3 biến chính của Đề tài B.</li>
+<li><code>FREQUENCIES</code> hàng loạt trên 10 mục hoạt động PD (<code>TT3G22A-J</code>) và 7 mục rào cản (<code>TT3G28A-G</code>) — đúng các biến thành phần đề cương yêu cầu.</li>
+<li>Tự viết đúng cú pháp <code>COUNT CPD_COUNT=...(1). IF (NVALID(...)&lt;10) CPD_COUNT=$SYSMIS. VARIABLE LABELS...</code> — khớp CHÍNH XÁC công thức trong đề cương gốc, không chép sai một dấu nào.</li>
+<li><code>NONPAR CORR /VARIABLES=CPD_COUNT T3SELF T3PDBAR /PRINT=SPEARMAN TWOTAIL NOSIG FULL /MISSING=PAIRWISE</code> — đúng phép kiểm tra độ nhạy Spearman đã làm ở mục 3bis.</li>
+</ol>
+<div class="callout good"><b>Đánh giá tổng thể: Linh tự chạy ĐÚNG, không sai cú pháp.</b> N kiểm qua bảng rào cản TT3G28C ("lack of employer support") = 3.825 hợp lệ — khớp chính xác số Vietnam dùng xuyên suốt module này.</div>
+<div class="callout warn"><b>Một giới hạn khi nhóm mình đọc file này:</b> số liệu trong các bảng (rho, sig của Spearman) được SPSS lưu dạng số nhị phân trong file <code>.bin</code> riêng, không phải văn bản đọc thẳng được — nhóm mình đọc được cấu trúc bảng/tên biến nhưng KHÔNG trích được chính xác con số rho/p mà không rủi ro đọc sai byte, nên không tự đoán số. Nếu muốn đối chiếu chính xác, Linh chụp màn hình bảng Correlations cuối cùng gửi lại.</div>
+<p>File còn có 1 bảng Linh dán sẵn vào (mục <code>TT3G28C</code> — "There is a lack of employer support"): đây chính là dạng bảng MẶC ĐỊNH của SPSS Output Navigator — nền xám sọc ngựa vằn, font Arial, không màu, không bo góc. Đây là nguồn gốc câu hỏi "làm sao ra bảng đẹp" Linh hỏi 21/10 — bảng này KHÔNG sai số liệu, chỉ là định dạng mặc định chưa chỉnh.</p>
+<div class="callout"><b>Cách làm bảng SPSS bớt xấu đi (2 lựa chọn, không cần code thêm):</b>
+<ol style="margin:.3em 0 0;padding-left:1.3em">
+<li>Trong SPSS Output Navigator: double-click bảng → <b>Format → TableLooks</b> (hoặc chuột phải → Edit Content → TableLook), chọn mẫu có sẵn (vd "Academic", "Box") thay vì mặc định.</li>
+<li>Nhanh hơn: copy bảng, dán trực tiếp vào Word, áp một Table Style có sẵn của Word — không cần sửa gì trong SPSS.</li>
+</ol>
+Biểu đồ đẹp kiểu Hình 1-6 trên trang này là do nhóm mình tự vẽ bằng Python/matplotlib — khác công cụ với bảng pivot mặc định của SPSS, nên SPSS không thể tự ra y hệt, nhưng Chart Builder trong SPSS (Graphs → Chart Builder) cũng vẽ được biểu đồ tương đối đẹp nếu cần.</div>
 
 <h2 id="tra-loi">4. Trả lời đầy đủ 3 câu hỏi Linh đặt ra khi tự chạy SPSS</h2>
 
