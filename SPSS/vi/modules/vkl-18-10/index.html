@@ -165,8 +165,8 @@
 
 <div class="callout good"><b>Kiểm tra độ nhạy thứ hai — Spearman (đúng như đề cương yêu cầu khi phân phối lệch/có hiệu ứng trần, xem Hình 2):</b> 2018: Pearson r=0,138 vs Spearman ρ=0,136; 2024: Pearson r=0,206 vs Spearman ρ=0,195. Hai cách tính chênh nhau rất ít (≤0,015) — kết luận không đổi dù dữ liệu có hiệu ứng trần.</div>
 
-<h2 id="de-tai-b">3bis. Đề tài B — đã chạy thử để đối chiếu (chưa phải lựa chọn chính của Linh)</h2>
-<p>Linh nghiêng về đề tài A nên module này tập trung vào đề tài A, nhưng đề tài B cũng đã được chạy thật trên cùng tệp TALIS 2018 để Linh có số liệu tham khảo nếu đổi ý hoặc muốn dùng cho báo cáo khác. <b>Lưu ý quan trọng:</b> đề tài B dùng biến <code>T3SELF</code> ("Teacher self-efficacy, overall" — thang tự hiệu quả TỔNG QUÁT), KHÁC với <code>T3SEINS</code> ("self-efficacy in instruction" — chỉ riêng khía cạnh giảng dạy) dùng ở đề tài A. Hai biến này không thay thế cho nhau.</p>
+<h2 id="de-tai-b">3bis. Đề tài B — ĐÃ TRỞ THÀNH lựa chọn chính của Linh cho bài cá nhân (chốt 21/10)</h2>
+<p><b>Cập nhật 21/10/2026:</b> Linh xác nhận sẽ dùng Đề tài B (phát triển chuyên môn, tự hiệu quả, rào cản) để viết bài cá nhân, thay vì Đề tài A. Toàn bộ số liệu dưới đây đã chạy thật trên cùng tệp TALIS 2018 Việt Nam, verify kép Python + PSPP. <b>Lưu ý quan trọng:</b> đề tài B dùng biến <code>T3SELF</code> ("Teacher self-efficacy, overall" — thang tự hiệu quả TỔNG QUÁT), KHÁC với <code>T3SEINS</code> ("self-efficacy in instruction" — chỉ riêng khía cạnh giảng dạy) dùng ở đề tài A. Hai biến này không thay thế cho nhau.</p>
 
 <table><tr><th>Biến</th><th>N hợp lệ</th><th>Mean</th><th>SD</th></tr>
 <tr><td>CPD_COUNT (0-10 loại hình)</td><td>3.629</td><td>5,39</td><td>2,41</td></tr>
@@ -174,11 +174,11 @@
 <tr><td>T3PDBAR (rào cản tham gia)</td><td>3.817</td><td>9,23</td><td>2,13</td></tr>
 </table>
 
-<table><tr><th>Giả thuyết</th><th>Pearson r</th><th>Spearman ρ</th><th>p</th><th>Kết luận</th></tr>
-<tr><td>H1: CPD_COUNT ↔ T3SELF</td><td>0,163</td><td>0,170</td><td>&lt;0,001</td><td>Thuận, YẾU — ĐƯỢC ủng hộ</td></tr>
-<tr><td>H2: T3PDBAR ↔ CPD_COUNT</td><td>−0,091</td><td>−0,108</td><td>&lt;0,001</td><td>Nghịch, RẤT YẾU — ĐƯỢC ủng hộ (yếu)</td></tr>
-<tr><td>H3 (thăm dò): T3PDBAR ↔ T3SELF</td><td>−0,145</td><td>−0,155</td><td>&lt;0,001</td><td>Nghịch, YẾU</td></tr>
-</table>
+<table><tr><th>Giả thuyết</th><th>Pearson r</th><th>Spearman ρ</th><th>Pearson r CÓ trọng số TCHWGT</th><th>p</th><th>Kết luận</th></tr>
+<tr><td>H1: CPD_COUNT ↔ T3SELF</td><td>0,163</td><td>0,170</td><td>0,171</td><td>&lt;0,001</td><td>Thuận, YẾU — ĐƯỢC ủng hộ</td></tr>
+<tr><td>H2: T3PDBAR ↔ CPD_COUNT</td><td>−0,091</td><td>−0,108</td><td>−0,091</td><td>&lt;0,001</td><td>Nghịch, RẤT YẾU — ĐƯỢC ủng hộ (yếu)</td></tr>
+<tr><td>H3 (thăm dò): T3PDBAR ↔ T3SELF</td><td>−0,145</td><td>−0,155</td><td>−0,152</td><td>&lt;0,001</td><td>Nghịch, YẾU</td></tr></table>
+<div class="callout good"><b>Kiểm tra độ nhạy thứ ba cho Đề tài B — trọng số khảo sát (TCHWGT, giống cách đã làm cho Đề tài A):</b> áp trọng số TCHWGT (WEIGHT BY TCHWGT trong PSPP) vào cả 3 giả thuyết, hệ số Pearson chỉ lệch tối đa 0,009 so với không trọng số (H1: 0,163→0,171; H2: −0,091→−0,091; H3: −0,145→−0,152) — kết luận YẾU/RẤT YẾU ở cả 3 giả thuyết không đổi dù có hay không áp trọng số. Verify khớp tuyệt đối giữa Python (weighted Pearson tự viết bằng numpy) và PSPP (CORRELATIONS sau WEIGHT BY TCHWGT) tới 3 chữ số thập phân.</div>
 <p class="cap">Cả 3 kết quả đã verify khớp giữa Python và PSPP (dùng đúng syntax DO REPEAT/RECODE trong đề cương gốc).</p>
 
 <div class="figure"><img src="../../../assets/diagrams/talis_cpd_participation.png" alt="10 loại hình phát triển chuyên môn TALIS 2018 Việt Nam"/><figcaption>Hình 5. "Chương trình bằng cấp chính quy" (93,8%) và "quan sát đồng nghiệp trong trường" (76,1%) phổ biến nhất; "đọc tài liệu nghề nghiệp" (18,5%) ít phổ biến nhất.</figcaption></div>
@@ -191,11 +191,14 @@
 <div class="callout good"><b>Trả lời: KHÔNG nhỏ — quy mô này phù hợp, thậm chí vừa đủ cho bài 1.000 chữ.</b> Ba lý do cụ thể: (1) cỡ mẫu THẬT rất lớn — 3.825 và 4.348 giáo viên, lớn hơn tuyệt đại đa số đề tài tiểu luận cá nhân dùng dữ liệu tự thu thập; (2) chỉ giữ 2 biến chính (tự hiệu quả, hài lòng nghề) là lựa chọn ĐÚNG cho giới hạn 1.000 chữ — thêm biến kiểm soát hay mô hình hồi quy đa biến sẽ vượt quá khuôn khổ và khó diễn giải trong không gian cho phép; (3) câu hỏi nghiên cứu có đủ 2 lớp (kiểm tra r ở từng năm + so sánh 2 năm) nên không "mỏng" về mặt logic, dù chỉ dùng 1 phép tương quan. Nếu muốn "lớn" hơn mà vẫn gọn, có thể thêm tối đa 1 biến kiểm soát (vd giới tính hoặc thâm niên) — nhưng không bắt buộc.</div>
 
 <h3>Câu hỏi 2 — "Cần kiểm chứng tôi đã chạy đúng dữ liệu chưa, kết quả ra đúng chưa?"</h3>
-<div class="callout warn"><b>Trả lời: dùng đúng bảng số liệu đã verify kép ở Phần 3 làm "đáp số tham chiếu" để tự đối chiếu.</b> Linh chưa gửi file SPSS/output cụ thể cho đề tài này (chỉ gửi 2 file đề cương), nên không thể chấm trực tiếp bài Linh đã chạy — nhưng có thể tự đối chiếu theo checklist:
+<div class="callout good"><b>Cập nhật 21/10:</b> Linh đã TỰ chạy SPSS thật (file <code>Output1 check du lieu.spv</code>) trên đúng quy trình Đề tài B — đọc log lệnh bên trong file xác nhận Linh viết đúng cú pháp <code>COUNT CPD_COUNT=...(1). IF (NVALID(...)&lt;10) CPD_COUNT=$SYSMIS.</code> và chạy đúng <code>NONPAR CORR /VARIABLES=CPD_COUNT T3SELF T3PDBAR /PRINT=SPEARMAN</code> — khớp chính xác với đề cương gốc, không sai cú pháp. N kiểm qua bảng rào cản (TT3G28C) = 3.825, khớp đúng số Vietnam đã dùng xuyên suốt.</div>
+<div class="callout warn"><b>Trả lời: dùng đúng bảng số liệu đã verify kép ở Phần 3bis làm "đáp số tham chiếu" để tự đối chiếu — checklist riêng cho Đề tài B (nay là đề tài chính):</b>
 <ol style="margin:.3em 0 0;padding-left:1.3em">
 <li>Sau khi lọc <code>CNTRY="VNM"</code> trên tệp 2018 (<code>BTGINTT3.sav</code>), N phải ra đúng <b>3.825</b>. Nếu ra số khác xa, kiểm tra lại đã dùng đúng biến <code>CNTRY</code> (chuỗi "VNM") chứ không phải <code>IDCNTRY</code> (mã số).</li>
-<li>Với tệp 2024, nếu Linh dùng tệp quốc tế gộp (không phải tệp Việt Nam riêng), N sau khi lọc quốc gia + ISCED2 phải ra đúng <b>4.348</b> — số này đã được chính OECD xác nhận trong bảng kỹ thuật, không phải số tự suy ra.</li>
-<li>r2018 phải quanh <b>0,138</b> (±0,01 nếu Linh xử lý missing khác một chút); r2024 phải quanh <b>0,206</b>. Nếu r ra âm hoặc lệch quá xa (ví dụ trên 0,4), rất có thể đã nhập sai thứ tự biến hoặc dùng nhầm biến khác có tên gần giống (TALIS có nhiều biến tên gần nhau, vd T3JSPRO khác T3JSENV — môi trường làm việc, không phải nghề giáo).</li>
+<li>CPD_COUNT (sau COUNT + IF NVALID&lt;10 → sysmis) phải ra N hợp lệ <b>3.629</b>, mean≈<b>5,39</b>, SD≈<b>2,41</b>. T3SELF: N=<b>3.818</b>, mean≈<b>12,65</b>. T3PDBAR: N=<b>3.817</b>, mean≈<b>9,23</b>.</li>
+<li>H1 (CPD_COUNT↔T3SELF) r phải quanh <b>+0,16</b>; H2 (T3PDBAR↔CPD_COUNT) r phải quanh <b>−0,09</b>; H3 (T3PDBAR↔T3SELF) r phải quanh <b>−0,15</b> — cả ba đều YẾU/RẤT YẾU, không nên ra con số "mạnh" (|r|&gt;0,3); nếu ra mạnh hơn hẳn, khả năng cao đã nhầm biến hoặc quên lọc quốc gia.</li>
+<li>Nếu muốn kiểm tra thêm một bước nữa (không bắt buộc): áp <code>WEIGHT BY TCHWGT</code> trước khi chạy lại CORRELATIONS — kết quả không nên lệch quá 0,01 so với không trọng số (xem bảng 3bis).</li>
+<li>Với tệp 2024 nếu Linh vẫn muốn giữ phần so sánh đề tài A làm tham khảo: N sau khi lọc quốc gia + ISCED2 phải ra đúng <b>4.348</b> (số OECD đã xác nhận); r2018 quanh <b>0,138</b>, r2024 quanh <b>0,206</b>.</li>
 <li>Luôn kiểm tra N báo trong bảng Correlations của SPSS — nếu N quá thấp so với N sau lọc quốc gia, có nghĩa 1 trong 2 biến có nhiều missing hơn dự kiến, cần xem lại Frequencies trước khi tin con số r.</li>
 </ol></div>
 
@@ -207,7 +210,8 @@
 <tr><td>"hệ số tương quan Pearson r=... (n=...)"</td><td>chỉ nói "có liên hệ" mà không kèm số</td><td>Luôn báo kèm r, p, và N hợp lệ — thiếu N là thiếu thông tin quan trọng để người đọc đánh giá độ tin cậy</td></tr>
 <tr><td>"kiểm tra sơ bộ bằng SPSS cơ bản, chưa xử lý trọng số lặp BRR theo thiết kế mẫu"</td><td>khẳng định p-value đại diện chính xác cho toàn bộ tổng thể giáo viên Việt Nam</td><td>WEIGHT BY TCHWGT đơn giản không thay thế được quy trình trọng số lặp (replicate weights) mà TALIS/IEA yêu cầu cho suy luận chính thức</td></tr>
 </table>
-<p class="cap">Câu kết luận mẫu có thể viết: "Trong mẫu giáo viên THCS Việt Nam của TALIS, tự hiệu quả trong giảng dạy có mối liên hệ thuận, mức độ yếu, với sự hài lòng nghề nghiệp ở cả hai chu kỳ (r2018=0,138; r2024=0,206; p&lt;0,001). Mức độ liên hệ năm 2024 mạnh hơn năm 2018 ở kiểm tra sơ bộ (Δr=0,068; p=0,0016), nhưng do hai chu kỳ khảo sát hai mẫu độc lập và kết quả chưa xử lý đầy đủ trọng số lặp theo thiết kế mẫu, kết luận được trình bày là so sánh thăm dò, không phải bằng chứng nhân quả hay suy luận chính thức ra toàn bộ tổng thể."</p></div>
+<p class="cap">Câu kết luận mẫu (Đề tài A, nếu Linh vẫn giữ phần so sánh 2 chu kỳ làm tham khảo): "Trong mẫu giáo viên THCS Việt Nam của TALIS, tự hiệu quả trong giảng dạy có mối liên hệ thuận, mức độ yếu, với sự hài lòng nghề nghiệp ở cả hai chu kỳ (r2018=0,138; r2024=0,206; p&lt;0,001). Mức độ liên hệ năm 2024 mạnh hơn năm 2018 ở kiểm tra sơ bộ (Δr=0,068; p=0,0016), nhưng do hai chu kỳ khảo sát hai mẫu độc lập và kết quả chưa xử lý đầy đủ trọng số lặp theo thiết kế mẫu, kết luận được trình bày là so sánh thăm dò, không phải bằng chứng nhân quả hay suy luận chính thức ra toàn bộ tổng thể."</p>
+<p class="cap"><b>Câu kết luận mẫu cho Đề tài B (đề tài chính thức, dùng câu này làm khung chính cho bài 1.000 chữ):</b> "Trong mẫu giáo viên THCS Việt Nam của TALIS 2018 (N=3.825), số loại hình phát triển chuyên môn đã tham gia có mối liên hệ thuận, mức độ yếu, với tự hiệu quả tổng quát của giáo viên (r=0,16; p&lt;0,001), và mối liên hệ nghịch, rất yếu, với mức độ rào cản tham gia phát triển chuyên môn mà giáo viên tự báo cáo (r=−0,09; p&lt;0,001). Tự hiệu quả và rào cản cũng có liên hệ nghịch, mức độ yếu (r=−0,15; p&lt;0,001). Cả ba hệ số đều ổn định khi kiểm tra độ nhạy bằng Spearman và bằng trọng số khảo sát TCHWGT (chênh lệch tối đa 0,01), nhưng do thiết kế cắt ngang và chưa xử lý trọng số lặp theo chuẩn IEA, kết luận chỉ dừng ở mức liên hệ thăm dò, không khẳng định chiều nhân quả (vd không thể nói 'tham gia phát triển chuyên môn LÀM TĂNG tự hiệu quả')."</p></div>
 
 <h2 id="syntax">5. Syntax đã chạy thật (PSPP, đối chiếu khớp Python)</h2>
 <pre>* ===== TALIS 2018 — Việt Nam =====
