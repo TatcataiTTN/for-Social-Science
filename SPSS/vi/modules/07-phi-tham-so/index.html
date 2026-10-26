@@ -142,6 +142,7 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 
 <h2 id="mw">3. Mann-Whitney U test</h2>
 <p>Tương đương phi tham số của <b>t-test mẫu độc lập</b> — dùng cho 2 mẫu độc lập với ít nhất 1 biến thứ bậc, không cần giả định phân phối chuẩn. Dựa trên THỨ HẠNG: đếm số lần điểm nhóm này xếp cao hơn nhóm kia (tr.793).</p>
+<p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> xếp CHUNG tất cả người của cả 2 nhóm vào một hàng, từ điểm thấp nhất tới cao nhất (không quan tâm điểm chính xác bao nhiêu, chỉ quan tâm AI ĐỨNG TRƯỚC AI). Nếu người của nhóm nào đó có xu hướng đứng dồn về phía cuối hàng (điểm cao), nhóm đó "thắng" — không cần biết điểm trung bình chính xác, chỉ cần biết thứ hạng.</p>
 <div class="pd-formula"><div class="pd-formula-label">Thống kê U (Mann-Whitney)</div><div class="pd-formula-math">U₁ = n₁n₂ + n₁(n₁+1)/2 − R₁</div></div>
 <ul class="pd-legend"><li><b>n₁, n₂</b><span>cỡ mẫu của nhóm 1 và nhóm 2</span></li>
 <li><b>R₁</b><span>tổng THỨ HẠNG (rank) của nhóm 1, sau khi gộp cả 2 nhóm rồi xếp hạng chung toàn bộ quan sát</span></li>
@@ -163,18 +164,45 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 
 <h2 id="wilcoxon">4. Wilcoxon test</h2>
 <p>Tương đương phi tham số của <b>t-test bắt cặp</b> — dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số (tr.795–796).</p>
+<p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> với MỖI người, xem họ TĂNG hay GIẢM giữa 2 lần đo, và tăng/giảm nhiều hay ít (xếp hạng độ lớn thay đổi, không dùng điểm số thô) — rồi so tổng phần "tăng" với tổng phần "giảm" của cả nhóm. Nếu phần tăng và phần giảm xấp xỉ cân bằng nhau, kết luận "không đổi gì nhiều"; nếu lệch hẳn về một phía, kết luận "có thay đổi thật".</p>
 <p>Ví dụ sách: cùng 1 nhóm đánh giá 2 biến khoá học ("khoá học vừa đủ" và "giảng viên chuẩn bị tốt"), kết quả có ý nghĩa (p=0,000) — nhóm đánh giá tích cực hơn cho biến "giảng viên chuẩn bị tốt".</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Wilcoxon so sánh 2 mục đánh giá a1 và a2 (cùng 240 học sinh trả lời cả 2): p=0,920 — hoàn toàn KHÔNG có khác biệt (TB a1=2,908, a2=2,904, rất gần nhau).</div>
 
+<details class="slide-zoom"><summary>🔍 Mở rộng: Wilcoxon ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
+<p><b>Y tế (minh hoạ):</b> đo mức đau (thang 0-10) của CÙNG một nhóm bệnh nhân TRƯỚC và SAU khi dùng một loại thuốc giảm đau mới — 2 lần đo trên cùng người, dữ liệu thứ bậc (thang đau tự báo cáo), đúng tình huống Wilcoxon thay vì t-test bắt cặp.</p>
+<table><tr><th>Bệnh nhân</th><th>Đau trước (0-10)</th><th>Đau sau (0-10)</th><th>Thay đổi</th></tr>
+<tr><td>BN1</td><td>7</td><td>4</td><td>Giảm</td></tr>
+<tr><td>BN2</td><td>5</td><td>5</td><td>Không đổi</td></tr>
+<tr><td>BN3</td><td>8</td><td>3</td><td>Giảm</td></tr>
+<tr><td>BN4</td><td>6</td><td>7</td><td>Tăng</td></tr></table>
+<p class="cap">(minh hoạ — 4 dòng số liệu giả định chỉ để thấy rõ cấu trúc dữ liệu bắt cặp, không phải số liệu thật từ bất kỳ nghiên cứu y tế nào)</p>
+<p><b>Marketing (minh hoạ):</b> CÙNG một nhóm khách hàng chấm điểm mức hài lòng với giao diện website (thang 1-5) TRƯỚC và SAU khi redesign — nếu đa số khách đổi theo hướng "tăng điểm", Wilcoxon sẽ cho p nhỏ, kết luận redesign có hiệu quả.</p>
+</div></details>
+
 <h2 id="kw">5. Kruskal-Wallis test</h2>
 <p>Tương đương phi tham số của <b>ANOVA một chiều</b> — dùng cho 3+ nhóm độc lập với dữ liệu thứ bậc (tr.797).</p>
+<p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> giống hệt ý tưởng Mann-Whitney ở trên, nhưng áp dụng cho TỪ 3 NHÓM trở lên thay vì chỉ 2 — xếp hạng chung tất cả mọi người của mọi nhóm vào một hàng, rồi xem có nhóm nào đứng dồn lệch hẳn về một phía (toàn điểm cao, hoặc toàn điểm thấp) so với các nhóm còn lại không.</p>
 <p>Ví dụ sách: 4 nhóm giáo viên theo thâm niên đánh giá một khía cạnh khoá học, χ²=11,595, p=0,009 → có ý nghĩa. Giống Mann-Whitney, Kruskal-Wallis KHÔNG tự chỉ ra nhóm nào khác biệt — phải quay lại bảng chéo: nhóm 16-18 năm thâm niên tích cực nhất (tr.798).</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Kruskal-Wallis cho đánh giá h1 theo 3 trường: H=2,844, p=0,241 — không có ý nghĩa, khác với kết quả có ý nghĩa (F=5,87, p=0,003) khi so sánh điểm Toán theo trường ở Module 06 (hai biến khác nhau, hai câu trả lời khác nhau).</div>
 
+<details class="slide-zoom"><summary>🔍 Mở rộng: Kruskal-Wallis ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
+<p><b>Y tế (minh hoạ):</b> so sánh mức độ đau sau phẫu thuật (thang 0-10) giữa 3 NHÓM BỆNH NHÂN ĐỘC LẬP, mỗi nhóm dùng một loại thuốc giảm đau khác nhau — 3 nhóm, dữ liệu thứ bậc, đúng tình huống Kruskal-Wallis thay vì ANOVA.</p>
+<p><b>Kinh tế/lao động (minh hoạ):</b> so sánh mức hài lòng công việc (thang Likert) giữa nhân viên ở 3 ngành nghề khác nhau (CNTT, bán lẻ, sản xuất) — 3 nhóm độc lập, không có ai vừa làm CNTT vừa làm bán lẻ.</p>
+<p><b>Nông nghiệp (minh hoạ):</b> so sánh năng suất (tấn/ha, xếp hạng vì phân bố lệch do thời tiết) giữa 3 giống lúa khác nhau trồng trên các thửa ruộng độc lập — nếu một giống liên tục xếp hạng cao hơn 2 giống còn lại, Kruskal-Wallis sẽ phát hiện ra.</p>
+</div></details>
+
 <h2 id="friedman">6. Friedman test</h2>
 <p>Tương đương phi tham số của <b>ANOVA đo lường lặp lại</b> — dùng khi CÙNG một nhóm đánh giá 3+ biến/thời điểm, dữ liệu thứ bậc (tr.798–799).</p>
+<p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> giống Wilcoxon (trước-sau) nhưng mở rộng cho TỪ 3 LẦN ĐO trở lên trên CÙNG một nhóm người — mỗi người được xếp hạng riêng giữa các lần đo của chính họ (lần nào họ chấm cao nhất, lần nào thấp nhất), rồi xem thứ hạng đó có nhất quán giữa mọi người trong nhóm hay không.</p>
 <p>Ví dụ sách: cùng 1 nhóm đánh giá 3 biến khoá học, χ²=0,353, p=0,838 → KHÔNG có ý nghĩa, H0 được ủng hộ.</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Friedman cho 3 mục a1, a2, a3 (cùng 240 học sinh): χ²=0,555, p=0,758 — cùng mẫu hình với ví dụ sách: nhóm đánh giá các khía cạnh liên quan khá đồng đều.</div>
+
+<details class="slide-zoom"><summary>🔍 Mở rộng: Friedman ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
+<p><b>Y tế (minh hoạ):</b> CÙNG một nhóm bệnh nhân lần lượt thử 3 loại thuốc giảm đau khác nhau (mỗi loại một đợt), rồi tự chấm điểm hài lòng (thang 1-5) cho cả 3 loại — 3 lần đo trên cùng người, đúng tình huống Friedman thay vì ANOVA đo lặp.</p>
+<p><b>Thể thao (minh hoạ):</b> CÙNG một nhóm vận động viên chạy thử và xếp hạng mức thoải mái của 3 mẫu giày chạy khác nhau — mỗi người tự so sánh 3 đôi giày, Friedman xem thứ hạng "giày nào thoải mái nhất" có nhất quán giữa các vận động viên hay không.</p>
+<p><b>Marketing (minh hoạ):</b> CÙNG một nhóm người tiêu dùng xem và xếp hạng 3 mẫu quảng cáo khác nhau cho cùng 1 sản phẩm — xem có mẫu quảng cáo nào được xếp hạng nhất quán cao hơn 2 mẫu còn lại không.</p>
+</div></details>
+
 <div class="callout warn"><b>Điểm chung của 4 kiểm định phi tham số:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman đều CHỈ cho biết ý nghĩa thống kê, KHÔNG cho cỡ hiệu ứng — khác với t-test/ANOVA (Cohen's d, eta²). Riêng Friedman có thêm Kendall's W, nhưng thường dùng để đo mức đồng thuận giữa người xếp hạng hơn là cỡ hiệu ứng giữa các biến (tr.799).</div>
 
 <h2 id="thuc-hanh">7. Thực hành SPSS/PSPP</h2>
