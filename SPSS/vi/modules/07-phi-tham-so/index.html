@@ -134,6 +134,7 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <details class="slide-zoom"><summary>🔍 Mở rộng: ví dụ chi-square ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
 <p><b>Y tế (minh hoạ):</b> bảng chéo "Có tiêm vắc-xin cúm" (Có/Không) × "Mắc cúm mùa đông" (Có/Không) trên 200 người — χ² kiểm tra xem 2 biến định danh này có độc lập với nhau không, đúng logic giống hệt bảng Giới tính × Phương pháp ở trên, chỉ khác domain.</p>
 <p><b>Marketing (minh hoạ):</b> bảng chéo "Nhóm tuổi" (18-25/26-35/36+) × "Kênh mua hàng ưa thích" (Online/Tại cửa hàng) — bảng 3×2, df=(3−1)(2−1)=2, KHÔNG áp Yates's correction (chỉ áp cho đúng bảng 2×2).</p>
+<p><b>Chính trị/bầu cử (minh hoạ):</b> bảng chéo "Khu vực" (Thành thị/Nông thôn) × "Đảng được bầu" (A/B/C) trong một cuộc khảo sát ý định bỏ phiếu — bảng 2×3, df=2, dùng để kiểm tra xem khu vực sinh sống có liên quan tới lựa chọn đảng hay không.</p>
 </div></details>
 
 <h2 id="df">2. Bậc tự do (Degrees of Freedom)</h2>
@@ -160,6 +161,7 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <details class="slide-zoom"><summary>🔍 Mở rộng: Mann-Whitney ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
 <p><b>Pháp luật (minh hoạ):</b> so sánh "mức độ hài lòng với quy trình xét xử" (thang Likert 1-5) giữa nhóm "có luật sư đại diện" và "không có luật sư đại diện" — dữ liệu thứ bậc, 2 nhóm độc lập → đúng tình huống dùng Mann-Whitney thay vì t-test.</p>
 <p><b>Bất động sản (minh hoạ):</b> so sánh "mức độ hài lòng với dịch vụ môi giới" giữa khách mua nhà lần đầu và khách mua lại — cùng logic: thang đánh giá chủ quan (thứ bậc), 2 nhóm khách hàng độc lập.</p>
+<p><b>Công nghiệp/sản xuất (minh hoạ):</b> so sánh "mức độ hài lòng với ca làm việc" (thang Likert 1-5) giữa công nhân ca NGÀY và ca ĐÊM — 2 nhóm độc lập, dữ liệu thứ bậc, phù hợp Mann-Whitney hơn t-test vì thang Likert không đảm bảo khoảng cách đều giữa các mức.</p>
 </div></details>
 
 <h2 id="wilcoxon">4. Wilcoxon test</h2>
@@ -167,6 +169,19 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> với MỖI người, xem họ TĂNG hay GIẢM giữa 2 lần đo, và tăng/giảm nhiều hay ít (xếp hạng độ lớn thay đổi, không dùng điểm số thô) — rồi so tổng phần "tăng" với tổng phần "giảm" của cả nhóm. Nếu phần tăng và phần giảm xấp xỉ cân bằng nhau, kết luận "không đổi gì nhiều"; nếu lệch hẳn về một phía, kết luận "có thay đổi thật".</p>
 <p>Ví dụ sách: cùng 1 nhóm đánh giá 2 biến khoá học ("khoá học vừa đủ" và "giảng viên chuẩn bị tốt"), kết quả có ý nghĩa (p=0,000) — nhóm đánh giá tích cực hơn cho biến "giảng viên chuẩn bị tốt".</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Wilcoxon so sánh 2 mục đánh giá a1 và a2 (cùng 240 học sinh trả lời cả 2): p=0,920 — hoàn toàn KHÔNG có khác biệt (TB a1=2,908, a2=2,904, rất gần nhau).</div>
+
+<div class="callout good"><b>Phép tính tay từng bước (minh hoạ — số liệu giả định cho 6 người, verify bằng <code>scipy.stats.wilcoxon</code>, không phải trích từ dữ liệu lớp học thật):</b>
+<table><tr><th>Người</th><th>Trước</th><th>Sau</th><th>Hiệu (Trước−Sau)</th></tr>
+<tr><td>1</td><td>7</td><td>4</td><td>+3</td></tr>
+<tr><td>2</td><td>5</td><td>5</td><td>0 (loại — không đổi)</td></tr>
+<tr><td>3</td><td>8</td><td>3</td><td>+5</td></tr>
+<tr><td>4</td><td>6</td><td>7</td><td>−1</td></tr>
+<tr><td>5</td><td>9</td><td>5</td><td>+4</td></tr>
+<tr><td>6</td><td>4</td><td>6</td><td>−2</td></tr></table>
+<p>Bước 1 — bỏ người có hiệu=0 (không đổi), còn lại 5 người. Xếp hạng trị tuyệt đối |hiệu| tăng dần: |−1|=1→hạng 1, |−2|=2→hạng 2, |+3|=3→hạng 3, |+4|=4→hạng 4, |+5|=5→hạng 5.</p>
+<p>Bước 2 — cộng hạng riêng cho dấu DƯƠNG và dấu ÂM: hạng dương (người 1,3,5) = 3+4+5=<b>12</b>; hạng âm (người 4,6) = 1+2=<b>3</b>.</p>
+<p>Bước 3 — kiểm tra: tổng 2 phần phải bằng n(n+1)/2 = 5×6/2=15 → 12+3=15 ✓. Thống kê W = phần NHỎ HƠN trong 2 tổng = <b>3</b>.</p>
+<p class="cap">W=3 nhỏ hơn hẳn giá trị kỳ vọng khi không có thay đổi gì (15/2=7,5) → nghiêng về có thay đổi thật (p=0,225 với mẫu rất nhỏ n=5, chưa đủ ý nghĩa thống kê — minh hoạ cho thấy cỡ mẫu nhỏ làm khó đạt ý nghĩa dù xu hướng khá rõ).</p></div>
 
 <details class="slide-zoom"><summary>🔍 Mở rộng: Wilcoxon ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
 <p><b>Y tế (minh hoạ):</b> đo mức đau (thang 0-10) của CÙNG một nhóm bệnh nhân TRƯỚC và SAU khi dùng một loại thuốc giảm đau mới — 2 lần đo trên cùng người, dữ liệu thứ bậc (thang đau tự báo cáo), đúng tình huống Wilcoxon thay vì t-test bắt cặp.</p>
@@ -177,6 +192,7 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <tr><td>BN4</td><td>6</td><td>7</td><td>Tăng</td></tr></table>
 <p class="cap">(minh hoạ — 4 dòng số liệu giả định chỉ để thấy rõ cấu trúc dữ liệu bắt cặp, không phải số liệu thật từ bất kỳ nghiên cứu y tế nào)</p>
 <p><b>Marketing (minh hoạ):</b> CÙNG một nhóm khách hàng chấm điểm mức hài lòng với giao diện website (thang 1-5) TRƯỚC và SAU khi redesign — nếu đa số khách đổi theo hướng "tăng điểm", Wilcoxon sẽ cho p nhỏ, kết luận redesign có hiệu quả.</p>
+<p><b>Nông nghiệp (minh hoạ):</b> năng suất (tấn/ha) trên CÙNG các thửa ruộng, đo TRƯỚC và SAU khi đổi sang loại phân bón mới — mỗi thửa ruộng là "một người" trong cặp trước-sau, dữ liệu dễ bị ảnh hưởng bởi thời tiết nên phân phối không chuẩn, phù hợp Wilcoxon hơn t-test bắt cặp.</p>
 </div></details>
 
 <h2 id="kw">5. Kruskal-Wallis test</h2>
@@ -185,10 +201,21 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p>Ví dụ sách: 4 nhóm giáo viên theo thâm niên đánh giá một khía cạnh khoá học, χ²=11,595, p=0,009 → có ý nghĩa. Giống Mann-Whitney, Kruskal-Wallis KHÔNG tự chỉ ra nhóm nào khác biệt — phải quay lại bảng chéo: nhóm 16-18 năm thâm niên tích cực nhất (tr.798).</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Kruskal-Wallis cho đánh giá h1 theo 3 trường: H=2,844, p=0,241 — không có ý nghĩa, khác với kết quả có ý nghĩa (F=5,87, p=0,003) khi so sánh điểm Toán theo trường ở Module 06 (hai biến khác nhau, hai câu trả lời khác nhau).</div>
 
+<div class="callout good"><b>Phép tính tay từng bước (minh hoạ — 3 nhóm × 3 người, verify bằng <code>scipy.stats.kruskal</code>, không phải trích từ dữ liệu lớp học thật):</b>
+<table><tr><th>Nhóm 1</th><th>Nhóm 2</th><th>Nhóm 3</th></tr>
+<tr><td>12</td><td>9</td><td>16</td></tr>
+<tr><td>15</td><td>11</td><td>18</td></tr>
+<tr><td>14</td><td>10</td><td>17</td></tr></table>
+<p>Bước 1 — gộp cả 9 giá trị, xếp hạng tăng dần: 9→hạng1(N2), 10→hạng2(N2), 11→hạng3(N2), 12→hạng4(N1), 14→hạng5(N1), 15→hạng6(N1), 16→hạng7(N3), 17→hạng8(N3), 18→hạng9(N3).</p>
+<p>Bước 2 — cộng hạng từng nhóm: R₁=4+5+6=<b>15</b>; R₂=1+2+3=<b>6</b>; R₃=7+8+9=<b>24</b>.</p>
+<p>Bước 3 — thay vào công thức H = [12/(N(N+1))] × Σ(Rᵢ²/nᵢ) − 3(N+1), với N=9: Σ(Rᵢ²/nᵢ) = 15²/3 + 6²/3 + 24²/3 = 75+12+192=279. H = (12/90)×279 − 3×10 = 37,2−30 = <b>7,2</b>.</p>
+<p class="cap">H=7,2 với df=(3 nhóm−1)=2 cho p=0,027 — có ý nghĩa ở mức 0,05: Nhóm 3 xếp hạng cao hẳn (toàn hạng 7-9), Nhóm 2 thấp hẳn (toàn hạng 1-3) — khác biệt rõ ràng ngay từ cách nhìn thứ hạng, trước cả khi tính ra con số H.</p></div>
+
 <details class="slide-zoom"><summary>🔍 Mở rộng: Kruskal-Wallis ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
 <p><b>Y tế (minh hoạ):</b> so sánh mức độ đau sau phẫu thuật (thang 0-10) giữa 3 NHÓM BỆNH NHÂN ĐỘC LẬP, mỗi nhóm dùng một loại thuốc giảm đau khác nhau — 3 nhóm, dữ liệu thứ bậc, đúng tình huống Kruskal-Wallis thay vì ANOVA.</p>
 <p><b>Kinh tế/lao động (minh hoạ):</b> so sánh mức hài lòng công việc (thang Likert) giữa nhân viên ở 3 ngành nghề khác nhau (CNTT, bán lẻ, sản xuất) — 3 nhóm độc lập, không có ai vừa làm CNTT vừa làm bán lẻ.</p>
 <p><b>Nông nghiệp (minh hoạ):</b> so sánh năng suất (tấn/ha, xếp hạng vì phân bố lệch do thời tiết) giữa 3 giống lúa khác nhau trồng trên các thửa ruộng độc lập — nếu một giống liên tục xếp hạng cao hơn 2 giống còn lại, Kruskal-Wallis sẽ phát hiện ra.</p>
+<p><b>Chính trị/bầu cử (minh hoạ):</b> so sánh mức độ ủng hộ một chính sách (thang 0-10) giữa 3 nhóm độ tuổi cử tri (18-35 / 36-55 / 56+) — 3 nhóm độc lập, dữ liệu khảo sát thái độ thường lệch, phù hợp Kruskal-Wallis hơn ANOVA.</p>
 </div></details>
 
 <h2 id="friedman">6. Friedman test</h2>
@@ -197,10 +224,22 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p>Ví dụ sách: cùng 1 nhóm đánh giá 3 biến khoá học, χ²=0,353, p=0,838 → KHÔNG có ý nghĩa, H0 được ủng hộ.</p>
 <div class="callout"><b>Dữ liệu lớp học thật:</b> Friedman cho 3 mục a1, a2, a3 (cùng 240 học sinh): χ²=0,555, p=0,758 — cùng mẫu hình với ví dụ sách: nhóm đánh giá các khía cạnh liên quan khá đồng đều.</div>
 
+<div class="callout good"><b>Phép tính tay từng bước (minh hoạ — 4 người × 3 điều kiện, verify bằng <code>scipy.stats.friedmanchisquare</code>, không phải trích từ dữ liệu lớp học thật):</b>
+<table><tr><th>Người</th><th>Điều kiện 1</th><th>Điều kiện 2</th><th>Điều kiện 3</th></tr>
+<tr><td>1</td><td>5</td><td>7</td><td>6</td></tr>
+<tr><td>2</td><td>6</td><td>8</td><td>7</td></tr>
+<tr><td>3</td><td>4</td><td>6</td><td>5</td></tr>
+<tr><td>4</td><td>7</td><td>8</td><td>6</td></tr></table>
+<p>Bước 1 — xếp hạng RIÊNG cho từng người (1=thấp nhất, 3=cao nhất trong 3 điều kiện của chính họ): người 1: ĐK1=hạng1, ĐK3=hạng2, ĐK2=hạng3. Người 2: ĐK1=hạng1, ĐK3=hạng2, ĐK2=hạng3. Người 3: ĐK1=hạng1, ĐK3=hạng2, ĐK2=hạng3. Người 4: ĐK3=hạng1, ĐK1=hạng2, ĐK2=hạng3.</p>
+<p>Bước 2 — cộng hạng theo CỘT (điều kiện): R(ĐK1)=1+1+1+2=<b>5</b>; R(ĐK2)=3+3+3+3=<b>12</b>; R(ĐK3)=2+2+2+1=<b>7</b>.</p>
+<p>Bước 3 — thay vào công thức χ² = [12/(n·k·(k+1))]×ΣRⱼ² − 3n(k+1), với n=4 người, k=3 điều kiện: n·k·(k+1)=4×3×4=48; ΣRⱼ²=5²+12²+7²=25+144+49=218. χ² = (12/48)×218 − 3×4×4 = 54,5−48 = <b>6,5</b>.</p>
+<p class="cap">χ²=6,5 với df=(3−1)=2 cho p=0,039 — có ý nghĩa: Điều kiện 2 được xếp hạng cao nhất một cách nhất quán ở CẢ 4 người (luôn hạng 3), Điều kiện 1 luôn thấp nhất hoặc gần thấp nhất — sự nhất quán đó chính là điều Friedman phát hiện ra.</p></div>
+
 <details class="slide-zoom"><summary>🔍 Mở rộng: Friedman ở ngành khác (minh hoạ)</summary><div class="slide-zoom-body">
 <p><b>Y tế (minh hoạ):</b> CÙNG một nhóm bệnh nhân lần lượt thử 3 loại thuốc giảm đau khác nhau (mỗi loại một đợt), rồi tự chấm điểm hài lòng (thang 1-5) cho cả 3 loại — 3 lần đo trên cùng người, đúng tình huống Friedman thay vì ANOVA đo lặp.</p>
 <p><b>Thể thao (minh hoạ):</b> CÙNG một nhóm vận động viên chạy thử và xếp hạng mức thoải mái của 3 mẫu giày chạy khác nhau — mỗi người tự so sánh 3 đôi giày, Friedman xem thứ hạng "giày nào thoải mái nhất" có nhất quán giữa các vận động viên hay không.</p>
 <p><b>Marketing (minh hoạ):</b> CÙNG một nhóm người tiêu dùng xem và xếp hạng 3 mẫu quảng cáo khác nhau cho cùng 1 sản phẩm — xem có mẫu quảng cáo nào được xếp hạng nhất quán cao hơn 2 mẫu còn lại không.</p>
+<p><b>Pháp luật (minh hoạ):</b> CÙNG một hội đồng thẩm phán xếp hạng mức độ nghiêm trọng của 3 loại vi phạm khác nhau trong cùng một bộ hồ sơ tình huống — xem các thẩm phán có nhất quán với nhau về thứ tự nghiêm trọng hay không, trước khi dùng kết quả để xây khung hình phạt.</p>
 </div></details>
 
 <div class="callout warn"><b>Điểm chung của 4 kiểm định phi tham số:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman đều CHỈ cho biết ý nghĩa thống kê, KHÔNG cho cỡ hiệu ứng — khác với t-test/ANOVA (Cohen's d, eta²). Riêng Friedman có thêm Kendall's W, nhưng thường dùng để đo mức đồng thuận giữa người xếp hạng hơn là cỡ hiệu ứng giữa các biến (tr.799).</div>
