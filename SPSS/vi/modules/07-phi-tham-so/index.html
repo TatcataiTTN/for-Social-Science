@@ -18,10 +18,19 @@
 <div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE 07 · COHEN ET AL., CH.41.4–41.7</div>
        <h2>Chi-square & Kiểm định phi tham số</h2>
        <p>Bảng chéo, χ², bậc tự do, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman.</p>
-       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div>
+       <p class="cap">← → để chuyển slide.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/5</div>
        <div class="part-num">01</div>
-       <h2>Chi-square & bậc tự do</h2>
-       <ul class="part-list"><li>Quan sát vs Kỳ vọng</li><li>Dữ liệu thật: Giới tính × Phương pháp</li><li>Cảnh báo: quy tắc 20%</li><li>Bậc tự do là gì</li></ul></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Quan sát vs Kỳ vọng</h2>
+       <h2>Khái niệm & đặc điểm</h2>
+       <ul class="part-list"><li>Kiểm định phi tham số là gì</li><li>4 đặc điểm chính</li><li>Khi nào dùng thay vì t-test/ANOVA</li><li>Đánh đổi: được gì, mất gì</li></ul></div><div class="mdeck-slide"><div class="kicker">0 · Khái niệm</div><h2>Kiểm định phi tham số là gì?</h2>
+       <p>Không giả định dữ liệu tổng thể tuân theo một phân phối cụ thể (vd phân phối chuẩn) — làm việc trực tiếp trên THỨ HẠNG hoặc TẦN SỐ thay vì ước lượng tham số tổng thể (μ, σ).</p>
+       <p class="cap">Vì vậy còn gọi là "distribution-free test" — kiểm định không phụ thuộc phân phối.</p></div><div class="mdeck-slide"><div class="kicker">4 đặc điểm chính</div><h2>Không chuẩn, không khoảng đều, ít nhạy outlier, mẫu nhỏ vẫn dùng được</h2>
+       <table><tr><th>Đặc điểm</th><th>Ý nghĩa</th></tr>
+       <tr><td>Không cần phân phối chuẩn</td><td>Không phải kiểm tra Shapiro-Wilk/Kolmogorov-Smirnov trước khi chạy</td></tr>
+       <tr><td>Dùng được dữ liệu thứ bậc/định danh</td><td>Không cần thang đo khoảng cách đều (interval/ratio) như t-test/ANOVA</td></tr>
+       <tr><td>Ít nhạy cảm với giá trị ngoại lai</td><td>Vì chuyển giá trị thô thành HẠNG trước khi tính, 1 giá trị cực đoan không "kéo" kết quả</td></tr>
+       <tr><td>Phù hợp cỡ mẫu nhỏ</td><td>Khi N quá nhỏ để kiểm tra chuẩn đáng tin cậy</td></tr></table></div><div class="mdeck-slide"><div class="kicker">Khi nào dùng</div><h2>4 tình huống nên chọn phi tham số thay vì t-test/ANOVA</h2>
+       <ul class="part-list"><li>Dữ liệu là thang Likert/thứ bậc (ordinal), không đảm bảo khoảng cách đều</li><li>Kiểm tra chuẩn thất bại (Shapiro-Wilk p&lt;0,05) và mẫu không đủ lớn để nhờ định lý giới hạn trung tâm</li><li>Có giá trị ngoại lai mạnh làm lệch trung bình/phương sai</li><li>Cỡ mẫu nhỏ (thường N&lt;30 mỗi nhóm) — khó kiểm tra giả định tham số đáng tin</li></ul></div><div class="mdeck-slide"><div class="kicker">Đánh đổi</div><h2 class="warn">Đổi "đúng giả định hơn" lấy "ít thông tin & ít sức mạnh hơn"</h2>
+       <p>Ưu điểm: an toàn hơn về giả định. Nhược điểm: mất chi tiết (chỉ còn hạng, không còn giá trị thô), power thường THẤP hơn kiểm định tham số tương ứng NẾU dữ liệu thực ra đủ điều kiện dùng tham số, và đa số chỉ cho biết CÓ/KHÔNG khác biệt — không tự ra cỡ hiệu ứng.</p></div><div class="mdeck-slide"><div class="kicker">1 · Chi-square</div><h2>Quan sát vs Kỳ vọng</h2>
        <p>χ² so sánh tần số QUAN SÁT với tần số KỲ VỌNG trong bảng chéo (dữ liệu định danh).</p>
        <p class="cap">Kỳ vọng mỗi ô = (Tổng hàng × Tổng cột) / Tổng chung.</p></div><div class="mdeck-slide"><div class="kicker">Công thức</div><h2>χ² = Σ (O − E)² / E</h2>
        <table><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
@@ -46,7 +55,7 @@
        <p class="cap">&gt;25% ô nhỏ → dùng Fisher's Exact Test thay thế.</p></div><div class="mdeck-slide"><div class="kicker">2 · Bậc tự do</div><h2>Số giá trị được TỰ DO trước khi bị ràng buộc</h2>
        <p class="big">df = (số hàng − 1) + (số cột − 1)</p>
        <p class="cap">Bảng 2×3 → df=3. Mỗi ràng buộc (vd tổng cố định) làm giảm 1 bậc tự do.</p></div><div class="mdeck-slide"><div class="kicker">Trực giác</div><h2>Chọn 5 số, tổng cố định=25 → df=4</h2>
-       <p class="cap">4 số đầu được TỰ DO chọn, số thứ 5 bị RÀNG BUỘC (phải đúng bằng 25 trừ tổng 4 số kia) → df=N−1=4 (Cohen & Holliday).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div>
+       <p class="cap">4 số đầu được TỰ DO chọn, số thứ 5 bị RÀNG BUỘC (phải đúng bằng 25 trừ tổng 4 số kia) → df=N−1=4 (Cohen & Holliday).</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/5</div>
        <div class="part-num">02</div>
        <h2>Thay thế t-test phi tham số</h2>
        <ul class="part-list"><li>Mann-Whitney U — tương đương phi tham số của t-test độc lập</li><li>Dữ liệu thật: đánh giá theo giới tính</li><li>Wilcoxon — tương đương phi tham số của t-test bắt cặp</li></ul></div><div class="mdeck-slide"><div class="kicker">3 · Mann-Whitney U</div><h2>Tương đương phi tham số của t-test độc lập</h2>
@@ -60,7 +69,7 @@
        <p class="cap">Nam cảm thấy mạnh mẽ hơn nữ về việc khoá học cho phép học theo tốc độ riêng.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo giới tính: U=6416, p=0,127</h2>
        <img src="../../../assets/diagrams/nonparam_ranks.png" alt="mann whitney"/></div><div class="mdeck-slide"><div class="kicker">4 · Wilcoxon</div><h2>Tương đương phi tham số của t-test bắt cặp</h2>
        <p>Dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>So sánh a1 vs a2 (cùng 240 HS): p=0,920</h2>
-       <p class="cap">TB a1=2,908, a2=2,904 — hoàn toàn KHÔNG có khác biệt, 2 mục được cảm nhận rất tương đồng.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div>
+       <p class="cap">TB a1=2,908, a2=2,904 — hoàn toàn KHÔNG có khác biệt, 2 mục được cảm nhận rất tương đồng.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/5</div>
        <div class="part-num">03</div>
        <h2>Thay thế ANOVA phi tham số</h2>
        <ul class="part-list"><li>Kruskal-Wallis & Friedman — tương đương phi tham số của ANOVA</li></ul></div><div class="mdeck-slide"><div class="kicker">5 · Kruskal-Wallis & Friedman</div><h2>Tương đương phi tham số của ANOVA</h2>
@@ -70,8 +79,8 @@
        <p class="cap">Có ý nghĩa — nhưng KHÔNG tự chỉ ra nhóm nào khác biệt; nhóm 16-18 năm thâm niên tích cực nhất.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>Đánh giá h1 theo 3 trường: H=2,844, p=0,241</h2>
        <p class="cap">Không có ý nghĩa — khác với F=5,87,p=0,003 khi so điểm Toán theo trường (Module 06) — 2 biến khác nhau, 2 câu trả lời khác nhau.</p></div><div class="mdeck-slide"><div class="kicker">Friedman</div><h2>Tương đương phi tham số của ANOVA đo lường lặp lại</h2>
        <p class="cap">Ví dụ sách: 3 biến khoá học, χ²=0,353, p=0,838 — KHÔNG có ý nghĩa.</p></div><div class="mdeck-slide"><div class="kicker">Dữ liệu thật</div><h2>3 mục a1,a2,a3 (n=240): χ²=0,555, p=0,758</h2>
-       <p class="cap">Cùng mẫu hình với sách — Kendall's W đo mức ĐỒNG THUẬN giữa người xếp hạng, không phải cỡ hiệu ứng giữa biến.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div>
-       <div class="part-num">04</div>
+       <p class="cap">Cùng mẫu hình với sách — Kendall's W đo mức ĐỒNG THUẬN giữa người xếp hạng, không phải cỡ hiệu ứng giữa biến.</p></div><div class="mdeck-slide part-divider"><div class="kicker">PHẦN 5/5</div>
+       <div class="part-num">05</div>
        <h2>Tổng kết & tiếp theo</h2>
        <ul class="part-list"><li>Bảng tương ứng đầy đủ 4 cặp tham số ↔ phi tham số</li><li>Điểm chung: chỉ có ý nghĩa, không có cỡ hiệu ứng</li><li>Bước tiếp theo</li></ul></div><div class="mdeck-slide"><div class="kicker">Bảng tương ứng đầy đủ</div><h2>Ghi nhớ 4 cặp tham số ↔ phi tham số</h2>
        <table><tr><th>Tham số</th><th>Phi tham số</th></tr>
@@ -90,11 +99,27 @@
 </div></div>
 
 <div class="btnrow">
- <a class="tag" href="#chi2">Chi-square</a><a class="tag" href="#df">Bậc tự do</a>
+ <a class="tag" href="#khai-niem">Khái niệm & đặc điểm</a><a class="tag" href="#chi2">Chi-square</a><a class="tag" href="#df">Bậc tự do</a>
  <a class="tag" href="#mw">Mann-Whitney</a><a class="tag" href="#wilcoxon">Wilcoxon</a>
  <a class="tag" href="#kw">Kruskal-Wallis</a><a class="tag" href="#friedman">Friedman</a>
  <a class="tag" href="#thuc-hanh">Thực hành</a><a class="tag" href="#cay-quyet-dinh">Cây quyết định</a><a class="tag" href="#quiz">Tự kiểm tra</a>
 </div>
+
+<h2 id="khai-niem">0. Khái niệm & đặc điểm của kiểm định phi tham số</h2>
+<p>Kiểm định <b>phi tham số</b> (non-parametric test / "distribution-free test") không giả định dữ liệu tổng thể tuân theo một phân phối cụ thể (vd phân phối chuẩn) và không ước lượng các tham số tổng thể (μ, σ) như t-test/ANOVA — thay vào đó làm việc trực tiếp trên THỨ HẠNG (ranks) hoặc TẦN SỐ (frequencies) của dữ liệu.</p>
+<table><tr><th>Đặc điểm</th><th>Ý nghĩa thực tế</th></tr>
+<tr><td>Không cần phân phối chuẩn</td><td>Không bắt buộc kiểm tra Shapiro-Wilk/Kolmogorov-Smirnov trước khi chạy</td></tr>
+<tr><td>Dùng được dữ liệu thứ bậc/định danh</td><td>Không cần thang đo khoảng cách đều (interval/ratio) như t-test/ANOVA đòi hỏi</td></tr>
+<tr><td>Ít nhạy cảm với giá trị ngoại lai</td><td>Vì chuyển giá trị thô thành HẠNG trước khi tính, một giá trị cực đoan không "kéo lệch" kết quả như trung bình cộng</td></tr>
+<tr><td>Phù hợp cỡ mẫu nhỏ</td><td>Khi N quá nhỏ để kiểm tra giả định chuẩn một cách đáng tin cậy</td></tr></table>
+<div class="callout"><b>Khi nào nên chọn phi tham số thay vì t-test/ANOVA:</b>
+<ul style="margin:.5em 0 0">
+<li>Dữ liệu là thang Likert/thứ bậc (ordinal), không đảm bảo khoảng cách đều giữa các mức</li>
+<li>Kiểm tra chuẩn thất bại (Shapiro-Wilk p&lt;0,05) và mẫu không đủ lớn để nhờ định lý giới hạn trung tâm</li>
+<li>Có giá trị ngoại lai mạnh làm lệch trung bình/phương sai</li>
+<li>Cỡ mẫu nhỏ (thường N&lt;30 mỗi nhóm) — khó kiểm tra giả định tham số đáng tin cậy</li>
+</ul></div>
+<div class="callout warn"><b>Đánh đổi (trade-off) cần nhớ:</b> an toàn hơn về mặt giả định, nhưng đổi lại mất chi tiết (chỉ còn hạng, không còn giá trị thô), power (khả năng phát hiện khác biệt thật) thường THẤP hơn kiểm định tham số tương ứng NẾU dữ liệu thực ra đủ điều kiện dùng tham số, và đa số kiểm định phi tham số chỉ cho biết CÓ/KHÔNG khác biệt — không tự cho cỡ hiệu ứng (xem callout tổng kết ở cuối trang).</div>
 
 <h2 id="chi2">1. Kiểm định Chi-square (χ²)</h2>
 <p>Chi-square là kiểm định phổ biến nhất cho dữ liệu định danh, so sánh tần số QUAN SÁT (observed) với tần số KỲ VỌNG (expected) trong bảng chéo. Kỳ vọng mỗi ô = (tổng hàng × tổng cột) / tổng chung (tr.789–790).</p>
@@ -164,6 +189,19 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p><b>Công nghiệp/sản xuất (minh hoạ):</b> so sánh "mức độ hài lòng với ca làm việc" (thang Likert 1-5) giữa công nhân ca NGÀY và ca ĐÊM — 2 nhóm độc lập, dữ liệu thứ bậc, phù hợp Mann-Whitney hơn t-test vì thang Likert không đảm bảo khoảng cách đều giữa các mức.</p>
 </div></details>
 
+<div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
+<p>Tình huống: so sánh <b>thời gian hoàn thành một bài tập</b> (phút) giữa sinh viên học <b>Online</b> và học <b>Offline</b>, mỗi nhóm 12 người (bịa ra để minh hoạ, cỡ mẫu lớn hơn ví dụ tính tay ở trên để thấy rõ cách đọc output phần mềm thật).</p>
+<table><tr><th>Nhóm</th><th>Số liệu (phút)</th></tr>
+<tr><td>Online (n=12)</td><td>38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40</td></tr>
+<tr><td>Offline (n=12)</td><td>30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33</td></tr></table>
+<pre>from scipy import stats
+online  = [38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40]
+offline = [30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33]
+u, p = stats.mannwhitneyu(online, offline, alternative='two-sided')
+print(u, p)
+# Output: U = 143.5   p = 0.000041</pre>
+<p class="cap">Đọc kết quả: U=143,5, p=0,00004 (&lt;0,001) → có ý nghĩa thống kê rất cao. Trung vị Online=43 phút, Offline=31,5 phút — nhóm Online làm bài LÂU HƠN nhóm Offline rõ rệt trong bộ dữ liệu bịa này (ngược hướng so với ví dụ sách, chỉ để minh hoạ cách đọc output, không phải kết luận thật về học online/offline).</p></div>
+
 <h2 id="wilcoxon">4. Wilcoxon test</h2>
 <p>Tương đương phi tham số của <b>t-test bắt cặp</b> — dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số (tr.795–796).</p>
 <p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> với MỖI người, xem họ TĂNG hay GIẢM giữa 2 lần đo, và tăng/giảm nhiều hay ít (xếp hạng độ lớn thay đổi, không dùng điểm số thô) — rồi so tổng phần "tăng" với tổng phần "giảm" của cả nhóm. Nếu phần tăng và phần giảm xấp xỉ cân bằng nhau, kết luận "không đổi gì nhiều"; nếu lệch hẳn về một phía, kết luận "có thay đổi thật".</p>
@@ -195,6 +233,19 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p><b>Nông nghiệp (minh hoạ):</b> năng suất (tấn/ha) trên CÙNG các thửa ruộng, đo TRƯỚC và SAU khi đổi sang loại phân bón mới — mỗi thửa ruộng là "một người" trong cặp trước-sau, dữ liệu dễ bị ảnh hưởng bởi thời tiết nên phân phối không chuẩn, phù hợp Wilcoxon hơn t-test bắt cặp.</p>
 </div></details>
 
+<div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
+<p>Tình huống: <b>điểm tự tin khi thuyết trình</b> (thang 0-10, tự chấm) của 10 nhân viên, đo TRƯỚC và SAU một khoá huấn luyện kỹ năng nói (bịa ra để minh hoạ).</p>
+<table><tr><th>Nhân viên</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+<tr><td>Trước</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td></tr>
+<tr><td>Sau</td><td>6</td><td>7</td><td>5</td><td>8</td><td>6</td><td>6</td><td>5</td><td>9</td><td>7</td><td>6</td></tr></table>
+<pre>from scipy import stats
+truoc = [4, 5, 3, 6, 4, 5, 3, 6, 4, 5]
+sau   = [6, 7, 5, 8, 6, 6, 5, 9, 7, 6]
+w, p = stats.wilcoxon(truoc, sau)
+print(w, p)
+# Output: W = 0.0   p = 0.0020</pre>
+<p class="cap">Đọc kết quả: W=0 (mọi người đều TĂNG điểm, không ai giảm) → p=0,002 (&lt;0,01), có ý nghĩa thống kê rõ ràng. Khoá huấn luyện gắn liền với điểm tự tin tăng ở cả 10/10 người trong bộ dữ liệu bịa này — một kết quả "sạch" hiếm gặp trong thực tế, cố ý dựng để thấy rõ W=0 nghĩa là gì (không có người nào đi "ngược chiều" cả nhóm).</p></div>
+
 <h2 id="kw">5. Kruskal-Wallis test</h2>
 <p>Tương đương phi tham số của <b>ANOVA một chiều</b> — dùng cho 3+ nhóm độc lập với dữ liệu thứ bậc (tr.797).</p>
 <p class="callout" style="font-style:italic">🗣️ <b>Nói nôm na:</b> giống hệt ý tưởng Mann-Whitney ở trên, nhưng áp dụng cho TỪ 3 NHÓM trở lên thay vì chỉ 2 — xếp hạng chung tất cả mọi người của mọi nhóm vào một hàng, rồi xem có nhóm nào đứng dồn lệch hẳn về một phía (toàn điểm cao, hoặc toàn điểm thấp) so với các nhóm còn lại không.</p>
@@ -217,6 +268,21 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p><b>Nông nghiệp (minh hoạ):</b> so sánh năng suất (tấn/ha, xếp hạng vì phân bố lệch do thời tiết) giữa 3 giống lúa khác nhau trồng trên các thửa ruộng độc lập — nếu một giống liên tục xếp hạng cao hơn 2 giống còn lại, Kruskal-Wallis sẽ phát hiện ra.</p>
 <p><b>Chính trị/bầu cử (minh hoạ):</b> so sánh mức độ ủng hộ một chính sách (thang 0-10) giữa 3 nhóm độ tuổi cử tri (18-35 / 36-55 / 56+) — 3 nhóm độc lập, dữ liệu khảo sát thái độ thường lệch, phù hợp Kruskal-Wallis hơn ANOVA.</p>
 </div></details>
+
+<div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
+<p>Tình huống: <b>mức hài lòng khách hàng</b> (thang 1-10) tại 3 chi nhánh cửa hàng A, B, C, mỗi chi nhánh khảo sát 8 khách (bịa ra để minh hoạ).</p>
+<table><tr><th>Chi nhánh</th><th>Số liệu</th></tr>
+<tr><td>A (n=8)</td><td>7, 8, 6, 7, 9, 8, 7, 6</td></tr>
+<tr><td>B (n=8)</td><td>5, 6, 4, 5, 6, 5, 4, 6</td></tr>
+<tr><td>C (n=8)</td><td>8, 9, 9, 7, 8, 9, 8, 9</td></tr></table>
+<pre>from scipy import stats
+cn_a = [7, 8, 6, 7, 9, 8, 7, 6]
+cn_b = [5, 6, 4, 5, 6, 5, 4, 6]
+cn_c = [8, 9, 9, 7, 8, 9, 8, 9]
+h, p = stats.kruskal(cn_a, cn_b, cn_c)
+print(h, p)
+# Output: H = 16.703   p = 0.0002</pre>
+<p class="cap">Đọc kết quả: H=16,7, p=0,0002 (&lt;0,001) → có ý nghĩa thống kê rất cao, ít nhất 1 trong 3 chi nhánh khác các chi nhánh còn lại. Trung vị A=7, B=5, C=8,5 — Kruskal-Wallis KHÔNG tự nói chi nhánh nào khác chi nhánh nào, phải nhìn lại trung vị/boxplot từng nhóm: ở đây chi nhánh B rõ ràng thấp hơn hẳn A và C.</p></div>
 
 <h2 id="friedman">6. Friedman test</h2>
 <p>Tương đương phi tham số của <b>ANOVA đo lường lặp lại</b> — dùng khi CÙNG một nhóm đánh giá 3+ biến/thời điểm, dữ liệu thứ bậc (tr.798–799).</p>
@@ -241,6 +307,21 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 <p><b>Marketing (minh hoạ):</b> CÙNG một nhóm người tiêu dùng xem và xếp hạng 3 mẫu quảng cáo khác nhau cho cùng 1 sản phẩm — xem có mẫu quảng cáo nào được xếp hạng nhất quán cao hơn 2 mẫu còn lại không.</p>
 <p><b>Pháp luật (minh hoạ):</b> CÙNG một hội đồng thẩm phán xếp hạng mức độ nghiêm trọng của 3 loại vi phạm khác nhau trong cùng một bộ hồ sơ tình huống — xem các thẩm phán có nhất quán với nhau về thứ tự nghiêm trọng hay không, trước khi dùng kết quả để xây khung hình phạt.</p>
 </div></details>
+
+<div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
+<p>Tình huống: <b>mức hài lòng với ca làm việc</b> (thang 1-10) của 12 nhân viên, mỗi người tự chấm cho CẢ 3 ca (Sáng/Chiều/Tối) mà họ từng trải qua (bịa ra để minh hoạ).</p>
+<table><tr><th>Ca</th><th>Số liệu (12 nhân viên)</th></tr>
+<tr><td>Sáng</td><td>7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7</td></tr>
+<tr><td>Chiều</td><td>6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6</td></tr>
+<tr><td>Tối</td><td>4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4</td></tr></table>
+<pre>from scipy import stats
+sang  = [7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7]
+chieu = [6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6]
+toi   = [4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4]
+chi2, p = stats.friedmanchisquare(sang, chieu, toi)
+print(chi2, p)
+# Output: chi2 = 22.533   p = 0.0000128</pre>
+<p class="cap">Đọc kết quả: χ²=22,53, p=0,00001 (&lt;0,001) → có ý nghĩa thống kê rất cao. Điểm trung bình Sáng=6,92, Chiều=5,75, Tối=4,00 — thứ tự "Sáng &gt; Chiều &gt; Tối" lặp lại gần như nhất quán ở TỪNG nhân viên, đây chính là điều làm χ² lớn: không chỉ trung bình khác nhau, mà THỨ HẠNG cá nhân cũng đồng thuận cao giữa mọi người.</p></div>
 
 <div class="callout warn"><b>Điểm chung của 4 kiểm định phi tham số:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman đều CHỈ cho biết ý nghĩa thống kê, KHÔNG cho cỡ hiệu ứng — khác với t-test/ANOVA (Cohen's d, eta²). Riêng Friedman có thêm Kendall's W, nhưng thường dùng để đo mức đồng thuận giữa người xếp hạng hơn là cỡ hiệu ứng giữa các biến (tr.799).</div>
 
