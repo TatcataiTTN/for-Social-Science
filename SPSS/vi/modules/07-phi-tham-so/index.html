@@ -190,17 +190,18 @@ Cả 2 đều là ví dụ 'không tìm thấy' hợp lệ — khác với ví d
 </div></details>
 
 <div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
-<p>Tình huống: so sánh <b>thời gian hoàn thành một bài tập</b> (phút) giữa sinh viên học <b>Online</b> và học <b>Offline</b>, mỗi nhóm 12 người (bịa ra để minh hoạ, cỡ mẫu lớn hơn ví dụ tính tay ở trên để thấy rõ cách đọc output phần mềm thật).</p>
-<table><tr><th>Nhóm</th><th>Số liệu (phút)</th></tr>
-<tr><td>Online (n=12)</td><td>38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40</td></tr>
-<tr><td>Offline (n=12)</td><td>30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33</td></tr></table>
+<p><b>Bối cảnh minh hoạ:</b> một trường đại học mở 2 lớp song song cho cùng môn "Nhập môn Lập trình" — một lớp học <b>Online</b> (sinh viên tự học qua video, hỏi đáp qua chat), một lớp học <b>Offline</b> (có trợ giảng (TA) ngồi cạnh hỗ trợ trực tiếp trong phòng lab). Cuối buổi, đo <b>thời gian hoàn thành cùng một bài tập lập trình</b> (phút) của 15 sinh viên mỗi lớp, chọn ngẫu nhiên không trùng người (dữ liệu hoàn toàn bịa ra để minh hoạ, cỡ mẫu n=15/nhóm lớn hơn ví dụ tính tay ở trên để thấy rõ cách đọc output phần mềm thật).</p>
+<table><tr><th>Lớp</th><th>Số liệu (phút), 15 sinh viên</th></tr>
+<tr><td>Online (n=15)</td><td>38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40, 52, 37, 46</td></tr>
+<tr><td>Offline (n=15)</td><td>30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33, 26, 38, 31</td></tr></table>
 <pre>from scipy import stats
-online  = [38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40]
-offline = [30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33]
+online  = [38, 45, 41, 50, 36, 48, 42, 55, 39, 44, 47, 40, 52, 37, 46]
+offline = [30, 33, 28, 35, 31, 29, 34, 32, 27, 36, 30, 33, 26, 38, 31]
 u, p = stats.mannwhitneyu(online, offline, alternative='two-sided')
 print(u, p)
-# Output: U = 143.5   p = 0.000041</pre>
-<p class="cap">Đọc kết quả: U=143,5, p=0,00004 (&lt;0,001) → có ý nghĩa thống kê rất cao. Trung vị Online=43 phút, Offline=31,5 phút — nhóm Online làm bài LÂU HƠN nhóm Offline rõ rệt trong bộ dữ liệu bịa này (ngược hướng so với ví dụ sách, chỉ để minh hoạ cách đọc output, không phải kết luận thật về học online/offline).</p></div>
+# Output: U = 222.0   p = 0.000006</pre>
+<div class="figure"><img src="../../../assets/diagrams/mw_illustrative_boxplot.png" alt="Boxplot Mann-Whitney minh hoạ Online vs Offline"/><figcaption>Boxplot + từng điểm dữ liệu (chấm) cho 2 lớp. Hộp = khoảng tứ phân vị, vạch giữa = trung vị, hình thoi trắng = trung bình.</figcaption></div>
+<p class="cap">Đọc kết quả: U=222, p=0,000006 (&lt;0,001) → có ý nghĩa thống kê rất cao. Trung vị Online=44 phút, Offline=31 phút — nhóm Online làm bài LÂU HƠN nhóm Offline rõ rệt trong bộ dữ liệu bịa này, khớp với hình: 2 hộp gần như không chồng lên nhau chút nào (ngược hướng so với ví dụ sách, chỉ để minh hoạ cách đọc output, không phải kết luận thật về hiệu quả học online/offline).</p></div>
 
 <h2 id="wilcoxon">4. Wilcoxon test</h2>
 <p>Tương đương phi tham số của <b>t-test bắt cặp</b> — dùng khi CÙNG một nhóm cho 2 giá trị (2 biến/2 thời điểm) nhưng dữ liệu không thoả điều kiện tham số (tr.795–796).</p>
@@ -234,17 +235,18 @@ print(u, p)
 </div></details>
 
 <div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
-<p>Tình huống: <b>điểm tự tin khi thuyết trình</b> (thang 0-10, tự chấm) của 10 nhân viên, đo TRƯỚC và SAU một khoá huấn luyện kỹ năng nói (bịa ra để minh hoạ).</p>
-<table><tr><th>Nhân viên</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
-<tr><td>Trước</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td></tr>
-<tr><td>Sau</td><td>6</td><td>7</td><td>5</td><td>8</td><td>6</td><td>6</td><td>5</td><td>9</td><td>7</td><td>6</td></tr></table>
+<p><b>Bối cảnh minh hoạ:</b> phòng Kinh doanh của một công ty tổ chức khoá huấn luyện kỹ năng thuyết trình nội bộ, kéo dài 8 buổi. Trước buổi 1 và ngay sau buổi 8, mỗi nhân viên tự chấm <b>điểm tự tin khi thuyết trình trước khách hàng</b> (thang 0-10) — 14 nhân viên tham gia đủ cả 2 lần đo (dữ liệu hoàn toàn bịa ra để minh hoạ, cố ý để lại 1 người không đổi điểm (hiệu=0) để thấy quy tắc Wilcoxon loại bỏ cặp bằng nhau trước khi xếp hạng).</p>
+<table><tr><th>Nhân viên</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th></tr>
+<tr><td>Trước</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td><td>3</td><td>6</td><td>4</td><td>5</td><td>6</td><td>4</td><td>5</td><td>3</td></tr>
+<tr><td>Sau</td><td>6</td><td>7</td><td>5</td><td>8</td><td>6</td><td>6</td><td>5</td><td>9</td><td>7</td><td>6</td><td>6</td><td>5</td><td>8</td><td>4</td></tr></table>
 <pre>from scipy import stats
-truoc = [4, 5, 3, 6, 4, 5, 3, 6, 4, 5]
-sau   = [6, 7, 5, 8, 6, 6, 5, 9, 7, 6]
+truoc = [4, 5, 3, 6, 4, 5, 3, 6, 4, 5, 6, 4, 5, 3]
+sau   = [6, 7, 5, 8, 6, 6, 5, 9, 7, 6, 6, 5, 8, 4]
 w, p = stats.wilcoxon(truoc, sau)
 print(w, p)
-# Output: W = 0.0   p = 0.0020</pre>
-<p class="cap">Đọc kết quả: W=0 (mọi người đều TĂNG điểm, không ai giảm) → p=0,002 (&lt;0,01), có ý nghĩa thống kê rõ ràng. Khoá huấn luyện gắn liền với điểm tự tin tăng ở cả 10/10 người trong bộ dữ liệu bịa này — một kết quả "sạch" hiếm gặp trong thực tế, cố ý dựng để thấy rõ W=0 nghĩa là gì (không có người nào đi "ngược chiều" cả nhóm).</p></div>
+# Output: W = 0.0   p = 0.001245</pre>
+<div class="figure"><img src="../../../assets/diagrams/wilcoxon_illustrative_lines.png" alt="Biểu đồ đường nối trước-sau Wilcoxon minh hoạ"/><figcaption>Mỗi đường = 1 nhân viên, nối điểm Trước (trái) với điểm Sau (phải). Xanh lá = tăng, xám = không đổi.</figcaption></div>
+<p class="cap">Đọc kết quả: W=0, p=0,0012 (&lt;0,01) → có ý nghĩa thống kê rõ ràng. 13/14 người TĂNG điểm, chỉ 1/14 không đổi (bị loại khỏi phép tính), không ai giảm — nhìn vào hình, gần như mọi đường đều dốc lên, rất ít đường nằm ngang và không có đường nào đi xuống, đúng như con số W=0 (phần hạng "giảm" gần như không tồn tại) thể hiện.</p></div>
 
 <h2 id="kw">5. Kruskal-Wallis test</h2>
 <p>Tương đương phi tham số của <b>ANOVA một chiều</b> — dùng cho 3+ nhóm độc lập với dữ liệu thứ bậc (tr.797).</p>
@@ -270,19 +272,20 @@ print(w, p)
 </div></details>
 
 <div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
-<p>Tình huống: <b>mức hài lòng khách hàng</b> (thang 1-10) tại 3 chi nhánh cửa hàng A, B, C, mỗi chi nhánh khảo sát 8 khách (bịa ra để minh hoạ).</p>
-<table><tr><th>Chi nhánh</th><th>Số liệu</th></tr>
-<tr><td>A (n=8)</td><td>7, 8, 6, 7, 9, 8, 7, 6</td></tr>
-<tr><td>B (n=8)</td><td>5, 6, 4, 5, 6, 5, 4, 6</td></tr>
-<tr><td>C (n=8)</td><td>8, 9, 9, 7, 8, 9, 8, 9</td></tr></table>
+<p><b>Bối cảnh minh hoạ:</b> một chuỗi cửa hàng tiện lợi có 3 chi nhánh tại TP.HCM (Quận 1, Quận 7, Thủ Đức), muốn so sánh <b>mức hài lòng khách hàng</b> (thang 1-10, khảo sát ngay sau khi thanh toán) giữa 3 chi nhánh — đây là 3 nhóm KHÁCH HÀNG ĐỘC LẬP (không ai mua ở cả 3 chi nhánh trong khảo sát này), mỗi chi nhánh phỏng vấn 12 khách (dữ liệu hoàn toàn bịa ra để minh hoạ).</p>
+<table><tr><th>Chi nhánh</th><th>Số liệu, 12 khách hàng</th></tr>
+<tr><td>Quận 1 (n=12)</td><td>7, 8, 6, 7, 9, 8, 7, 6, 8, 7, 9, 6</td></tr>
+<tr><td>Quận 7 (n=12)</td><td>5, 6, 4, 5, 6, 5, 4, 6, 5, 4, 6, 5</td></tr>
+<tr><td>Thủ Đức (n=12)</td><td>8, 9, 9, 7, 8, 9, 8, 9, 7, 9, 8, 9</td></tr></table>
 <pre>from scipy import stats
-cn_a = [7, 8, 6, 7, 9, 8, 7, 6]
-cn_b = [5, 6, 4, 5, 6, 5, 4, 6]
-cn_c = [8, 9, 9, 7, 8, 9, 8, 9]
-h, p = stats.kruskal(cn_a, cn_b, cn_c)
+q1    = [7, 8, 6, 7, 9, 8, 7, 6, 8, 7, 9, 6]
+q7    = [5, 6, 4, 5, 6, 5, 4, 6, 5, 4, 6, 5]
+tduc  = [8, 9, 9, 7, 8, 9, 8, 9, 7, 9, 8, 9]
+h, p = stats.kruskal(q1, q7, tduc)
 print(h, p)
-# Output: H = 16.703   p = 0.0002</pre>
-<p class="cap">Đọc kết quả: H=16,7, p=0,0002 (&lt;0,001) → có ý nghĩa thống kê rất cao, ít nhất 1 trong 3 chi nhánh khác các chi nhánh còn lại. Trung vị A=7, B=5, C=8,5 — Kruskal-Wallis KHÔNG tự nói chi nhánh nào khác chi nhánh nào, phải nhìn lại trung vị/boxplot từng nhóm: ở đây chi nhánh B rõ ràng thấp hơn hẳn A và C.</p></div>
+# Output: H = 24.78   p = 0.000004</pre>
+<div class="figure"><img src="../../../assets/diagrams/kw_illustrative_boxplot.png" alt="Boxplot Kruskal-Wallis minh hoạ 3 chi nhánh"/><figcaption>Boxplot + từng điểm dữ liệu cho 3 chi nhánh. Chi nhánh Quận 7 lệch hẳn xuống thấp hơn 2 chi nhánh còn lại.</figcaption></div>
+<p class="cap">Đọc kết quả: H=24,78, p=0,000004 (&lt;0,001) → có ý nghĩa thống kê rất cao, ít nhất 1 trong 3 chi nhánh khác các chi nhánh còn lại. Trung vị Quận 1=7, Quận 7=5, Thủ Đức=8,5 — Kruskal-Wallis KHÔNG tự nói chi nhánh nào khác chi nhánh nào, phải nhìn lại trung vị/boxplot từng nhóm: ở đây chi nhánh Quận 7 rõ ràng thấp hơn hẳn 2 chi nhánh kia, gần như không chồng lấn với hộp của Thủ Đức.</p></div>
 
 <h2 id="friedman">6. Friedman test</h2>
 <p>Tương đương phi tham số của <b>ANOVA đo lường lặp lại</b> — dùng khi CÙNG một nhóm đánh giá 3+ biến/thời điểm, dữ liệu thứ bậc (tr.798–799).</p>
@@ -309,19 +312,20 @@ print(h, p)
 </div></details>
 
 <div class="callout good"><b>📊 Bộ dữ liệu BỊA minh hoạ + chạy code Python thật (không phải số liệu lớp học thật):</b>
-<p>Tình huống: <b>mức hài lòng với ca làm việc</b> (thang 1-10) của 12 nhân viên, mỗi người tự chấm cho CẢ 3 ca (Sáng/Chiều/Tối) mà họ từng trải qua (bịa ra để minh hoạ).</p>
-<table><tr><th>Ca</th><th>Số liệu (12 nhân viên)</th></tr>
-<tr><td>Sáng</td><td>7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7</td></tr>
-<tr><td>Chiều</td><td>6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6</td></tr>
-<tr><td>Tối</td><td>4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4</td></tr></table>
+<p><b>Bối cảnh minh hoạ:</b> một nhà máy dệt may khảo sát nội bộ, hỏi <b>mức hài lòng với ca làm việc</b> (thang 1-10) của CÙNG 16 công nhân line sản xuất — mỗi người từng làm đủ cả 3 ca luân phiên (Sáng 6h-14h, Chiều 14h-22h, Tối 22h-6h) trong tháng vừa qua nên tự chấm điểm được cho cả 3 (dữ liệu hoàn toàn bịa ra để minh hoạ).</p>
+<table><tr><th>Ca</th><th>Số liệu, 16 công nhân</th></tr>
+<tr><td>Sáng (6h-14h)</td><td>7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7, 8, 7, 6, 7</td></tr>
+<tr><td>Chiều (14h-22h)</td><td>6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6, 7, 6, 5, 6</td></tr>
+<tr><td>Tối (22h-6h)</td><td>4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4, 5, 4, 3, 5</td></tr></table>
 <pre>from scipy import stats
-sang  = [7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7]
-chieu = [6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6]
-toi   = [4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4]
+sang  = [7, 6, 8, 7, 6, 7, 8, 6, 7, 8, 6, 7, 8, 7, 6, 7]
+chieu = [6, 5, 6, 7, 6, 5, 6, 5, 6, 6, 5, 6, 7, 6, 5, 6]
+toi   = [4, 5, 3, 4, 5, 4, 3, 4, 5, 4, 3, 4, 5, 4, 3, 5]
 chi2, p = stats.friedmanchisquare(sang, chieu, toi)
 print(chi2, p)
-# Output: chi2 = 22.533   p = 0.0000128</pre>
-<p class="cap">Đọc kết quả: χ²=22,53, p=0,00001 (&lt;0,001) → có ý nghĩa thống kê rất cao. Điểm trung bình Sáng=6,92, Chiều=5,75, Tối=4,00 — thứ tự "Sáng &gt; Chiều &gt; Tối" lặp lại gần như nhất quán ở TỪNG nhân viên, đây chính là điều làm χ² lớn: không chỉ trung bình khác nhau, mà THỨ HẠNG cá nhân cũng đồng thuận cao giữa mọi người.</p></div>
+# Output: chi2 = 30.52   p = 0.0000000 (p < 0.00001)</pre>
+<div class="figure"><img src="../../../assets/diagrams/friedman_illustrative_lines.png" alt="Biểu đồ đường Friedman minh hoạ 3 ca làm việc"/><figcaption>Mỗi đường mảnh xanh = 1 công nhân qua 3 ca; đường hồng đậm = trung bình toàn nhóm — gần như mọi công nhân đều dốc xuống từ Sáng → Tối.</figcaption></div>
+<p class="cap">Đọc kết quả: χ²=30,52, p&lt;0,00001 → có ý nghĩa thống kê rất cao. Điểm trung bình Sáng=6,94, Chiều=5,81, Tối=4,06 — thứ tự "Sáng &gt; Chiều &gt; Tối" lặp lại gần như nhất quán ở TỪNG công nhân (nhìn hình: các đường mảnh gần như luôn dốc xuống đều, không có đường nào đi ngược), đây chính là điều làm χ² lớn: không chỉ trung bình khác nhau, mà THỨ HẠNG cá nhân cũng đồng thuận cao giữa mọi người.</p></div>
 
 <div class="callout warn"><b>Điểm chung của 4 kiểm định phi tham số:</b> Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman đều CHỈ cho biết ý nghĩa thống kê, KHÔNG cho cỡ hiệu ứng — khác với t-test/ANOVA (Cohen's d, eta²). Riêng Friedman có thêm Kendall's W, nhưng thường dùng để đo mức đồng thuận giữa người xếp hạng hơn là cỡ hiệu ứng giữa các biến (tr.799).</div>
 
