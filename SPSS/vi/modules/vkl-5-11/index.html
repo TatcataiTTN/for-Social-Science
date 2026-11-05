@@ -150,15 +150,39 @@ TT4G36   SGP      74.92   70.00   -4.92    2.66    2.70    0.04  CANH BAO</pre>
 <li><a href="../../../data/talis-q2-vkl/weighted_results_q2.csv">weighted_results_q2.csv</a> / <a href="../../../data/talis-q2-vkl/weighted_results_q2.json">weighted_results_q2.json</a> — kết quả Python đầy đủ, đúng số liệu ở bảng mục 2.</li>
 </ul>
 
-<h2 id="viec-can-lam">6. Việc cần làm tiếp</h2>
+<h2 id="hoi-dap-5-11">6. Trả lời 3 câu hỏi Khánh Linh đặt ra ngày 5/11</h2>
+<h3>6.1. Không chạy IEA IDB Analyzer có được không, và kiểm chứng số liệu IDB Analyzer bằng cách nào</h3>
+<p>Có thể bỏ qua IDB Analyzer mà vẫn có đủ số liệu hợp lệ để nộp. Bảng ở mục 2 và mục 2bis đã tính đúng công thức BRR-Fay mà IDB Analyzer dùng bên trong, chạy trực tiếp trên file dữ liệu quốc tế thật; IDB Analyzer chỉ là một công cụ khác cho ra cùng loại con số, không phải điều kiện bắt buộc để có số liệu đúng chuẩn.</p>
+<p>Quan sát của Khánh Linh rằng chênh lệch giữa các cặp khu vực không đổi nhiều sau khi chạy IDB Analyzer là một tín hiệu tốt, khớp đúng với mục 2: điểm phần trăm thay đổi rất ít khi thêm trọng số, phần thay đổi rõ nằm ở độ lệch chuẩn và khoảng tin cậy (mục 2bis), không nằm ở điểm phần trăm. Câu hỏi quan trọng hơn không phải "% có đổi không" mà là "SE/CI có đổi không" — câu trả lời đó đã có sẵn ở mục 2bis.</p>
+<p>Cách kiểm chứng cụ thể nếu đã có số liệu từ IDB Analyzer: điền số % và SE đọc từ Excel IDB Analyzer vào file mẫu <code>idb_analyzer_ket_qua_template.csv</code> (mục 5), rồi chạy <code>compare_with_idb.py</code> — script tự so với bảng mục 2 (đã kiểm chứng độc lập bằng Python trên dữ liệu thật) và gắn nhãn KHỚP hoặc CẢNH BÁO cho từng dòng, giúp phát hiện ngay nếu cấu hình sai.</p>
+<div class="callout good"><p>Tóm lại: không bắt buộc chạy IDB Analyzer nếu đã dùng bảng ở mục 2/2bis. Nếu vẫn muốn chạy thêm để tự tin khi giảng viên hỏi "trọng số tính bằng công cụ gì", nên chạy, và dùng <code>compare_with_idb.py</code> để tự kiểm chứng kết quả, không cần nhờ ai xem lại hộ.</p></div>
+
+<h3>6.2. Có bắt buộc phải chạy trọng số không</h3>
+<p>Không có quy định mang tính bắt buộc kiểu SPSS sẽ báo lỗi nếu bỏ trọng số — phần mềm vẫn chạy ra số bình thường. Nhưng về phương pháp, trọng số gần như là điều kiện cần để những câu kết luận nhóm muốn viết (ví dụ giáo viên THCS ở Thượng Hải có tỷ lệ dùng AI cao hơn Nhật Bản) có cơ sở đại diện cho tổng thể giáo viên bốn hệ thống giáo dục, vì TALIS chọn mẫu theo nhiều tầng (chọn trường rồi chọn giáo viên trong trường), không phải mẫu ngẫu nhiên đơn giản. Bỏ trọng số không làm sai điểm phần trăm nhiều (mục 2), nhưng làm sai độ chắc chắn của kết luận: SE thật theo thiết kế mẫu có thể gấp 1,5 đến 2 lần SE tính kiểu đơn giản ở nhiều ô, và gấp hơn 4 lần ở TT4G36 Singapore (mục 2bis).</p>
+<p>Với deadline bản nháp 9/11 đang gấp, nếu không còn thời gian chạy IDB Analyzer, nên dùng trực tiếp bảng số liệu có trọng số ở mục 2 khi viết phần Kết quả, và thêm một câu ngắn ở phần Phương pháp, ví dụ: "tỷ lệ phần trăm được tính có áp dụng trọng số khảo sát TCHWGT, sai số chuẩn ước lượng bằng phương pháp lặp mẫu BRR-Fay với 100 trọng số lặp TRWGT1-100 theo khuyến nghị của IEA/OECD cho TALIS". Một câu như vậy đủ để giảng viên thấy nhóm hiểu đúng bản chất thiết kế mẫu.</p>
+
+<h3>6.3. Những điểm giảng viên có khả năng phản biện, theo nhận định của người hỗ trợ</h3>
+<table>
+<tr><th>Điểm có thể bị hỏi</th><th>Vì sao, và cách xử lý</th></tr>
+<tr><td>Chưa áp dụng trọng số khảo sát khi phân tích thô trong OUTPUT2.pdf</td><td>Đã giải quyết bằng bảng số liệu có trọng số ở mục 2 và 2bis.</td></tr>
+<tr><td>TT4G36 có cỡ mẫu thực tế mỗi khu vực chỉ khoảng 1000-1300, thấp hơn nhiều tổng mẫu mỗi khu vực (3000-4100)</td><td>Do TT4G36 nằm trên một booklet xoay. Nếu không giải thích trong báo cáo, dễ bị hỏi vì sao cỡ mẫu khác nhau giữa các bảng.</td></tr>
+<tr><td>Chỉ TT4G36 có CI95% bốn khu vực tách biệt hoàn toàn; 9 mục TT4G37A-I còn lại đều có ít nhất một cặp khu vực chồng lấn CI</td><td>Tránh viết khẳng định so sánh từng cặp cụ thể cho các mục chồng lấn (xem ví dụ cụ thể ở mục 2bis).</td></tr>
+<tr><td>Tên đề tài nói về "yếu tố ảnh hưởng", trong khi TALIS là khảo sát cắt ngang, chỉ đo tại một thời điểm</td><td>TALIS không đo được quan hệ nhân quả. Nên phân biệt rõ "yếu tố có liên quan" (tương quan) với "yếu tố ảnh hưởng" (nhân quả), hoặc nêu đây là hạn chế của thiết kế nghiên cứu.</td></tr>
+<tr><td>TT4G37 là dữ liệu giáo viên tự báo cáo về hành vi dùng AI, không phải quan sát trực tiếp</td><td>Nên chủ động nêu khả năng sai lệch do tự đánh giá (social desirability bias) trong phần hạn chế.</td></tr>
+<tr><td>Nếu định đưa thêm biến khác (ví dụ TT4G24G) vào cùng phân tích với TT4G36 để tìm yếu tố ảnh hưởng</td><td>Hai biến này nằm trên hai booklet xoay loại trừ nhau hoàn toàn (0 giáo viên trả lời cả hai) — không thể dùng chung một mô hình hồi quy.</td></tr>
+</table>
+<p class="cap">Nhìn chung, phản biện nhiều khả năng xoay quanh tính đại diện của số liệu (đã có lời giải ở mục 2/2bis) và mức độ chắc chắn khi khẳng định khác biệt từng cặp khu vực, hơn là nghi ngờ số liệu bị tính sai. Chủ động nêu trước các điểm về cỡ mẫu, quan hệ tương quan/nhân quả, và sai lệch tự báo cáo trong phần Hạn chế thường là cách giảng viên phương pháp luận đánh giá cao.</p>
+
+<h2 id="viec-can-lam">7. Việc cần làm tiếp</h2>
 <div class="callout good"><ul>
 <li>Dùng ngay bảng mục 2 cho bản nháp hạn 9/11 — không chờ IDB Analyzer chạy xong mới viết.</li>
 <li>Khi viết phần kết quả, trích SE/CI95% có trọng số ở mục 2 thay cho p-value Chi-square thô của SPSS.</li>
 <li>Tránh câu so sánh từng cặp cụ thể cho 9 mục TT4G37 có chồng lấn CI (xem cảnh báo mục 2bis) — chỉ TT4G36 an toàn để khẳng định khác biệt từng cặp.</li>
 <li>Tự chạy IDB Analyzer theo mục 4, điền vào template, chạy <code>compare_with_idb.py</code> để tự xác nhận độc lập.</li>
+<li>Cân nhắc nêu trước trong phần Hạn chế: cỡ mẫu nhỏ hơn ở TT4G36, phân biệt tương quan/nhân quả, sai lệch tự báo cáo, và không gộp TT4G24G với TT4G36 trong cùng mô hình (xem mục 6.3).</li>
 </ul></div>
 
-<h2 id="quiz">7. Tự kiểm tra</h2>
+<h2 id="quiz">8. Tự kiểm tra</h2>
 <div class="quiz"><div id="quiz-root"></div></div>
 </div></main><footer class="site"><div class="wrap">
 <div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
