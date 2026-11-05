@@ -1,0 +1,174 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('spss-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var f=localStorage.getItem('spss-font');if(f&&f!=='times')document.documentElement.setAttribute('data-font',f);}catch(e){}})();</script>
+<title>Module VKL 5-11 · Câu hỏi 2 đề tài nhóm TALIS 2024 — phân tích có trọng số</title>
+<meta name="description" content="Phân tích có trọng số BRR-Fay thật cho Câu hỏi 2 (TT4G36+TT4G37A-I) của đề tài nhóm TALIS 2024 Khánh Linh phụ trách, đối chiếu với output SPSS gốc và hướng dẫn chạy IEA IDB Analyzer."/>
+<link rel="stylesheet" href="../../../_shared/common.css"/>
+<link rel="stylesheet" href="../../../_shared/deck.css"/>
+</head><body><button id="info-fab" type="button" aria-haspopup="dialog" aria-controls="info-modal" title="Thông tin trang & liên hệ góp ý">i</button><header class="site"><div class="wrap bar">
+<a class="brand" href="../../../../index.html"><span class="dot"></span>SPSS cho Khoa học Xã hội</a>
+<nav class="crumbs"><a href="../../index.html">Bài giảng</a> / Module VKL 5-11 (phụ lục riêng)</nav>
+<div class="headerctl"><details class="themesw"><summary>🎨 Giao diện</summary><div class="theme-menu"><button type="button" data-theme="light"><span class="swatch" style="background:#2f6fe0"></span>Sáng (mặc định)</button><button type="button" data-theme="dark"><span class="swatch" style="background:#1a2230"></span>Tối</button><button type="button" data-theme="pink"><span class="swatch" style="background:#d6417e"></span>Hồng</button><button type="button" data-theme="blue"><span class="swatch" style="background:#1c6fd0"></span>Lam</button><button type="button" data-theme="green"><span class="swatch" style="background:#1f9d55"></span>Lục</button></div></details><details class="fontsw"><summary>🔤 Phông chữ</summary><div class="theme-menu"><button type="button" data-font="times" style="font-family:'Times New Roman',serif">Aa Times New Roman (mặc định)</button><button type="button" data-font="montserrat" style="font-family:'Montserrat',sans-serif">Aa Montserrat</button></div></details><div class="sitesearch"><input type="search" id="site-search" data-glossary-href="../glossary/index.html" autocomplete="off" placeholder="🔍 Tra cứu thuật ngữ..."/><div id="site-search-results" class="site-search-results" hidden></div></div><div class="langsw"><a href="index.html" class="active">VI</a></div></div>
+</div></header><div class="banner"><div class="wrap"><span>⚠️</span><div><b>Xin lưu ý: nội dung trên trang này phần lớn do AI tạo ra.</b> Toàn bộ số liệu có trọng số được tính trực tiếp bằng Python trên file dữ liệu TALIS 2024 quốc tế thật (btgintt4.sav, 611 biến, 194.521 dòng), đối chiếu khớp với số liệu thô Khánh Linh đã tự chạy bằng SPSS (OUTPUT2.pdf, 71 trang). Đây là bài tập hỗ trợ đề tài nhóm của Khánh Linh, không phải công bố khoa học chính thức — nếu phát hiện sai sót, rất mong được góp ý.</div></div></div><main><div class="wrap"><div class="mdeck"><div class="mdeck-viewport"><div class="mdeck-slide"><div class="kicker">MODULE VKL 5-11 · PHỤ LỤC RIÊNG CHO KHÁNH LINH</div>
+<h2>Câu hỏi 2, đề tài nhóm TALIS 2024: phân tích có trọng số</h2>
+<p>Nhóm Khánh Linh làm đề tài so sánh 4 hệ thống giáo dục (Thượng Hải, Nhật Bản, Hàn Quốc, Singapore) về mức độ dùng AI của giáo viên THCS. Khánh Linh phụ trách Câu hỏi 2 (TT4G36 + TT4G37A-I) và đã tự chạy xong phần không trọng số bằng SPSS — module này tính lại toàn bộ có trọng số đúng chuẩn TALIS và chuẩn bị sẵn công cụ đối chiếu với IEA IDB Analyzer.</p>
+<p class="cap">← → để chuyển slide.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 1/4</div><div class="part-num">01</div>
+<h2>Bối cảnh & vấn đề cần giải quyết</h2>
+<ul class="part-list"><li>Đề cương nhóm & phạm vi Câu hỏi 2</li><li>OUTPUT2.pdf: 71 trang Khánh Linh đã tự chạy</li><li>Vấn đề: chưa áp dụng trọng số khảo sát TALIS</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">1 · Đề cương nhóm</div><h2>3 câu hỏi, 3 cặp phụ trách — Khánh Linh làm Câu hỏi 2</h2>
+<p class="cap">Đề tài: "初中教师人工智能教学应用模式分化与影响因素" (sự phân hoá cách giáo viên THCS dùng AI). Câu 1: thái độ (TT4G35A-J). <b>Câu 2: tỷ lệ & mục đích sử dụng AI (TT4G36 + TT4G37A-I) — Khánh Linh phụ trách.</b> Câu 3: rào cản ở nhóm chưa dùng AI (TT4G38A-F). Hạn nộp bản nháp phần phân tích: 9/11.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">2 · OUTPUT2.pdf</div><h2>71 trang SPSS thật — tần số, crosstab, Chi-square, Cramer's V</h2>
+<p class="cap">Khánh Linh đã tự chạy: tần số mô tả TT4G35/36/37/38, rồi crosstab 4 khu vực × TT4G36 và từng mục TT4G37A-I (lọc đúng nhóm đã dùng AI), kèm Chi-square + Cramer's V cho từng bảng. Chất lượng annotate rất tốt — tự giải thích đúng ý nghĩa Expected Count, Valid Percent, logic lọc theo điều kiện.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">3 · Vấn đề</div><h2 class="warn">Toàn bộ phân tích chưa dùng trọng số TALIS</h2>
+<p class="cap">Khánh Linh tự ghi chú nhiều lần trong OUTPUT2.pdf: "Phân tích hiện tại chưa áp dụng trọng số TALIS". TALIS lấy mẫu theo cụm trường học (không phải ngẫu nhiên đơn giản) — cần TCHWGT (trọng số cuối) + 100 trọng số lặp TRWGT1-TRWGT100 (phương pháp BRR-Fay) để có sai số chuẩn/khoảng tin cậy đúng.</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 2/4</div><div class="part-num">02</div>
+<h2>Kết quả có trọng số thật (BRR-Fay)</h2>
+<ul class="part-list"><li>Công thức Fay k=0,5 trên 100 trọng số lặp</li><li>TT4G36: tỷ lệ dùng AI, 4 khu vực</li><li>TT4G37A-I: mục đích sử dụng, 4 khu vực</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">4 · Phương pháp</div><h2>BRR-Fay (k=0,5) trên TCHWGT + TRWGT1-100 thật</h2>
+<p class="cap">Var(θ̂) = Σ(θ̂ᵣ−θ̂)² / [100×(1−k)²], k=0,5 — đúng công thức OECD/IEA dùng cho TALIS. θ̂ tính bằng TCHWGT; mỗi θ̂ᵣ (r=1..100) tính lại bằng TRWGTr. Chạy bằng Python/NumPy trực tiếp trên file quốc tế, không ước lượng.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">5 · TT4G36</div><h2 class="warn">53,5% / 17,4% / 42,7% / 74,9% — cả 4 khu vực tách biệt hoàn toàn</h2>
+<p class="cap">Thượng Hải 53,5% [50,4-56,6%]; Nhật Bản 17,4% [15,2-19,5%]; Hàn Quốc 42,7% [39,2-46,1%]; Singapore 74,9% [69,7-80,1%]. Bốn khoảng tin cậy 95% KHÔNG chồng lấn cặp nào — khác biệt chắc chắn, không chỉ nhờ p&lt;0,001 của Chi-square thô.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">6 · TT4G37A-I</div><h2>Chênh lệch thô/có trọng số đa số dưới 2 điểm phần trăm</h2>
+<p class="cap">Xem bảng đầy đủ 10 biến × 4 khu vực ở mục 2 bên dưới. Thứ hạng Khánh Linh đã mô tả không đổi (Singapore cao nhất ở B/C/F; Hàn Quốc thấp nhất ở D) — chênh lớn nhất là Nhật Bản ở TT4G37G (36,9% thô so với 33,9% có trọng số).</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 3/4</div><div class="part-num">03</div>
+<h2>Ý nghĩa thống kê đúng: DEFF & chồng lấn CI</h2>
+<ul class="part-list"><li>Singapore có DEFF cao nhất (thiết kế mẫu theo cụm)</li><li>TT4G36 là biến DUY NHẤT tách biệt hoàn toàn</li><li>Cảnh báo so sánh từng cặp cho 9 mục TT4G37</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">7 · DEFF</div><h2 class="warn">Singapore: SE thật gấp 4,16 lần SE nếu coi mẫu ngẫu nhiên đơn giản</h2>
+<p class="cap">TT4G36 Singapore: SE kiểu SPSS mặc định (Weight Cases) = 1,30%; SE thật BRR-Fay = 2,66%; DEFF=4,16. Mẫu Singapore phân theo cụm trường học rõ rệt hơn 3 nước còn lại — dùng SE sai sẽ báo CI hẹp hơn thực tế.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">8 · Kiểm tra lại</div><h2 class="warn">Chỉ TT4G36 có cả 4 CI tách biệt — 9 mục TT4G37 đều có cặp chồng lấn</h2>
+<p class="cap">Tính overlap thật cho cả 40 ô: TT4G37B, Thượng Hải (68,5-75,8%) chồng lấn Singapore (73,8-79,6%) dù điểm chênh 5 điểm; TT4G37D, Thượng Hải gần như nằm trọn trong khoảng Nhật Bản. Chi-square tổng thể vẫn hợp lý (kiểm định 4 nhóm cùng lúc) nhưng KHÔNG đồng nghĩa mọi cặp đều khác biệt chắc chắn.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">9 · Áp dụng khi viết bài</div><h2 class="warn">Tránh câu khẳng định so sánh từng cặp cho mục chồng lấn CI</h2>
+<p class="cap">Ví dụ KHÔNG nên viết: "Singapore dùng AI để tóm tắt chủ đề nhiều hơn hẳn Thượng Hải" (TT4G37B) — CI chồng lấn sau khi tính đúng trọng số. Luôn tự đối chiếu cặp muốn nhấn mạnh với đúng CI95% ở bảng mục 2 trước khi viết "khác biệt rõ rệt".</p></div>
+
+<div class="mdeck-slide part-divider"><div class="kicker">PHẦN 4/4</div><div class="part-num">04</div>
+<h2>Công cụ: IEA IDB Analyzer & đối chiếu tự động</h2>
+<ul class="part-list"><li>4 bước cài & chạy IDB Analyzer</li><li>Script Python tái tạo kết quả</li><li>Script đối chiếu, ra 3 dạng bảng</li></ul></div>
+
+<div class="mdeck-slide"><div class="kicker">10 · IDB Analyzer</div><h2>Cài, chọn module TALIS, chạy % theo CNTRY</h2>
+<p class="cap">Tải miễn phí từ trang IEA (chỉ Windows, cần Excel). Mở btgintt4.sav, chọn module "TALIS", biến phân tích TT4G36 (hoặc từng mục TT4G37), biến nhóm CNTRY, lọc 4 mã CSH/JPN/KOR/SGP. IDB Analyzer tự dùng TCHWGT + TRWGT1-100 — không cần tự khai báo.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">11 · Script tái tạo</div><h2><code>weighted_stats_q2.py</code> — chạy lại ra đúng bảng mục 2</h2>
+<p class="cap">Đọc trực tiếp btgintt4.sav, tính BRR-Fay cho TT4G36 + TT4G37A-I, ghi ra CSV/JSON. Đã chạy thử và xác nhận khớp 100% với số liệu trình bày ở đây. Xem code đầy đủ ở mục 3 bên dưới.</p></div>
+
+<div class="mdeck-slide"><div class="kicker">12 · Script đối chiếu</div><h2><code>compare_with_idb.py</code> — dán số IDB Analyzer vào, ra bảng KHỚP/CẢNH BÁO</h2>
+<p class="cap">Điền % và SE đọc từ Excel IDB Analyzer vào file CSV mẫu, chạy script — tự so khớp với kết quả Python, gắn nhãn KHỚP (lệch &lt;0,5 điểm %) hoặc CẢNH BÁO, xuất 3 dạng: console, CSV, Markdown. Xem mẫu chạy thử + code đầy đủ ở mục 4.</p></div>
+</div></div>
+
+<h2 id="bang-doi-chieu">1. Hiểu đúng yêu cầu</h2>
+<p>Đề cương nhóm (file <i>TALIS2024汇报大纲</i>) chia ba câu hỏi theo ba cặp thành viên: Câu 1 — thái độ (biến TT4G35A–J); <b>Câu 2 — tỷ lệ và mục đích sử dụng AI (biến TT4G36 + TT4G37A–I), đúng phần Khánh Linh phụ trách theo lời Khánh Linh tự xác nhận</b>; Câu 3 — rào cản ở nhóm chưa dùng AI (biến TT4G38A–F). Theo mục "Thời gian quy hoạch" trong đề cương, giai đoạn phân tích dữ liệu có hạn nộp bản nháp đầu vào 9/11, bản sửa 12/11.</p>
+<p>File OUTPUT2.pdf (71 trang) là toàn bộ output SPSS Khánh Linh đã tự chạy: tần số mô tả cho TT4G35/TT4G36/TT4G37/TT4G38, rồi crosstab bốn khu vực × từng biến TT4G36 và từng mục TT4G37A–I (lọc đúng nhóm đã dùng AI) kèm Chi-square và Cramer's V — toàn bộ <b>chưa áp dụng trọng số TALIS</b>, đúng như Khánh Linh đã tự ghi chú ở nhiều trang.</p>
+
+<h2 id="ket-qua-trong-so">2. Bảng đối chiếu đầy đủ: % thô (SPSS) so với % có trọng số thật (BRR-Fay)</h2>
+<p>Dòng "Thô (SPSS)" lấy nguyên từ bảng Crosstabs trong OUTPUT2.pdf; dòng "Trọng số" và "CI95%" tính trực tiếp từ btgintt4.sav bằng TCHWGT (điểm ước lượng) và toàn bộ 100 cột TRWGT (BRR-Fay, k=0,5), cùng cách lọc mẫu Khánh Linh đã dùng (TT4G37A–I chỉ tính trong nhóm đã trả lời "Có" ở TT4G36).</p>
+<table>
+<tr><th>Biến (TT4G..)</th><th>Thượng Hải (CSH)</th><th>Nhật Bản (JPN)</th><th>Hàn Quốc (KOR)</th><th>Singapore (SGP)</th></tr>
+<tr><td>TT4G36<br/>Tỷ lệ GV dùng AI (toàn mẫu)</td><td>Thô: 53,7%<br/>TS: 53,5%<br/>CI: 50,4–56,6</td><td>Thô: 17,6%<br/>TS: 17,4%<br/>CI: 15,2–19,5</td><td>Thô: 42,5%<br/>TS: 42,7%<br/>CI: 39,2–46,1</td><td>Thô: 75,8%<br/>TS: 74,9%<br/>CI: 69,7–80,1</td></tr>
+<tr><td>A — Chấm/đánh giá bài</td><td>Thô: 44,8%<br/>TS: 45,0%<br/>CI: 40,7–49,2</td><td>Thô: 43,1%<br/>TS: 40,6%<br/>CI: 33,1–48,2</td><td>Thô: 30,5%<br/>TS: 30,7%<br/>CI: 26,4–35,1</td><td>Thô: 35,1%<br/>TS: 34,1%<br/>CI: 31,1–37,1</td></tr>
+<tr><td>B — Tìm hiểu/tóm tắt chủ đề</td><td>Thô: 71,6%<br/>TS: 72,2%<br/>CI: 68,5–75,8</td><td>Thô: 65,3%<br/>TS: 62,6%<br/>CI: 56,3–68,9</td><td>Thô: 51,8%<br/>TS: 50,4%<br/>CI: 45,2–55,6</td><td>Thô: 76,8%<br/>TS: 76,7%<br/>CI: 73,8–79,6</td></tr>
+<tr><td>C — Tạo kế hoạch bài học</td><td>Thô: 55,4%<br/>TS: 55,5%<br/>CI: 51,4–59,5</td><td>Thô: 44,6%<br/>TS: 43,9%<br/>CI: 35,8–52,0</td><td>Thô: 60,0%<br/>TS: 58,3%<br/>CI: 53,3–63,2</td><td>Thô: 65,9%<br/>TS: 64,8%<br/>CI: 60,8–68,7</td></tr>
+<tr><td>D — Hỗ trợ HS giáo dục đặc biệt</td><td>Thô: 39,1%<br/>TS: 39,1%<br/>CI: 35,3–43,0</td><td>Thô: 38,6%<br/>TS: 38,6%<br/>CI: 30,8–46,4</td><td>Thô: 9,7%<br/>TS: 9,3%<br/>CI: 6,0–12,5</td><td>Thô: 15,3%<br/>TS: 16,1%<br/>CI: 12,1–20,2</td></tr>
+<tr><td>E — Điều chỉnh độ khó tài liệu</td><td>Thô: 48,5%<br/>TS: 48,0%<br/>CI: 44,0–51,9</td><td>Thô: 41,3%<br/>TS: 40,1%<br/>CI: 32,0–48,1</td><td>Thô: 29,8%<br/>TS: 29,4%<br/>CI: 24,4–34,5</td><td>Thô: 39,6%<br/>TS: 39,6%<br/>CI: 35,7–43,4</td></tr>
+<tr><td>F — Phản hồi HS/giao tiếp PH</td><td>Thô: 36,6%<br/>TS: 35,8%<br/>CI: 31,6–40,0</td><td>Thô: 35,0%<br/>TS: 33,1%<br/>CI: 26,4–39,9</td><td>Thô: 42,0%<br/>TS: 42,3%<br/>CI: 36,4–48,3</td><td>Thô: 69,2%<br/>TS: 69,4%<br/>CI: 64,9–73,8</td></tr>
+<tr><td>G — Xem dữ liệu tham gia/kết quả HS</td><td>Thô: 59,1%<br/>TS: 58,3%<br/>CI: 54,2–62,4</td><td>Thô: 36,9%<br/>TS: 33,9%<br/>CI: 27,4–40,4</td><td>Thô: 37,7%<br/>TS: 37,2%<br/>CI: 32,4–41,9</td><td>Thô: 28,2%<br/>TS: 28,0%<br/>CI: 24,6–31,5</td></tr>
+<tr><td>H — Luyện kỹ năng tình huống thực tế</td><td>Thô: 51,5%<br/>TS: 50,7%<br/>CI: 46,5–55,0</td><td>Thô: 38,9%<br/>TS: 37,2%<br/>CI: 30,7–43,6</td><td>Thô: 51,1%<br/>TS: 51,2%<br/>CI: 45,6–56,8</td><td>Thô: 40,6%<br/>TS: 40,0%<br/>CI: 36,6–43,4</td></tr>
+<tr><td>I — Mục đích khác</td><td>Thô: 40,8%<br/>TS: 40,5%<br/>CI: 37,1–43,9</td><td>Thô: 28,4%<br/>TS: 28,8%<br/>CI: 21,2–36,3</td><td>Thô: 41,9%<br/>TS: 42,0%<br/>CI: 36,7–47,2</td><td>Thô: 37,4%<br/>TS: 38,7%<br/>CI: 35,0–42,4</td></tr>
+</table>
+<p class="cap">TS = có trọng số (TCHWGT), CI = khoảng tin cậy 95% theo BRR-Fay. Chênh lệch Thô↔TS đa số dưới 2 điểm phần trăm — kết luận so sánh tổng quát Khánh Linh đã viết trong OUTPUT2.pdf không bị đảo chiều.</p>
+
+<h2 id="deff">2bis. DEFF và cảnh báo chồng lấn khoảng tin cậy</h2>
+<table><tr><th>Biến</th><th>Khu vực</th><th>% có trọng số</th><th>SE kiểu đơn giản (sai)</th><th>SE thật BRR-Fay</th><th>DEFF</th></tr>
+<tr><td>TT4G36</td><td>Singapore</td><td>74,9%</td><td>1,30%</td><td>2,66%</td><td>4,16</td></tr>
+<tr><td>TT4G37D</td><td>Singapore</td><td>16,1%</td><td>1,27%</td><td>2,08%</td><td>2,68</td></tr>
+<tr><td>TT4G37F</td><td>Singapore</td><td>69,4%</td><td>1,59%</td><td>2,26%</td><td>2,02</td></tr>
+<tr><td>TT4G37F</td><td>Hàn Quốc</td><td>42,3%</td><td>2,40%</td><td>3,04%</td><td>1,60</td></tr>
+<tr><td>TT4G37C</td><td>Singapore</td><td>64,8%</td><td>1,65%</td><td>2,02%</td><td>1,49</td></tr>
+</table>
+<p class="cap">5 ô có DEFF cao nhất trong tổng 40 ô đã tính (10 biến × 4 khu vực) — không phải toàn bộ bảng. Singapore lặp lại nhiều lần nhất: mẫu Singapore phân theo cụm trường học rõ rệt hơn ba hệ thống còn lại.</p>
+<div class="callout warn"><b>Kiểm tra chồng lấn thật trên cả 40 ô:</b> TT4G36 là biến DUY NHẤT có cả 4 khoảng tin cậy 95% tách biệt hoàn toàn. Cả 9 mục TT4G37A–I còn lại đều có ít nhất một cặp khu vực chồng lấn (ví dụ TT4G37B: Thượng Hải 68,5–75,8% chồng lấn Singapore 73,8–79,6% dù điểm chênh 5 điểm; TT4G37D: Thượng Hải gần như nằm trọn trong khoảng Nhật Bản). Phép Chi-square tổng thể (p&lt;0,001) trong OUTPUT2.pdf vẫn hợp lý — nhưng tránh viết câu khẳng định so sánh TỪNG CẶP cụ thể cho các mục chồng lấn.</div>
+
+<h2 id="script-tinh">3. Script tính lại kết quả có trọng số (đã chạy thử, khớp đúng bảng mục 2)</h2>
+<pre>def brr_fay_stats(sub, yvar, FAY_K=0.5, N_REPLICATES=100):
+    s = sub[sub[yvar].isin([1.0, 2.0])]
+    y = (s[yvar] == 1.0).astype(float).values
+    w0 = s["TCHWGT"].values
+    theta = np.average(y, weights=w0)          # % diem uoc luong
+
+    sq_devs = []
+    for r in range(1, N_REPLICATES + 1):
+        wr = s[f"TRWGT{r}"].values
+        theta_r = np.average(y, weights=wr)
+        sq_devs.append((theta_r - theta) ** 2)
+    fay_var = sum(sq_devs) / (N_REPLICATES * (1 - FAY_K) ** 2)
+    fay_se = fay_var ** 0.5                      # SE that BRR-Fay
+
+    return theta, fay_se                         # dung de tinh CI95% = theta +/- 1.96*fay_se
+
+# Ap dung: TT4G36 tren toan mau; TT4G37A..I chi tren nhom TT4G36==1 (da dung AI)
+# Du lieu: btgintt4.sav (TALIS 2024 quoc te, giao vien ISCED2), loc CNTRY in [CSH,JPN,KOR,SGP]</pre>
+<p class="cap">Code đầy đủ (đọc file .sav, tính cho cả 10 biến, ghi CSV/JSON) lưu tại <code>talis2024-nhom-vkl-cauhoi2/scripts/weighted_stats_q2.py</code> trong máy — chạy lại bằng <code>python3 weighted_stats_q2.py</code> khi cần cập nhật (cần sẵn file btgintt4.sav cục bộ, không đưa file dữ liệu gốc lên site vì quá lớn).</p>
+
+<h2 id="idb-huong-dan">4. Hướng dẫn chạy IEA IDB Analyzer & đối chiếu tự động</h2>
+<table><tr><th>Bước</th><th>Việc cần làm</th></tr>
+<tr><td>1 — Cài đặt</td><td>Tải IDB Analyzer miễn phí từ trang IEA (chỉ chạy Windows, cần Excel cài sẵn vì xuất kết quả ra .xls).</td></tr>
+<tr><td>2 — Dữ liệu</td><td>Mở trực tiếp btgintt4.sav trong IDB Analyzer, chọn module khảo sát "TALIS".</td></tr>
+<tr><td>3 — Chạy TT4G36</td><td>Chọn chức năng Percentages; biến phân tích TT4G36; biến nhóm CNTRY; lọc 4 mã CSH/JPN/KOR/SGP. IDB Analyzer tự dùng TCHWGT+TRWGT1-100, không cần tự khai báo.</td></tr>
+<tr><td>4 — Lặp lại TT4G37A-I</td><td>Chạy riêng từng mục A-I làm biến phân tích, vẫn nhóm theo CNTRY — không cần tự lọc thêm theo TT4G36 vì TT4G37 đã có sẵn "logically not applicable" cho người không dùng AI.</td></tr>
+</table>
+<p>Sau khi có kết quả Excel từ IDB Analyzer, điền % và SE vào đúng hàng item/country trong file mẫu <code>templates/idb_analyzer_ket_qua_template.csv</code>, rồi chạy:</p>
+<pre>python3 compare_with_idb.py --idb templates/idb_ket_qua_that.csv
+
+# Vi du ket qua in ra console (da chay thu bang so lieu gia lap de kiem tra script):
+item     ctry       py%    idb%   diff%   py_se  idb_se diff_se  flag
+---------------------------------------------------------------------
+TT4G36   CSH      53.52   53.50   -0.02    1.58    1.60    0.02  KHOP
+TT4G36   JPN      17.37   17.40    0.03    1.11    1.10   -0.01  KHOP
+TT4G36   SGP      74.92   70.00   -4.92    2.66    2.70    0.04  CANH BAO</pre>
+<p class="cap">Script ghi thêm 2 file: <code>data/comparison_table.csv</code> (mở Excel) và <code>data/comparison_table.md</code> (dán thẳng vào báo cáo). Mỗi hàng gắn nhãn KHỚP (lệch % &lt; 0,5 điểm và lệch SE &lt; 0,3 điểm) hoặc CẢNH BÁO — nếu CẢNH BÁO, kiểm tra lại đã chọn đúng trọng số/đúng 4 mã quốc gia trong IDB Analyzer chưa.</p>
+
+<h2 id="tai-ve">5. Tải về để tự chạy</h2>
+<p>Bốn file dùng được ngay (không cần sửa, trừ đường dẫn tới <code>btgintt4.sav</code> nếu chạy lại script tính toán):</p>
+<ul>
+<li><a href="../../../data/talis-q2-vkl/weighted_stats_q2.py">weighted_stats_q2.py</a> — script tính lại toàn bộ bảng mục 2 (cần có sẵn btgintt4.sav cục bộ).</li>
+<li><a href="../../../data/talis-q2-vkl/compare_with_idb.py">compare_with_idb.py</a> — script đối chiếu với IDB Analyzer.</li>
+<li><a href="../../../data/talis-q2-vkl/idb_analyzer_ket_qua_template.csv">idb_analyzer_ket_qua_template.csv</a> — file trống để điền số liệu IDB Analyzer.</li>
+<li><a href="../../../data/talis-q2-vkl/weighted_results_q2.csv">weighted_results_q2.csv</a> / <a href="../../../data/talis-q2-vkl/weighted_results_q2.json">weighted_results_q2.json</a> — kết quả Python đầy đủ, đúng số liệu ở bảng mục 2.</li>
+</ul>
+
+<h2 id="viec-can-lam">6. Việc cần làm tiếp</h2>
+<div class="callout good"><ul>
+<li>Dùng ngay bảng mục 2 cho bản nháp hạn 9/11 — không chờ IDB Analyzer chạy xong mới viết.</li>
+<li>Khi viết phần kết quả, trích SE/CI95% có trọng số ở mục 2 thay cho p-value Chi-square thô của SPSS.</li>
+<li>Tránh câu so sánh từng cặp cụ thể cho 9 mục TT4G37 có chồng lấn CI (xem cảnh báo mục 2bis) — chỉ TT4G36 an toàn để khẳng định khác biệt từng cặp.</li>
+<li>Tự chạy IDB Analyzer theo mục 4, điền vào template, chạy <code>compare_with_idb.py</code> để tự xác nhận độc lập.</li>
+</ul></div>
+
+<h2 id="quiz">7. Tự kiểm tra</h2>
+<div class="quiz"><div id="quiz-root"></div></div>
+</div></main><footer class="site"><div class="wrap">
+<div>Tài liệu tự học, phi lợi nhuận. Mã nguồn site: <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a></div>
+<button class="info-footer-btn" type="button" data-info-open>ℹ️ Thông tin trang & liên hệ góp ý / xin tài liệu</button>
+</div></footer><div id="info-modal" class="info-modal" hidden><div class="info-modal-backdrop"></div><div class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title"><button class="info-modal-close" type="button" aria-label="Đóng">✕</button><h3 id="info-modal-title">ℹ️ Thông tin về trang &amp; liên hệ góp ý</h3><h4>🤖 Nội dung AI hỗ trợ soạn thảo</h4><p>Phần lớn nội dung trên toàn bộ website này — giải thích khái niệm, câu hỏi tự kiểm tra, một số sơ đồ minh hoạ — được soạn với sự hỗ trợ của AI, sau đó người phụ trách kiểm tra lại trong khả năng cho phép (đối chiếu số liệu với dữ liệu thật, đối chiếu khái niệm với giáo trình gốc). Vì khối lượng nội dung lớn và thời gian có hạn, không thể đảm bảo mọi câu chữ đều đã được rà soát kỹ. Nếu phát hiện sai sót ở bất kỳ đâu, rất mong nhận được góp ý theo thông tin liên hệ bên dưới.</p><h4>📩 Liên hệ góp ý / báo lỗi</h4><p><b>Trương Tuấn Nghĩa</b><br/>Gọi / Zalo / Telegram: <a href="tel:+84973958574">(+84) 973 958 574</a><br/>Facebook: <a href="https://www.facebook.com/truong.tuan.nghia.03" target="_blank">facebook.com/truong.tuan.nghia.03</a><br/>Email: <a href="mailto:truongtuannghia1248@gmail.com">truongtuannghia1248@gmail.com</a></p><h4>📚 Về nguồn giáo trình</h4><p>Nội dung bám theo sách <i>Research Methods in Education</i> (Cohen, Manion &amp; Morrison, ấn bản 8, Routledge 2018). Vì lý do bản quyền, trang này không đính kèm file sách — ai cần bản PDF để tự đọc thêm ngoài bài giảng có thể tìm qua một số kênh không chính thống, ví dụ:<ul><li><a href="https://libgen.rs/" target="_blank">https://libgen.rs/</a></li><li><a href="https://annas-archive.org/" target="_blank">https://annas-archive.org/</a></li><li><a href="https://zlib.knat.network/" target="_blank">https://zlib.knat.network/</a></li><li><a href="https://sci-hub.se/" target="_blank">https://sci-hub.se/</a></li></ul>Lưu ý: các trang trên hay đổi tên miền hoặc bị chặn — nếu link nào không vào được, xin tự tìm tên miền mới của cùng dịch vụ.</p><h4>🤝 Muốn đóng góp, hoặc xin tài liệu để tự dạy?</h4><p>Rất hoan nghênh! Nếu bạn muốn giúp cải thiện học liệu (sửa lỗi, viết thêm module, dịch thuật...), hoặc muốn xin lại toàn bộ/một phần tài liệu này để tự dạy cho <b>môn học khác của riêng bạn</b> (không giới hạn ở SPSS/Khoa học Xã hội) — cứ thoải mái liên hệ:<ul><li>Gửi email mô tả bạn muốn làm gì / cần gì, kèm link GitHub cá nhân nếu muốn được thêm quyền cộng tác trực tiếp vào project.</li><li>Hoặc tự do fork / clone / pull mã nguồn tại <a href="https://github.com/TatcataiTTN/for-Social-Science" target="_blank">github.com/TatcataiTTN/for-Social-Science</a> — không cần xin phép trước, đây là tài liệu mở, phi lợi nhuận.</li></ul>Định hướng lâu dài là phát triển thêm nhiều học liệu tương tự cho các môn khác — nếu có ý tưởng hợp tác, luôn chào đón. Xin cảm ơn!</p></div></div><script src="../../../_shared/theme.js"></script><script src="../../../_shared/glossary.js"></script><script src="../../../_shared/deck.js"></script><script src="../../../_shared/info.js"></script><script type="application/json" id="quiz-data">{"scoreLabel": "Điểm: {s}/{n}", "items": [
+{"q": "Vì sao bảng crosstab của Khánh Linh trong OUTPUT2.pdf (Chi-square + Cramer's V) chưa đủ để báo cáo chính thức số liệu so sánh 4 khu vực?", "opts": ["Vì Chi-square không bao giờ dùng được cho dữ liệu khảo sát giáo dục", "Vì chưa áp dụng trọng số khảo sát TALIS (TCHWGT + 100 trọng số lặp TRWGT) — mẫu TALIS lấy theo cụm trường học, không phải ngẫu nhiên đơn giản", "Vì Cramer's V luôn cho kết quả sai khi N lớn hơn 1000", "Vì SPSS không tính được Chi-square cho bảng có hơn 2 cột"], "correct": 1, "explain": "TALIS dùng thiết kế mẫu phân tầng/cụm theo trường — cần TCHWGT và trọng số lặp BRR-Fay để có SE/CI đúng, nếu không sẽ đánh giá sai mức độ chắc chắn của khác biệt."},
+{"q": "Trong 10 biến của Câu hỏi 2 (TT4G36 + TT4G37A-I), biến nào là DUY NHẤT có khoảng tin cậy 95% của cả 4 khu vực hoàn toàn tách biệt (không chồng lấn cặp nào)?", "opts": ["TT4G37B", "TT4G36", "TT4G37D", "Cả 10 biến đều tách biệt hoàn toàn"], "correct": 1, "explain": "Kiểm tra thật trên cả 40 ô: chỉ TT4G36 (tỷ lệ dùng AI chung) có 4 CI tách biệt hoàn toàn; 9 mục TT4G37A-I còn lại đều có ít nhất một cặp khu vực chồng lấn."},
+{"q": "Khu vực nào có DEFF (hệ số phóng đại phương sai) cao nhất, lặp lại ở nhiều biến nhất trong Câu hỏi 2?", "opts": ["Nhật Bản", "Hàn Quốc", "Singapore", "Thượng Hải"], "correct": 2, "explain": "Singapore có DEFF cao nhất ở nhiều biến (ví dụ TT4G36: DEFF=4,16) — cho thấy mẫu Singapore phân theo cụm trường học rõ rệt hơn 3 hệ thống còn lại."},
+{"q": "Với TT4G37B (tìm hiểu/tóm tắt chủ đề), Thượng Hải 72,2% và Singapore 76,7% chênh nhau 5 điểm phần trăm nhưng khoảng tin cậy 95% của hai nước lại chồng lấn. Nên viết thế nào cho đúng khi làm báo cáo?", "opts": ["Viết thẳng \"Singapore dùng AI để tóm tắt chủ đề nhiều hơn hẳn Thượng Hải\"", "Không nhắc gì đến TT4G37B trong báo cáo", "Không khẳng định khác biệt chắc chắn giữa riêng cặp Thượng Hải-Singapore cho mục này, dù phép Chi-square tổng thể 4 nhóm vẫn có ý nghĩa", "Chỉ cần đổi câu chữ từ \"nhiều hơn hẳn\" sang \"nhiều hơn một chút\" là đủ chính xác"], "correct": 2, "explain": "Chi-square kiểm định khác biệt CHUNG giữa 4 nhóm, không phải từng cặp. Khi CI của một cặp cụ thể chồng lấn, không nên khẳng định cặp đó khác biệt chắc chắn, dù kiểm định tổng thể vẫn có ý nghĩa."},
+{"q": "IEA IDB Analyzer tự động dùng những biến trọng số nào khi phân tích file btgintt4.sav mà không cần người dùng tự khai báo tên biến?", "opts": ["Chỉ dùng TCHWGT, bỏ qua hoàn toàn các trọng số lặp", "TCHWGT (trọng số chính) và toàn bộ TRWGT1 đến TRWGT100 (trọng số lặp BRR-Fay)", "Một biến trọng số tự đặt tên WEIGHT mặc định của SPSS", "Không dùng trọng số nào, chỉ đếm tần số thô"], "correct": 1, "explain": "IDB Analyzer nhận diện module khảo sát (TALIS) và tự áp dụng đúng bộ trọng số chuẩn gồm TCHWGT và 100 cột TRWGT theo phương pháp BRR-Fay, không cần khai báo thủ công."},
+{"q": "Script compare_with_idb.py gắn nhãn \"CẢNH BÁO\" cho một hàng khi nào?", "opts": ["Khi lệch % giữa Python và IDB Analyzer lớn hơn 0,5 điểm phần trăm, hoặc lệch SE lớn hơn 0,3 điểm phần trăm", "Khi quốc gia đó không nằm trong 4 mã CSH/JPN/KOR/SGP", "Khi file IDB template chưa được điền bất kỳ hàng nào", "Khi biến đang xét là TT4G38 thay vì TT4G36/TT4G37"], "correct": 0, "explain": "Ngưỡng mặc định trong script: lệch % > 0,5 điểm hoặc lệch SE > 0,3 điểm thì đánh dấu CẢNH BÁO để kiểm tra lại cấu hình IDB Analyzer, còn lại là KHỚP."},
+{"q": "Vì sao chênh lệch giữa % thô (không trọng số, từ OUTPUT2.pdf) và % có trọng số (BRR-Fay) ở hầu hết 10 biến Câu hỏi 2 đều rất nhỏ (dưới 2 điểm phần trăm)?", "opts": ["Vì trọng số TALIS không có tác dụng gì với dữ liệu TALIS 2024", "Vì Khánh Linh đã vô tình áp trọng số từ trước dù không khai báo", "Vì ảnh hưởng chính của trọng số/thiết kế mẫu phức tạp thường nằm ở sai số chuẩn và khoảng tin cậy, không nhất thiết làm lệch nhiều điểm ước lượng phần trăm", "Vì cỡ mẫu của cả 4 khu vực đều bằng nhau"], "correct": 2, "explain": "Trọng số chủ yếu điều chỉnh đại diện tổng thể (ảnh hưởng điểm ước lượng thường nhỏ nếu không có chênh lệch tỷ trọng quá lớn), còn thiết kế mẫu theo cụm trường học ảnh hưởng rõ nhất đến SE/CI — thể hiện qua DEFF, không phải qua % thay đổi nhiều."}
+]}</script><script src="../../../_shared/quiz.js"></script></body></html>
