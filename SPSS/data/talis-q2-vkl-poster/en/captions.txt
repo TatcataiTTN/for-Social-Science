@@ -1,0 +1,22 @@
+Chart 1. AI use ranges from 17% to 75% depending on the system
+TT4G36 — share of teachers who used AI in the past 12 months, weighted %, with sample size n and 95% CI
+
+Chart 2. The gap between systems is widest for overall AI use (58 points) and narrower for each purpose
+All 4 systems per item: 2 large dots = lowest/highest, 2 small faded dots = the other two systems. Sorted by gap. TT4G37A-I cover AI users only.
+
+Chart 3. Only 1 of 10 items fully separates all four systems
+Each segment = one system's 95% CI; dot = point estimate. The shaded row is the only item where no two of the four intervals overlap.
+
+Chart 4. Singapore holds 4 of the 5 highest DEFF values, peaking at overall AI use (4.16)
+Each dot is one item × system cell (40 dots). DEFF = (design-based SE / simple-random-sample SE)². The 5 highest values are labelled.
+
+Chart 5. Weighting barely changes the percentages — most points sit on the diagonal
+Horizontal: unweighted % (SPSS). Vertical: weighted % (BRR-Fay). Dashed x = y line: the farther a point sits from it, the more weighting changed that %. Mean absolute shift 0.75 points.
+
+Chart 6. No system is always on top — ranks shift from purpose to purpose
+Rank 1 (highest) to 4 (lowest) by weighted % on each item. Ranks use point estimates only; many TT4G37 gaps are not statistically significant (see Chart 3).
+
+Chart 7. Real sample size is much smaller for 9/10 items, because TT4G37 is only asked of AI users
+TT4G36 is asked of every teacher; TT4G37A-I only of those answering "Yes" to TT4G36, so n is smaller and differs across systems (Japan only 190-203 teachers).
+
+Source: OECD TALIS 2024, lower-secondary teachers (ISCED 2). Estimates weighted with TCHWGT; standard errors and 95% CIs via BRR-Fay (100 replicate weights, Fay = 0.5).

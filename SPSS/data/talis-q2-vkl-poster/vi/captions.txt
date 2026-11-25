@@ -1,0 +1,22 @@
+Biểu đồ 1. Tỉ lệ dùng AI dao động từ 17% đến 75% tuỳ hệ thống
+TT4G36 — tỉ lệ giáo viên dùng AI trong 12 tháng qua, % có trọng số, kèm cỡ mẫu n và khoảng tin cậy 95%
+
+Biểu đồ 2. Chênh lệch giữa các hệ thống lớn nhất ở tỉ lệ dùng AI chung (58 điểm), hẹp hơn ở từng mục đích
+Cả 4 hệ thống cho từng biến: 2 chấm to = thấp nhất/cao nhất, 2 chấm nhỏ mờ = 2 hệ thống còn lại. Sắp theo độ chênh lệch. TT4G37A-I chỉ tính trên giáo viên đã dùng AI.
+
+Biểu đồ 3. Chỉ 1 trong 10 biến tách biệt hoàn toàn cả 4 hệ thống
+Mỗi đoạn ngang = khoảng tin cậy 95% của một hệ thống; chấm tròn = điểm ước lượng. Hàng tô hồng là hàng duy nhất mà không có 2 khoảng tin cậy nào chồng lên nhau.
+
+Biểu đồ 4. Singapore chiếm 4/5 ô có DEFF cao nhất, cao nhất ở tỉ lệ dùng AI chung (4,16)
+Mỗi điểm là một ô biến × hệ thống (40 điểm). DEFF = (SE theo thiết kế mẫu / SE nếu coi là mẫu ngẫu nhiên đơn giản)². 5 điểm DEFF cao nhất được gắn nhãn.
+
+Biểu đồ 5. Trọng số hầu như không làm đổi phần trăm — hầu hết điểm nằm sát đường chéo
+Trục ngang: % thô (SPSS, chưa trọng số). Trục đứng: % có trọng số (BRR-Fay). Đường đứt nét x = y: điểm càng xa đường, trọng số càng đổi % nhiều. Độ lệch tuyệt đối trung bình 0,75 điểm.
+
+Biểu đồ 6. Không hệ thống nào luôn dẫn đầu — thứ hạng đổi theo từng mục đích
+Thứ hạng 1 (cao nhất) đến 4 (thấp nhất) theo % có trọng số trong từng biến. Thứ hạng chỉ dựa trên điểm ước lượng; nhiều chênh lệch ở TT4G37 không có ý nghĩa thống kê (xem Biểu đồ 3).
+
+Biểu đồ 7. Cỡ mẫu thực tế nhỏ hơn hẳn ở 9/10 biến, vì TT4G37 chỉ hỏi người đã dùng AI
+TT4G36 hỏi toàn bộ giáo viên; TT4G37A-I chỉ hỏi người trả lời "Có" ở TT4G36, nên cỡ mẫu nhỏ hơn và khác nhau giữa 4 hệ thống (Nhật Bản chỉ 190-203 giáo viên).
+
+Nguồn: OECD TALIS 2024, giáo viên THCS (ISCED 2). Ước lượng có trọng số TCHWGT; sai số chuẩn và KTC95% theo BRR-Fay (100 trọng số lặp, Fay = 0,5).

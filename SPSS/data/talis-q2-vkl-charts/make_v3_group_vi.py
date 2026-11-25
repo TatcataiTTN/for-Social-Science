@@ -46,7 +46,7 @@ def layout(title_text, sub_text, height=560, width=1000, bottom_margin=60):
         paper_bgcolor="white", plot_bgcolor="white",
         font=dict(family="Helvetica, Arial, sans-serif", color=INK, size=15),
         title=dict(text=f"<b>{title_text}</b><br><span style='font-size:13px;color:{MUTED}'>{sub_text}</span>",
-                   x=0.01, xanchor="left", y=0.965, font=dict(size=20)),
+                   x=0.01, xanchor="left", yref="container", y=1, yanchor="top", pad=dict(t=18), font=dict(size=20)),
         margin=dict(l=210, r=90, t=95, b=bottom_margin), height=height, width=width,
     )
 
@@ -104,7 +104,7 @@ for i, (item, order_c, vv) in enumerate(rows):
                               textfont=dict(size=12, color=INK), showlegend=False))
 for c in COUNTRIES:
     fig.add_trace(go.Scatter(x=[None], y=[None], mode="markers", marker=dict(size=12, color=COL[c]), name=NAME[c]))
-fig.update_layout(**layout("Mục đích dùng AI khác biệt giữa các hệ thống nhiều hơn hẳn tỉ lệ chung",
+fig.update_layout(**layout("Chênh lệch giữa các hệ thống lớn nhất ở tỉ lệ dùng AI chung (58 điểm), hẹp hơn ở từng mục đích",
     "Cả 4 hệ thống cho từng biến: 2 chấm to đậm = thấp nhất/cao nhất, 2 chấm nhỏ mờ ở giữa = 2 hệ thống còn lại. Sắp theo độ chênh lệch.",
     height=680))
 fig.update_xaxes(visible=False, range=[-10, 100])
@@ -160,7 +160,7 @@ for _, row in top5.iterrows():
     lbl = f"{row['item'].replace('TT4G37','37').replace('TT4G36','36')}-{SHORT[row.country]} (DEFF {row.deff:.2f})"
     fig.add_annotation(x=row.pct_weighted, y=row.deff, text=lbl, showarrow=True, arrowhead=0, arrowcolor=MUTED,
                         ax=30, ay=-28 if row.country != "SGP" or row["item"] != "TT4G36" else -40, font=dict(size=10.5, color=INK))
-fig.update_layout(**layout("Hiệu ứng phân cụm mẫu của Singapore lớn nhất đúng ở biến có tỉ lệ cao nhất",
+fig.update_layout(**layout("Singapore chiếm 4/5 ô có DEFF cao nhất, cao nhất ở tỉ lệ dùng AI chung (4,16)",
     "Mỗi điểm là một ô biến × hệ thống (40 điểm). DEFF = (SE thật theo thiết kế mẫu / SE nếu coi là mẫu ngẫu nhiên đơn giản)². 5 điểm có DEFF cao nhất được gắn nhãn.",
     height=680, bottom_margin=130))
 fig.update_xaxes(gridcolor=GRID, title="% có trọng số")
@@ -218,13 +218,13 @@ fig.update_xaxes(tickfont=dict(size=12))
 fig.update_layout(legend=dict(orientation="h", y=-0.22, x=0.5, xanchor="center", font=dict(size=13)))
 save(fig, "vi_v3_6_bump.png")
 
-# ================================================================ 7. MOI: co mau thuc te theo bien (do thiet ke booklet xoay)
+# ================================================================ 7. MOI: co mau thuc te theo bien (do cau hoi loc: chi hoi nguoi tra loi Co o TT4G36)
 fig = go.Figure()
 for c in COUNTRIES:
     ys = [df[(df.item == it) & (df.country == c)].n.values[0] for it in ITEMS]
     fig.add_trace(go.Bar(x=[it.replace("TT4G37", "37").replace("TT4G36", "36") for it in ITEMS], y=ys,
                           name=NAME[c], marker_color=COL[c]))
-fig.update_layout(**layout("Cỡ mẫu thực tế nhỏ hơn hẳn ở 9/10 biến, vì thiết kế booklet xoay vòng",
+fig.update_layout(**layout("Cỡ mẫu thực tế nhỏ hơn hẳn ở 9/10 biến, vì TT4G37 chỉ hỏi người đã dùng AI",
     "TT4G36 hỏi toàn bộ giáo viên; TT4G37A-I chỉ hỏi nhóm đã trả lời \"Có\" ở TT4G36 — nên cỡ mẫu các biến này thấp hơn nhiều và khác nhau giữa 4 hệ thống.",
     height=560, bottom_margin=90))
 fig.update_yaxes(title="Cỡ mẫu phân tích thật (n)", gridcolor=GRID)
